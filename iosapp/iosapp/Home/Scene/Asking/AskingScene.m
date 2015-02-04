@@ -18,7 +18,7 @@
 @implementation AskingScene
 
 - (BaseSceneModel*)getSceneModel {
-    return [AskingSceneModel SceneModel];
+    return [AskingSceneModel sharedInstance];
 }
 
 @end

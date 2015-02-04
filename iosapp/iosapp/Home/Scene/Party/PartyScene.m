@@ -12,13 +12,18 @@
 @interface PartyScene ()
 
 - (BaseSceneModel*)getSceneModel;
+- (void)showView;
 
 @end
 
 @implementation PartyScene
 
 - (BaseSceneModel*)getSceneModel {
-    return [PartySceneModel SceneModel];
+    return [PartySceneModel sharedInstance];
+}
+
+- (void)showView {
+    
 }
 
 @end

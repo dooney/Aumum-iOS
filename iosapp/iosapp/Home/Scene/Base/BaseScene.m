@@ -8,10 +8,6 @@
 
 #import "BaseScene.h"
 
-@interface BaseScene ()
-
-@end
-
 @implementation BaseScene
 
 @end

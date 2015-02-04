@@ -7,7 +7,22 @@
 //
 
 #import "BaseSceneModel.h"
+#import "GCDMacros.h"
+
+@interface BaseSceneModel ()
+
++ (instancetype)sharedInstance;
+- (void)loadData;
+
+@end
 
 @implementation BaseSceneModel
+
++ (instancetype)sharedInstance {
+    GCDSharedInstance(^{ return [self SceneModel]; });
+}
+
+- (void)loadData {
+}
 
 @end

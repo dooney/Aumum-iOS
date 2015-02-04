@@ -11,7 +11,9 @@
 @interface BaseSceneModel : SceneModel
 
 @property(nonatomic, retain)NSDictionary* data;
+@property(nonatomic, retain)NSString* error;
 
++ (instancetype)sharedInstance;
 - (void)loadData;
 
 @end

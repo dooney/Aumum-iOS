@@ -13,6 +13,7 @@
 @interface LoaderScene ()
 
 - (BaseSceneModel*)getSceneModel;
+- (void)showView;
 
 @end
 
@@ -20,17 +21,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    BaseSceneModel* sceneModel = [self getSceneModel];
-    [sceneModel loadData];
+    
+    self.sceneModel = [self getSceneModel];
+    [self.sceneModel loadData];
+    
     [self loadHud:self.view];
     [self showHudIndeterminate:@"加载中"];
-    [[RACObserve(sceneModel, data)
-      filter:^BOOL(NSDictionary *data) {
-          return !data;
-      }]
-     subscribeNext:^(NSDictionary *data) {
+    [[RACObserve(self.sceneModel, data)
+     filter:^BOOL(NSDictionary* data) {
+         return data != nil;
+     }]
+     subscribeNext:^(NSDictionary* data) {
+         [self showView];
          [self hideHudSuccess:@"加载成功"];
      }];
+}
+
+- (BaseSceneModel*)getSceneModel {
+    return nil;
+}
+
+- (void)showView {
 }
 
 @end
