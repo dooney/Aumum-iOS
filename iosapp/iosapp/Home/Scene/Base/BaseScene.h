@@ -7,10 +7,7 @@
 //
 
 #import "Scene.h"
-#import "BaseSceneModel.h"
 
 @interface BaseScene : Scene
-
-@property(nonatomic, retain)BaseSceneModel* sceneModel;
 
 @end

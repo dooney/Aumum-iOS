@@ -8,6 +8,7 @@
 
 #import "PartySceneModel.h"
 #import "RestApi.h"
+#import "PartyList.h"
 
 @interface PartySceneModel ()
 
@@ -19,6 +20,7 @@
 
 - (void)loadData {
     [RestApi getPartyList:^(NSDictionary* data) {
+        self.itemList = [[PartyList alloc] initWithDictionary:data error:nil];
         self.data = data;
     }
                     error:^(NSString* error) {

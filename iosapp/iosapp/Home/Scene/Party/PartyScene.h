@@ -7,7 +7,10 @@
 //
 
 #import "LoaderScene.h"
+#import "SceneTableView.h"
 
 @interface PartyScene : LoaderScene
+
+@property(nonatomic, strong) IBOutlet SceneTableView* tableView;
 
 @end

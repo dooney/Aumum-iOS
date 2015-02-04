@@ -7,7 +7,10 @@
 //
 
 #import "BaseSceneModel.h"
+#import "PartyList.h"
 
 @interface PartySceneModel : BaseSceneModel
+
+@property(nonatomic, retain)PartyList* itemList;
 
 @end

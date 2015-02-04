@@ -8,8 +8,11 @@
 
 #import "PartyScene.h"
 #import "PartySceneModel.h"
+#import "Party.h"
 
 @interface PartyScene ()
+
+@property(nonatomic, retain)PartySceneModel* sceneModel;
 
 - (BaseSceneModel*)getSceneModel;
 - (void)showView;
@@ -19,11 +22,27 @@
 @implementation PartyScene
 
 - (BaseSceneModel*)getSceneModel {
-    return [PartySceneModel sharedInstance];
+    _sceneModel = [PartySceneModel sharedInstance];
+    return _sceneModel;
 }
 
 - (void)showView {
-    
+    [_tableView reloadData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.sceneModel.itemList.results.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *SettingTableIdentifier = @"PostCell";
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:SettingTableIdentifier];
+    Party* party = [self.sceneModel.itemList.results objectAtIndex:indexPath.row];
+    cell.textLabel.text = party.title;
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+    cell.backgroundColor = [UIColor colorWithString:@"#F9F9F9"];
+    return cell;
 }
 
 @end

@@ -22,12 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.sceneModel = [self getSceneModel];
-    [self.sceneModel loadData];
+    BaseSceneModel* sceneModel = [self getSceneModel];
+    [sceneModel loadData];
     
     [self loadHud:self.view];
     [self showHudIndeterminate:@"加载中"];
-    [[RACObserve(self.sceneModel, data)
+    [[RACObserve(sceneModel, data)
      filter:^BOOL(NSDictionary* data) {
          return data != nil;
      }]
