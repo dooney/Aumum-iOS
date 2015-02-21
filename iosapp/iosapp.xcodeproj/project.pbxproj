@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4A39A89232F472FAA868B4EB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCE54AD975929494FE5A76D /* libPods.a */; };
+		D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297B81A98BAC7003575F2 /* Aspect-Window.m */; };
+		D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BB1A98BB5E003575F2 /* TabBarController.m */; };
+		D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BE1A98BC25003575F2 /* RDNavigationController.m */; };
+		D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297C01A98C518003575F2 /* Aspect-Appearance.m */; };
+		D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D60297C31A98C64D003575F2 /* XinGothic.otf */; };
+		D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297C51A98C679003575F2 /* Aspect-Font.m */; };
 		D62A39B31A7F0AB9007347B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B21A7F0AB9007347B5 /* main.m */; };
 		D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B51A7F0AB9007347B5 /* AppDelegate.m */; };
-		D62A39BF1A7F0AB9007347B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A39BD1A7F0AB9007347B5 /* Main.storyboard */; };
 		D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A39C01A7F0AB9007347B5 /* Images.xcassets */; };
 		D62A39D01A7F0AB9007347B5 /* iosappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39CF1A7F0AB9007347B5 /* iosappTests.m */; };
 		D68B44F71A818486001D306C /* RestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B44F61A818486001D306C /* RestApi.m */; };
@@ -38,12 +43,19 @@
 /* Begin PBXFileReference section */
 		37FF956BF805A7F61E92BD4C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		57BF2565B97FD670D003AC9D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D60297B81A98BAC7003575F2 /* Aspect-Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Aspect-Window.m"; path = "iosapp/Aspect-Window.m"; sourceTree = SOURCE_ROOT; };
+		D60297BA1A98BB5E003575F2 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		D60297BB1A98BB5E003575F2 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		D60297BD1A98BC25003575F2 /* RDNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDNavigationController.h; sourceTree = "<group>"; };
+		D60297BE1A98BC25003575F2 /* RDNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDNavigationController.m; sourceTree = "<group>"; };
+		D60297C01A98C518003575F2 /* Aspect-Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Aspect-Appearance.m"; path = "iosapp/Aspect-Appearance.m"; sourceTree = SOURCE_ROOT; };
+		D60297C31A98C64D003575F2 /* XinGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = XinGothic.otf; path = Resource/XinGothic.otf; sourceTree = "<group>"; };
+		D60297C51A98C679003575F2 /* Aspect-Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Font.m"; sourceTree = "<group>"; };
 		D62A39AD1A7F0AB9007347B5 /* iosapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39B11A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62A39B21A7F0AB9007347B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D62A39B41A7F0AB9007347B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62A39B51A7F0AB9007347B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D62A39BE1A7F0AB9007347B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D62A39C01A7F0AB9007347B5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D62A39C91A7F0AB9007347B5 /* iosappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39CE1A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +119,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D60297C21A98C63B003575F2 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D60297C31A98C64D003575F2 /* XinGothic.otf */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		D62A39A41A7F0AB9007347B5 = {
 			isa = PBXGroup;
 			children = (
@@ -133,9 +153,11 @@
 				D69748241A808862006004D1 /* Home */,
 				D62A39B41A7F0AB9007347B5 /* AppDelegate.h */,
 				D62A39B51A7F0AB9007347B5 /* AppDelegate.m */,
-				D62A39BD1A7F0AB9007347B5 /* Main.storyboard */,
+				D60297B81A98BAC7003575F2 /* Aspect-Window.m */,
+				D60297C01A98C518003575F2 /* Aspect-Appearance.m */,
 				D62A39C01A7F0AB9007347B5 /* Images.xcassets */,
 				D62A39B01A7F0AB9007347B5 /* Supporting Files */,
+				D60297C51A98C679003575F2 /* Aspect-Font.m */,
 			);
 			path = iosapp;
 			sourceTree = "<group>";
@@ -189,6 +211,7 @@
 		D69748241A808862006004D1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D60297C21A98C63B003575F2 /* Resource */,
 				D68B44F81A81DFB4001D306C /* Model */,
 				D68B44F41A81816F001D306C /* Api */,
 				D69748331A80915E006004D1 /* SceneModel */,
@@ -203,6 +226,10 @@
 				D697482B1A808FD3006004D1 /* Asking */,
 				D697482C1A808FD3006004D1 /* Party */,
 				D69748271A8088C1006004D1 /* Base */,
+				D60297BA1A98BB5E003575F2 /* TabBarController.h */,
+				D60297BB1A98BB5E003575F2 /* TabBarController.m */,
+				D60297BD1A98BC25003575F2 /* RDNavigationController.h */,
+				D60297BE1A98BC25003575F2 /* RDNavigationController.m */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -331,8 +358,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D62A39BF1A7F0AB9007347B5 /* Main.storyboard in Resources */,
 				D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */,
+				D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +410,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
+				D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */,
 				D68B44FB1A81DFCC001D306C /* PartyList.m in Sources */,
 				D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */,
 				D69748391A809417006004D1 /* LoaderScene.m in Sources */,
@@ -390,7 +419,10 @@
 				D69748291A8088F8006004D1 /* BaseScene.m in Sources */,
 				D68B44F71A818486001D306C /* RestApi.m in Sources */,
 				D68B44FE1A81E6EF001D306C /* Party.m in Sources */,
+				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
 				D697483F1A80F864006004D1 /* AskingSceneModel.m in Sources */,
+				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
+				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
 				D69748361A809178006004D1 /* PartySceneModel.m in Sources */,
 				D697483C1A80F48C006004D1 /* BaseSceneModel.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
@@ -415,17 +447,6 @@
 			targetProxy = D62A39CA1A7F0AB9007347B5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D62A39BD1A7F0AB9007347B5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D62A39BE1A7F0AB9007347B5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D62A39D11A7F0AB9007347B5 /* Debug */ = {

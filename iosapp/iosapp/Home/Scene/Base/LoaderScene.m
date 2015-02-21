@@ -12,8 +12,8 @@
 
 @interface LoaderScene ()
 
+@property (strong, nonatomic) SceneTableView *tableView;
 - (BaseSceneModel*)getSceneModel;
-- (void)showView;
 
 @end
 
@@ -21,6 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView = [[SceneTableView alloc]init];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.tableView];
     
     BaseSceneModel* sceneModel = [self getSceneModel];
     [sceneModel loadData];
@@ -32,16 +36,13 @@
          return data != nil;
      }]
      subscribeNext:^(NSDictionary* data) {
-         [self showView];
+         [_tableView reloadData];
          [self hideHudSuccess:@"加载成功"];
      }];
 }
 
 - (BaseSceneModel*)getSceneModel {
     return nil;
-}
-
-- (void)showView {
 }
 
 @end

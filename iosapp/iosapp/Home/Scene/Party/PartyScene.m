@@ -15,7 +15,6 @@
 @property(nonatomic, retain)PartySceneModel* sceneModel;
 
 - (BaseSceneModel*)getSceneModel;
-- (void)showView;
 
 @end
 
@@ -24,10 +23,6 @@
 - (BaseSceneModel*)getSceneModel {
     _sceneModel = [PartySceneModel sharedInstance];
     return _sceneModel;
-}
-
-- (void)showView {
-    [_tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
