@@ -15,15 +15,18 @@ EasyIOS is a new generation of development framework based on `Model-View-ViewMo
 
 * [EasyIOS官方论坛-IOSX](http://www.iosx.me)
 
+* [EasyIOS插件列表](https://github.com/EasyIOS)
+
 * EasyIOS官方qq群 :[340906744](http://shang.qq.com/wpa/qunwpa?idkey=562d002e275a8199081313b00580fb7111a4faf694216a239064d29f5238bc91) 欢迎大家加入讨论
 
-* [EasyRSS](https://github.com/zhuchaowe/EasyRSS):基于EasyIOS 2.2-RC2 的开源项目
+* [EasyRSS](https://github.com/zhuchaowe/EasyRSS):基于EasyIOS 2.2.2 的开源项目,EasyIOS的官方Demo
 
 * [RACSwift for EasyIOS](https://github.com/zhuchaowe/RACSwift):EasyIOS swift 版本Demo
 
 * [教程在Wiki Paper](https://github.com/zhuchaowe/EasyIOS/wiki)
 
 * [json转Model工具 ModelCoder](https://github.com/zhuchaowe/ModelCoder) 
+
 
 ##EasyIOS 以提升开发效率为宗旨
 
@@ -95,10 +98,15 @@ EasyIOS 2.0是基于MVVM编程思想进行构建的，封装了Scene,SceneModel,
 * Add below to Podfile and run pod install
 
     	platform :ios, "6.0"
-    	pod 'EasyIOS', '~> 2.2'
-		pod 'EasyIOS-Extention', '~> 1.0'
+    	pod 'EasyIOS', '~> 2.2.2'
+    	pod 'EasyIOS-Extention', '~> 1.2'
     	
 * If you use swift , please click [here](https://github.com/zhuchaowe/RACSwift)
+
+##2.2.2 版本更新
+* 指定RAC最高版本号为2.4.4
+* Action类POST方法增加缓存功能
+* Request类增加设置http头信息
 
 ##2.2版本更新
 * 修改Action类中的配置方式：由原来的宏调用改为类方法配置
@@ -115,7 +123,6 @@ EasyIOS 2.0是基于MVVM编程思想进行构建的，封装了Scene,SceneModel,
 * 移除了`RTLabel`,`EzUILabel`
 * 修复部分bug 
 * ……
-* 新Demo 会尽快放出
 
 
 ##2.1版本更新

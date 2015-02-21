@@ -10,18 +10,11 @@
 
 @implementation SceneScrollView
 
-- (id)initAutoLayoutAddToView:(UIView *)superView
-{
-    self = [super init];
-    if (self) {
-        [superView addSubview:self];
-        self.contentView = [[UIView alloc] init];
-        [self addSubview:self.contentView];
-        [self alignToView:superView];
-        [self.contentView alignToView:self];
-        [self.contentView alignLeading:@"0" trailing:@"0" toView:superView];
-    }
-    return self;
+-(void)addContentView{
+    self.contentView = [[UIView alloc] init];
+    [self addSubview:self.contentView];
+    [self.contentView alignToView:self];
+    [self.contentView alignLeading:@"0" trailing:@"0" toView:self.superview];
 }
 
 //结束后必须调用此函数，才可以设置autolayout contentsize

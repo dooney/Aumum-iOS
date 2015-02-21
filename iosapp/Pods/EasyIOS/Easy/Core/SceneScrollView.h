@@ -10,6 +10,6 @@
 
 @interface SceneScrollView : UIScrollView
 @property(nonatomic,strong)UIView *contentView;
-- (id)initAutoLayoutAddToView:(UIView *)superView;
+- (void)addContentView;
 - (void)endWithView:(UIView *)endview;
 @end

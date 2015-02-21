@@ -8,6 +8,7 @@
 
 #import "Scene.h"
 
+
 @interface Scene ()
 
 @end
@@ -61,10 +62,47 @@
     }
 }
 
+- (void)setTitleView:(UIView *)titleView{
+    self.navigationItem.titleView = titleView;
+}
+
 - (void)leftButtonTouch{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)rightButtonTouch{
+}
+
+-(void)addSubView:(UIView *)view
+           extend:(EzAlignExtend)extend{
+    [self.view addSubview:view];
+    if(IOS7_OR_LATER){
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        self.extendedLayoutIncludesOpaqueBars = YES;
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+    }
+    [self.view sendSubviewToBack:view];
+    if(IOS7_OR_LATER){
+        [view alignTopEdgeWithView:view.superview predicate:
+         (extend == EXTEND_TOP||extend == EXTEND_TOP_BOTTOM)?@"64":@"0"];
+    }else{
+        [view alignTopEdgeWithView:view.superview predicate:@"0"];
+    }
+    [view alignBottomEdgeWithView:view.superview predicate:
+     (extend == EXTEND_BOTTOM||extend == EXTEND_TOP_BOTTOM)?@"-49":@"0"];
+    [view alignLeading:@"0" trailing:@"0" toView:view.superview];
+}
+
+- (void)addScrollView:(UIScrollView *)view
+               extend:(EzAlignExtend)extend
+                inset:(EzAlignInset)inset{
+    [self addSubView:view extend:extend];
+    short top = 0;
+    if(IOS7_OR_LATER && (inset == INSET_TOP||inset==INSET_TOP_BOTTOM)){
+        top = 64;
+    }
+    short bottom = (inset == INSET_BOTTOM||inset==INSET_TOP_BOTTOM)?49:0;
+    view.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
 }
 
 @end
