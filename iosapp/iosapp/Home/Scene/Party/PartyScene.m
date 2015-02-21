@@ -9,34 +9,51 @@
 #import "PartyScene.h"
 #import "PartySceneModel.h"
 #import "Party.h"
+#import "PartyCell.h"
+#import "UIView+FLKAutoLayout.h"
 
-@interface PartyScene ()
+@interface PartyScene ()<UITableViewDelegate, UITableViewDataSource>
 
-@property(nonatomic, retain)PartySceneModel* sceneModel;
+@property (strong, nonatomic) SceneTableView *tableView;
+@property (nonatomic, retain) PartySceneModel* sceneModel;
 
 - (BaseSceneModel*)getSceneModel;
+- (void)showView;
 
 @end
 
 @implementation PartyScene
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.tableView = [[SceneTableView alloc] init];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self addSubView:self.tableView extend:EXTEND_TOP];
+    [self.tableView registerClass:[PartyCell class] forCellReuseIdentifier:@"PartyCell"];
+}
 
 - (BaseSceneModel*)getSceneModel {
     _sceneModel = [PartySceneModel sharedInstance];
     return _sceneModel;
 }
 
+- (void)showView {
+    [self.tableView reloadData];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.sceneModel.itemList.results.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *SettingTableIdentifier = @"PostCell";
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:SettingTableIdentifier];
+- (PartyCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PartyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PartyCell" forIndexPath:indexPath];
     Party* party = [self.sceneModel.itemList.results objectAtIndex:indexPath.row];
     cell.textLabel.text = party.title;
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [cell setAccessoryType:UITableViewCellAccessoryNone];
-    cell.backgroundColor = [UIColor colorWithString:@"#F9F9F9"];
     return cell;
 }
 

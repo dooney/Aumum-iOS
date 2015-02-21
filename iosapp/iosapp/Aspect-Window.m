@@ -13,6 +13,7 @@
 #import "EasyKit.h"
 #import "AFNetworkReachabilityManager.h"
 #import "DialogUtil.h"
+#import "UIColor+MLPFlatColors.h"
 
 #define AtAspect Window
 
@@ -24,7 +25,7 @@ AspectPatch(-, void,application:(UIApplication *)application didFinishLaunchingW
     [[URLManager sharedInstance] loadConfigFromPlist:plistPath];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor blackColor];
+    self.window.backgroundColor = [UIColor flatWhiteColor];
     
     TabBarController *centerNav = [[TabBarController alloc]init];
     

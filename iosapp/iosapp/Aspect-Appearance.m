@@ -10,7 +10,6 @@
 #import <XAspect/XAspect.h>
 #import "UIColor+MLPFlatColors.h"
 
-
 #define AtAspect  Appearance
 
 #define AtAspectOfClass AppDelegate
