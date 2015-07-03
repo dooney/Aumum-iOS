@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import <XAspect/XAspect.h>
 #import "TabBarController.h"
-#import "UIViewController+URLManage.h"
 #import "EasyKit.h"
+#import "AFNetworkActivityLogger.h"
 #import "AFNetworkReachabilityManager.h"
 #import "DialogUtil.h"
 #import "UIColor+MLPFlatColors.h"
@@ -21,8 +21,6 @@
 @classPatchField(AppDelegate)
 
 AspectPatch(-, void,application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions) {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"URLManage" ofType:@"plist"];
-    [[URLManager sharedInstance] loadConfigFromPlist:plistPath];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor flatWhiteColor];
@@ -31,6 +29,8 @@ AspectPatch(-, void,application:(UIApplication *)application didFinishLaunchingW
     
     self.window.rootViewController = centerNav;
     [self.window makeKeyAndVisible];
+    
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
     
     [[$ rac_didNetworkChanges]
      subscribeNext:^(NSNumber *status) {

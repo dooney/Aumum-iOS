@@ -1,4 +1,7 @@
 PODS:
+  - AFNetworkActivityLogger (2.0.4):
+    - AFNetworking/NSURLConnection (~> 2.0)
+    - AFNetworking/NSURLSession (~> 2.0)
   - AFNetworking (2.5.4):
     - AFNetworking/NSURLConnection (= 2.5.4)
     - AFNetworking/NSURLSession (= 2.5.4)
@@ -44,7 +47,7 @@ PODS:
   - FLKAutoLayout (0.1.1)
   - FontIcon (1.0)
   - GCDObjC (0.2.0)
-  - IQKeyboardManager (3.2.1.1)
+  - IQKeyboardManager (3.2.4)
   - MBProgressHUD (0.9.1)
   - MojoDatabase (1.4)
   - ReactiveCocoa (2.4.4):
@@ -55,67 +58,83 @@ PODS:
   - ReactiveCocoa/UI (2.4.4):
     - ReactiveCocoa/Core
   - RegExCategories (1.0)
-  - RMUniversalAlert (0.6):
-    - RMUniversalAlert/Core (= 0.6)
-  - RMUniversalAlert/Core (0.6):
-    - UIActionSheet+Blocks (>= 0.8)
-    - UIAlertController+Blocks (>= 0.8)
-    - UIAlertView+Blocks (>= 0.8)
+  - RMUniversalAlert (0.7):
+    - RMUniversalAlert/Core (= 0.7)
+  - RMUniversalAlert/Core (0.7):
+    - UIActionSheet+Blocks (>= 0.9)
+    - UIAlertController+Blocks (>= 0.9)
+    - UIAlertView+Blocks (>= 0.9)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
   - SWTableViewCell (0.3.7)
   - TMCache (2.1.0)
-  - TOWebViewController (2.0.14)
-  - TTTAttributedLabel (1.13.2)
-  - UIActionSheet+Blocks (0.8.1)
+  - TOWebViewController (2.0.17)
+  - TTTAttributedLabel (1.13.4)
+  - UIActionSheet+Blocks (0.9)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
-  - UIAlertController+Blocks (0.8)
-  - UIAlertView+Blocks (0.8.1)
-  - UICKeyChainStore (2.0.4)
+  - UIAlertController+Blocks (0.9)
+  - UIAlertView+Blocks (0.9)
+  - UICKeyChainStore (2.0.6)
   - UIColor+MLPFlatColors (1.0)
   - UMengAnalytics (3.1.8)
-  - XAspect (1.0.3):
-    - XAspect/Core (= 1.0.3)
-    - XAspect/Macros (= 1.0.3)
-  - XAspect/Core (1.0.3):
+  - XAspect (1.0.4):
+    - XAspect/Core (= 1.0.4)
+    - XAspect/Macros (= 1.0.4)
+  - XAspect/Core (1.0.4):
     - XAspect/Macros
-  - XAspect/Macros (1.0.3)
+  - XAspect/Macros (1.0.4)
 
 DEPENDENCIES:
-  - EasyIOS (~> 2.2.2)
+  - AFNetworkActivityLogger (from `https://github.com/AFNetworking/AFNetworkActivityLogger.git`)
+  - EasyIOS (from `https://github.com/zhuchaowe/EasyIOS.git`)
   - EasyIOS-Extention (~> 1.2)
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
   - UIColor+MLPFlatColors (~> 1.0)
   - UMengAnalytics (~> 3.1.2)
 
+EXTERNAL SOURCES:
+  AFNetworkActivityLogger:
+    :git: https://github.com/AFNetworking/AFNetworkActivityLogger.git
+  EasyIOS:
+    :git: https://github.com/zhuchaowe/EasyIOS.git
+
+CHECKOUT OPTIONS:
+  AFNetworkActivityLogger:
+    :commit: 4faefc20f1a6489e88e2f2ee72b18d4727b3ebd8
+    :git: https://github.com/AFNetworking/AFNetworkActivityLogger.git
+  EasyIOS:
+    :commit: 27c0a1935b3735b817474030392deb286c84c522
+    :git: https://github.com/zhuchaowe/EasyIOS.git
+
 SPEC CHECKSUMS:
+  AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   EasyIOS: 5f8c2110b4d0818aa78de068dc001c5c344de7a6
   EasyIOS-Extention: c7e402e8b2497760955510228771512c37110aa2
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851
   FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
   GCDObjC: adcd9941029e3628de539347d3a6777470a65998
-  IQKeyboardManager: 6aeae6a2014d66461c48f6753dd693e92eaf6524
+  IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MojoDatabase: 02e3eb98510b69033ab537156969d1f76b4f369e
   ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
-  RMUniversalAlert: a383f00755c8258c6e77e09fd241f7325ea4dac2
+  RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
-  TOWebViewController: 2cfd0032d781cabd88a0995fbca9692c11f0797e
-  TTTAttributedLabel: 2ba85bee473885c2aada2bdfec584d39f1869338
-  UIActionSheet+Blocks: 7fdab45fc8f15ac2dc1cd65af1470746600b5f46
+  TOWebViewController: aada427e7eba199bbaee77ddee3243c8172f4053
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
-  UIAlertController+Blocks: 45787b973b5f2f4ca4f01bc76f4175481ce059b3
-  UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
-  UICKeyChainStore: 69eb0c3a6f669bccf16ba88de3b9069b71501361
+  UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
+  UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
+  UICKeyChainStore: c5719c814e8bd69e74e4a0fc09daf8f4d6257a59
   UIColor+MLPFlatColors: 14deb8f28da06ab8918c14231d4ff49ca7cd384a
   UMengAnalytics: fe0fa30f2686541eda3ae778d036cc368bc1abd4
-  XAspect: 8c6703478e01d97f5511615af3ff3546706cb3b8
+  XAspect: abacabc6d828c2933812a966adca9b131504cfac
 
 COCOAPODS: 0.37.2
