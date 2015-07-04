@@ -13,6 +13,8 @@
 
 @interface Moment: Model
 
+@property (nonatomic, strong)NSString* imageUrl;
+
 @end
 
 @protocol Moment

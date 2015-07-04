@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) MomentList* list;
 @property (nonatomic, strong) MomentListRequest* request;
+@property (nonatomic, strong) NSMutableArray* dataSet;
 
 @end
 
