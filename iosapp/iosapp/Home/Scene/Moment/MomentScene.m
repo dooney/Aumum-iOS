@@ -39,17 +39,30 @@
     @weakify(self);
     [[RACObserve(self.momentListSceneModel, list)
      filter:^BOOL(MomentList* list) {
-         return list != nil;
+         return list != nil && list.results.count > 0;
      }]
      subscribeNext:^(MomentList* list) {
-         @strongify(self);
+         @strongify(self)
          if (self.momentListSceneModel.dataSet == nil) {
              self.momentListSceneModel.dataSet = [NSMutableArray array];
          }
-         if ([list.results count] > 0) {
-             [self.momentListSceneModel.dataSet addObjectsFromArray:list.results];
-             [self.tableView reloadData];
+         [self.momentListSceneModel.dataSet addObjectsFromArray:list.results];
+     }];
+    
+    [[RACObserve(self.momentListSceneModel, userList)
+      filter:^BOOL(UserList* list) {
+          return list != nil && list.results.count > 0;
+      }]
+     subscribeNext:^(UserList* list) {
+         @strongify(self)
+         for (Moment* moment in self.momentListSceneModel.dataSet) {
+             for (User* user in list.results) {
+                 if ([moment.userId isEqualToString:user.objectId]) {
+                     moment.user = user;
+                 }
+             }
          }
+         [self.tableView reloadData];
      }];
 }
 
