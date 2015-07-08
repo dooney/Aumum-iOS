@@ -14,7 +14,7 @@
 
 @interface MomentCell : EzTableViewCell
 
-- (void)refresh:(Moment*)moment;
+- (void)reload:(Moment*)moment;
 
 @end
 

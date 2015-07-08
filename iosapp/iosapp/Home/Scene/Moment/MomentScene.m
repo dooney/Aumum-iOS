@@ -10,6 +10,7 @@
 #import "UIViewController+MBHud.h"
 #import "MomentCell.h"
 #import "Moment.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 @interface MomentScene()<UITableViewDelegate, UITableViewDataSource>
 
@@ -24,9 +25,10 @@
     [super viewDidLoad];
     
     self.tableView = [[SceneTableView alloc] init];
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleGray;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.fd_debugLogEnabled = YES;
     [self.view addSubview:self.tableView];
     [self.tableView alignToView:self.view];
     [self.tableView registerClass:[MomentCell class] forCellReuseIdentifier:@"MomentCell"];
@@ -73,8 +75,27 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MomentCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MomentCell" forIndexPath:indexPath];
     Moment* moment = [self.momentListSceneModel.dataSet objectAtIndex:indexPath.row];
-    [cell refresh:moment];
+    [cell reload:moment];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [tableView fd_heightForCellWithIdentifier:@"MomentCell" cacheByIndexPath:indexPath configuration:^(MomentCell *cell) {
+        Moment* moment = [self.momentListSceneModel.dataSet objectAtIndex:indexPath.row];
+        [cell reload:moment];
+    }];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -8,8 +8,8 @@
 
 #import "MomentCell.h"
 #import "UIView+FLKAutoLayout.h"
-#import "UIImageView+Network.h"
 #import "UIColor+EasyExtend.h"
+#import "UIImageView+WebCache.h"
 
 @interface MomentCell()
 
@@ -29,7 +29,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.avatarImage = [[UIImageView alloc] init];
-    self.avatarImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.avatarImage.contentMode = UIViewContentModeScaleAspectFill;
     [self.contentView addSubview:self.avatarImage];
     
     self.userName = [[UILabel alloc] init];
@@ -46,15 +46,23 @@
 }
 
 - (void)loadAutoLayout {
-    [self.avatarImage alignTop:@"20" leading:@"10" toView:self.userName.superview];
+    CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
+    CGFloat imageHeight = imageWidth;
+    [self.momentImage alignTop:@"60" bottom:@"-60" toView:self.momentImage.superview];
+    [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.2f", imageWidth]
+                              height:[NSString stringWithFormat:@"%.2f", imageHeight]];
+    
+    [self.avatarImage alignTop:@"10" leading:@"10" toView:self.avatarImage.superview];
+    [self.avatarImage constrainWidth:@"40" height:@"40"];
+    
     [self.userName constrainLeadingSpaceToView:self.avatarImage predicate:@"10"];
-    [self.momentImage constrainTopSpaceToView:self.avatarImage predicate:@"20"];
+    [self.userName alignTopEdgeWithView:self.avatarImage predicate:nil];
 }
 
-- (void)refresh:(Moment *)moment {
-    [self.userName setText:moment.user.screenName];
-    [self.avatarImage net_sd_setImageWithURL:[NSURL URLWithString:moment.user.avatarUrl]];
-    [self.momentImage net_sd_setImageWithURL:[NSURL URLWithString:moment.imageUrl]];
+- (void)reload:(Moment *)moment {
+    self.userName.text = moment.user.screenName;
+    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:moment.user.avatarUrl]];
+    [self.momentImage sd_setImageWithURL:[NSURL URLWithString:moment.imageUrl]];
 }
 
 @end

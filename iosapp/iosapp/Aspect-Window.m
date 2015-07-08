@@ -10,7 +10,6 @@
 #import <XAspect/XAspect.h>
 #import "TabBarController.h"
 #import "EasyKit.h"
-#import "AFNetworkActivityLogger.h"
 #import "AFNetworkReachabilityManager.h"
 #import "DialogUtil.h"
 #import "UIColor+MLPFlatColors.h"
@@ -29,8 +28,6 @@ AspectPatch(-, void,application:(UIApplication *)application didFinishLaunchingW
     
     self.window.rootViewController = centerNav;
     [self.window makeKeyAndVisible];
-    
-    [[AFNetworkActivityLogger sharedLogger] startLogging];
     
     [[$ rac_didNetworkChanges]
      subscribeNext:^(NSNumber *status) {
