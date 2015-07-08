@@ -10,10 +10,11 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIColor+EasyExtend.h"
 #import "UIImageView+WebCache.h"
+#import "NZCircularImageView.h"
 
 @interface MomentCell()
 
-@property (nonatomic, strong)UIImageView* avatarImage;
+@property (nonatomic, strong)NZCircularImageView* avatarImage;
 @property (nonatomic, strong)UILabel* userName;
 @property (nonatomic, strong)UILabel* createdAt;
 @property (nonatomic, strong)UIImageView* momentImage;
@@ -28,8 +29,7 @@
     self.accessoryType = UITableViewCellAccessoryNone;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.avatarImage = [[UIImageView alloc] init];
-    self.avatarImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.avatarImage = [[NZCircularImageView alloc] init];
     [self.contentView addSubview:self.avatarImage];
     
     self.userName = [[UILabel alloc] init];
@@ -61,7 +61,7 @@
 
 - (void)reload:(Moment *)moment {
     self.userName.text = moment.user.screenName;
-    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:moment.user.avatarUrl]];
+    [self.avatarImage setImageWithResizeURL:moment.user.avatarUrl];
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:moment.imageUrl]];
 }
 
