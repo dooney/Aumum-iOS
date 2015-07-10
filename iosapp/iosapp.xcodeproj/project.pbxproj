@@ -36,6 +36,7 @@
 		D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D5BDC01B4F787600D6045F /* URLManage.plist */; };
 		D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC41B4F835100D6045F /* Aspect-Config.m */; };
 		D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC81B4F89F300D6045F /* ProfileScene.m */; };
+		D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */; };
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
@@ -105,6 +106,7 @@
 		D6D5BDC41B4F835100D6045F /* Aspect-Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Config.m"; sourceTree = "<group>"; };
 		D6D5BDC71B4F89CE00D6045F /* ProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileScene.h; sourceTree = "<group>"; };
 		D6D5BDC81B4F89F300D6045F /* ProfileScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileScene.m; sourceTree = "<group>"; };
+		D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-EaseMob.m"; sourceTree = "<group>"; };
 		D6E049881B45238D00A867C8 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
 		D6E049891B45238D00A867C8 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				D60297C01A98C518003575F2 /* Aspect-Appearance.m */,
 				D6E049931B49447600A867C8 /* Aspect-Util.m */,
 				D6D5BDC41B4F835100D6045F /* Aspect-Config.m */,
+				D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */,
 				D62A39C01A7F0AB9007347B5 /* Images.xcassets */,
 				D62A39B01A7F0AB9007347B5 /* Supporting Files */,
 			);
@@ -496,6 +499,7 @@
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
+				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
 				D661EF581B4CFBB60019B280 /* Constants.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
