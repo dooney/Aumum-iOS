@@ -15,9 +15,11 @@
 
 + (NSString*)getToken;
 + (void)setToken:(NSString*)token;
++ (void)resetToken;
 
 + (NSString*)getCurrentUserId;
 + (void)setCurrentUserId:(NSString*)userId;
++ (void)resetCurrentUserId;
 
 @end
 

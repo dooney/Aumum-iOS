@@ -23,6 +23,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - EaseMobSDK (2.1.8)
   - EasyIOS (2.2.2):
     - EasyIOS/Easy (= 2.2.2)
   - EasyIOS-Extention (1.2):
@@ -92,6 +93,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworkActivityLogger (from `https://github.com/AFNetworking/AFNetworkActivityLogger.git`)
+  - EaseMobSDK (from `https://github.com/easemob/sdk-ios-cocoapods.git`)
   - EasyIOS (from `https://github.com/zhuchaowe/EasyIOS.git`)
   - EasyIOS-Extention (~> 1.2)
   - JVFloatLabeledTextField
@@ -105,6 +107,8 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   AFNetworkActivityLogger:
     :git: https://github.com/AFNetworking/AFNetworkActivityLogger.git
+  EaseMobSDK:
+    :git: https://github.com/easemob/sdk-ios-cocoapods.git
   EasyIOS:
     :git: https://github.com/zhuchaowe/EasyIOS.git
 
@@ -112,13 +116,17 @@ CHECKOUT OPTIONS:
   AFNetworkActivityLogger:
     :commit: 4faefc20f1a6489e88e2f2ee72b18d4727b3ebd8
     :git: https://github.com/AFNetworking/AFNetworkActivityLogger.git
+  EaseMobSDK:
+    :commit: d4fdf30a087825779f6d3def7a7dfdef6d4cea9c
+    :git: https://github.com/easemob/sdk-ios-cocoapods.git
   EasyIOS:
-    :commit: 27c0a1935b3735b817474030392deb286c84c522
+    :commit: 684015ed0356b7edf4fa24ce3ba3398e1e66fb96
     :git: https://github.com/zhuchaowe/EasyIOS.git
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  EaseMobSDK: 639251847fa6de8cd752a6d4ca841e1753903683
   EasyIOS: 5f8c2110b4d0818aa78de068dc001c5c344de7a6
   EasyIOS-Extention: c7e402e8b2497760955510228771512c37110aa2
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851

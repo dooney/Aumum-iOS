@@ -33,6 +33,9 @@
 		D67332281B44F80F00A1D525 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332271B44F80F00A1D525 /* Moment.m */; };
 		D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322A1B4507E400A1D525 /* MomentListRequest.m */; };
 		D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322E1B450DA300A1D525 /* BaseRequest.m */; };
+		D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D5BDC01B4F787600D6045F /* URLManage.plist */; };
+		D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC41B4F835100D6045F /* Aspect-Config.m */; };
+		D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC81B4F89F300D6045F /* ProfileScene.m */; };
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
@@ -98,6 +101,10 @@
 		D673322C1B4507F800A1D525 /* MomentListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentListRequest.h; sourceTree = "<group>"; };
 		D673322D1B450D9400A1D525 /* BaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		D673322E1B450DA300A1D525 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		D6D5BDC01B4F787600D6045F /* URLManage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = URLManage.plist; sourceTree = "<group>"; };
+		D6D5BDC41B4F835100D6045F /* Aspect-Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Config.m"; sourceTree = "<group>"; };
+		D6D5BDC71B4F89CE00D6045F /* ProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileScene.h; sourceTree = "<group>"; };
+		D6D5BDC81B4F89F300D6045F /* ProfileScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileScene.m; sourceTree = "<group>"; };
 		D6E049881B45238D00A867C8 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
 		D6E049891B45238D00A867C8 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
@@ -191,6 +198,7 @@
 				D60297B81A98BAC7003575F2 /* Aspect-Window.m */,
 				D60297C01A98C518003575F2 /* Aspect-Appearance.m */,
 				D6E049931B49447600A867C8 /* Aspect-Util.m */,
+				D6D5BDC41B4F835100D6045F /* Aspect-Config.m */,
 				D62A39C01A7F0AB9007347B5 /* Images.xcassets */,
 				D62A39B01A7F0AB9007347B5 /* Supporting Files */,
 			);
@@ -285,6 +293,7 @@
 		D69748241A808862006004D1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5BDC01B4F787600D6045F /* URLManage.plist */,
 				D661EF671B4DED130019B280 /* Util */,
 				D67332291B45075000A1D525 /* Request */,
 				D60297C21A98C63B003575F2 /* Resource */,
@@ -300,6 +309,7 @@
 		D69748261A8088C1006004D1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5BDC61B4F89B600D6045F /* Profile */,
 				D661EF591B4DC04F0019B280 /* SignIn */,
 				D60297BA1A98BB5E003575F2 /* TabBarController.h */,
 				D60297BB1A98BB5E003575F2 /* TabBarController.m */,
@@ -320,6 +330,15 @@
 				D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */,
 			);
 			path = SceneModel;
+			sourceTree = "<group>";
+		};
+		D6D5BDC61B4F89B600D6045F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5BDC71B4F89CE00D6045F /* ProfileScene.h */,
+				D6D5BDC81B4F89F300D6045F /* ProfileScene.m */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +425,7 @@
 			files = (
 				D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */,
 				D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */,
+				D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */,
+				D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
 				D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */,
 				C3602A7F1B48DC0E006DF6C8 /* User.m in Sources */,
@@ -477,6 +498,7 @@
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
 				D661EF581B4CFBB60019B280 /* Constants.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
+				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
 				D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */,
 				81C7F405F41A0E7F648738E4 /* MomentScene.m in Sources */,

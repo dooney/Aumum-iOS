@@ -11,8 +11,7 @@
 #import "UIColor+EasyExtend.h"
 #import "Constants.h"
 #import "UIView+FLKAutoLayout.h"
-#import "RDNavigationController.h"
-#import "SignInScene.h"
+#import "URLManager.h"
 
 @interface SplashScene()
 
@@ -27,8 +26,7 @@
     
     self.signInButton = [[UIButton alloc] initNavigationButtonWithTitle:@"Sign In" color:HEX_RGB(AM_YELLOW)];
     self.signInButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        RDNavigationController* signInController = [[RDNavigationController alloc] initWithRootViewController:[[SignInScene alloc] init]];
-        [self presentViewController:signInController animated:YES completion:nil];
+        [URLManager pushURLString:@"iosapp://signIn" animated:YES];
         return [RACSignal empty];
     }];
     [self.view addSubview:self.signInButton];

@@ -77,7 +77,7 @@
     [self.sceneModel onRequest:^(Auth *auth) {
         [KeyChainUtil setToken:auth.sessionToken];
         [KeyChainUtil setCurrentUserId:auth.objectId];
-        TabBarController *tabBarController = [[TabBarController alloc]init];
+        TabBarController *tabBarController = [[TabBarController alloc] init];
         [self presentViewController:tabBarController animated:YES completion:nil];
     } error:^(NSError *error) {
         [self hideHudFailed:error.localizedDescription];

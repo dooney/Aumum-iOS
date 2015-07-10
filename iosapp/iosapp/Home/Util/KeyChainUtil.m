@@ -25,6 +25,11 @@
     keychain[@"token"] = token;
 }
 
++ (void)resetToken {
+    UICKeyChainStore *keychain = [KeyChainUtil getKeyChainStore];
+    [keychain removeItemForKey:@"token"];
+}
+
 + (NSString*)getCurrentUserId {
     UICKeyChainStore *keychain = [KeyChainUtil getKeyChainStore];
     return keychain[@"currentUserId"];
@@ -33,6 +38,11 @@
 + (void)setCurrentUserId:(NSString*)userId {
     UICKeyChainStore *keychain = [KeyChainUtil getKeyChainStore];
     keychain[@"currentUserId"] = userId;
+}
+
++ (void)resetCurrentUserId {
+    UICKeyChainStore *keychain = [KeyChainUtil getKeyChainStore];
+    [keychain removeItemForKey:@"currentUserId"];
 }
 
 @end
