@@ -22,6 +22,13 @@
 		D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B51A7F0AB9007347B5 /* AppDelegate.m */; };
 		D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A39C01A7F0AB9007347B5 /* Images.xcassets */; };
 		D62A39D01A7F0AB9007347B5 /* iosappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39CF1A7F0AB9007347B5 /* iosappTests.m */; };
+		D661EF551B4CE5310019B280 /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF541B4CE5310019B280 /* SplashScene.m */; };
+		D661EF581B4CFBB60019B280 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF571B4CFBB60019B280 /* Constants.m */; };
+		D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5C1B4DC0BB0019B280 /* SignInScene.m */; };
+		D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */; };
+		D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF621B4DE9610019B280 /* LoginRequest.m */; };
+		D661EF661B4DEB9A0019B280 /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF651B4DEB9A0019B280 /* Auth.m */; };
+		D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF691B4DEDA80019B280 /* KeyChainUtil.m */; };
 		D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332221B44F75B00A1D525 /* MomentListSceneModel.m */; };
 		D67332281B44F80F00A1D525 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332271B44F80F00A1D525 /* Moment.m */; };
 		D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322A1B4507E400A1D525 /* MomentListRequest.m */; };
@@ -69,6 +76,20 @@
 		D62A39C91A7F0AB9007347B5 /* iosappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39CE1A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62A39CF1A7F0AB9007347B5 /* iosappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosappTests.m; sourceTree = "<group>"; };
+		D661EF531B4CE4F00019B280 /* SplashScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
+		D661EF541B4CE5310019B280 /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
+		D661EF561B4CF4DA0019B280 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		D661EF571B4CFBB60019B280 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		D661EF5B1B4DC0770019B280 /* SignInScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInScene.h; sourceTree = "<group>"; };
+		D661EF5C1B4DC0BB0019B280 /* SignInScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInScene.m; sourceTree = "<group>"; };
+		D661EF5E1B4DE3BC0019B280 /* SignInSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInSceneModel.h; sourceTree = "<group>"; };
+		D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInSceneModel.m; sourceTree = "<group>"; };
+		D661EF611B4DE9300019B280 /* LoginRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginRequest.h; sourceTree = "<group>"; };
+		D661EF621B4DE9610019B280 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequest.m; sourceTree = "<group>"; };
+		D661EF641B4DEB610019B280 /* Auth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
+		D661EF651B4DEB9A0019B280 /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
+		D661EF681B4DED460019B280 /* KeyChainUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyChainUtil.h; sourceTree = "<group>"; };
+		D661EF691B4DEDA80019B280 /* KeyChainUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainUtil.m; sourceTree = "<group>"; };
 		D67332221B44F75B00A1D525 /* MomentListSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentListSceneModel.m; sourceTree = "<group>"; };
 		D67332241B44F78400A1D525 /* MomentListSceneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentListSceneModel.h; sourceTree = "<group>"; };
 		D67332261B44F7EA00A1D525 /* Moment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Moment.h; sourceTree = "<group>"; };
@@ -202,6 +223,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D661EF521B4CE4E20019B280 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				D661EF531B4CE4F00019B280 /* SplashScene.h */,
+				D661EF541B4CE5310019B280 /* SplashScene.m */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		D661EF591B4DC04F0019B280 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				D661EF5B1B4DC0770019B280 /* SignInScene.h */,
+				D661EF5C1B4DC0BB0019B280 /* SignInScene.m */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		D661EF671B4DED130019B280 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D661EF681B4DED460019B280 /* KeyChainUtil.h */,
+				D661EF691B4DEDA80019B280 /* KeyChainUtil.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		D67332291B45075000A1D525 /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +259,8 @@
 				D673322E1B450DA300A1D525 /* BaseRequest.m */,
 				C3602A771B48B218006DF6C8 /* UserListRequest.h */,
 				C3602A781B48B246006DF6C8 /* UserListRequest.m */,
+				D661EF611B4DE9300019B280 /* LoginRequest.h */,
+				D661EF621B4DE9610019B280 /* LoginRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -226,6 +276,8 @@
 				C3602A7B1B48DB48006DF6C8 /* UserList.m */,
 				C3602A7D1B48DBC1006DF6C8 /* User.h */,
 				C3602A7E1B48DC0D006DF6C8 /* User.m */,
+				D661EF641B4DEB610019B280 /* Auth.h */,
+				D661EF651B4DEB9A0019B280 /* Auth.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,11 +285,14 @@
 		D69748241A808862006004D1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D661EF671B4DED130019B280 /* Util */,
 				D67332291B45075000A1D525 /* Request */,
 				D60297C21A98C63B003575F2 /* Resource */,
 				D68B44F81A81DFB4001D306C /* Model */,
 				D69748331A80915E006004D1 /* SceneModel */,
 				D69748261A8088C1006004D1 /* Scene */,
+				D661EF561B4CF4DA0019B280 /* Constants.h */,
+				D661EF571B4CFBB60019B280 /* Constants.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -245,10 +300,12 @@
 		D69748261A8088C1006004D1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D661EF591B4DC04F0019B280 /* SignIn */,
 				D60297BA1A98BB5E003575F2 /* TabBarController.h */,
 				D60297BB1A98BB5E003575F2 /* TabBarController.m */,
 				D60297BD1A98BC25003575F2 /* RDNavigationController.h */,
 				D60297BE1A98BC25003575F2 /* RDNavigationController.m */,
+				D661EF521B4CE4E20019B280 /* Splash */,
 				81C7F318018644C5E5355771 /* Moment */,
 			);
 			path = Scene;
@@ -259,6 +316,8 @@
 			children = (
 				D67332221B44F75B00A1D525 /* MomentListSceneModel.m */,
 				D67332241B44F78400A1D525 /* MomentListSceneModel.h */,
+				D661EF5E1B4DE3BC0019B280 /* SignInSceneModel.h */,
+				D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -399,20 +458,27 @@
 			files = (
 				C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
+				D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */,
 				C3602A7F1B48DC0E006DF6C8 /* User.m in Sources */,
 				D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */,
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
+				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
+				D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */,
 				C3602A7C1B48DB48006DF6C8 /* UserList.m in Sources */,
 				D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */,
 				D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */,
+				D661EF551B4CE5310019B280 /* SplashScene.m in Sources */,
+				D661EF661B4DEB9A0019B280 /* Auth.m in Sources */,
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
 				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
+				D661EF581B4CFBB60019B280 /* Constants.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
+				D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */,
 				81C7F405F41A0E7F648738E4 /* MomentScene.m in Sources */,
 				D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */,
 			);

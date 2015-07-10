@@ -23,6 +23,14 @@
 @property (nonatomic, strong) UserListRequest* userListRequest;
 @property (nonatomic, strong) UserList* userList;
 
+- (void)onRequest:(void (^)(MomentList* list))successHandler
+            error:(void (^)(NSError* error))errorHandler
+             done:(void (^)())doneHandler;
+
+- (void)onUserListRequest:(void (^)(UserList* list))successHandler
+                    error:(void (^)(NSError* error))errorHandler
+                     done:(void (^)())doneHandler;
+
 @end
 
 #endif

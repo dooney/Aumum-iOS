@@ -14,7 +14,7 @@
 
 @interface MomentScene()<UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) MomentListSceneModel* momentListSceneModel;
+@property (strong, nonatomic) MomentListSceneModel* sceneModel;
 @property (strong, nonatomic) SceneTableView* tableView;
 
 @end
@@ -23,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initSceneModel];
     
     self.tableView = [[SceneTableView alloc] init];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -34,54 +36,54 @@
     [self.tableView registerClass:[MomentCell class] forCellReuseIdentifier:@"MomentCell"];
     
     [self loadHud:self.view];
+}
+
+- (void)initSceneModel {
+    self.sceneModel = [MomentListSceneModel SceneModel];
+    self.sceneModel.request.requestNeedActive = YES;
     
-    self.momentListSceneModel = [MomentListSceneModel SceneModel];
-    self.momentListSceneModel.request.requestNeedActive = YES;
+    [self.sceneModel onRequest:^(MomentList *list) {
+        if (self.sceneModel.dataSet == nil) {
+            self.sceneModel.dataSet = [NSMutableArray array];
+        }
+        [self.sceneModel.dataSet addObjectsFromArray:list.results];
+        self.sceneModel.userListRequest.requestNeedActive = YES;
+    } error:^(NSError* error) {
+        [self hideHudFailed:error.localizedDescription];
+    } done:^{
+        [self hideHud];
+    }];
     
-    @weakify(self);
-    [[RACObserve(self.momentListSceneModel, list)
-     filter:^BOOL(MomentList* list) {
-         return list != nil && list.results.count > 0;
-     }]
-     subscribeNext:^(MomentList* list) {
-         @strongify(self)
-         if (self.momentListSceneModel.dataSet == nil) {
-             self.momentListSceneModel.dataSet = [NSMutableArray array];
-         }
-         [self.momentListSceneModel.dataSet addObjectsFromArray:list.results];
-     }];
-    
-    [[RACObserve(self.momentListSceneModel, userList)
-      filter:^BOOL(UserList* list) {
-          return list != nil && list.results.count > 0;
-      }]
-     subscribeNext:^(UserList* list) {
-         @strongify(self)
-         for (Moment* moment in self.momentListSceneModel.dataSet) {
-             for (User* user in list.results) {
-                 if ([moment.userId isEqualToString:user.objectId]) {
-                     moment.user = user;
-                 }
-             }
-         }
-         [self.tableView reloadData];
-     }];
+    [self.sceneModel onUserListRequest:^(UserList *list) {
+        for (Moment* moment in self.sceneModel.dataSet) {
+            for (User* user in list.results) {
+                if ([moment.userId isEqualToString:user.objectId]) {
+                    moment.user = user;
+                }
+            }
+        }
+        [self.tableView reloadData];
+    } error:^(NSError* error) {
+        [self hideHudFailed:error.localizedDescription];
+    } done:^{
+        [self hideHud];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.momentListSceneModel.dataSet.count;
+    return self.sceneModel.dataSet.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MomentCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MomentCell" forIndexPath:indexPath];
-    Moment* moment = [self.momentListSceneModel.dataSet objectAtIndex:indexPath.row];
+    Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
     [cell reload:moment];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView fd_heightForCellWithIdentifier:@"MomentCell" cacheByIndexPath:indexPath configuration:^(MomentCell *cell) {
-        Moment* moment = [self.momentListSceneModel.dataSet objectAtIndex:indexPath.row];
+        Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
         [cell reload:moment];
     }];
 }

@@ -13,6 +13,9 @@
 #import "AFNetworkReachabilityManager.h"
 #import "DialogUtil.h"
 #import "UIColor+MLPFlatColors.h"
+#import "RDNavigationController.h"
+#import "SplashScene.h"
+#import "KeyChainUtil.h"
 
 #define AtAspect Window
 
@@ -24,9 +27,13 @@ AspectPatch(-, void,application:(UIApplication *)application didFinishLaunchingW
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor flatWhiteColor];
     
-    TabBarController *centerNav = [[TabBarController alloc]init];
-    
-    self.window.rootViewController = centerNav;
+    if ([KeyChainUtil getToken] != nil) {
+        TabBarController *tabBarController = [[TabBarController alloc]init];
+        self.window.rootViewController = tabBarController;
+    } else {
+        RDNavigationController* splashController = [[RDNavigationController alloc] initWithRootViewController:[[SplashScene alloc] init]];
+        self.window.rootViewController = splashController;
+    }
     [self.window makeKeyAndVisible];
     
     [[$ rac_didNetworkChanges]

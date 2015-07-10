@@ -11,6 +11,7 @@
 #import "UIColor+EasyExtend.h"
 #import "UIImageView+WebCache.h"
 #import "NZCircularImageView.h"
+#import "Constants.h"
 
 @interface MomentCell()
 
@@ -34,8 +35,8 @@
     
     self.userName = [[UILabel alloc] init];
     self.userName.textAlignment = NSTextAlignmentLeft;
-    self.userName.font = [UIFont systemFontOfSize:16.0f];
-    self.userName.textColor = HEX_RGB(0xff6060);
+    self.userName.font = [UIFont systemFontOfSize:TX_SZ_MEDIUM];
+    self.userName.textColor = HEX_RGB(AM_RED);
     [self.contentView addSubview:self.userName];
     
     self.momentImage = [[UIImageView alloc] init];

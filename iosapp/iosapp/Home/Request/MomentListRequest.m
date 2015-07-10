@@ -14,10 +14,8 @@
     [super loadRequest];
     self.PATH = @"/1/classes/Moments";
     self.METHOD = @"GET";
-    self.params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                   @"-createdAt", @"order",
-                  [NSNumber numberWithInt:12], @"limit",
-                   nil];
+    [self.params setValue:@"-createdAt" forKey:@"order"];
+    [self.params setValue:[NSNumber numberWithInt:12] forKey:@"limit"];
 }
 
 @end

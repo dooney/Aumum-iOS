@@ -15,10 +15,7 @@
     [super loadRequest];
     self.PATH = @"/1/users";
     self.METHOD = @"GET";
-    
-    self.params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                   @"objectId,avatarUrl,screenName", @"keys",
-                   nil];
+    [self.params setValue:@"objectId,avatarUrl,screenName" forKey:@"keys"];
 }
 
 - (void)setUserIdList:(NSArray *)userIdList {

@@ -48,6 +48,7 @@ PODS:
   - FontIcon (1.0)
   - GCDObjC (0.2.0)
   - IQKeyboardManager (3.2.4)
+  - JVFloatLabeledTextField (1.1.0)
   - MBProgressHUD (0.9.1)
   - MojoDatabase (1.4)
   - NZCircularImageView (0.0.5):
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - AFNetworkActivityLogger (from `https://github.com/AFNetworking/AFNetworkActivityLogger.git`)
   - EasyIOS (from `https://github.com/zhuchaowe/EasyIOS.git`)
   - EasyIOS-Extention (~> 1.2)
+  - JVFloatLabeledTextField
   - NZCircularImageView
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
@@ -123,6 +125,7 @@ SPEC CHECKSUMS:
   FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
   GCDObjC: adcd9941029e3628de539347d3a6777470a65998
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
+  JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MojoDatabase: 02e3eb98510b69033ab537156969d1f76b4f369e
   NZCircularImageView: cc64eae9a0dd42800b4902dc483b0b37591c3a3d
