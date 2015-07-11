@@ -12,9 +12,11 @@
 #import "UIImageView+WebCache.h"
 #import "NZCircularImageView.h"
 #import "Constants.h"
+#import "URLManager.h"
 
 @interface MomentCell()
 
+@property (nonatomic, strong)Moment* moment;
 @property (nonatomic, strong)NZCircularImageView* avatarImage;
 @property (nonatomic, strong)UILabel* userName;
 @property (nonatomic, strong)UILabel* createdAt;
@@ -30,7 +32,11 @@
     self.accessoryType = UITableViewCellAccessoryNone;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarImagePressed)];
     self.avatarImage = [[NZCircularImageView alloc] init];
+    [self.avatarImage addGestureRecognizer:tap];
+    self.avatarImage.userInteractionEnabled = YES;
+    self.avatarImage.multipleTouchEnabled = YES;
     [self.contentView addSubview:self.avatarImage];
     
     self.userName = [[UILabel alloc] init];
@@ -61,9 +67,15 @@
 }
 
 - (void)reload:(Moment *)moment {
+    self.moment = moment;
     self.userName.text = moment.user.screenName;
     [self.avatarImage setImageWithResizeURL:moment.user.avatarUrl];
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:moment.imageUrl]];
+}
+
+- (void)avatarImagePressed {
+    NSDictionary* query = @{ self.moment.user.objectId : @"userId" };
+    [URLManager pushURLString:@"iosapp://user" query:query animated:YES];
 }
 
 @end

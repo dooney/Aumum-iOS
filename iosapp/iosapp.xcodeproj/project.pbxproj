@@ -12,6 +12,7 @@
 		C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3602A781B48B246006DF6C8 /* UserListRequest.m */; };
 		C3602A7C1B48DB48006DF6C8 /* UserList.m in Sources */ = {isa = PBXBuildFile; fileRef = C3602A7B1B48DB48006DF6C8 /* UserList.m */; };
 		C3602A7F1B48DC0E006DF6C8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C3602A7E1B48DC0D006DF6C8 /* User.m */; };
+		C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936AA1B5113F100BDC3C3 /* UserScene.m */; };
 		D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297B81A98BAC7003575F2 /* Aspect-Window.m */; };
 		D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BB1A98BB5E003575F2 /* TabBarController.m */; };
 		D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BE1A98BC25003575F2 /* RDNavigationController.m */; };
@@ -63,6 +64,8 @@
 		C3602A7B1B48DB48006DF6C8 /* UserList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserList.m; sourceTree = "<group>"; };
 		C3602A7D1B48DBC1006DF6C8 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		C3602A7E1B48DC0D006DF6C8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C37936A91B5113C800BDC3C3 /* UserScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserScene.h; sourceTree = "<group>"; };
+		C37936AA1B5113F100BDC3C3 /* UserScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserScene.m; sourceTree = "<group>"; };
 		D60297B81A98BAC7003575F2 /* Aspect-Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Aspect-Window.m"; path = "iosapp/Aspect-Window.m"; sourceTree = SOURCE_ROOT; };
 		D60297BA1A98BB5E003575F2 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		D60297BB1A98BB5E003575F2 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
@@ -160,6 +163,15 @@
 				D6E0498C1B47B2DA00A867C8 /* MomentCell.m */,
 			);
 			path = Moment;
+			sourceTree = "<group>";
+		};
+		C37936A81B5113B700BDC3C3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				C37936A91B5113C800BDC3C3 /* UserScene.h */,
+				C37936AA1B5113F100BDC3C3 /* UserScene.m */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		D60297C21A98C63B003575F2 /* Resource */ = {
@@ -312,6 +324,7 @@
 		D69748261A8088C1006004D1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				C37936A81B5113B700BDC3C3 /* User */,
 				D6D5BDC61B4F89B600D6045F /* Profile */,
 				D661EF591B4DC04F0019B280 /* SignIn */,
 				D60297BA1A98BB5E003575F2 /* TabBarController.h */,
@@ -500,6 +513,7 @@
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
+				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
 				D661EF581B4CFBB60019B280 /* Constants.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
