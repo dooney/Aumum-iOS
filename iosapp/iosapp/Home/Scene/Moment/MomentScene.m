@@ -50,8 +50,6 @@
         self.sceneModel.userListRequest.requestNeedActive = YES;
     } error:^(NSError* error) {
         [self hideHudFailed:error.localizedDescription];
-    } done:^{
-        [self hideHud];
     }];
     
     [self.sceneModel onUserListRequest:^(UserList *list) {
@@ -62,11 +60,10 @@
                 }
             }
         }
+        [self hideHud];
         [self.tableView reloadData];
     } error:^(NSError* error) {
         [self hideHudFailed:error.localizedDescription];
-    } done:^{
-        [self hideHud];
     }];
 }
 

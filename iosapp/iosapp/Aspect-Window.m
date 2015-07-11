@@ -27,13 +27,7 @@ AspectPatch(-, void,application:(UIApplication *)application didFinishLaunchingW
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor flatWhiteColor];
     
-    if ([KeyChainUtil getToken] != nil) {
-        TabBarController *tabBarController = [[TabBarController alloc]init];
-        self.window.rootViewController = tabBarController;
-    } else {
-        RDNavigationController* splashController = [[RDNavigationController alloc] initWithRootViewController:[[SplashScene alloc] init]];
-        self.window.rootViewController = splashController;
-    }
+    [self showRootController:[KeyChainUtil getToken] != nil];
     [self.window makeKeyAndVisible];
     
     [[$ rac_didNetworkChanges]
@@ -54,8 +48,31 @@ AspectPatch(-, void,application:(UIApplication *)application didFinishLaunchingW
          }
      }];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginStateChange:)
+                                                 name:@"loginStateChange"
+                                               object:nil];
+    
     XAMessageForward(application:application didFinishLaunchingWithOptions:launchOptions);
 }
+
+- (void)showRootController:(BOOL)isLogin {
+    if (isLogin) {
+        TabBarController *tabBarController = [[TabBarController alloc]init];
+        self.window.rootViewController = tabBarController;
+    } else {
+        RDNavigationController* splashController = [[RDNavigationController alloc] initWithRootViewController:[[SplashScene alloc] init]];
+        self.window.rootViewController = splashController;
+    }
+}
+
+- (void)loginStateChange:(NSNotification *)notification {
+    BOOL isAutoLogin = [[[EaseMob sharedInstance] chatManager] isAutoLoginEnabled];
+    BOOL loginSuccess = [notification.object boolValue];
+    
+    [self showRootController:isAutoLogin || loginSuccess];
+}
+
 @end
 #undef AtAspectOfClass
 

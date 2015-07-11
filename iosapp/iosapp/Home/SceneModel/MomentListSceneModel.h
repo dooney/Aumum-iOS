@@ -24,12 +24,10 @@
 @property (nonatomic, strong) UserList* userList;
 
 - (void)onRequest:(void (^)(MomentList* list))successHandler
-            error:(void (^)(NSError* error))errorHandler
-             done:(void (^)())doneHandler;
+            error:(void (^)(NSError* error))errorHandler;
 
 - (void)onUserListRequest:(void (^)(UserList* list))successHandler
-                    error:(void (^)(NSError* error))errorHandler
-                     done:(void (^)())doneHandler;
+                    error:(void (^)(NSError* error))errorHandler;
 
 @end
 

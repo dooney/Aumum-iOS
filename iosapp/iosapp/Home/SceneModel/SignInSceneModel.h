@@ -19,8 +19,7 @@
 @property (nonatomic, strong)Auth* auth;
 
 - (void)onRequest:(void (^)(Auth* auth))successHandler
-            error:(void (^)(NSError* error))errorHandler
-             done:(void (^)())doneHandler;
+            error:(void (^)(NSError* error))errorHandler;
 
 @end
 

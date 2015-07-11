@@ -14,7 +14,7 @@
 #import "SignInSceneModel.h"
 #import "UIViewController+MBHud.h"
 #import "KeyChainUtil.h"
-#import "TabBarController.h"
+#import "EaseMob.h"
 
 @interface SignInScene()
 
@@ -75,14 +75,47 @@
     self.sceneModel = [SignInSceneModel SceneModel];
     
     [self.sceneModel onRequest:^(Auth *auth) {
-        [KeyChainUtil setToken:auth.sessionToken];
-        [KeyChainUtil setCurrentUserId:auth.objectId];
-        TabBarController *tabBarController = [[TabBarController alloc] init];
-        [self presentViewController:tabBarController animated:YES completion:nil];
+        NSString* username = auth.objectId;
+        NSString* password = self.passwordText.text;
+        [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username
+                                                            password:password
+                                                          completion:
+         ^(NSDictionary *loginInfo, EMError *error) {
+             if (loginInfo && !error) {
+                 [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+                 EMError *error = [[EaseMob sharedInstance].chatManager importDataToNewDatabase];
+                 if (!error) {
+                     error = [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
+                 }
+                 
+                 [KeyChainUtil setToken:auth.sessionToken];
+                 [KeyChainUtil setCurrentUserId:auth.objectId];
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStateChange" object:@YES];
+             } else {
+                 switch (error.errorCode) {
+                     case EMErrorNotFound:
+                         [self hideHudFailed:(error.description)];
+                         break;
+                     case EMErrorNetworkNotConnected:
+                         [self hideHudFailed:NSLocalizedString(@"error.connectNetworkFail", @"No network connection!")];
+                         break;
+                     case EMErrorServerNotReachable:
+                         [self hideHudFailed:NSLocalizedString(@"error.connectServerFail", @"Connect to the server failed!")];
+                         break;
+                     case EMErrorServerAuthenticationFailure:
+                         [self hideHudFailed:error.description];
+                         break;
+                     case EMErrorServerTimeout:
+                         [self hideHudFailed:NSLocalizedString(@"error.connectServerTimeout", @"Connect to the server timed out!")];
+                         break;
+                     default:
+                         [self hideHudFailed:NSLocalizedString(@"login.fail", @"Login failure")];
+                         break;
+                 }
+             }
+         } onQueue:nil];
     } error:^(NSError *error) {
         [self hideHudFailed:error.localizedDescription];
-    } done:^{
-        [self hideHud];
     }];
 }
 
