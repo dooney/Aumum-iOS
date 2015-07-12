@@ -7,7 +7,6 @@
 //
 
 #import "SignInSceneModel.h"
-#import "LoginRequest.h"
 
 @implementation SignInSceneModel
 
@@ -36,6 +35,7 @@
           return self.request.succeed;
       }]
      subscribeNext:^(NSNumber* state) {
+         @strongify(self)
          NSError* error;
          self.auth = [[Auth alloc] initWithDictionary:self.request.output error:&error];
          if (error) {

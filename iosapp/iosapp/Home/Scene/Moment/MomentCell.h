@@ -10,11 +10,8 @@
 #define iosapp_MomentCell_h
 
 #import "EzTableViewCell.h"
-#import "Moment.h"
 
 @interface MomentCell : EzTableViewCell
-
-- (void)reload:(Moment*)moment;
 
 @end
 

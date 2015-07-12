@@ -71,6 +71,7 @@ PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
+  - SlackTextViewController (1.5.2)
   - SWTableViewCell (0.3.7)
   - TMCache (2.1.0)
   - TOWebViewController (2.0.17)
@@ -98,6 +99,7 @@ DEPENDENCIES:
   - EasyIOS-Extention (~> 1.2)
   - JVFloatLabeledTextField
   - NZCircularImageView
+  - SlackTextViewController
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
   - UIColor+MLPFlatColors (~> 1.0)
@@ -141,6 +143,7 @@ SPEC CHECKSUMS:
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
   RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SlackTextViewController: ab240cda4c7fe1f70f6c6cf64578f3fea495ce99
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   TOWebViewController: aada427e7eba199bbaee77ddee3243c8172f4053

@@ -10,9 +10,12 @@
 #import "UIColor+EasyExtend.h"
 #import "Constants.h"
 #import "UIView+FLKAutoLayout.h"
+#import "ChatScene.h"
+#import "URLManager.h"
 
 @interface UserScene()
 
+@property (nonatomic, strong)NSString* userId;
 @property (nonatomic, strong)UIButton* chatButton;
 
 @end
@@ -22,8 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.userId = self.params[@"userId"];
+    
     self.chatButton = [[UIButton alloc] initNavigationButtonWithTitle:@"Chat" color:HEX_RGB(AM_YELLOW)];
     self.chatButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        ChatScene* chatScene = [[ChatScene alloc] initWithUserId:self.userId];
+        [self.navigationController pushViewController:chatScene animated:YES];
         return [RACSignal empty];
     }];
     [self.view addSubview:self.chatButton];

@@ -7,6 +7,7 @@
 //
 
 #import "MomentCell.h"
+#import "Moment.h"
 #import "UIView+FLKAutoLayout.h"
 #import "UIColor+EasyExtend.h"
 #import "UIImageView+WebCache.h"
@@ -66,16 +67,16 @@
     [self.userName alignTopEdgeWithView:self.avatarImage predicate:nil];
 }
 
-- (void)reload:(Moment *)moment {
-    self.moment = moment;
-    self.userName.text = moment.user.screenName;
-    [self.avatarImage setImageWithResizeURL:moment.user.avatarUrl];
-    [self.momentImage sd_setImageWithURL:[NSURL URLWithString:moment.imageUrl]];
+- (void)reloadData:(id)entity {
+    self.moment = entity;
+    self.userName.text = self.moment.user.screenName;
+    [self.avatarImage setImageWithResizeURL:self.moment.user.avatarUrl];
+    [self.momentImage sd_setImageWithURL:[NSURL URLWithString:self.moment.imageUrl]];
 }
 
 - (void)avatarImagePressed {
-    NSDictionary* query = @{ self.moment.user.objectId : @"userId" };
-    [URLManager pushURLString:@"iosapp://user" query:query animated:YES];
+    NSString* url = [NSString stringWithFormat:@"iosapp://user?userId=%@", self.moment.userId];
+    [URLManager pushURLString:url animated:YES];
 }
 
 @end

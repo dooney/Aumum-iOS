@@ -13,6 +13,13 @@
 		C3602A7C1B48DB48006DF6C8 /* UserList.m in Sources */ = {isa = PBXBuildFile; fileRef = C3602A7B1B48DB48006DF6C8 /* UserList.m */; };
 		C3602A7F1B48DC0E006DF6C8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C3602A7E1B48DC0D006DF6C8 /* User.m */; };
 		C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936AA1B5113F100BDC3C3 /* UserScene.m */; };
+		C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936AE1B511A4B00BDC3C3 /* ChatScene.m */; };
+		C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936B51B51451100BDC3C3 /* NSDate+Category.m */; };
+		C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */; };
+		C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */; };
+		C3BEC7651B525C4F00FB5474 /* TextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEC7641B525C4F00FB5474 /* TextMessageCell.m */; };
+		C3FB7D5A1B526DAB00A6B581 /* UserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB7D591B526DAB00A6B581 /* UserRequest.m */; };
+		C3FB7D5D1B52793F00A6B581 /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB7D5C1B52793F00A6B581 /* ChatMessage.m */; };
 		D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297B81A98BAC7003575F2 /* Aspect-Window.m */; };
 		D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BB1A98BB5E003575F2 /* TabBarController.m */; };
 		D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BE1A98BC25003575F2 /* RDNavigationController.m */; };
@@ -66,6 +73,20 @@
 		C3602A7E1B48DC0D006DF6C8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		C37936A91B5113C800BDC3C3 /* UserScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserScene.h; sourceTree = "<group>"; };
 		C37936AA1B5113F100BDC3C3 /* UserScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserScene.m; sourceTree = "<group>"; };
+		C37936AD1B511A1700BDC3C3 /* ChatScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatScene.h; sourceTree = "<group>"; };
+		C37936AE1B511A4B00BDC3C3 /* ChatScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatScene.m; sourceTree = "<group>"; };
+		C37936B41B51451100BDC3C3 /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
+		C37936B51B51451100BDC3C3 /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
+		C37936B71B51453C00BDC3C3 /* NSDateFormatter+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Category.h"; sourceTree = "<group>"; };
+		C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
+		C3BEC75F1B51EE5C00FB5474 /* ChatSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatSceneModel.h; sourceTree = "<group>"; };
+		C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSceneModel.m; sourceTree = "<group>"; };
+		C3BEC7631B525BFE00FB5474 /* TextMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextMessageCell.h; sourceTree = "<group>"; };
+		C3BEC7641B525C4F00FB5474 /* TextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextMessageCell.m; sourceTree = "<group>"; };
+		C3FB7D581B526D7000A6B581 /* UserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserRequest.h; sourceTree = "<group>"; };
+		C3FB7D591B526DAB00A6B581 /* UserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRequest.m; sourceTree = "<group>"; };
+		C3FB7D5B1B52791000A6B581 /* ChatMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
+		C3FB7D5C1B52793F00A6B581 /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
 		D60297B81A98BAC7003575F2 /* Aspect-Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Aspect-Window.m"; path = "iosapp/Aspect-Window.m"; sourceTree = SOURCE_ROOT; };
 		D60297BA1A98BB5E003575F2 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		D60297BB1A98BB5E003575F2 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
@@ -172,6 +193,28 @@
 				C37936AA1B5113F100BDC3C3 /* UserScene.m */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		C37936AC1B511A0500BDC3C3 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				C37936AD1B511A1700BDC3C3 /* ChatScene.h */,
+				C37936AE1B511A4B00BDC3C3 /* ChatScene.m */,
+				C3BEC7631B525BFE00FB5474 /* TextMessageCell.h */,
+				C3BEC7641B525C4F00FB5474 /* TextMessageCell.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		C37936B31B51449A00BDC3C3 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C37936B71B51453C00BDC3C3 /* NSDateFormatter+Category.h */,
+				C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */,
+				C37936B41B51451100BDC3C3 /* NSDate+Category.h */,
+				C37936B51B51451100BDC3C3 /* NSDate+Category.m */,
+			);
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		D60297C21A98C63B003575F2 /* Resource */ = {
@@ -284,6 +327,8 @@
 				C3602A781B48B246006DF6C8 /* UserListRequest.m */,
 				D661EF611B4DE9300019B280 /* LoginRequest.h */,
 				D661EF621B4DE9610019B280 /* LoginRequest.m */,
+				C3FB7D581B526D7000A6B581 /* UserRequest.h */,
+				C3FB7D591B526DAB00A6B581 /* UserRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -301,6 +346,8 @@
 				C3602A7E1B48DC0D006DF6C8 /* User.m */,
 				D661EF641B4DEB610019B280 /* Auth.h */,
 				D661EF651B4DEB9A0019B280 /* Auth.m */,
+				C3FB7D5B1B52791000A6B581 /* ChatMessage.h */,
+				C3FB7D5C1B52793F00A6B581 /* ChatMessage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +355,7 @@
 		D69748241A808862006004D1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C37936B31B51449A00BDC3C3 /* Vendor */,
 				D6D5BDC01B4F787600D6045F /* URLManage.plist */,
 				D661EF671B4DED130019B280 /* Util */,
 				D67332291B45075000A1D525 /* Request */,
@@ -324,15 +372,16 @@
 		D69748261A8088C1006004D1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				C37936AC1B511A0500BDC3C3 /* Chat */,
 				C37936A81B5113B700BDC3C3 /* User */,
 				D6D5BDC61B4F89B600D6045F /* Profile */,
 				D661EF591B4DC04F0019B280 /* SignIn */,
+				D661EF521B4CE4E20019B280 /* Splash */,
+				81C7F318018644C5E5355771 /* Moment */,
 				D60297BA1A98BB5E003575F2 /* TabBarController.h */,
 				D60297BB1A98BB5E003575F2 /* TabBarController.m */,
 				D60297BD1A98BC25003575F2 /* RDNavigationController.h */,
 				D60297BE1A98BC25003575F2 /* RDNavigationController.m */,
-				D661EF521B4CE4E20019B280 /* Splash */,
-				81C7F318018644C5E5355771 /* Moment */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -344,6 +393,8 @@
 				D67332241B44F78400A1D525 /* MomentListSceneModel.h */,
 				D661EF5E1B4DE3BC0019B280 /* SignInSceneModel.h */,
 				D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */,
+				C3BEC75F1B51EE5C00FB5474 /* ChatSceneModel.h */,
+				C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -504,22 +555,29 @@
 				C3602A7C1B48DB48006DF6C8 /* UserList.m in Sources */,
 				D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */,
 				D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */,
+				C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */,
 				D661EF551B4CE5310019B280 /* SplashScene.m in Sources */,
 				D661EF661B4DEB9A0019B280 /* Auth.m in Sources */,
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
 				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
+				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
+				C3FB7D5D1B52793F00A6B581 /* ChatMessage.m in Sources */,
+				C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */,
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
 				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
+				C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */,
 				D661EF581B4CFBB60019B280 /* Constants.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
+				C3FB7D5A1B526DAB00A6B581 /* UserRequest.m in Sources */,
 				D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */,
 				81C7F405F41A0E7F648738E4 /* MomentScene.m in Sources */,
+				C3BEC7651B525C4F00FB5474 /* TextMessageCell.m in Sources */,
 				D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

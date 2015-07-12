@@ -77,10 +77,12 @@
     [self.sceneModel onRequest:^(Auth *auth) {
         NSString* username = auth.objectId;
         NSString* password = self.passwordText.text;
+        @weakify(self)
         [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username
                                                             password:password
                                                           completion:
          ^(NSDictionary *loginInfo, EMError *error) {
+             @strongify(self)
              if (loginInfo && !error) {
                  [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
                  EMError *error = [[EaseMob sharedInstance].chatManager importDataToNewDatabase];

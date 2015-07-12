@@ -28,7 +28,9 @@
     self.logoutButton = [[UIButton alloc] initNavigationButtonWithTitle:@"Log Out" color:HEX_RGB(AM_YELLOW)];
     self.logoutButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [self showHudIndeterminate:@"正在退出登录，请稍候"];
+        @weakify(self)
         [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
+            @strongify(self)
             if (error && error.errorCode != EMErrorServerNotLogin) {
                 [self hideHudFailed:error.description];
             } else {

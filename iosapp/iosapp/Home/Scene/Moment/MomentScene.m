@@ -74,14 +74,14 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MomentCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MomentCell" forIndexPath:indexPath];
     Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-    [cell reload:moment];
+    [cell reloadData:moment];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView fd_heightForCellWithIdentifier:@"MomentCell" cacheByIndexPath:indexPath configuration:^(MomentCell *cell) {
         Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-        [cell reload:moment];
+        [cell reloadData:moment];
     }];
 }
 

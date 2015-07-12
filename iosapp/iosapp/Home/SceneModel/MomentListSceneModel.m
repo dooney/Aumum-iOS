@@ -7,8 +7,6 @@
 //
 
 #import "MomentListSceneModel.h"
-#import "MomentList.h"
-#import "UserList.h"
 
 @implementation MomentListSceneModel
 
