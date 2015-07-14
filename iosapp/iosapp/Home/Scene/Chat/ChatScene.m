@@ -9,6 +9,7 @@
 #import "ChatScene.h"
 #import "ChatSceneModel.h"
 #import "TextMessageCell.h"
+#import "TimeMessageCell.h"
 #import "NSDate+Category.h"
 #import "ReactiveCocoa.h"
 #import "UIViewController+MBHud.h"
@@ -38,14 +39,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.bounces = YES;
-    self.shakeToClearEnabled = YES;
-    self.keyboardPanningEnabled = YES;
-    self.shouldScrollToBottomAfterKeyboardShows = NO;
-    self.inverted = YES;
+    self.inverted = NO;
+    self.shouldScrollToBottomAfterKeyboardShows = YES;
     
+    self.tableView.fd_debugLogEnabled = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[TextMessageCell class] forCellReuseIdentifier:@"TextMessageCell"];
+    [self.tableView registerClass:[TimeMessageCell class] forCellReuseIdentifier:@"TimeMessageCell"];
     
     [self.leftButton setImage:[UIImage imageNamed:@"icn_upload"] forState:UIControlStateNormal];
     [self.leftButton setTintColor:[UIColor grayColor]];
@@ -60,7 +60,6 @@
     self.textInputbar.maxCharCount = 256;
     self.textInputbar.counterStyle = SLKCounterStyleSplit;
     self.textInputbar.counterPosition = SLKCounterPositionTop;
-    self.typingIndicatorView.canResignByTouch = YES;
     
     [self loadHud:self.view];
     
@@ -83,14 +82,6 @@
     } error:^(NSError *error) {
         [self hideHudFailed:error.localizedDescription];
     }];
-    
-    @weakify(self)
-    [RACObserve(self.sceneModel, dataSet)
-     subscribeNext:^(id x) {
-         @strongify(self)
-         [self.tableView reloadData];
-         [self.tableView scrollToRowAtIndexPath:self.sceneModel.scrollTo atScrollPosition:UITableViewScrollPositionTop animated:NO];
-     }];
 }
 
 - (void)loadMoreMessagesFrom:(long long)timestamp count:(NSInteger)count append:(BOOL)append {
@@ -100,35 +91,25 @@
         NSArray* messages = [self.sceneModel.conversation loadNumbersOfMessages:count before:timestamp];
         if ([messages count] > 0) {
             if (append) {
-                [self.sceneModel.messages insertObjects:messages atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [messages count])]];
                 NSArray* messageList = [self getMessages:messages];
-                id model = [self.sceneModel.dataSet firstObject];
-                if ([model isKindOfClass:[NSString class]]) {
-                    NSString* timestamp = model;
-                    [messageList enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id model, NSUInteger idx, BOOL *stop) {
-                        if ([model isKindOfClass:[NSString class]] && [timestamp isEqualToString:model]) {
-                            [self.sceneModel.dataSet removeObjectAtIndex:0];
-                            *stop = YES;
-                        }
-                    }];
-                }
                 self.sceneModel.messageCount = [self.sceneModel.dataSet count];
                 [self.sceneModel.dataSet insertObjects:messageList atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [messageList count])]];
-                self.sceneModel.scrollTo = [NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - self.sceneModel.messageCount - 1 inSection:0];
-                
-                EMMessage* latest = [self.sceneModel.messages lastObject];
+                EMMessage* latest = [messages firstObject];
                 self.sceneModel.chatTagDate = [NSDate dateWithTimeIntervalInMilliSecondSince1970:(NSTimeInterval)latest.timestamp];
             } else {
-                self.sceneModel.messages = [messages mutableCopy];
                 self.sceneModel.dataSet = [[self getMessages:messages] mutableCopy];
-                self.sceneModel.scrollTo = [NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - 1 inSection:0];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - self.sceneModel.messageCount - 1 inSection:0];
+                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            });
         }
     });
 }
 
 - (NSArray *)getMessages:(NSArray *)messages {
-    NSMutableArray* formatArray = [[NSMutableArray alloc] init];
+    NSMutableArray* formatArray = [NSMutableArray array];
     if ([messages count] > 0) {
         for (EMMessage* message in messages) {
             NSDate* createDate = [NSDate dateWithTimeIntervalInMilliSecondSince1970:(NSTimeInterval)message.timestamp];
@@ -148,10 +129,20 @@
 }
 
 - (void)addMessage:(EMMessage *)message {
-    [self.sceneModel.messages addObject:message];
-    NSArray *messages = [self getMessages:@[ message ]];
+    NSArray* messages = [self getMessages:@[ message ]];
     [self.sceneModel.dataSet addObjectsFromArray:messages];
-    self.sceneModel.scrollTo = [NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - 1 inSection:0];
+    NSMutableArray* indexPaths = [NSMutableArray array];
+    for (int i = messages.count; i > 0; i--) {
+        [indexPaths addObject:[NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - i inSection:0]];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView endUpdates];
+        NSIndexPath* lastIndexPath = [NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - 1 inSection:0];
+        [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    });
 }
 
 #pragma mark - IChatManagerDelegate
@@ -172,17 +163,31 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TextMessageCell *cell = (TextMessageCell *)[self.tableView dequeueReusableCellWithIdentifier:@"TextMessageCell"];
     id entity = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-    [cell reloadData:entity];
-    return cell;
+    if ([entity isKindOfClass:[ChatMessage class]]) {
+        TextMessageCell *cell = (TextMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"TextMessageCell"];
+        [cell reloadData:entity];
+        return cell;
+    } else if ([entity isKindOfClass:[NSString class]]) {
+        TimeMessageCell* cell = (TimeMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"TimeMessageCell"];
+        [cell reloadData:entity];
+        return cell;
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView fd_heightForCellWithIdentifier:@"TextMessageCell" cacheByIndexPath:indexPath configuration:^(TextMessageCell *cell) {
-        id entity = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-        [cell reloadData:entity];
-    }];
+    id entity = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
+    if ([entity isKindOfClass:[ChatMessage class]]) {
+        return [tableView fd_heightForCellWithIdentifier:@"TextMessageCell" cacheByIndexPath:indexPath configuration:^(TextMessageCell *cell) {
+            [cell reloadData:entity];
+        }];
+    } else if ([entity isKindOfClass:[NSString class]]) {
+        return [tableView fd_heightForCellWithIdentifier:@"TimeMessageCell" cacheByIndexPath:indexPath configuration:^(TextMessageCell *cell) {
+            [cell reloadData:entity];
+        }];
+    }
+    return 0;
 }
 
 @end

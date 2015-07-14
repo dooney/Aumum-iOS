@@ -48,6 +48,9 @@
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
+		D6ECF1CB1B5482FA001C013A /* TimeMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1CA1B5482FA001C013A /* TimeMessageCell.m */; };
+		D6ECF1DE1B54BF29001C013A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF1E01B54BF29001C013A /* Localizable.strings */; };
+		D6ECF1E91B54C00B001C013A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF1EB1B54C00B001C013A /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +139,10 @@
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
 		D6E0498C1B47B2DA00A867C8 /* MomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentCell.m; sourceTree = "<group>"; };
 		D6E049931B49447600A867C8 /* Aspect-Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Util.m"; sourceTree = "<group>"; };
+		D6ECF1C91B5482CF001C013A /* TimeMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeMessageCell.h; sourceTree = "<group>"; };
+		D6ECF1CA1B5482FA001C013A /* TimeMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeMessageCell.m; sourceTree = "<group>"; };
+		D6ECF1DF1B54BF29001C013A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D6ECF1EA1B54C00B001C013A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DCCE54AD975929494FE5A76D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -202,6 +209,8 @@
 				C37936AE1B511A4B00BDC3C3 /* ChatScene.m */,
 				C3BEC7631B525BFE00FB5474 /* TextMessageCell.h */,
 				C3BEC7641B525C4F00FB5474 /* TextMessageCell.m */,
+				D6ECF1C91B5482CF001C013A /* TimeMessageCell.h */,
+				D6ECF1CA1B5482FA001C013A /* TimeMessageCell.m */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -268,6 +277,8 @@
 			children = (
 				D62A39B11A7F0AB9007347B5 /* Info.plist */,
 				D62A39B21A7F0AB9007347B5 /* main.m */,
+				D6ECF1E01B54BF29001C013A /* Localizable.strings */,
+				D6ECF1EB1B54C00B001C013A /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -356,7 +367,6 @@
 			isa = PBXGroup;
 			children = (
 				C37936B31B51449A00BDC3C3 /* Vendor */,
-				D6D5BDC01B4F787600D6045F /* URLManage.plist */,
 				D661EF671B4DED130019B280 /* Util */,
 				D67332291B45075000A1D525 /* Request */,
 				D60297C21A98C63B003575F2 /* Resource */,
@@ -365,6 +375,7 @@
 				D69748261A8088C1006004D1 /* Scene */,
 				D661EF561B4CF4DA0019B280 /* Constants.h */,
 				D661EF571B4CFBB60019B280 /* Constants.m */,
+				D6D5BDC01B4F787600D6045F /* URLManage.plist */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -473,6 +484,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = D62A39A41A7F0AB9007347B5;
 			productRefGroup = D62A39AE1A7F0AB9007347B5 /* Products */;
@@ -490,7 +502,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6ECF1E91B54C00B001C013A /* Localizable.strings in Resources */,
 				D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */,
+				D6ECF1DE1B54BF29001C013A /* Localizable.strings in Resources */,
 				D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */,
 				D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */,
 			);
@@ -557,6 +571,7 @@
 				D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */,
 				C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */,
 				D661EF551B4CE5310019B280 /* SplashScene.m in Sources */,
+				D6ECF1CB1B5482FA001C013A /* TimeMessageCell.m in Sources */,
 				D661EF661B4DEB9A0019B280 /* Auth.m in Sources */,
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
 				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
@@ -599,6 +614,25 @@
 			targetProxy = D62A39CA1A7F0AB9007347B5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D6ECF1E01B54BF29001C013A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6ECF1DF1B54BF29001C013A /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D6ECF1EB1B54C00B001C013A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6ECF1EA1B54C00B001C013A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D62A39D11A7F0AB9007347B5 /* Debug */ = {

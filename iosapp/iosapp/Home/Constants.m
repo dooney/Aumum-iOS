@@ -10,6 +10,8 @@
 
 NSUInteger const AM_RED = 0xff6060;
 NSUInteger const AM_YELLOW = 0xffde00;
+NSUInteger const AM_GREY = 0x999999;
 
+CGFloat const TX_SZ_SMALL = 12.0f;
 CGFloat const TX_SZ_MEDIUM = 16.0f;
 

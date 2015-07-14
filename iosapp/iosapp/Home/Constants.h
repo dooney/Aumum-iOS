@@ -14,7 +14,9 @@
 
 extern NSUInteger const AM_RED;
 extern NSUInteger const AM_YELLOW;
+extern NSUInteger const AM_GREY;
 
+extern CGFloat const TX_SZ_SMALL;
 extern CGFloat const TX_SZ_MEDIUM;
 
 #endif

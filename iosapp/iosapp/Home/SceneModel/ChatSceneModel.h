@@ -19,9 +19,7 @@
 @property (nonatomic, strong) EMConversation* conversation;
 @property (nonatomic, strong) NSDate* chatTagDate;
 @property (nonatomic, strong) NSMutableArray* dataSet;
-@property (nonatomic, strong) NSMutableArray* messages;
 @property (nonatomic, assign) int messageCount;
-@property (nonatomic, strong) NSIndexPath* scrollTo;
 @property (nonatomic, strong) UserRequest* userRequest;
 @property (nonatomic, strong) User* user;
 

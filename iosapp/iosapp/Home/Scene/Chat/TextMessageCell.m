@@ -41,19 +41,19 @@
 }
 
 - (void)reloadData:(id)entity {
-    if ([entity isKindOfClass:[ChatMessage class]]) {
-        ChatMessage* message = entity;
-        self.textContent.text = message.textContent;
-        [self.avatarImage setImageWithResizeURL:message.user.avatarUrl];
-    }
+    ChatMessage* message = entity;
+    self.textContent.text = message.textContent;
+    [self.avatarImage setImageWithResizeURL:message.user.avatarUrl];
 }
 
 - (void)loadAutoLayout {
     [self.avatarImage alignTop:@"10" leading:@"10" toView:self.avatarImage.superview];
+    [self.avatarImage alignBottomEdgeWithView:self.avatarImage.superview predicate:@"10"];
     [self.avatarImage constrainWidth:@"40" height:@"40"];
     
     [self.textContent constrainLeadingSpaceToView:self.avatarImage predicate:@"10"];
-    [self.textContent alignTopEdgeWithView:self.avatarImage predicate:nil];
+    [self.textContent alignTopEdgeWithView:self.avatarImage predicate:@"10"];
+    [self.textContent constrainWidth:@"200"];
 }
 
 @end
