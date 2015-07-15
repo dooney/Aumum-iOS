@@ -13,11 +13,17 @@
 - (void)loadRequest {
     [super loadRequest];
     self.METHOD = @"GET";
-    [self.params setValue:@"objectId,avatarUrl,screenName" forKey:@"keys"];
+    [self.params setValue:@"objectId,chatId,avatarUrl,screenName" forKey:@"keys"];
 }
 
 - (void)setUserId:(NSString*)userId {
     self.PATH = [NSString stringWithFormat:@"/1/users/%@", userId];
+}
+
+- (NSError*)outputHandler:(NSDictionary* )output {
+    NSError* error;
+    self.user = [[User alloc] initWithDictionary:output error:&error];
+    return error;
 }
 
 @end

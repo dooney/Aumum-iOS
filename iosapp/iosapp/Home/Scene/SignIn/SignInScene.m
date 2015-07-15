@@ -74,8 +74,8 @@
 - (void)initSceneModel {
     self.sceneModel = [SignInSceneModel SceneModel];
     
-    [self.sceneModel onRequest:^(Auth *auth) {
-        NSString* username = auth.objectId;
+    [self.sceneModel.request onRequest:^() {
+        NSString* username = self.sceneModel.request.auth.objectId;
         NSString* password = self.passwordText.text;
         @weakify(self)
         [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username
@@ -90,8 +90,8 @@
                      error = [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
                  }
                  
-                 [KeyChainUtil setToken:auth.sessionToken];
-                 [KeyChainUtil setCurrentUserId:auth.objectId];
+                 [KeyChainUtil setToken:self.sceneModel.request.auth.sessionToken];
+                 [KeyChainUtil setCurrentUserId:self.sceneModel.request.auth.objectId];
                  [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStateChange" object:@YES];
              } else {
                  switch (error.errorCode) {

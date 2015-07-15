@@ -20,34 +20,4 @@
     }];
 }
 
-- (void)onUserRequest:(void (^)(User* user))successHandler
-                error:(void (^)(NSError* error))errorHandler {
-    @weakify(self)
-    [[RACObserve(self.userRequest, state)
-      filter:^BOOL(NSNumber* state) {
-          @strongify(self)
-          if (self.userRequest.failed && self.userRequest.error) {
-              if (errorHandler) {
-                  errorHandler(self.userRequest.error);
-              }
-              return NO;
-          }
-          return self.userRequest.succeed;
-      }]
-     subscribeNext:^(NSNumber* state) {
-         @strongify(self)
-         NSError* error;
-         self.user = [[User alloc] initWithDictionary:self.userRequest.output error:&error];
-         if (error) {
-             if (errorHandler) {
-                 errorHandler(error);
-             }
-             return;
-         }
-         if (successHandler) {
-             successHandler(self.user);
-         }
-     }];
-}
-
 @end

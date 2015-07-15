@@ -21,4 +21,37 @@
                               };
 }
 
+- (void)onRequest:(void (^)())successHandler
+            error:(void (^)(NSError* error))errorHandler {
+    @weakify(self)
+    [[RACObserve(self, state)
+      filter:^BOOL(NSNumber* state) {
+          @strongify(self)
+          if (self.failed && self.error) {
+              if (errorHandler) {
+                  errorHandler(self.error);
+              }
+              return NO;
+          }
+          return self.succeed;
+      }]
+     subscribeNext:^(NSNumber* state) {
+         @strongify(self)
+         NSError* error = [self outputHandler:self.output];
+         if (error) {
+             if (errorHandler) {
+                 errorHandler(error);
+             }
+             return;
+         }
+         if (successHandler) {
+             successHandler();
+         }
+     }];
+}
+
+- (NSError*)outputHandler:(NSDictionary* )output {
+    return nil;
+}
+
 @end

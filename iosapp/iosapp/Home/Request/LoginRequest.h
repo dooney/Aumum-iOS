@@ -10,8 +10,11 @@
 #define iosapp_LoginRequest_h
 
 #import "BaseRequest.h"
+#import "Auth.h"
 
 @interface LoginRequest : BaseRequest
+
+@property (nonatomic, strong)Auth* auth;
 
 - (void)setAuthInfo:(NSString*)userName password:(NSString*)password;
 

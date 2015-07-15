@@ -1,15 +1,15 @@
 //
-//  UserListRequest.m
+//  UserListByChatIdRequest.m
 //  iosapp
 //
-//  Created by Administrator on 5/07/2015.
+//  Created by Simpson Du on 14/07/2015.
 //  Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 //
 
-#import "UserListRequest.h"
+#import "UserListByChatIdRequest.h"
 #import "NSString+EasyExtend.h"
 
-@implementation UserListRequest
+@implementation UserListByChatIdRequest
 
 - (void)loadRequest {
     [super loadRequest];
@@ -18,9 +18,9 @@
     [self.params setValue:@"objectId,chatId,avatarUrl,screenName" forKey:@"keys"];
 }
 
-- (void)setUserIdList:(NSArray *)userIdList {
-    NSDictionary* inJson = @{ @"$in": userIdList };
-    NSDictionary* whereJson = @{ @"objectId": inJson };
+- (void)setChatIdList:(NSArray *)chatIdList {
+    NSDictionary* inJson = @{ @"$in": chatIdList };
+    NSDictionary* whereJson = @{ @"chatId": inJson };
     [self.params setValue:[NSString jsonStringWithDictionary:whereJson] forKey:@"where"];
 }
 
@@ -31,5 +31,3 @@
 }
 
 @end
-
-

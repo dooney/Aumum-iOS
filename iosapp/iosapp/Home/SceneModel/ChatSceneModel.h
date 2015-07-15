@@ -12,19 +12,14 @@
 #import "SceneModel.h"
 #import "EaseMob.h"
 #import "UserRequest.h"
-#import "User.h"
 
 @interface ChatSceneModel : SceneModel
 
 @property (nonatomic, strong) EMConversation* conversation;
 @property (nonatomic, strong) NSDate* chatTagDate;
 @property (nonatomic, strong) NSMutableArray* dataSet;
-@property (nonatomic, assign) int messageCount;
+@property (nonatomic, assign) NSInteger messageCount;
 @property (nonatomic, strong) UserRequest* userRequest;
-@property (nonatomic, strong) User* user;
-
-- (void)onUserRequest:(void (^)(User* user))successHandler
-                error:(void (^)(NSError* error))errorHandler;
 
 @end
 

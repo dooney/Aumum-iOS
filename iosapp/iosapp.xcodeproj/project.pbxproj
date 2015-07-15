@@ -51,6 +51,11 @@
 		D6ECF1CB1B5482FA001C013A /* TimeMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1CA1B5482FA001C013A /* TimeMessageCell.m */; };
 		D6ECF1DE1B54BF29001C013A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF1E01B54BF29001C013A /* Localizable.strings */; };
 		D6ECF1E91B54C00B001C013A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF1EB1B54C00B001C013A /* Localizable.strings */; };
+		D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1EE1B55AE19001C013A /* ConversationScene.m */; };
+		D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F21B55AFC1001C013A /* ConversationListSceneModel.m */; };
+		D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F51B55B0DC001C013A /* ConversationCell.m */; };
+		D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F81B55B4F9001C013A /* Conversation.m */; };
+		D6ECF1FC1B561877001C013A /* UserListByChatIdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +148,16 @@
 		D6ECF1CA1B5482FA001C013A /* TimeMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeMessageCell.m; sourceTree = "<group>"; };
 		D6ECF1DF1B54BF29001C013A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D6ECF1EA1B54C00B001C013A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6ECF1ED1B55ADE0001C013A /* ConversationScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationScene.h; sourceTree = "<group>"; };
+		D6ECF1EE1B55AE19001C013A /* ConversationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationScene.m; sourceTree = "<group>"; };
+		D6ECF1F11B55AF97001C013A /* ConversationListSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationListSceneModel.h; sourceTree = "<group>"; };
+		D6ECF1F21B55AFC1001C013A /* ConversationListSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationListSceneModel.m; sourceTree = "<group>"; };
+		D6ECF1F41B55B098001C013A /* ConversationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
+		D6ECF1F51B55B0DC001C013A /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
+		D6ECF1F71B55B4D0001C013A /* Conversation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		D6ECF1F81B55B4F9001C013A /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		D6ECF1FA1B56185E001C013A /* UserListByChatIdRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListByChatIdRequest.h; sourceTree = "<group>"; };
+		D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListByChatIdRequest.m; sourceTree = "<group>"; };
 		DCCE54AD975929494FE5A76D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -330,8 +345,8 @@
 		D67332291B45075000A1D525 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				D673322A1B4507E400A1D525 /* MomentListRequest.m */,
 				D673322C1B4507F800A1D525 /* MomentListRequest.h */,
+				D673322A1B4507E400A1D525 /* MomentListRequest.m */,
 				D673322D1B450D9400A1D525 /* BaseRequest.h */,
 				D673322E1B450DA300A1D525 /* BaseRequest.m */,
 				C3602A771B48B218006DF6C8 /* UserListRequest.h */,
@@ -340,6 +355,8 @@
 				D661EF621B4DE9610019B280 /* LoginRequest.m */,
 				C3FB7D581B526D7000A6B581 /* UserRequest.h */,
 				C3FB7D591B526DAB00A6B581 /* UserRequest.m */,
+				D6ECF1FA1B56185E001C013A /* UserListByChatIdRequest.h */,
+				D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -359,6 +376,8 @@
 				D661EF651B4DEB9A0019B280 /* Auth.m */,
 				C3FB7D5B1B52791000A6B581 /* ChatMessage.h */,
 				C3FB7D5C1B52793F00A6B581 /* ChatMessage.m */,
+				D6ECF1F71B55B4D0001C013A /* Conversation.h */,
+				D6ECF1F81B55B4F9001C013A /* Conversation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -383,6 +402,7 @@
 		D69748261A8088C1006004D1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D6ECF1EC1B55ADCF001C013A /* Conversation */,
 				C37936AC1B511A0500BDC3C3 /* Chat */,
 				C37936A81B5113B700BDC3C3 /* User */,
 				D6D5BDC61B4F89B600D6045F /* Profile */,
@@ -400,12 +420,14 @@
 		D69748331A80915E006004D1 /* SceneModel */ = {
 			isa = PBXGroup;
 			children = (
-				D67332221B44F75B00A1D525 /* MomentListSceneModel.m */,
 				D67332241B44F78400A1D525 /* MomentListSceneModel.h */,
+				D67332221B44F75B00A1D525 /* MomentListSceneModel.m */,
 				D661EF5E1B4DE3BC0019B280 /* SignInSceneModel.h */,
 				D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */,
 				C3BEC75F1B51EE5C00FB5474 /* ChatSceneModel.h */,
 				C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */,
+				D6ECF1F11B55AF97001C013A /* ConversationListSceneModel.h */,
+				D6ECF1F21B55AFC1001C013A /* ConversationListSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -417,6 +439,17 @@
 				D6D5BDC81B4F89F300D6045F /* ProfileScene.m */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D6ECF1EC1B55ADCF001C013A /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				D6ECF1ED1B55ADE0001C013A /* ConversationScene.h */,
+				D6ECF1EE1B55AE19001C013A /* ConversationScene.m */,
+				D6ECF1F41B55B098001C013A /* ConversationCell.h */,
+				D6ECF1F51B55B0DC001C013A /* ConversationCell.m */,
+			);
+			path = Conversation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,10 +592,14 @@
 			files = (
 				C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */,
 				D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */,
+				D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
+				D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */,
 				D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */,
+				D6ECF1FC1B561877001C013A /* UserListByChatIdRequest.m in Sources */,
 				C3602A7F1B48DC0E006DF6C8 /* User.m in Sources */,
 				D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */,
+				D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */,
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
 				D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */,
@@ -594,6 +631,7 @@
 				81C7F405F41A0E7F648738E4 /* MomentScene.m in Sources */,
 				C3BEC7651B525C4F00FB5474 /* TextMessageCell.m in Sources */,
 				D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */,
+				D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,7 +707,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -704,7 +742,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

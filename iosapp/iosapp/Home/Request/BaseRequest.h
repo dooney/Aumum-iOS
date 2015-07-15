@@ -13,6 +13,9 @@
 
 @interface BaseRequest : Request
 
+- (void)onRequest:(void (^)())successHandler
+            error:(void (^)(NSError* error))errorHandler;
+
 @end
 
 #endif

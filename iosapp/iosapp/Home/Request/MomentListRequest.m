@@ -18,4 +18,10 @@
     [self.params setValue:[NSNumber numberWithInt:12] forKey:@"limit"];
 }
 
+- (NSError*)outputHandler:(NSDictionary* )output {
+    NSError* error;
+    self.list = [[MomentList alloc] initWithDictionary:self.output error:&error];
+    return error;
+}
+
 @end

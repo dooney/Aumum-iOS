@@ -10,8 +10,11 @@
 #define iosapp_UserListRequest_h
 
 #import "BaseRequest.h"
+#import "UserList.h"
 
 @interface UserListRequest : BaseRequest
+
+@property (nonatomic, strong) UserList* list;
 
 - (void)setUserIdList:(NSArray *)userIdList;
 

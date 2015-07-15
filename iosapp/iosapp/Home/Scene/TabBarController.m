@@ -9,11 +9,13 @@
 #import "TabBarController.h"
 #import "RDNavigationController.h"
 #import "MomentScene.h"
+#import "ConversationScene.h"
 #import "ProfileScene.h"
 
 @interface TabBarController ()<UITabBarControllerDelegate>
 
 @property (nonatomic, strong) RDNavigationController* momentNavController;
+@property (nonatomic, strong) RDNavigationController* conversationNavController;
 @property (nonatomic, strong) RDNavigationController* profileNavController;
 
 @end
@@ -27,11 +29,15 @@
     self.momentNavController = [[RDNavigationController alloc] initWithRootViewController:[[MomentScene alloc] init]];
     [self.momentNavController.tabBarItem setTitle:@"Home"];
     
+    self.conversationNavController = [[RDNavigationController alloc] initWithRootViewController:[[ConversationScene alloc] init]];
+    [self.conversationNavController.tabBarItem setTitle:@"Conversation"];
+    
     self.profileNavController = [[RDNavigationController alloc] initWithRootViewController:[[ProfileScene alloc] init]];
     [self.profileNavController.tabBarItem setTitle:@"Profile"];
     
     self.viewControllers = [NSArray arrayWithObjects:
                             self.momentNavController,
+                            self.conversationNavController,
                             self.profileNavController,
                             nil];
     

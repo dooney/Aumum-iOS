@@ -28,7 +28,7 @@
     self.textContent = [[UILabel alloc] init];
     self.textContent.textAlignment = NSTextAlignmentCenter;
     self.textContent.font = [UIFont systemFontOfSize:TX_SZ_SMALL];
-    self.textContent.textColor = HEX_RGB(AM_GREY);
+    self.textContent.textColor = [UIColor lightGrayColor];
     [self.contentView addSubview:self.textContent];
     
     [self loadAutoLayout];

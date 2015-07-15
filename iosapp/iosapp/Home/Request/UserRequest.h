@@ -10,8 +10,11 @@
 #define iosapp_UserRequest_h
 
 #import "BaseRequest.h"
+#import "User.h"
 
 @interface UserRequest : BaseRequest
+
+@property (nonatomic, strong) User* user;
 
 - (void)setUserId:(NSString*)userId;
 

@@ -70,13 +70,17 @@
     [self initSceneModel];
 }
 
+- (void)dealloc {
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+}
+
 - (void)initSceneModel {
     self.sceneModel = [ChatSceneModel SceneModel];
     self.sceneModel.conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:_userId conversationType:eConversationTypeChat];
     [self.sceneModel.conversation markAllMessagesAsRead:YES];
     [self.sceneModel.userRequest setUserId:_userId];
     self.sceneModel.userRequest.requestNeedActive = YES;
-    [self.sceneModel onUserRequest:^(User *user) {
+    [self.sceneModel.userRequest onRequest:^() {
         long long timestamp = [[NSDate date] timeIntervalSince1970] * 1000 + 1;
         [self loadMoreMessagesFrom:timestamp count:20 append:NO];
     } error:^(NSError *error) {
@@ -120,7 +124,7 @@
             }
             
             ChatMessage* chatMessage = [[ChatMessage alloc] initWithMessage:message];
-            chatMessage.user = self.sceneModel.user;
+            chatMessage.user = self.sceneModel.userRequest.user;
             [formatArray addObject:chatMessage];
         }
     }
@@ -132,7 +136,7 @@
     NSArray* messages = [self getMessages:@[ message ]];
     [self.sceneModel.dataSet addObjectsFromArray:messages];
     NSMutableArray* indexPaths = [NSMutableArray array];
-    for (int i = messages.count; i > 0; i--) {
+    for (NSInteger i = messages.count; i > 0; i--) {
         [indexPaths addObject:[NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - i inSection:0]];
     }
     dispatch_async(dispatch_get_main_queue(), ^{

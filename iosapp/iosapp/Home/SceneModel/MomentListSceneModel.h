@@ -11,23 +11,13 @@
 
 #import "SceneModel.h"
 #import "MomentListRequest.h"
-#import "MomentList.h"
 #import "UserListRequest.h"
-#import "UserList.h"
 
 @interface MomentListSceneModel : SceneModel
 
-@property (nonatomic, strong) MomentListRequest* request;
-@property (nonatomic, strong) MomentList* list;
 @property (nonatomic, strong) NSMutableArray* dataSet;
+@property (nonatomic, strong) MomentListRequest* request;
 @property (nonatomic, strong) UserListRequest* userListRequest;
-@property (nonatomic, strong) UserList* userList;
-
-- (void)onRequest:(void (^)(MomentList* list))successHandler
-            error:(void (^)(NSError* error))errorHandler;
-
-- (void)onUserListRequest:(void (^)(UserList* list))successHandler
-                    error:(void (^)(NSError* error))errorHandler;
 
 @end
 

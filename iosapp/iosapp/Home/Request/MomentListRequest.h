@@ -10,8 +10,11 @@
 #define iosapp_MomentListRequest_h
 
 #import "BaseRequest.h"
+#import "MomentList.h"
 
 @interface MomentListRequest : BaseRequest
+
+@property (nonatomic, strong) MomentList* list;
 
 @end
 

@@ -21,4 +21,10 @@
     [self.params setValue:password forKey:@"password"];
 }
 
+- (NSError*)outputHandler:(NSDictionary* )output {
+    NSError* error;
+    self.auth = [[Auth alloc] initWithDictionary:self.output error:&error];
+    return error;
+}
+
 @end

@@ -42,19 +42,29 @@
     self.sceneModel = [MomentListSceneModel SceneModel];
     self.sceneModel.request.requestNeedActive = YES;
     
-    [self.sceneModel onRequest:^(MomentList *list) {
-        if (self.sceneModel.dataSet == nil) {
-            self.sceneModel.dataSet = [NSMutableArray array];
+    [self.sceneModel.request onRequest:^() {
+        if (self.sceneModel.request.list &&
+            self.sceneModel.request.list.results.count > 0) {
+            if (!self.sceneModel.dataSet) {
+                self.sceneModel.dataSet = [NSMutableArray array];
+            }
+            [self.sceneModel.dataSet addObjectsFromArray:self.sceneModel.request.list.results];
+            NSMutableArray* userIdList = [NSMutableArray array];
+            for (Moment* moment in self.sceneModel.request.list.results) {
+                if (![userIdList containsObject:moment.userId]) {
+                    [userIdList addObject:moment.userId];
+                }
+            }
+            [self.sceneModel.userListRequest setUserIdList:userIdList];
+            self.sceneModel.userListRequest.requestNeedActive = YES;
         }
-        [self.sceneModel.dataSet addObjectsFromArray:list.results];
-        self.sceneModel.userListRequest.requestNeedActive = YES;
     } error:^(NSError* error) {
         [self hideHudFailed:error.localizedDescription];
     }];
     
-    [self.sceneModel onUserListRequest:^(UserList *list) {
+    [self.sceneModel.userListRequest onRequest:^() {
         for (Moment* moment in self.sceneModel.dataSet) {
-            for (User* user in list.results) {
+            for (User* user in self.sceneModel.userListRequest.list.results) {
                 if ([moment.userId isEqualToString:user.objectId]) {
                     moment.user = user;
                 }

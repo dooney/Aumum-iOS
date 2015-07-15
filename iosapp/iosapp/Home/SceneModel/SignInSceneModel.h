@@ -11,15 +11,10 @@
 
 #import "SceneModel.h"
 #import "LoginRequest.h"
-#import "Auth.h"
 
 @interface SignInSceneModel : SceneModel
 
 @property (nonatomic, strong)LoginRequest* request;
-@property (nonatomic, strong)Auth* auth;
-
-- (void)onRequest:(void (^)(Auth* auth))successHandler
-            error:(void (^)(NSError* error))errorHandler;
 
 @end
 
