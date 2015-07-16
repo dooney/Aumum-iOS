@@ -15,10 +15,10 @@
     self.SCHEME = @"https";
     self.HOST = @"api.parse.com";
     self.needCheckCode = NO;
-    self.httpHeaderFields = @{
-                              @"X-Parse-Application-Id": @"hJSBmj3YSXBuZkpXIPuFbR3nZiIZWr0uNfCFBXLl",
-                              @"X-Parse-REST-API-Key": @"bLKzd37O5lF6o11FdQ2q0NwQferhjEEvIXFVxEcA"
-                              };
+    self.httpHeaderFields = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                                                              @"X-Parse-Application-Id": @"hJSBmj3YSXBuZkpXIPuFbR3nZiIZWr0uNfCFBXLl",
+                                                                              @"X-Parse-REST-API-Key": @"bLKzd37O5lF6o11FdQ2q0NwQferhjEEvIXFVxEcA"
+                                                                              }];
 }
 
 - (void)onRequest:(void (^)())successHandler

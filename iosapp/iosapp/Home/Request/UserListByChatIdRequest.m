@@ -27,6 +27,9 @@
 - (NSError*)outputHandler:(NSDictionary* )output {
     NSError* error;
     self.list = [[UserList alloc] initWithDictionary:self.output error:&error];
+    for (User* user in self.list.results) {
+        [user insertOrReplace:user.objectId];
+    }
     return error;
 }
 

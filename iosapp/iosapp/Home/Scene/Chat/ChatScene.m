@@ -8,18 +8,20 @@
 
 #import "ChatScene.h"
 #import "ChatSceneModel.h"
-#import "TextMessageCell.h"
-#import "TimeMessageCell.h"
-#import "NSDate+Category.h"
 #import "ReactiveCocoa.h"
-#import "UIViewController+MBHud.h"
-#import "ChatMessage.h"
-#import "UITableView+FDTemplateLayoutCell.h"
+#import "EaseMob.h"
+#import "JSQMessages.h"
+#import "ChatSendHelper.h"
+#import "NSDate+Category.h"
+#import "UIImage+EasyExtend.h"
 
 @interface ChatScene()<IChatManagerDelegate>
 {
-    dispatch_queue_t _messageQueue;
     NSString* _userId;
+    EMConversation* _conversation;
+    JSQMessagesBubbleImage* _outgoingBubbleImageData;
+    JSQMessagesBubbleImage* _incomingBubbleImageData;
+    NSDictionary* _avatars;
 }
 
 @property (nonatomic, strong)ChatSceneModel* sceneModel;
@@ -39,35 +41,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.inverted = NO;
-    self.shouldScrollToBottomAfterKeyboardShows = YES;
-    
-    self.tableView.fd_debugLogEnabled = YES;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[TextMessageCell class] forCellReuseIdentifier:@"TextMessageCell"];
-    [self.tableView registerClass:[TimeMessageCell class] forCellReuseIdentifier:@"TimeMessageCell"];
-    
-    [self.leftButton setImage:[UIImage imageNamed:@"icn_upload"] forState:UIControlStateNormal];
-    [self.leftButton setTintColor:[UIColor grayColor]];
-    
-    [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
-    
-    [self.textInputbar.editorTitle setTextColor:[UIColor darkGrayColor]];
-    [self.textInputbar.editortLeftButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
-    [self.textInputbar.editortRightButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
-    
-    self.textInputbar.autoHideRightButton = YES;
-    self.textInputbar.maxCharCount = 256;
-    self.textInputbar.counterStyle = SLKCounterStyleSplit;
-    self.textInputbar.counterPosition = SLKCounterPositionTop;
-    
-    [self loadHud:self.view];
-    
-    _messageQueue = dispatch_queue_create("com.aumum.iosapp", NULL);
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+    _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:_userId conversationType:eConversationTypeChat];
+    [_conversation markAllMessagesAsRead:YES];
     
     [self initSceneModel];
+    
+    self.senderId = self.sceneModel.profile.chatId;
+    self.senderDisplayName = self.sceneModel.profile.screenName;
+    JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
+    _outgoingBubbleImageData = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
+    _incomingBubbleImageData = [bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleGreenColor]];
+    JSQMessagesAvatarImage* userAvatar = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageWithUrl:self.sceneModel.user.avatarUrl]
+                                                                                    diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
+    JSQMessagesAvatarImage* profileAvatar = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageWithUrl:self.sceneModel.profile.avatarUrl]
+                                                                                       diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
+    _avatars = @{
+                 self.sceneModel.user.chatId:userAvatar,
+                 self.sceneModel.profile.chatId:profileAvatar
+                 };
 }
 
 - (void)dealloc {
@@ -76,122 +69,238 @@
 
 - (void)initSceneModel {
     self.sceneModel = [ChatSceneModel SceneModel];
-    self.sceneModel.conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:_userId conversationType:eConversationTypeChat];
-    [self.sceneModel.conversation markAllMessagesAsRead:YES];
-    [self.sceneModel.userRequest setUserId:_userId];
-    self.sceneModel.userRequest.requestNeedActive = YES;
-    [self.sceneModel.userRequest onRequest:^() {
-        long long timestamp = [[NSDate date] timeIntervalSince1970] * 1000 + 1;
-        [self loadMoreMessagesFrom:timestamp count:20 append:NO];
-    } error:^(NSError *error) {
-        [self hideHudFailed:error.localizedDescription];
-    }];
+    
+    self.sceneModel.profile = [Profile get];
+    self.sceneModel.user = [User getById:_userId];
+    long long timestamp = [[NSDate date] timeIntervalSince1970] * 1000 + 1;
+    [self loadMoreMessagesFrom:timestamp count:20 append:NO];
 }
 
 - (void)loadMoreMessagesFrom:(long long)timestamp count:(NSInteger)count append:(BOOL)append {
-    @weakify(self)
-    dispatch_async(_messageQueue, ^{
-        @strongify(self)
-        NSArray* messages = [self.sceneModel.conversation loadNumbersOfMessages:count before:timestamp];
-        if ([messages count] > 0) {
-            if (append) {
-                NSArray* messageList = [self getMessages:messages];
-                self.sceneModel.messageCount = [self.sceneModel.dataSet count];
-                [self.sceneModel.dataSet insertObjects:messageList atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [messageList count])]];
-                EMMessage* latest = [messages firstObject];
-                self.sceneModel.chatTagDate = [NSDate dateWithTimeIntervalInMilliSecondSince1970:(NSTimeInterval)latest.timestamp];
-            } else {
-                self.sceneModel.dataSet = [[self getMessages:messages] mutableCopy];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-                NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - self.sceneModel.messageCount - 1 inSection:0];
-                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            });
-        }
-    });
-}
-
-- (NSArray *)getMessages:(NSArray *)messages {
-    NSMutableArray* formatArray = [NSMutableArray array];
+    NSArray* messages = [_conversation loadNumbersOfMessages:count before:timestamp];
     if ([messages count] > 0) {
-        for (EMMessage* message in messages) {
-            NSDate* createDate = [NSDate dateWithTimeIntervalInMilliSecondSince1970:(NSTimeInterval)message.timestamp];
-            NSTimeInterval tempDate = [createDate timeIntervalSinceDate:self.sceneModel.chatTagDate];
-            if (tempDate > 60 || tempDate < -60 || (self.sceneModel.chatTagDate == nil)) {
-                [formatArray addObject:[createDate formattedTime]];
-                self.sceneModel.chatTagDate = createDate;
+        NSMutableArray* messageList = [NSMutableArray array];
+        if ([messages count] > 0) {
+            for (EMMessage* message in messages) {
+                JSQMessage* jsqMessage = [self getMessage:message];
+                [messageList addObject:jsqMessage];
             }
-            
-            ChatMessage* chatMessage = [[ChatMessage alloc] initWithMessage:message];
-            chatMessage.user = self.sceneModel.userRequest.user;
-            [formatArray addObject:chatMessage];
+        }
+        if (append) {
+            [self.sceneModel.dataSet insertObjects:messageList atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [messageList count])]];
+        } else {
+            self.sceneModel.dataSet = [messageList mutableCopy];
         }
     }
-    
-    return formatArray;
 }
 
-- (void)addMessage:(EMMessage *)message {
-    NSArray* messages = [self getMessages:@[ message ]];
-    [self.sceneModel.dataSet addObjectsFromArray:messages];
-    NSMutableArray* indexPaths = [NSMutableArray array];
-    for (NSInteger i = messages.count; i > 0; i--) {
-        [indexPaths addObject:[NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - i inSection:0]];
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView beginUpdates];
-        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
-        [self.tableView endUpdates];
-        NSIndexPath* lastIndexPath = [NSIndexPath indexPathForRow:[self.sceneModel.dataSet count] - 1 inSection:0];
-        [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    });
+- (JSQMessage *)getMessage:(EMMessage *)message {
+    id<IEMMessageBody> messageBody = [message.messageBodies firstObject];
+    return [[JSQMessage alloc] initWithSenderId:message.from
+                              senderDisplayName:self.sceneModel.user.screenName
+                                           date:[NSDate dateWithTimeIntervalInMilliSecondSince1970:message.timestamp]
+                                           text:((EMTextMessageBody*)messageBody).text];
 }
 
 #pragma mark - IChatManagerDelegate
 - (void)didReceiveMessage:(EMMessage *)message {
-    if ([self.sceneModel.conversation.chatter isEqualToString:message.conversationChatter]) {
-        [self addMessage:message];
+    if ([_conversation.chatter isEqualToString:message.conversationChatter]) {
+        JSQMessage* jsqMessage = [self getMessage:message];
+        [self.sceneModel.dataSet addObject:jsqMessage];
+        [self finishReceivingMessageAnimated:YES];
     }
 }
 
-#pragma mark - UITableViewDataSource Methods
+#pragma mark - send message
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+-(void)sendTextMessage:(NSString *)textMessage {
+    [ChatSendHelper sendTextMessageWithString:textMessage
+                                   toUsername:_conversation.chatter
+                                  messageType:eMessageTypeChat
+                            requireEncryption:NO
+                                          ext:nil];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.sceneModel.dataSet.count;
+#pragma mark - JSQMessages CollectionView DataSource
+
+- (id<JSQMessageData>)collectionView:(JSQMessagesCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.sceneModel.dataSet objectAtIndex:indexPath.item];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id entity = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-    if ([entity isKindOfClass:[ChatMessage class]]) {
-        TextMessageCell *cell = (TextMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"TextMessageCell"];
-        [cell reloadData:entity];
-        return cell;
-    } else if ([entity isKindOfClass:[NSString class]]) {
-        TimeMessageCell* cell = (TimeMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"TimeMessageCell"];
-        [cell reloadData:entity];
-        return cell;
+- (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
+    JSQMessage *message = [self.sceneModel.dataSet objectAtIndex:indexPath.item];
+    if ([message.senderId isEqualToString:self.senderId]) {
+        return _outgoingBubbleImageData;
+    }
+    return _incomingBubbleImageData;
+}
+
+- (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
+    JSQMessage *message = [self.sceneModel.dataSet objectAtIndex:indexPath.item];
+    return [_avatars objectForKey:message.senderId];
+}
+
+- (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.item % 3 == 0) {
+        JSQMessage *message = [self.sceneModel.dataSet objectAtIndex:indexPath.item];
+        return [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:message.date];
     }
     return nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id entity = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-    if ([entity isKindOfClass:[ChatMessage class]]) {
-        return [tableView fd_heightForCellWithIdentifier:@"TextMessageCell" cacheByIndexPath:indexPath configuration:^(TextMessageCell *cell) {
-            [cell reloadData:entity];
-        }];
-    } else if ([entity isKindOfClass:[NSString class]]) {
-        return [tableView fd_heightForCellWithIdentifier:@"TimeMessageCell" cacheByIndexPath:indexPath configuration:^(TextMessageCell *cell) {
-            [cell reloadData:entity];
-        }];
+- (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath {
+    JSQMessage *message = [self.sceneModel.dataSet objectAtIndex:indexPath.item];
+    if ([message.senderId isEqualToString:self.senderId]) {
+        return nil;
     }
-    return 0;
+    if (indexPath.item - 1 > 0) {
+        JSQMessage *previousMessage = [self.sceneModel.dataSet objectAtIndex:indexPath.item - 1];
+        if ([[previousMessage senderId] isEqualToString:message.senderId]) {
+            return nil;
+        }
+    }
+    return [[NSAttributedString alloc] initWithString:message.senderDisplayName];
+}
+
+- (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+#pragma mark - UICollectionView DataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [self.sceneModel.dataSet count];
+}
+
+- (UICollectionViewCell *)collectionView:(JSQMessagesCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
+    JSQMessage *msg = [self.sceneModel.dataSet objectAtIndex:indexPath.item];
+    if (!msg.isMediaMessage) {
+        if ([msg.senderId isEqualToString:self.senderId]) {
+            cell.textView.textColor = [UIColor blackColor];
+        } else {
+            cell.textView.textColor = [UIColor whiteColor];
+        }
+        cell.textView.linkTextAttributes = @{ NSForegroundColorAttributeName : cell.textView.textColor,
+                                              NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle | NSUnderlinePatternSolid) };
+    }
+    return cell;
+}
+
+#pragma mark - UICollectionView Delegate
+
+#pragma mark - Custom menu items
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+    if (action == @selector(customAction:)) {
+        return YES;
+    }
+    return [super collectionView:collectionView canPerformAction:action forItemAtIndexPath:indexPath withSender:sender];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+    if (action == @selector(customAction:)) {
+        [self customAction:sender];
+        return;
+    }
+    [super collectionView:collectionView performAction:action forItemAtIndexPath:indexPath withSender:sender];
+}
+
+- (void)customAction:(id)sender {
+    NSLog(@"Custom action received! Sender: %@", sender);
+    
+    [[[UIAlertView alloc] initWithTitle:@"Custom Action"
+                                message:nil
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil]
+     show];
+}
+
+#pragma mark - JSQMessages collection view flow layout delegate
+
+#pragma mark - Adjusting cell label heights
+
+- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
+                   layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
+{
+    /**
+     *  Each label in a cell has a `height` delegate method that corresponds to its text dataSource method
+     */
+    
+    /**
+     *  This logic should be consistent with what you return from `attributedTextForCellTopLabelAtIndexPath:`
+     *  The other label height delegate methods should follow similarly
+     *
+     *  Show a timestamp for every 3rd message
+     */
+    if (indexPath.item % 3 == 0) {
+        return kJSQMessagesCollectionViewCellLabelHeightDefault;
+    }
+    return 0.0f;
+}
+
+- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
+                   layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath {
+    JSQMessage *currentMessage = [self.sceneModel.dataSet objectAtIndex:indexPath.item];
+    if ([[currentMessage senderId] isEqualToString:self.senderId]) {
+        return 0.0f;
+    }
+    if (indexPath.item - 1 > 0) {
+        JSQMessage *previousMessage = [self.sceneModel.dataSet objectAtIndex:indexPath.item - 1];
+        if ([[previousMessage senderId] isEqualToString:[currentMessage senderId]]) {
+            return 0.0f;
+        }
+    }
+    return kJSQMessagesCollectionViewCellLabelHeightDefault;
+}
+
+- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
+                   layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath {
+    return 0.0f;
+}
+
+#pragma mark - Responding to collection view tap events
+
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView
+                header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender
+{
+    NSLog(@"Load earlier messages!");
+}
+
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapAvatarImageView:(UIImageView *)avatarImageView atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Tapped avatar!");
+}
+
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapMessageBubbleAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Tapped message bubble!");
+}
+
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapCellAtIndexPath:(NSIndexPath *)indexPath touchLocation:(CGPoint)touchLocation
+{
+    NSLog(@"Tapped cell at %@!", NSStringFromCGPoint(touchLocation));
+}
+
+#pragma mark - JSQMessagesViewController method overrides
+
+- (void)didPressSendButton:(UIButton *)button
+           withMessageText:(NSString *)text
+                  senderId:(NSString *)senderId
+         senderDisplayName:(NSString *)senderDisplayName
+                      date:(NSDate *)date {
+    JSQMessage *jsqMessage = [[JSQMessage alloc] initWithSenderId:senderId
+                                                senderDisplayName:senderDisplayName
+                                                             date:date
+                                                             text:text];
+    [self.sceneModel.dataSet addObject:jsqMessage];
+    [self finishSendingMessageAnimated:YES];
+    
+    [self sendTextMessage:text];
+}
+
+- (void)didPressAccessoryButton:(UIButton *)sender {
 }
 
 @end

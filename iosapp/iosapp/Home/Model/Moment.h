@@ -9,11 +9,12 @@
 #ifndef iosapp_Moment_h
 #define iosapp_Moment_h
 
-#import "Model.h"
+#import "BaseModel.h"
 #import "User.h"
 
-@interface Moment: Model
+@interface Moment: BaseModel
 
+@property (nonatomic, strong)NSString* objectId;
 @property (nonatomic, strong)NSString* userId;
 @property (nonatomic, strong)NSString* imageUrl;
 @property (nonatomic, strong)User<Ignore>* user;

@@ -25,6 +25,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.sceneModel = [ProfileSceneModel SceneModel];
+    self.sceneModel.request.requestNeedActive = YES;
+    
+    [self.sceneModel.request onRequest:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self initView];
+        });
+    } error:^(NSError *error) {
+        [self hideHudFailed:error.localizedDescription];
+    }];
+    
+    [self loadHud:self.view];
+}
+
+- (void)initView {
     self.logoutButton = [[UIButton alloc] initNavigationButtonWithTitle:@"Log Out" color:HEX_RGB(AM_YELLOW)];
     self.logoutButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [self showHudIndeterminate:@"正在退出登录，请稍候"];
@@ -44,8 +59,6 @@
     [self.view addSubview:self.logoutButton];
     
     [self loadAutoLayout];
-    
-    [self loadHud:self.view];
 }
 
 - (void)loadAutoLayout {

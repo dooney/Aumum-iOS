@@ -23,7 +23,7 @@
 
 - (NSError*)outputHandler:(NSDictionary* )output {
     NSError* error;
-    self.auth = [[Auth alloc] initWithDictionary:self.output error:&error];
+    self.profile = [[Profile alloc] initWithDictionary:self.output error:&error];
     return error;
 }
 

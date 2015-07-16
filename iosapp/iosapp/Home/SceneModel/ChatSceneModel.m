@@ -10,14 +10,4 @@
 
 @implementation ChatSceneModel
 
-- (void)loadSceneModel {
-    [super loadSceneModel];
-    
-    @weakify(self);
-    self.userRequest = [UserRequest RequestWithBlock:^{
-        @strongify(self)
-        [self SEND_IQ_ACTION:self.userRequest];
-    }];
-}
-
 @end

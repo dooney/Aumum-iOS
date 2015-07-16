@@ -9,11 +9,10 @@
 #ifndef iosapp_Conversation_h
 #define iosapp_Conversation_h
 
-#import "Model.h"
 #import "User.h"
 #import "EaseMob.h"
 
-@interface Conversation : Model
+@interface Conversation : NSObject
 
 @property (nonatomic, strong)NSString* chatId;
 @property (nonatomic, strong)User* user;

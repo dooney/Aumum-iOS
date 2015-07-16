@@ -17,9 +17,7 @@
 		C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936B51B51451100BDC3C3 /* NSDate+Category.m */; };
 		C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */; };
 		C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */; };
-		C3BEC7651B525C4F00FB5474 /* TextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEC7641B525C4F00FB5474 /* TextMessageCell.m */; };
 		C3FB7D5A1B526DAB00A6B581 /* UserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB7D591B526DAB00A6B581 /* UserRequest.m */; };
-		C3FB7D5D1B52793F00A6B581 /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB7D5C1B52793F00A6B581 /* ChatMessage.m */; };
 		D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297B81A98BAC7003575F2 /* Aspect-Window.m */; };
 		D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BB1A98BB5E003575F2 /* TabBarController.m */; };
 		D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BE1A98BC25003575F2 /* RDNavigationController.m */; };
@@ -35,7 +33,7 @@
 		D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5C1B4DC0BB0019B280 /* SignInScene.m */; };
 		D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */; };
 		D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF621B4DE9610019B280 /* LoginRequest.m */; };
-		D661EF661B4DEB9A0019B280 /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF651B4DEB9A0019B280 /* Auth.m */; };
+		D661EF661B4DEB9A0019B280 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF651B4DEB9A0019B280 /* Profile.m */; };
 		D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF691B4DEDA80019B280 /* KeyChainUtil.m */; };
 		D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332221B44F75B00A1D525 /* MomentListSceneModel.m */; };
 		D67332281B44F80F00A1D525 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332271B44F80F00A1D525 /* Moment.m */; };
@@ -48,7 +46,6 @@
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
-		D6ECF1CB1B5482FA001C013A /* TimeMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1CA1B5482FA001C013A /* TimeMessageCell.m */; };
 		D6ECF1DE1B54BF29001C013A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF1E01B54BF29001C013A /* Localizable.strings */; };
 		D6ECF1E91B54C00B001C013A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF1EB1B54C00B001C013A /* Localizable.strings */; };
 		D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1EE1B55AE19001C013A /* ConversationScene.m */; };
@@ -56,6 +53,11 @@
 		D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F51B55B0DC001C013A /* ConversationCell.m */; };
 		D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F81B55B4F9001C013A /* Conversation.m */; };
 		D6ECF1FC1B561877001C013A /* UserListByChatIdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */; };
+		D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1FE1B56772E001C013A /* ProfileRequest.m */; };
+		D6ECF2011B568149001C013A /* Aspect-Database.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2001B568149001C013A /* Aspect-Database.m */; };
+		D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2031B5683B3001C013A /* ProfileSceneModel.m */; };
+		D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2061B570133001C013A /* ChatSendHelper.m */; };
+		D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2091B576C1B001C013A /* BaseModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,12 +91,8 @@
 		C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
 		C3BEC75F1B51EE5C00FB5474 /* ChatSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatSceneModel.h; sourceTree = "<group>"; };
 		C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSceneModel.m; sourceTree = "<group>"; };
-		C3BEC7631B525BFE00FB5474 /* TextMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextMessageCell.h; sourceTree = "<group>"; };
-		C3BEC7641B525C4F00FB5474 /* TextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextMessageCell.m; sourceTree = "<group>"; };
 		C3FB7D581B526D7000A6B581 /* UserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserRequest.h; sourceTree = "<group>"; };
 		C3FB7D591B526DAB00A6B581 /* UserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRequest.m; sourceTree = "<group>"; };
-		C3FB7D5B1B52791000A6B581 /* ChatMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
-		C3FB7D5C1B52793F00A6B581 /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
 		D60297B81A98BAC7003575F2 /* Aspect-Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Aspect-Window.m"; path = "iosapp/Aspect-Window.m"; sourceTree = SOURCE_ROOT; };
 		D60297BA1A98BB5E003575F2 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		D60297BB1A98BB5E003575F2 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
@@ -122,8 +120,8 @@
 		D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInSceneModel.m; sourceTree = "<group>"; };
 		D661EF611B4DE9300019B280 /* LoginRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginRequest.h; sourceTree = "<group>"; };
 		D661EF621B4DE9610019B280 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequest.m; sourceTree = "<group>"; };
-		D661EF641B4DEB610019B280 /* Auth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
-		D661EF651B4DEB9A0019B280 /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
+		D661EF641B4DEB610019B280 /* Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		D661EF651B4DEB9A0019B280 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		D661EF681B4DED460019B280 /* KeyChainUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyChainUtil.h; sourceTree = "<group>"; };
 		D661EF691B4DEDA80019B280 /* KeyChainUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainUtil.m; sourceTree = "<group>"; };
 		D67332221B44F75B00A1D525 /* MomentListSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentListSceneModel.m; sourceTree = "<group>"; };
@@ -144,8 +142,6 @@
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
 		D6E0498C1B47B2DA00A867C8 /* MomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentCell.m; sourceTree = "<group>"; };
 		D6E049931B49447600A867C8 /* Aspect-Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Util.m"; sourceTree = "<group>"; };
-		D6ECF1C91B5482CF001C013A /* TimeMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeMessageCell.h; sourceTree = "<group>"; };
-		D6ECF1CA1B5482FA001C013A /* TimeMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeMessageCell.m; sourceTree = "<group>"; };
 		D6ECF1DF1B54BF29001C013A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D6ECF1EA1B54C00B001C013A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6ECF1ED1B55ADE0001C013A /* ConversationScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationScene.h; sourceTree = "<group>"; };
@@ -158,6 +154,15 @@
 		D6ECF1F81B55B4F9001C013A /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
 		D6ECF1FA1B56185E001C013A /* UserListByChatIdRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListByChatIdRequest.h; sourceTree = "<group>"; };
 		D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListByChatIdRequest.m; sourceTree = "<group>"; };
+		D6ECF1FD1B5676EC001C013A /* ProfileRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileRequest.h; sourceTree = "<group>"; };
+		D6ECF1FE1B56772E001C013A /* ProfileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileRequest.m; sourceTree = "<group>"; };
+		D6ECF2001B568149001C013A /* Aspect-Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Database.m"; sourceTree = "<group>"; };
+		D6ECF2021B56838B001C013A /* ProfileSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileSceneModel.h; sourceTree = "<group>"; };
+		D6ECF2031B5683B3001C013A /* ProfileSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileSceneModel.m; sourceTree = "<group>"; };
+		D6ECF2051B570122001C013A /* ChatSendHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatSendHelper.h; sourceTree = "<group>"; };
+		D6ECF2061B570133001C013A /* ChatSendHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendHelper.m; sourceTree = "<group>"; };
+		D6ECF2081B576BF3001C013A /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		D6ECF2091B576C1B001C013A /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		DCCE54AD975929494FE5A76D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,10 +227,8 @@
 			children = (
 				C37936AD1B511A1700BDC3C3 /* ChatScene.h */,
 				C37936AE1B511A4B00BDC3C3 /* ChatScene.m */,
-				C3BEC7631B525BFE00FB5474 /* TextMessageCell.h */,
-				C3BEC7641B525C4F00FB5474 /* TextMessageCell.m */,
-				D6ECF1C91B5482CF001C013A /* TimeMessageCell.h */,
-				D6ECF1CA1B5482FA001C013A /* TimeMessageCell.m */,
+				D6ECF2051B570122001C013A /* ChatSendHelper.h */,
+				D6ECF2061B570133001C013A /* ChatSendHelper.m */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				D60297C51A98C679003575F2 /* Aspect-Font.m */,
 				D60297B81A98BAC7003575F2 /* Aspect-Window.m */,
 				D60297C01A98C518003575F2 /* Aspect-Appearance.m */,
+				D6ECF2001B568149001C013A /* Aspect-Database.m */,
 				D6E049931B49447600A867C8 /* Aspect-Util.m */,
 				D6D5BDC41B4F835100D6045F /* Aspect-Config.m */,
 				D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */,
@@ -357,6 +361,8 @@
 				C3FB7D591B526DAB00A6B581 /* UserRequest.m */,
 				D6ECF1FA1B56185E001C013A /* UserListByChatIdRequest.h */,
 				D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */,
+				D6ECF1FD1B5676EC001C013A /* ProfileRequest.h */,
+				D6ECF1FE1B56772E001C013A /* ProfileRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -372,12 +378,12 @@
 				C3602A7B1B48DB48006DF6C8 /* UserList.m */,
 				C3602A7D1B48DBC1006DF6C8 /* User.h */,
 				C3602A7E1B48DC0D006DF6C8 /* User.m */,
-				D661EF641B4DEB610019B280 /* Auth.h */,
-				D661EF651B4DEB9A0019B280 /* Auth.m */,
-				C3FB7D5B1B52791000A6B581 /* ChatMessage.h */,
-				C3FB7D5C1B52793F00A6B581 /* ChatMessage.m */,
+				D661EF641B4DEB610019B280 /* Profile.h */,
+				D661EF651B4DEB9A0019B280 /* Profile.m */,
 				D6ECF1F71B55B4D0001C013A /* Conversation.h */,
 				D6ECF1F81B55B4F9001C013A /* Conversation.m */,
+				D6ECF2081B576BF3001C013A /* BaseModel.h */,
+				D6ECF2091B576C1B001C013A /* BaseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -428,6 +434,8 @@
 				C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */,
 				D6ECF1F11B55AF97001C013A /* ConversationListSceneModel.h */,
 				D6ECF1F21B55AFC1001C013A /* ConversationListSceneModel.m */,
+				D6ECF2021B56838B001C013A /* ProfileSceneModel.h */,
+				D6ECF2031B5683B3001C013A /* ProfileSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -592,6 +600,7 @@
 			files = (
 				C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */,
 				D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */,
+				D6ECF2011B568149001C013A /* Aspect-Database.m in Sources */,
 				D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
 				D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */,
@@ -602,21 +611,21 @@
 				D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */,
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
+				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,
+				D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */,
 				D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */,
 				C3602A7C1B48DB48006DF6C8 /* UserList.m in Sources */,
 				D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */,
 				D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */,
 				C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */,
 				D661EF551B4CE5310019B280 /* SplashScene.m in Sources */,
-				D6ECF1CB1B5482FA001C013A /* TimeMessageCell.m in Sources */,
-				D661EF661B4DEB9A0019B280 /* Auth.m in Sources */,
+				D661EF661B4DEB9A0019B280 /* Profile.m in Sources */,
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
 				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
 				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
-				C3FB7D5D1B52793F00A6B581 /* ChatMessage.m in Sources */,
 				C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */,
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
@@ -625,13 +634,14 @@
 				D661EF581B4CFBB60019B280 /* Constants.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
+				D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
 				C3FB7D5A1B526DAB00A6B581 /* UserRequest.m in Sources */,
 				D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */,
 				81C7F405F41A0E7F648738E4 /* MomentScene.m in Sources */,
-				C3BEC7651B525C4F00FB5474 /* TextMessageCell.m in Sources */,
 				D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */,
 				D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */,
+				D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

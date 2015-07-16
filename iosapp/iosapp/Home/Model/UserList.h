@@ -9,10 +9,10 @@
 #ifndef iosapp_UserList_h
 #define iosapp_UserList_h
 
-#import "Model.h"
 #import "User.h"
+#import "JSONModel.h"
 
-@interface UserList : Model
+@interface UserList : JSONModel
 
 @property (nonatomic, strong) NSMutableArray<User, Optional>* results;
 

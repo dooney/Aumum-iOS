@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "EaseMob.h"
+#import "AppDatabase.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, IChatManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) AppDatabase* database;
 
 @end
 

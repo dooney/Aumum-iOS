@@ -9,9 +9,9 @@
 #ifndef iosapp_ChatScene_h
 #define iosapp_ChatScene_h
 
-#import "SLKTextViewController.h"
+#import "JSQMessagesViewController.h"
 
-@interface ChatScene : SLKTextViewController
+@interface ChatScene : JSQMessagesViewController
 
 - (id)initWithUserId:(NSString *)userId;
 

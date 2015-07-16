@@ -9,10 +9,10 @@
 #ifndef iosapp_MomentList_h
 #define iosapp_MomentList_h
 
-#import "Model.h"
 #import "Moment.h"
+#import "JSONModel.h"
 
-@interface MomentList : Model
+@interface MomentList : JSONModel
 
 @property (nonatomic, strong) NSMutableArray<Moment, Optional>* results;
 

@@ -49,6 +49,9 @@ PODS:
   - FontIcon (1.0)
   - GCDObjC (0.2.0)
   - IQKeyboardManager (3.2.4)
+  - JSQMessagesViewController (7.1.0):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - JVFloatLabeledTextField (1.1.0)
   - MBProgressHUD (0.9.1)
   - MojoDatabase (1.4)
@@ -68,10 +71,9 @@ PODS:
     - UIActionSheet+Blocks (>= 0.9)
     - UIAlertController+Blocks (>= 0.9)
     - UIAlertView+Blocks (>= 0.9)
-  - SDWebImage (3.7.2):
-    - SDWebImage/Core (= 3.7.2)
-  - SDWebImage/Core (3.7.2)
-  - SlackTextViewController (1.5.2)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
   - SWTableViewCell (0.3.7)
   - TMCache (2.1.0)
   - TOWebViewController (2.0.17)
@@ -97,9 +99,9 @@ DEPENDENCIES:
   - EaseMobSDK (from `https://github.com/easemob/sdk-ios-cocoapods.git`)
   - EasyIOS (from `https://github.com/zhuchaowe/EasyIOS.git`)
   - EasyIOS-Extention (~> 1.2)
+  - JSQMessagesViewController
   - JVFloatLabeledTextField
   - NZCircularImageView
-  - SlackTextViewController
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
   - UIColor+MLPFlatColors (~> 1.0)
@@ -135,6 +137,8 @@ SPEC CHECKSUMS:
   FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
   GCDObjC: adcd9941029e3628de539347d3a6777470a65998
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
+  JSQMessagesViewController: ca11f86fa68ca70835f05e169df9244147c1dc40
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MojoDatabase: 02e3eb98510b69033ab537156969d1f76b4f369e
@@ -142,8 +146,7 @@ SPEC CHECKSUMS:
   ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
   RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
-  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  SlackTextViewController: ab240cda4c7fe1f70f6c6cf64578f3fea495ce99
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   TOWebViewController: aada427e7eba199bbaee77ddee3243c8172f4053

@@ -10,16 +10,14 @@
 #define iosapp_ChatSceneModel_h
 
 #import "SceneModel.h"
-#import "EaseMob.h"
-#import "UserRequest.h"
+#import "Profile.h"
+#import "User.h"
 
 @interface ChatSceneModel : SceneModel
 
-@property (nonatomic, strong) EMConversation* conversation;
-@property (nonatomic, strong) NSDate* chatTagDate;
 @property (nonatomic, strong) NSMutableArray* dataSet;
-@property (nonatomic, assign) NSInteger messageCount;
-@property (nonatomic, strong) UserRequest* userRequest;
+@property (nonatomic, strong) Profile* profile;
+@property (nonatomic, strong) User* user;
 
 @end
 
