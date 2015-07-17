@@ -55,6 +55,9 @@ PODS:
   - JVFloatLabeledTextField (1.1.0)
   - MBProgressHUD (0.9.1)
   - MojoDatabase (1.4)
+  - NUI (0.5.5):
+    - NUIParse
+  - NUIParse (1.2.1)
   - ReactiveCocoa (2.4.4):
     - ReactiveCocoa/UI (= 2.4.4)
   - ReactiveCocoa/Core (2.4.4):
@@ -84,7 +87,7 @@ PODS:
   - UICKeyChainStore (2.0.6)
   - UIColor+MLPFlatColors (1.0)
   - UITableView+FDTemplateLayoutCell (1.3)
-  - UMengAnalytics (3.1.8)
+  - UMAnalytics (3.5.9)
   - XAspect (1.0.4):
     - XAspect/Core (= 1.0.4)
     - XAspect/Macros (= 1.0.4)
@@ -93,36 +96,37 @@ PODS:
   - XAspect/Macros (1.0.4)
 
 DEPENDENCIES:
-  - AFNetworkActivityLogger (from `https://github.com/AFNetworking/AFNetworkActivityLogger.git`)
+  - AFNetworkActivityLogger (~> 2.0.4)
   - EaseMobSDK (from `https://github.com/easemob/sdk-ios-cocoapods.git`)
   - EasyIOS (from `https://github.com/zhuchaowe/EasyIOS.git`)
   - EasyIOS-Extention (~> 1.2)
   - JSQMessagesViewController
   - JVFloatLabeledTextField
+  - NUI
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
   - UIColor+MLPFlatColors (~> 1.0)
   - UITableView+FDTemplateLayoutCell (~> 1.3)
-  - UMengAnalytics (~> 3.1.2)
+  - UMAnalytics (from `https://github.com/jcccn/UMeng-Analytics-iOS.git`)
 
 EXTERNAL SOURCES:
-  AFNetworkActivityLogger:
-    :git: https://github.com/AFNetworking/AFNetworkActivityLogger.git
   EaseMobSDK:
     :git: https://github.com/easemob/sdk-ios-cocoapods.git
   EasyIOS:
     :git: https://github.com/zhuchaowe/EasyIOS.git
+  UMAnalytics:
+    :git: https://github.com/jcccn/UMeng-Analytics-iOS.git
 
 CHECKOUT OPTIONS:
-  AFNetworkActivityLogger:
-    :commit: 4faefc20f1a6489e88e2f2ee72b18d4727b3ebd8
-    :git: https://github.com/AFNetworking/AFNetworkActivityLogger.git
   EaseMobSDK:
     :commit: d4fdf30a087825779f6d3def7a7dfdef6d4cea9c
     :git: https://github.com/easemob/sdk-ios-cocoapods.git
   EasyIOS:
     :commit: 684015ed0356b7edf4fa24ce3ba3398e1e66fb96
     :git: https://github.com/zhuchaowe/EasyIOS.git
+  UMAnalytics:
+    :commit: 9cdd9857126c01aa10a97c041408d92dd7094569
+    :git: https://github.com/jcccn/UMeng-Analytics-iOS.git
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
@@ -139,6 +143,8 @@ SPEC CHECKSUMS:
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MojoDatabase: 02e3eb98510b69033ab537156969d1f76b4f369e
+  NUI: 53de7278003235deb2a375fe6f04c7a3aa3e49eb
+  NUIParse: 9b6d5a6b782dc654ac6c846d623885080306f07f
   ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
   RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
@@ -154,7 +160,7 @@ SPEC CHECKSUMS:
   UICKeyChainStore: c5719c814e8bd69e74e4a0fc09daf8f4d6257a59
   UIColor+MLPFlatColors: 14deb8f28da06ab8918c14231d4ff49ca7cd384a
   UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
-  UMengAnalytics: fe0fa30f2686541eda3ae778d036cc368bc1abd4
+  UMAnalytics: f082625faade5171846f3d3f8de5818e806a76cd
   XAspect: abacabc6d828c2933812a966adca9b131504cfac
 
 COCOAPODS: 0.37.2

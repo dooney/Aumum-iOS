@@ -9,10 +9,8 @@
 #import "MomentCell.h"
 #import "Moment.h"
 #import "UIView+FLKAutoLayout.h"
-#import "UIColor+EasyExtend.h"
 #import "UIImageView+WebCache.h"
 #import "AvatarImageView.h"
-#import "Constants.h"
 #import "URLManager.h"
 
 @interface MomentCell()
@@ -41,9 +39,6 @@
     [self.contentView addSubview:self.avatarImage];
     
     self.userName = [[UILabel alloc] init];
-    self.userName.textAlignment = NSTextAlignmentLeft;
-    self.userName.font = [UIFont systemFontOfSize:TX_SZ_MEDIUM];
-    self.userName.textColor = HEX_RGB(AM_RED);
     [self.contentView addSubview:self.userName];
     
     self.momentImage = [[UIImageView alloc] init];

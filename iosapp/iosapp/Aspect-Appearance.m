@@ -9,22 +9,16 @@
 #import "AppDelegate.h"
 #import <XAspect/XAspect.h>
 #import "UIColor+MLPFlatColors.h"
+#import "NUISettings.h"
 
 #define AtAspect  Appearance
 
 #define AtAspectOfClass AppDelegate
 @classPatchField(AppDelegate)
-AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions)
-{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor flatRedColor]];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
-    [[UITabBar appearance] setTintColor:[UIColor flatRedColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                          [UIColor whiteColor],NSForegroundColorAttributeName,
-                                                          [UIFont systemFontOfSize:18],NSFontAttributeName,
-                                                          nil]];
+AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions) {
+    NSString* path = @"/Users/simpsondu/Workspace/Aumum-iOS/iosapp/iosapp/Home/Resource/AMStyle.nss";
+    [NUISettings setAutoUpdatePath:path];
+    [NUISettings loadStylesheetByPath:path];
     
     return XAMessageForward(application:application didFinishLaunchingWithOptions:launchOptions);
 }

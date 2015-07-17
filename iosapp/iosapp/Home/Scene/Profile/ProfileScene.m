@@ -7,12 +7,11 @@
 //
 
 #import "ProfileScene.h"
-#import "UIColor+EasyExtend.h"
-#import "Constants.h"
 #import "UIView+FLKAutoLayout.h"
 #import "KeyChainUtil.h"
 #import "UIViewController+MBHud.h"
 #import "EaseMob.h"
+#import "UIButton+NUI.h"
 
 @interface ProfileScene()
 
@@ -40,7 +39,9 @@
 }
 
 - (void)initView {
-    self.logoutButton = [[UIButton alloc] initNavigationButtonWithTitle:@"Log Out" color:HEX_RGB(AM_YELLOW)];
+    self.logoutButton = [[UIButton alloc] init];
+    [self.logoutButton setTitle:NSLocalizedString(@"label.logout", @"Log Out") forState:UIControlStateNormal];
+    self.logoutButton.nuiClass = @"LargeButton";
     self.logoutButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [self showHudIndeterminate:@"正在退出登录，请稍候"];
         @weakify(self)
@@ -62,7 +63,7 @@
 }
 
 - (void)loadAutoLayout {
-    [self.logoutButton alignToView:self.logoutButton.superview];
+    [self.logoutButton alignCenterWithView:self.logoutButton.superview];
 }
 
 @end

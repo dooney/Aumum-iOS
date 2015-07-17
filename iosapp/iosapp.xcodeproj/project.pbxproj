@@ -29,7 +29,6 @@
 		D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A39C01A7F0AB9007347B5 /* Images.xcassets */; };
 		D62A39D01A7F0AB9007347B5 /* iosappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39CF1A7F0AB9007347B5 /* iosappTests.m */; };
 		D661EF551B4CE5310019B280 /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF541B4CE5310019B280 /* SplashScene.m */; };
-		D661EF581B4CFBB60019B280 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF571B4CFBB60019B280 /* Constants.m */; };
 		D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5C1B4DC0BB0019B280 /* SignInScene.m */; };
 		D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */; };
 		D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF621B4DE9610019B280 /* LoginRequest.m */; };
@@ -59,6 +58,7 @@
 		D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2061B570133001C013A /* ChatSendHelper.m */; };
 		D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2091B576C1B001C013A /* BaseModel.m */; };
 		D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF20C1B587B2A001C013A /* AvatarImageView.m */; };
+		D6ECF20F1B58C013001C013A /* AMStyle.nss in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF20E1B58C013001C013A /* AMStyle.nss */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,8 +113,6 @@
 		D62A39CF1A7F0AB9007347B5 /* iosappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosappTests.m; sourceTree = "<group>"; };
 		D661EF531B4CE4F00019B280 /* SplashScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
 		D661EF541B4CE5310019B280 /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
-		D661EF561B4CF4DA0019B280 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		D661EF571B4CFBB60019B280 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D661EF5B1B4DC0770019B280 /* SignInScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInScene.h; sourceTree = "<group>"; };
 		D661EF5C1B4DC0BB0019B280 /* SignInScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInScene.m; sourceTree = "<group>"; };
 		D661EF5E1B4DE3BC0019B280 /* SignInSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInSceneModel.h; sourceTree = "<group>"; };
@@ -166,6 +164,7 @@
 		D6ECF2091B576C1B001C013A /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		D6ECF20B1B587AE1001C013A /* AvatarImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarImageView.h; sourceTree = "<group>"; };
 		D6ECF20C1B587B2A001C013A /* AvatarImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarImageView.m; sourceTree = "<group>"; };
+		D6ECF20E1B58C013001C013A /* AMStyle.nss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AMStyle.nss; path = Resource/AMStyle.nss; sourceTree = "<group>"; };
 		DCCE54AD975929494FE5A76D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -252,6 +251,7 @@
 		D60297C21A98C63B003575F2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D6ECF20E1B58C013001C013A /* AMStyle.nss */,
 				D60297C31A98C64D003575F2 /* XinGothic.otf */,
 			);
 			name = Resource;
@@ -403,8 +403,6 @@
 				D68B44F81A81DFB4001D306C /* Model */,
 				D69748331A80915E006004D1 /* SceneModel */,
 				D69748261A8088C1006004D1 /* Scene */,
-				D661EF561B4CF4DA0019B280 /* Constants.h */,
-				D661EF571B4CFBB60019B280 /* Constants.m */,
 				D6D5BDC01B4F787600D6045F /* URLManage.plist */,
 			);
 			path = Home;
@@ -551,6 +549,7 @@
 				D6ECF1E91B54C00B001C013A /* Localizable.strings in Resources */,
 				D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */,
 				D6ECF1DE1B54BF29001C013A /* Localizable.strings in Resources */,
+				D6ECF20F1B58C013001C013A /* AMStyle.nss in Resources */,
 				D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */,
 				D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */,
 			);
@@ -637,7 +636,6 @@
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
 				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
 				C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */,
-				D661EF581B4CFBB60019B280 /* Constants.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
 				D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */,

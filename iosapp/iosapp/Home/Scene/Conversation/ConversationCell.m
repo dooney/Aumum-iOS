@@ -9,7 +9,6 @@
 #import "ConversationCell.h"
 #import "AvatarImageView.h"
 #import "UIColor+EasyExtend.h"
-#import "Constants.h"
 #import "Conversation.h"
 #import "UIView+FLKAutoLayout.h"
 
@@ -33,15 +32,9 @@
     [self.contentView addSubview:self.avatarImage];
     
     self.userName = [[UILabel alloc] init];
-    self.userName.textAlignment = NSTextAlignmentLeft;
-    self.userName.font = [UIFont systemFontOfSize:TX_SZ_MEDIUM];
-    self.userName.textColor = HEX_RGB(AM_RED);
     [self.contentView addSubview:self.userName];
     
     self.textContent = [[UILabel alloc] init];
-    self.textContent.textAlignment = NSTextAlignmentLeft;
-    self.textContent.font = [UIFont systemFontOfSize:TX_SZ_MEDIUM];
-    self.textContent.textColor = [UIColor darkGrayColor];
     [self.contentView addSubview:self.textContent];
     
     [self loadAutoLayout];

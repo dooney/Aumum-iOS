@@ -7,8 +7,6 @@
 //
 
 #import "UserScene.h"
-#import "UIColor+EasyExtend.h"
-#import "Constants.h"
 #import "UIView+FLKAutoLayout.h"
 #import "ChatScene.h"
 #import "URLManager.h"
@@ -27,7 +25,7 @@
     
     self.userId = self.params[@"userId"];
     
-    self.chatButton = [[UIButton alloc] initNavigationButtonWithTitle:@"Chat" color:HEX_RGB(AM_YELLOW)];
+    self.chatButton = [[UIButton alloc] init];
     self.chatButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         ChatScene* chatScene = [[ChatScene alloc] initWithUserId:self.userId];
         [self.navigationController pushViewController:chatScene animated:YES];

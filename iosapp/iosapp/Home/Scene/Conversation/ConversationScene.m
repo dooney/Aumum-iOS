@@ -110,7 +110,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Conversation* conversation = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
     ChatScene* chatScene = [[ChatScene alloc] initWithUserId:conversation.user.objectId];
-    [self.navigationController presentViewController:chatScene animated:YES completion:nil];
+    chatScene.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:chatScene animated:YES];
 }
 
 @end

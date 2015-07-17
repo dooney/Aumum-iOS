@@ -9,8 +9,6 @@
 #import "SignInScene.h"
 #import "JVFloatLabeledTextField.h"
 #import "UIView+FLKAutoLayout.h"
-#import "UIButton+EasyExtend.h"
-#import "Constants.h"
 #import "SignInSceneModel.h"
 #import "UIViewController+MBHud.h"
 #import "KeyChainUtil.h"
@@ -42,7 +40,7 @@
     [self.passwordText setPlaceholder:@"Password"];
     [self.view addSubview:self.passwordText];
     
-    self.loginButton = [[UIButton alloc] initNavigationButtonWithTitle:@"Log In" color:HEX_RGB(AM_YELLOW)];
+    self.loginButton = [[UIButton alloc] init];
     self.loginButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [self showHudIndeterminate:@"正在验证账号信息，请稍候"];
         NSString* userName = self.userNameText.text;
