@@ -58,6 +58,7 @@
 		D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2031B5683B3001C013A /* ProfileSceneModel.m */; };
 		D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2061B570133001C013A /* ChatSendHelper.m */; };
 		D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2091B576C1B001C013A /* BaseModel.m */; };
+		D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF20C1B587B2A001C013A /* AvatarImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,8 @@
 		D6ECF2061B570133001C013A /* ChatSendHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendHelper.m; sourceTree = "<group>"; };
 		D6ECF2081B576BF3001C013A /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		D6ECF2091B576C1B001C013A /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		D6ECF20B1B587AE1001C013A /* AvatarImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarImageView.h; sourceTree = "<group>"; };
+		D6ECF20C1B587B2A001C013A /* AvatarImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarImageView.m; sourceTree = "<group>"; };
 		DCCE54AD975929494FE5A76D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -240,6 +243,8 @@
 				C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */,
 				C37936B41B51451100BDC3C3 /* NSDate+Category.h */,
 				C37936B51B51451100BDC3C3 /* NSDate+Category.m */,
+				D6ECF20B1B587AE1001C013A /* AvatarImageView.h */,
+				D6ECF20C1B587B2A001C013A /* AvatarImageView.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -623,6 +628,7 @@
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
 				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
+				D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
 				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,

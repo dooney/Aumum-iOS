@@ -11,14 +11,14 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIColor+EasyExtend.h"
 #import "UIImageView+WebCache.h"
-#import "NZCircularImageView.h"
+#import "AvatarImageView.h"
 #import "Constants.h"
 #import "URLManager.h"
 
 @interface MomentCell()
 
 @property (nonatomic, strong)Moment* moment;
-@property (nonatomic, strong)NZCircularImageView* avatarImage;
+@property (nonatomic, strong)AvatarImageView* avatarImage;
 @property (nonatomic, strong)UILabel* userName;
 @property (nonatomic, strong)UILabel* createdAt;
 @property (nonatomic, strong)UIImageView* momentImage;
@@ -34,7 +34,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarImagePressed)];
-    self.avatarImage = [[NZCircularImageView alloc] init];
+    self.avatarImage = [[AvatarImageView alloc] init];
     [self.avatarImage addGestureRecognizer:tap];
     self.avatarImage.userInteractionEnabled = YES;
     self.avatarImage.multipleTouchEnabled = YES;
@@ -54,23 +54,25 @@
 }
 
 - (void)loadAutoLayout {
-    CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
-    CGFloat imageHeight = imageWidth;
-    [self.momentImage alignTop:@"60" bottom:@"-60" toView:self.momentImage.superview];
-    [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.2f", imageWidth]
-                              height:[NSString stringWithFormat:@"%.2f", imageHeight]];
-    
     [self.avatarImage alignTop:@"10" leading:@"10" toView:self.avatarImage.superview];
     [self.avatarImage constrainWidth:@"40" height:@"40"];
     
     [self.userName constrainLeadingSpaceToView:self.avatarImage predicate:@"10"];
     [self.userName alignTopEdgeWithView:self.avatarImage predicate:nil];
+    
+    [self.momentImage constrainTopSpaceToView:self.avatarImage predicate:@"10"];
+    [self.momentImage alignTrailingEdgeWithView:self.momentImage.superview predicate:nil];
+    [self.momentImage alignBottomEdgeWithView:self.momentImage.superview predicate:nil];
 }
 
 - (void)reloadData:(id)entity {
     self.moment = entity;
     self.userName.text = self.moment.user.screenName;
-    [self.avatarImage setImageWithResizeURL:self.moment.user.avatarUrl];
+    [self.avatarImage fromUrl:self.moment.user.avatarUrl diameter:40];
+    CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
+    CGFloat imageHeight = imageWidth * self.moment.ratio;
+    [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.2f", imageWidth]
+                              height:[NSString stringWithFormat:@"%.2f", imageHeight]];
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:self.moment.imageUrl]];
 }
 

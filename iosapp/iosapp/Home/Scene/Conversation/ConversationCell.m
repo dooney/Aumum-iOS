@@ -7,7 +7,7 @@
 //
 
 #import "ConversationCell.h"
-#import "NZCircularImageView.h"
+#import "AvatarImageView.h"
 #import "UIColor+EasyExtend.h"
 #import "Constants.h"
 #import "Conversation.h"
@@ -15,7 +15,7 @@
 
 @interface ConversationCell()
 
-@property (nonatomic, strong)NZCircularImageView* avatarImage;
+@property (nonatomic, strong)AvatarImageView* avatarImage;
 @property (nonatomic, strong)UILabel* userName;
 @property (nonatomic, strong)UILabel* textContent;
 
@@ -29,7 +29,7 @@
     self.accessoryType = UITableViewCellAccessoryNone;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.avatarImage = [[NZCircularImageView alloc] init];
+    self.avatarImage = [[AvatarImageView alloc] init];
     [self.contentView addSubview:self.avatarImage];
     
     self.userName = [[UILabel alloc] init];
@@ -51,7 +51,7 @@
     Conversation* conversation = entity;
     self.userName.text = conversation.user.screenName;
     self.textContent.text = conversation.latestMessage;
-    [self.avatarImage setImageWithResizeURL:conversation.user.avatarUrl];
+    [self.avatarImage fromUrl:conversation.user.avatarUrl diameter:50];
 }
 
 - (void)loadAutoLayout {

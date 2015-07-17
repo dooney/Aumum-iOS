@@ -13,7 +13,7 @@
 #import "JSQMessages.h"
 #import "ChatSendHelper.h"
 #import "NSDate+Category.h"
-#import "UIImage+EasyExtend.h"
+#import "SDWebImageManager.h"
 
 @interface ChatScene()<IChatManagerDelegate>
 {
@@ -53,9 +53,11 @@
     JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
     _outgoingBubbleImageData = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
     _incomingBubbleImageData = [bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleGreenColor]];
-    JSQMessagesAvatarImage* userAvatar = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageWithUrl:self.sceneModel.user.avatarUrl]
+    SDImageCache* imageCache = [[SDWebImageManager sharedManager] imageCache];
+    UIImage* image = [imageCache imageFromDiskCacheForKey:self.sceneModel.user.avatarUrl];
+    JSQMessagesAvatarImage* userAvatar = [JSQMessagesAvatarImageFactory avatarImageWithImage:image
                                                                                     diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
-    JSQMessagesAvatarImage* profileAvatar = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageWithUrl:self.sceneModel.profile.avatarUrl]
+    JSQMessagesAvatarImage* profileAvatar = [JSQMessagesAvatarImageFactory avatarImageWithImage:[imageCache imageFromDiskCacheForKey:self.sceneModel.profile.avatarUrl]
                                                                                        diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
     _avatars = @{
                  self.sceneModel.user.chatId:userAvatar,

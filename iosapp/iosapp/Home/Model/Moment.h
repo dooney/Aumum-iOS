@@ -9,6 +9,7 @@
 #ifndef iosapp_Moment_h
 #define iosapp_Moment_h
 
+#import <UIKit/UIKit.h>
 #import "BaseModel.h"
 #import "User.h"
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong)NSString* objectId;
 @property (nonatomic, strong)NSString* userId;
 @property (nonatomic, strong)NSString* imageUrl;
+@property (nonatomic, assign)CGFloat ratio;
 @property (nonatomic, strong)User<Ignore>* user;
 
 @end
