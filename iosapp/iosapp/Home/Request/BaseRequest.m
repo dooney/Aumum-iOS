@@ -54,4 +54,8 @@
     return nil;
 }
 
+- (void)send {
+    self.requestNeedActive = YES;
+}
+
 @end

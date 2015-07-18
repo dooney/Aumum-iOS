@@ -42,11 +42,10 @@
 		D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC41B4F835100D6045F /* Aspect-Config.m */; };
 		D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC81B4F89F300D6045F /* ProfileScene.m */; };
 		D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */; };
+		D6D728241B5924F8000277F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6D728261B5924F8000277F0 /* Localizable.strings */; };
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
-		D6ECF1DE1B54BF29001C013A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF1E01B54BF29001C013A /* Localizable.strings */; };
-		D6ECF1E91B54C00B001C013A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF1EB1B54C00B001C013A /* Localizable.strings */; };
 		D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1EE1B55AE19001C013A /* ConversationScene.m */; };
 		D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F21B55AFC1001C013A /* ConversationListSceneModel.m */; };
 		D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F51B55B0DC001C013A /* ConversationCell.m */; };
@@ -136,13 +135,13 @@
 		D6D5BDC71B4F89CE00D6045F /* ProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileScene.h; sourceTree = "<group>"; };
 		D6D5BDC81B4F89F300D6045F /* ProfileScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileScene.m; sourceTree = "<group>"; };
 		D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-EaseMob.m"; sourceTree = "<group>"; };
+		D6D728251B5924F8000277F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D6D728271B592585000277F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6E049881B45238D00A867C8 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
 		D6E049891B45238D00A867C8 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
 		D6E0498C1B47B2DA00A867C8 /* MomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentCell.m; sourceTree = "<group>"; };
 		D6E049931B49447600A867C8 /* Aspect-Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Util.m"; sourceTree = "<group>"; };
-		D6ECF1DF1B54BF29001C013A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		D6ECF1EA1B54C00B001C013A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6ECF1ED1B55ADE0001C013A /* ConversationScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationScene.h; sourceTree = "<group>"; };
 		D6ECF1EE1B55AE19001C013A /* ConversationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationScene.m; sourceTree = "<group>"; };
 		D6ECF1F11B55AF97001C013A /* ConversationListSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationListSceneModel.h; sourceTree = "<group>"; };
@@ -301,8 +300,7 @@
 			children = (
 				D62A39B11A7F0AB9007347B5 /* Info.plist */,
 				D62A39B21A7F0AB9007347B5 /* main.m */,
-				D6ECF1E01B54BF29001C013A /* Localizable.strings */,
-				D6ECF1EB1B54C00B001C013A /* Localizable.strings */,
+				D6D728261B5924F8000277F0 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -546,9 +544,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6ECF1E91B54C00B001C013A /* Localizable.strings in Resources */,
+				D6D728241B5924F8000277F0 /* Localizable.strings in Resources */,
 				D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */,
-				D6ECF1DE1B54BF29001C013A /* Localizable.strings in Resources */,
 				D6ECF20F1B58C013001C013A /* AMStyle.nss in Resources */,
 				D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */,
 				D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */,
@@ -668,18 +665,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D6ECF1E01B54BF29001C013A /* Localizable.strings */ = {
+		D6D728261B5924F8000277F0 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D6ECF1DF1B54BF29001C013A /* zh-Hans */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		D6ECF1EB1B54C00B001C013A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D6ECF1EA1B54C00B001C013A /* en */,
+				D6D728251B5924F8000277F0 /* zh-Hans */,
+				D6D728271B592585000277F0 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

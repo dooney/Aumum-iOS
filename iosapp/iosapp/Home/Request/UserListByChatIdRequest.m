@@ -18,12 +18,6 @@
     [self.params setValue:@"objectId,chatId,avatarUrl,screenName" forKey:@"keys"];
 }
 
-- (void)setChatIdList:(NSArray *)chatIdList {
-    NSDictionary* inJson = @{ @"$in": chatIdList };
-    NSDictionary* whereJson = @{ @"chatId": inJson };
-    [self.params setValue:[NSString jsonStringWithDictionary:whereJson] forKey:@"where"];
-}
-
 - (NSError*)outputHandler:(NSDictionary* )output {
     NSError* error;
     self.list = [[UserList alloc] initWithDictionary:self.output error:&error];
@@ -31,6 +25,13 @@
         [user insertOrReplace:user.objectId];
     }
     return error;
+}
+
+- (void)send:(NSArray *)chatIdList {
+    NSDictionary* inJson = @{ @"$in": chatIdList };
+    NSDictionary* whereJson = @{ @"chatId": inJson };
+    [self.params setValue:[NSString jsonStringWithDictionary:whereJson] forKey:@"where"];
+    [self send];
 }
 
 @end

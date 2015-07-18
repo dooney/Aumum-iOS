@@ -24,10 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self addControls];
     [self initSceneModel];
-    
+}
+
+- (void)addControls {
     self.tableView = [[SceneTableView alloc] init];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.fd_debugLogEnabled = YES;
@@ -55,8 +58,7 @@
                     [userIdList addObject:moment.userId];
                 }
             }
-            [self.sceneModel.userListRequest setUserIdList:userIdList];
-            self.sceneModel.userListRequest.requestNeedActive = YES;
+            [self.sceneModel.userListRequest send:userIdList];
         }
     } error:^(NSError* error) {
         [self hideHudFailed:error.localizedDescription];
@@ -93,18 +95,6 @@
         Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
         [cell reloadData:moment];
     }];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
-        [cell setPreservesSuperviewLayoutMargins:NO];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

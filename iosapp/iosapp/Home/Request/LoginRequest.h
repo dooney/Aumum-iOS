@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong)Profile* profile;
 
-- (void)setAuthInfo:(NSString*)userName password:(NSString*)password;
+- (void)doLogin:(NSString*)userName password:(NSString*)password;
 
 @end
 

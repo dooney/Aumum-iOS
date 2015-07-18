@@ -13,10 +13,11 @@
 #import "UIViewController+MBHud.h"
 #import "KeyChainUtil.h"
 #import "EaseMob.h"
+#import "UIButton+NUI.h"
 
-@interface SignInScene()
+@interface SignInScene()<UITextFieldDelegate>
 
-@property (nonatomic, strong)JVFloatLabeledTextField* userNameText;
+@property (nonatomic, strong)JVFloatLabeledTextField* usernameText;
 @property (nonatomic, strong)JVFloatLabeledTextField* passwordText;
 @property (nonatomic, strong)UIButton* loginButton;
 
@@ -29,40 +30,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self addControls];
+    [self loadAutoLayout];
     [self initSceneModel];
-    
-    self.userNameText = [[JVFloatLabeledTextField alloc] init];
-    [self.userNameText setPlaceholder:@"Username"];
-    [self.view addSubview:self.userNameText];
+    [self bindToSceneModel];
+}
+
+- (void)addControls {
+    self.usernameText = [[JVFloatLabeledTextField alloc] init];
+    [self.usernameText setPlaceholder:NSLocalizedString(@"label.username", @"Username")];
+    self.usernameText.delegate = self;
+    [self.view addSubview:self.usernameText];
     
     self.passwordText = [[JVFloatLabeledTextField alloc] init];
     self.passwordText.secureTextEntry = YES;
-    [self.passwordText setPlaceholder:@"Password"];
+    [self.passwordText setPlaceholder:NSLocalizedString(@"label.password", @"Password")];
+    self.passwordText.delegate = self;
     [self.view addSubview:self.passwordText];
     
     self.loginButton = [[UIButton alloc] init];
-    self.loginButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        [self showHudIndeterminate:@"正在验证账号信息，请稍候"];
-        NSString* userName = self.userNameText.text;
-        NSString* password = self.passwordText.text;
-        [self.sceneModel.request setAuthInfo:userName password:password];
-        self.sceneModel.request.requestNeedActive = YES;
-        return [RACSignal empty];
-    }];
+    [self.loginButton setTitle:NSLocalizedString(@"label.login", @"Login") forState:UIControlStateNormal];
+    self.loginButton.nuiClass = @"Button:largeButton";
+    [self.loginButton addTarget:self action:@selector(loginButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginButton];
-    
-    [self loadAutoLayout];
     
     [self loadHud:self.view];
 }
 
 - (void)loadAutoLayout {
     NSMutableArray* views = [[NSMutableArray alloc] initWithObjects:
-                             self.userNameText, self.passwordText, self.loginButton, nil];
+                             self.usernameText, self.passwordText, self.loginButton, nil];
     
-    [self.userNameText alignCenterXWithView:self.userNameText.superview predicate:nil];
-    [self.userNameText alignCenterYWithView:self.userNameText.superview predicate:nil];
-    [self.userNameText constrainWidth:@"200" height:@"40"];
+    [self.usernameText alignCenterXWithView:self.usernameText.superview predicate:nil];
+    [self.usernameText alignCenterYWithView:self.usernameText.superview predicate:nil];
+    [self.usernameText constrainWidth:@"200" height:@"40"];
     
     [UIView spaceOutViewsVertically:views predicate:@"20"];
     [UIView alignLeadingEdgesOfViews:views];
@@ -117,6 +118,21 @@
     } error:^(NSError *error) {
         [self hideHudFailed:error.localizedDescription];
     }];
+}
+
+- (void)bindToSceneModel {
+    RAC(self.sceneModel, username) = self.usernameText.rac_textSignal;
+    RAC(self.sceneModel, password) = self.passwordText.rac_textSignal;
+    [[[RACSignal combineLatest:@[RACObserve(self.sceneModel, username), RACObserve(self.sceneModel, password)]] reduceEach:^id(NSString* username, NSString* password){
+        return @([self.sceneModel isValid]);
+    }] subscribeNext:^(NSNumber* loginButtonEnabled) {
+        [self.loginButton setEnabled:[loginButtonEnabled boolValue]];
+    }];
+}
+
+- (void)loginButtonAction {
+    [self showHudIndeterminate:@"正在验证账号信息，请稍候"];
+    [self.sceneModel.request doLogin:self.sceneModel.username password:self.sceneModel.password];
 }
 
 @end

@@ -16,9 +16,10 @@
 #define AtAspectOfClass AppDelegate
 @classPatchField(AppDelegate)
 AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions) {
-    NSString* path = @"/Users/simpsondu/Workspace/Aumum-iOS/iosapp/iosapp/Home/Resource/AMStyle.nss";
-    [NUISettings setAutoUpdatePath:path];
-    [NUISettings loadStylesheetByPath:path];
+    [NUISettings init];
+    [NUISettings initWithStylesheet:@"AMStyle"];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     return XAMessageForward(application:application didFinishLaunchingWithOptions:launchOptions);
 }

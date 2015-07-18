@@ -22,16 +22,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self addControls];
+    [self loadAutoLayout];
+}
+
+- (void)addControls {
     self.signInButton = [[UIButton alloc] init];
     [self.signInButton setTitle:NSLocalizedString(@"label.signIn", @"Sign In") forState:UIControlStateNormal];
-    self.signInButton.nuiClass = @"LargeButton";
+    self.signInButton.nuiClass = @"Button:LargeButton";
     self.signInButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [URLManager pushURLString:@"iosapp://signIn" animated:YES];
         return [RACSignal empty];
     }];
     [self.view addSubview:self.signInButton];
-    
-    [self loadAutoLayout];
 }
 
 - (void)loadAutoLayout{

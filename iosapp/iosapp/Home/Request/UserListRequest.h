@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) UserList* list;
 
-- (void)setUserIdList:(NSArray *)userIdList;
+- (void)send:(NSArray *)userIdList;
 
 @end
 

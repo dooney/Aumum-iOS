@@ -41,13 +41,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self initSceneModel];
+    
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:_userId conversationType:eConversationTypeChat];
     [_conversation markAllMessagesAsRead:YES];
+    long long timestamp = [[NSDate date] timeIntervalSince1970] * 1000 + 1;
+    [self loadMoreMessagesFrom:timestamp count:20 append:NO];
+}
+
+- (void)dealloc {
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+}
+
+- (void)initSceneModel {
+    self.sceneModel = [ChatSceneModel SceneModel];
     
-    [self initSceneModel];
-    
+    self.sceneModel.profile = [Profile get];
+    self.sceneModel.user = [User getById:_userId];
     self.senderId = self.sceneModel.profile.chatId;
     self.senderDisplayName = self.sceneModel.profile.screenName;
     JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
@@ -63,19 +75,6 @@
                  self.sceneModel.user.chatId:userAvatar,
                  self.sceneModel.profile.chatId:profileAvatar
                  };
-}
-
-- (void)dealloc {
-    [[EaseMob sharedInstance].chatManager removeDelegate:self];
-}
-
-- (void)initSceneModel {
-    self.sceneModel = [ChatSceneModel SceneModel];
-    
-    self.sceneModel.profile = [Profile get];
-    self.sceneModel.user = [User getById:_userId];
-    long long timestamp = [[NSDate date] timeIntervalSince1970] * 1000 + 1;
-    [self loadMoreMessagesFrom:timestamp count:20 append:NO];
 }
 
 - (void)loadMoreMessagesFrom:(long long)timestamp count:(NSInteger)count append:(BOOL)append {

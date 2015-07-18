@@ -24,24 +24,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.sceneModel = [ProfileSceneModel SceneModel];
-    self.sceneModel.request.requestNeedActive = YES;
-    
-    [self.sceneModel.request onRequest:^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self initView];
-        });
-    } error:^(NSError *error) {
-        [self hideHudFailed:error.localizedDescription];
-    }];
-    
-    [self loadHud:self.view];
+    [self addControls];
+    [self loadAutoLayout];
+    [self initSceneModel];
 }
 
-- (void)initView {
+- (void)addControls {
     self.logoutButton = [[UIButton alloc] init];
     [self.logoutButton setTitle:NSLocalizedString(@"label.logout", @"Log Out") forState:UIControlStateNormal];
-    self.logoutButton.nuiClass = @"LargeButton";
+    self.logoutButton.nuiClass = @"Button:LargeButton";
     self.logoutButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [self showHudIndeterminate:@"正在退出登录，请稍候"];
         @weakify(self)
@@ -59,11 +50,16 @@
     }];
     [self.view addSubview:self.logoutButton];
     
-    [self loadAutoLayout];
+    [self loadHud:self.view];
 }
 
 - (void)loadAutoLayout {
     [self.logoutButton alignCenterWithView:self.logoutButton.superview];
+}
+
+- (void)initSceneModel {
+    self.sceneModel = [ProfileSceneModel SceneModel];
+    [self.sceneModel.request send];
 }
 
 @end

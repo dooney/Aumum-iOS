@@ -16,9 +16,10 @@
     self.METHOD = @"GET";
 }
 
-- (void)setAuthInfo:(NSString*)userName password:(NSString*)password {
+- (void)doLogin:(NSString*)userName password:(NSString*)password {
     [self.params setValue:userName forKey:@"username"];
     [self.params setValue:password forKey:@"password"];
+    [self send];
 }
 
 - (NSError*)outputHandler:(NSDictionary* )output {

@@ -16,6 +16,8 @@
 - (void)onRequest:(void (^)())successHandler
             error:(void (^)(NSError* error))errorHandler;
 
+- (void)send;
+
 @end
 
 #endif

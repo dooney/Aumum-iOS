@@ -20,4 +20,8 @@
     }];
 }
 
+- (BOOL)isValid {
+    return self.username.length > 0 && self.password.length > 0;
+}
+
 @end

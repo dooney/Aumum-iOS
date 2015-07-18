@@ -30,10 +30,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self addControls];
     [self initSceneModel];
-    
+}
+
+- (void)addControls {
     self.tableView = [[SceneTableView alloc] init];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.fd_debugLogEnabled = YES;
@@ -60,8 +63,7 @@
         }
         [self.sceneModel.dataSet addObject:conversation];
     }
-    [self.sceneModel.userListByChatIdRequest setChatIdList:userIdList];
-    self.sceneModel.userListByChatIdRequest.requestNeedActive = YES;
+    [self.sceneModel.userListByChatIdRequest send:userIdList];
     [self.sceneModel.userListByChatIdRequest onRequest:^() {
         for (Conversation* conversation in self.sceneModel.dataSet) {
             for (User* user in self.sceneModel.userListByChatIdRequest.list.results) {
@@ -93,18 +95,6 @@
         Conversation* conversation = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
         [cell reloadData:conversation];
     }];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
-        [cell setPreservesSuperviewLayoutMargins:NO];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

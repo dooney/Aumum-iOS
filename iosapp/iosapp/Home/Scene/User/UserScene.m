@@ -23,8 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.userId = self.params[@"userId"];
-    
+    [self addControls];
+    [self loadAutoLayout];
+    [self initSceneModel];
+}
+
+- (void)addControls {
     self.chatButton = [[UIButton alloc] init];
     self.chatButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         ChatScene* chatScene = [[ChatScene alloc] initWithUserId:self.userId];
@@ -32,12 +36,14 @@
         return [RACSignal empty];
     }];
     [self.view addSubview:self.chatButton];
-    
-    [self loadAutoLayout];
 }
 
 - (void)loadAutoLayout {
     [self.chatButton alignToView:self.chatButton.superview];
+}
+
+- (void)initSceneModel {
+    self.userId = self.params[@"userId"];
 }
 
 @end
