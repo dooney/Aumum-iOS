@@ -15,7 +15,6 @@
     [super loadRequest];
     self.PATH = @"/1/users";
     self.METHOD = @"GET";
-    [self.params setValue:@"objectId,chatId,avatarUrl,screenName" forKey:@"keys"];
 }
 
 - (NSError*)outputHandler:(NSDictionary* )output {
@@ -28,9 +27,9 @@
 }
 
 - (void)send:(NSArray *)userIdList {
-    NSDictionary* inJson = @{ @"$in": userIdList };
-    NSDictionary* whereJson = @{ @"objectId": inJson };
-    [self.params setValue:[NSString jsonStringWithDictionary:whereJson] forKey:@"where"];
+    self.where = [NSString jsonStringWithDictionary:@{ @"objectId": @{ @"$in": userIdList } }];
+    self.keys = @"objectId,chatId,avatarUrl,screenName";
+    self.list = nil;
     [self send];
 }
 

@@ -16,6 +16,7 @@
 @interface Moment: BaseModel
 
 @property (nonatomic, strong)NSString* objectId;
+@property (nonatomic, strong)NSString* createdAt;
 @property (nonatomic, strong)NSString* userId;
 @property (nonatomic, strong)NSString* imageUrl;
 @property (nonatomic, assign)CGFloat ratio;

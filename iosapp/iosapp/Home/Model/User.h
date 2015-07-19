@@ -16,7 +16,7 @@
 @property (nonatomic, strong)NSString* objectId;
 @property (nonatomic, strong)NSString* chatId;
 @property (nonatomic, strong)NSString* screenName;
-@property (nonatomic, strong)NSString* avatarUrl;
+@property (nonatomic, strong)NSString<Optional>* avatarUrl;
 
 @end
 

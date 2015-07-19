@@ -7,6 +7,9 @@
 //
 
 #import "MomentListRequest.h"
+#import "NSString+EasyExtend.h"
+
+#define LIMIT 12
 
 @implementation MomentListRequest
 
@@ -14,14 +17,38 @@
     [super loadRequest];
     self.PATH = @"/1/classes/Moments";
     self.METHOD = @"GET";
-    [self.params setValue:@"-createdAt" forKey:@"order"];
-    [self.params setValue:[NSNumber numberWithInt:12] forKey:@"limit"];
 }
 
 - (NSError*)outputHandler:(NSDictionary* )output {
     NSError* error;
     self.list = [[MomentList alloc] initWithDictionary:self.output error:&error];
+    if (self.list.results.count < LIMIT) {
+        self.isEnd = @(YES);
+    }
     return error;
+}
+
+- (void)send:(NSString*)before after:(NSString*)after {
+    NSInteger limit = LIMIT;
+    if (before || after) {
+        NSMutableDictionary* opJson = [NSMutableDictionary dictionary];
+        NSMutableDictionary* dateJson = [NSMutableDictionary dictionary];
+        [dateJson setValue:@"Date" forKey:@"__type"];
+        if (before) {
+            [dateJson setValue:before forKey:@"iso"];
+            [opJson setValue:dateJson forKey:@"$lt"];
+        } else {
+            [dateJson setValue:after forKey:@"iso"];
+            [opJson setValue:dateJson forKey:@"$gt"];
+            limit = NSIntegerMax;
+        }
+        NSDictionary* whereJson = @{ @"createdAt": opJson };
+        self.where = [NSString jsonStringWithDictionary:whereJson];
+    }
+    self.order = @"-createdAt";
+    self.limit = [NSString stringWithFormat:@"%d", limit];
+    self.list = nil;
+    [self send];
 }
 
 @end

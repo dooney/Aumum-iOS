@@ -15,6 +15,8 @@
 @interface UserListByChatIdRequest : BaseRequest
 
 @property (nonatomic, strong) UserList* list;
+@property (nonatomic, strong) NSString* where;
+@property (nonatomic, strong) NSString* keys;
 
 - (void)send:(NSArray *)chatIdList;
 

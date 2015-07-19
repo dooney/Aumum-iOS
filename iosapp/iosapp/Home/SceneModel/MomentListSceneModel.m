@@ -14,9 +14,14 @@
     [super loadSceneModel];
     
     @weakify(self);
-    self.request = [MomentListRequest RequestWithBlock:^{
+    self.pullRequest = [MomentListRequest RequestWithBlock:^{
         @strongify(self)
-        [self SEND_IQ_ACTION:self.request];
+        [self SEND_IQ_ACTION:self.pullRequest];
+    }];
+    
+    self.loadRequest = [MomentListRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_IQ_ACTION:self.loadRequest];
     }];
     
     self.userListRequest = [UserListRequest RequestWithBlock:^{

@@ -15,6 +15,12 @@
 @interface MomentListRequest : BaseRequest
 
 @property (nonatomic, strong) MomentList* list;
+@property (nonatomic, strong) NSString* order;
+@property (nonatomic, strong) NSString* where;
+@property (nonatomic, strong) NSString* limit;
+@property (nonatomic, strong) NSNumber* isEnd;
+
+- (void)send:(NSString*)before after:(NSString*)after;
 
 @end
 

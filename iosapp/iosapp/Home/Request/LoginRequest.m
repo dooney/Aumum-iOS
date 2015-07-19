@@ -16,9 +16,10 @@
     self.METHOD = @"GET";
 }
 
-- (void)doLogin:(NSString*)userName password:(NSString*)password {
-    [self.params setValue:userName forKey:@"username"];
-    [self.params setValue:password forKey:@"password"];
+- (void)doLogin:(NSString*)username password:(NSString*)password {
+    self.username = username;
+    self.password = password;
+    self.profile = nil;
     [self send];
 }
 

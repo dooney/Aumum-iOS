@@ -15,8 +15,9 @@
 @interface UserRequest : BaseRequest
 
 @property (nonatomic, strong) User* user;
+@property (nonatomic, strong) NSString* keys;
 
-- (void)setUserId:(NSString*)userId;
+- (void)send:(NSString*)userId;
 
 @end
 

@@ -14,7 +14,7 @@
 
 @interface UserList : JSONModel
 
-@property (nonatomic, strong) NSMutableArray<User, Optional>* results;
+@property (nonatomic, strong) NSMutableArray<User>* results;
 
 @end
 

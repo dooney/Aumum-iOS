@@ -16,7 +16,8 @@
 @interface MomentListSceneModel : SceneModel
 
 @property (nonatomic, strong) NSMutableArray* dataSet;
-@property (nonatomic, strong) MomentListRequest* request;
+@property (nonatomic, strong) MomentListRequest* pullRequest;
+@property (nonatomic, strong) MomentListRequest* loadRequest;
 @property (nonatomic, strong) UserListRequest* userListRequest;
 
 @end

@@ -15,8 +15,10 @@
 @interface LoginRequest : BaseRequest
 
 @property (nonatomic, strong)Profile* profile;
+@property (nonatomic, strong) NSString* username;
+@property (nonatomic, strong) NSString* password;
 
-- (void)doLogin:(NSString*)userName password:(NSString*)password;
+- (void)doLogin:(NSString*)username password:(NSString*)password;
 
 @end
 

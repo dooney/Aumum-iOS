@@ -14,7 +14,7 @@
 
 @interface MomentList : JSONModel
 
-@property (nonatomic, strong) NSMutableArray<Moment, Optional>* results;
+@property (nonatomic, strong) NSMutableArray<Moment>* results;
 
 @end
 

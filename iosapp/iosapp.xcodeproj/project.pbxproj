@@ -206,8 +206,8 @@
 		81C7F318018644C5E5355771 /* Moment */ = {
 			isa = PBXGroup;
 			children = (
-				81C7FEA317AC6BEE5F81DA81 /* MomentScene.m */,
 				81C7FFDC1713FBB8CB28F336 /* MomentScene.h */,
+				81C7FEA317AC6BEE5F81DA81 /* MomentScene.m */,
 				D6E0498B1B47B28200A867C8 /* MomentCell.h */,
 				D6E0498C1B47B2DA00A867C8 /* MomentCell.m */,
 			);

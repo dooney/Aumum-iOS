@@ -11,6 +11,9 @@
 #import "MomentCell.h"
 #import "Moment.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "UIScrollView+SVPullToRefresh.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
+#import "UIScrollView+EndReflash.h"
 
 @interface MomentScene()<UITableViewDelegate, UITableViewDataSource>
 
@@ -26,6 +29,7 @@
     
     [self addControls];
     [self initSceneModel];
+    [self.tableView triggerPullToRefresh];
 }
 
 - (void)addControls {
@@ -37,29 +41,55 @@
     [self.view addSubview:self.tableView];
     [self.tableView alignToView:self.view];
     [self.tableView registerClass:[MomentCell class] forCellReuseIdentifier:@"MomentCell"];
+    @weakify(self);
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        @strongify(self);
+        Moment* moment = [self.sceneModel.dataSet firstObject];
+        [self.sceneModel.pullRequest send:nil after:moment.createdAt];
+    }];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        @strongify(self);
+        Moment* moment = [self.sceneModel.dataSet lastObject];
+        [self.sceneModel.loadRequest send:moment.createdAt after:nil];
+    }];
     
     [self loadHud:self.view];
 }
 
+- (void)onRequest:(MomentListRequest*)request
+      dataHandler:(void (^)(NSMutableArray* data))dataHandler{
+    if (request.list &&
+        request.list.results.count > 0) {
+        if (!self.sceneModel.dataSet) {
+            self.sceneModel.dataSet = [NSMutableArray array];
+        }
+        dataHandler(request.list.results);
+        NSMutableArray* userIdList = [NSMutableArray array];
+        for (Moment* moment in request.list.results) {
+            if (![userIdList containsObject:moment.userId]) {
+                [userIdList addObject:moment.userId];
+            }
+        }
+        [self.sceneModel.userListRequest send:userIdList];
+    }
+}
+
 - (void)initSceneModel {
     self.sceneModel = [MomentListSceneModel SceneModel];
-    self.sceneModel.request.requestNeedActive = YES;
     
-    [self.sceneModel.request onRequest:^() {
-        if (self.sceneModel.request.list &&
-            self.sceneModel.request.list.results.count > 0) {
-            if (!self.sceneModel.dataSet) {
-                self.sceneModel.dataSet = [NSMutableArray array];
-            }
-            [self.sceneModel.dataSet addObjectsFromArray:self.sceneModel.request.list.results];
-            NSMutableArray* userIdList = [NSMutableArray array];
-            for (Moment* moment in self.sceneModel.request.list.results) {
-                if (![userIdList containsObject:moment.userId]) {
-                    [userIdList addObject:moment.userId];
-                }
-            }
-            [self.sceneModel.userListRequest send:userIdList];
-        }
+    [self.sceneModel.pullRequest onRequest:^() {
+        [self onRequest:self.sceneModel.pullRequest dataHandler:^(NSMutableArray* data){
+            [self.sceneModel.dataSet insertObjects:data atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [data count])]];
+        }];
+    } error:^(NSError* error) {
+        [self hideHudFailed:error.localizedDescription];
+    }];
+    
+    [self.sceneModel.loadRequest onRequest:^() {
+        [self onRequest:self.sceneModel.loadRequest dataHandler:^(NSMutableArray* data){
+            [self.sceneModel.dataSet addObjectsFromArray:data];
+        }];
     } error:^(NSError* error) {
         [self hideHudFailed:error.localizedDescription];
     }];
@@ -74,6 +104,7 @@
         }
         [self hideHud];
         [self.tableView reloadData];
+        [self.tableView endAllRefreshingWithEnd:self.sceneModel.loadRequest.isEnd.boolValue];
     } error:^(NSError* error) {
         [self hideHudFailed:error.localizedDescription];
     }];
