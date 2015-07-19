@@ -58,7 +58,8 @@
 }
 
 - (void)onRequest:(MomentListRequest*)request
-      dataHandler:(void (^)(NSMutableArray* data))dataHandler{
+      dataHandler:(void (^)(NSMutableArray* data))dataHandler
+     emptyHandler:(void (^)())emptyHandler{
     if (request.list &&
         request.list.results.count > 0) {
         if (!self.sceneModel.dataSet) {
@@ -72,6 +73,8 @@
             }
         }
         [self.sceneModel.userListRequest send:userIdList];
+    } else {
+        emptyHandler();
     }
 }
 
@@ -81,6 +84,8 @@
     [self.sceneModel.pullRequest onRequest:^() {
         [self onRequest:self.sceneModel.pullRequest dataHandler:^(NSMutableArray* data){
             [self.sceneModel.dataSet insertObjects:data atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [data count])]];
+        } emptyHandler:^{
+            [self.tableView endAllRefreshingWithEnd:NO];
         }];
     } error:^(NSError* error) {
         [self hideHudFailed:error.localizedDescription];
@@ -89,6 +94,8 @@
     [self.sceneModel.loadRequest onRequest:^() {
         [self onRequest:self.sceneModel.loadRequest dataHandler:^(NSMutableArray* data){
             [self.sceneModel.dataSet addObjectsFromArray:data];
+        } emptyHandler:^{
+            [self.tableView endAllRefreshingWithEnd:self.sceneModel.loadRequest.isEnd.boolValue];
         }];
     } error:^(NSError* error) {
         [self hideHudFailed:error.localizedDescription];

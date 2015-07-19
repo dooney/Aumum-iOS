@@ -11,13 +11,16 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIImageView+WebCache.h"
 #import "AvatarImageView.h"
+#import "NSDate+EasyExtend.h"
+#import "NSDate+Category.h"
+#import "UILabel+NUI.h"
 #import "URLManager.h"
 
 @interface MomentCell()
 
 @property (nonatomic, strong)Moment* moment;
 @property (nonatomic, strong)AvatarImageView* avatarImage;
-@property (nonatomic, strong)UILabel* userName;
+@property (nonatomic, strong)UILabel* screenName;
 @property (nonatomic, strong)UILabel* createdAt;
 @property (nonatomic, strong)UIImageView* momentImage;
 
@@ -38,8 +41,12 @@
     self.avatarImage.multipleTouchEnabled = YES;
     [self.contentView addSubview:self.avatarImage];
     
-    self.userName = [[UILabel alloc] init];
-    [self.contentView addSubview:self.userName];
+    self.screenName = [[UILabel alloc] init];
+    [self.contentView addSubview:self.screenName];
+    
+    self.createdAt = [[UILabel alloc] init];
+    self.createdAt.nuiClass = @"Label:SmallLabel";
+    [self.contentView addSubview:self.createdAt];
     
     self.momentImage = [[UIImageView alloc] init];
     self.momentImage.contentMode = UIViewContentModeScaleAspectFit;
@@ -52,8 +59,11 @@
     [self.avatarImage alignTop:@"10" leading:@"10" toView:self.avatarImage.superview];
     [self.avatarImage constrainWidth:@"40" height:@"40"];
     
-    [self.userName constrainLeadingSpaceToView:self.avatarImage predicate:@"10"];
-    [self.userName alignTopEdgeWithView:self.avatarImage predicate:nil];
+    [self.screenName constrainLeadingSpaceToView:self.avatarImage predicate:@"10"];
+    [self.screenName alignTopEdgeWithView:self.avatarImage predicate:nil];
+    
+    [self.createdAt alignLeadingEdgeWithView:self.screenName predicate:nil];
+    [self.createdAt alignBottomEdgeWithView:self.avatarImage predicate:nil];
     
     [self.momentImage constrainTopSpaceToView:self.avatarImage predicate:@"10"];
     [self.momentImage alignTrailingEdgeWithView:self.momentImage.superview predicate:nil];
@@ -62,7 +72,9 @@
 
 - (void)reloadData:(id)entity {
     self.moment = entity;
-    self.userName.text = self.moment.user.screenName;
+    self.screenName.text = self.moment.user.screenName;
+    NSDate* createdAt = [NSDate dateWithString:self.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+    self.createdAt.text = [createdAt formattedTime];
     [self.avatarImage fromUrl:self.moment.user.avatarUrl diameter:40];
     CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat imageHeight = imageWidth * self.moment.ratio;
