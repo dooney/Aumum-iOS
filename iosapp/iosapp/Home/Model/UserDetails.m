@@ -1,14 +1,14 @@
 //
-//  User.m
+//  UserDetails.m
 //  iosapp
 //
-//  Created by Administrator on 5/07/2015.
+//  Created by Simpson Du on 19/07/2015.
 //  Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 //
 
-#import "User.h"
+#import "UserDetails.h"
 
-@implementation User
+@implementation UserDetails
 
 + (NSString*)getKeys {
     return @"objectId,chatId,avatarUrl,screenName";

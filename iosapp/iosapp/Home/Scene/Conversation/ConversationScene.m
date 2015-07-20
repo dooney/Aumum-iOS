@@ -10,7 +10,6 @@
 #import "SceneTableView.h"
 #import "ConversationListSceneModel.h"
 #import "UIView+FLKAutoLayout.h"
-#import "UIViewController+MBHud.h"
 #import "ConversationCell.h"
 #import "Conversation.h"
 #import "UITableView+FDTemplateLayoutCell.h"
@@ -44,8 +43,6 @@
     [self.view addSubview:self.tableView];
     [self.tableView alignToView:self.view];
     [self.tableView registerClass:[ConversationCell class] forCellReuseIdentifier:@"ConversationCell"];
-    
-    [self loadHud:self.view];
 }
 
 - (void)initSceneModel {
@@ -73,10 +70,9 @@
                 }
             }
         }
-        [self hideHud];
         [self.tableView reloadData];
     } error:^(NSError* error) {
-        [self hideHudFailed:error.localizedDescription];
+        [self showError:error];
     }];
 }
 

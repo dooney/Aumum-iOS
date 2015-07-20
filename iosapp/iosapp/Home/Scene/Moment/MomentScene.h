@@ -3,10 +3,14 @@
 // Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 //
 
-#import "Scene.h"
+#ifndef iosapp_MomentScene_h
+#define iosapp_MomentScene_h
 
+#import "BaseScene.h"
 
-@interface MomentScene : Scene
+@interface MomentScene : BaseScene
 
 
 @end
+
+#endif

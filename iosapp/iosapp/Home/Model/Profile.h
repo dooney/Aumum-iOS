@@ -18,8 +18,11 @@
 @property (nonatomic, strong)NSString* chatId;
 @property (nonatomic, strong)NSString* screenName;
 @property (nonatomic, strong)NSString* avatarUrl;
+@property (nonatomic, strong)NSMutableArray<Optional>* contacts;
+@property (nonatomic, strong)NSString<Ignore>* contactList;
 
 + (id)get;
+- (void)updateContactList;
 
 @end
 

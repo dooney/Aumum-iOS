@@ -7,14 +7,17 @@
 //
 
 #import "UserScene.h"
+#import "UserSceneModel.h"
 #import "UIView+FLKAutoLayout.h"
 #import "ChatScene.h"
 #import "URLManager.h"
 
 @interface UserScene()
 
-@property (nonatomic, strong)NSString* userId;
+@property (nonatomic, strong)UserSceneModel* sceneModel;
+
 @property (nonatomic, strong)UIButton* chatButton;
+@property (nonatomic, strong)UIButton* addContactButton;
 
 @end
 
@@ -23,27 +26,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addControls];
-    [self loadAutoLayout];
     [self initSceneModel];
 }
 
-- (void)addControls {
-    self.chatButton = [[UIButton alloc] init];
-    self.chatButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        ChatScene* chatScene = [[ChatScene alloc] initWithUserId:self.userId];
-        [self.navigationController pushViewController:chatScene animated:YES];
-        return [RACSignal empty];
-    }];
-    [self.view addSubview:self.chatButton];
-}
-
-- (void)loadAutoLayout {
-    [self.chatButton alignToView:self.chatButton.superview];
-}
-
 - (void)initSceneModel {
-    self.userId = self.params[@"userId"];
+    self.sceneModel = [UserSceneModel SceneModel];
+    
+    self.sceneModel.profile = [Profile get];
+    NSString* userId = self.params[@"userId"];
+    [self.sceneModel.request send:userId];
+    
+    [self.sceneModel.request onRequest:^{
+        if ([self.sceneModel.profile.contacts containsObject:userId]) {
+            self.chatButton = [[UIButton alloc] init];
+            [self.chatButton setTitle:NSLocalizedString(@"label.chat", @"Chat") forState:UIControlStateNormal];
+            self.chatButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+                ChatScene* chatScene = [[ChatScene alloc] initWithUserId:self.sceneModel.request.userDetails.objectId];
+                [self.navigationController pushViewController:chatScene animated:YES];
+                return [RACSignal empty];
+            }];
+            [self.view addSubview:self.chatButton];
+            [self.chatButton alignCenterWithView:self.chatButton.superview];
+        } else if (![self.sceneModel.profile.objectId isEqualToString:userId]) {
+            self.addContactButton = [[UIButton alloc] init];
+            [self.addContactButton setTitle:NSLocalizedString(@"label.addContact", @"AddContact") forState:UIControlStateNormal];
+            [self.view addSubview:self.addContactButton];
+            [self.addContactButton alignCenterWithView:self.addContactButton.superview];
+        }
+    } error:^(NSError *error) {
+        [self showError:error];
+    }];
 }
 
 @end

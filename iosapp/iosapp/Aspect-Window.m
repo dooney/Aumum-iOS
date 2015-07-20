@@ -16,6 +16,7 @@
 #import "RDNavigationController.h"
 #import "SplashScene.h"
 #import "KeyChainUtil.h"
+#import "TSMessage.h"
 
 #define AtAspect Window
 
@@ -36,7 +37,9 @@ AspectPatch(-, void,application:(UIApplication *)application didFinishLaunchingW
          switch (networkStatus) {
              case AFNetworkReachabilityStatusUnknown:
              case AFNetworkReachabilityStatusNotReachable:
-                 [[DialogUtil sharedInstance] showDlg:self.window textOnly:@"网络连接不给力"];
+                 [TSMessage showNotificationWithTitle:nil
+                                             subtitle:@"无法找到有效的网络，请检查你的网络连接"
+                                                 type:TSMessageNotificationTypeError];
                  break;
              case AFNetworkReachabilityStatusReachableViaWWAN:
                  [[DialogUtil sharedInstance] showDlg:self.window textOnly:@"当前使用移动数据网络"];

@@ -1,30 +1,30 @@
 //
-//  UserRequest.m
+//  UserDetailsRequest.m
 //  iosapp
 //
 //  Created by Administrator on 12/07/2015.
 //  Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 //
 
-#import "UserRequest.h"
+#import "UserDetailsRequest.h"
 
-@implementation UserRequest
+@implementation UserDetailsRequest
 
 - (void)loadRequest {
     [super loadRequest];
     self.METHOD = @"GET";
-    self.keys = @"objectId,chatId,avatarUrl,screenName";
+    self.keys = [UserDetails getKeys];
 }
 
 - (void)send:(NSString*)userId {
     self.PATH = [NSString stringWithFormat:@"/1/users/%@", userId];
-    self.user = nil;
+    self.userDetails = nil;
     [self send];
 }
 
 - (NSError*)outputHandler:(NSDictionary* )output {
     NSError* error;
-    self.user = [[User alloc] initWithDictionary:output error:&error];
+    self.userDetails = [[UserDetails alloc] initWithDictionary:output error:&error];
     return error;
 }
 

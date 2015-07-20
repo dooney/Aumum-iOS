@@ -9,9 +9,9 @@
 #ifndef iosapp_ConversationScene_h
 #define iosapp_ConversationScene_h
 
-#import "Scene.h"
+#import "BaseScene.h"
 
-@interface ConversationScene: Scene
+@interface ConversationScene: BaseScene
 
 @end
 

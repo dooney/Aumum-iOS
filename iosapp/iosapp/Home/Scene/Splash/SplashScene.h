@@ -9,9 +9,9 @@
 #ifndef iosapp_SplashScene_h
 #define iosapp_SplashScene_h
 
-#import "Scene.h"
+#import "BaseScene.h"
 
-@interface SplashScene : Scene
+@interface SplashScene : BaseScene
 
 @end
 

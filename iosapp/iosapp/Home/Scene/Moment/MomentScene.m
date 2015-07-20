@@ -7,7 +7,6 @@
 #import "MomentListSceneModel.h"
 #import "SceneTableView.h"
 #import "UIView+FLKAutoLayout.h"
-#import "UIViewController+MBHud.h"
 #import "MomentCell.h"
 #import "Moment.h"
 #import "UITableView+FDTemplateLayoutCell.h"
@@ -53,8 +52,6 @@
         Moment* moment = [self.sceneModel.dataSet lastObject];
         [self.sceneModel.loadRequest send:moment.createdAt after:nil];
     }];
-    
-    [self loadHud:self.view];
 }
 
 - (void)onRequest:(MomentListRequest*)request
@@ -88,7 +85,7 @@
             [self.tableView endAllRefreshingWithEnd:NO];
         }];
     } error:^(NSError* error) {
-        [self hideHudFailed:error.localizedDescription];
+        [self showError:error];
     }];
     
     [self.sceneModel.loadRequest onRequest:^() {
@@ -98,7 +95,7 @@
             [self.tableView endAllRefreshingWithEnd:self.sceneModel.loadRequest.isEnd.boolValue];
         }];
     } error:^(NSError* error) {
-        [self hideHudFailed:error.localizedDescription];
+        [self showError:error];
     }];
     
     [self.sceneModel.userListRequest onRequest:^() {
@@ -109,11 +106,10 @@
                 }
             }
         }
-        [self hideHud];
         [self.tableView reloadData];
         [self.tableView endAllRefreshingWithEnd:self.sceneModel.loadRequest.isEnd.boolValue];
     } error:^(NSError* error) {
-        [self hideHudFailed:error.localizedDescription];
+        [self showError:error];
     }];
 }
 

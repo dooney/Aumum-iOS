@@ -131,7 +131,7 @@
 }
 
 - (void)loginButtonAction {
-    [self showHudIndeterminate:@"正在验证账号信息，请稍候"];
+    [self showHudIndeterminate:@"正在验证账号信息"];
     [self.sceneModel.request doLogin:self.sceneModel.username password:self.sceneModel.password];
 }
 

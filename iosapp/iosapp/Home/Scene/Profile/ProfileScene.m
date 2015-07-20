@@ -34,7 +34,7 @@
     [self.logoutButton setTitle:NSLocalizedString(@"label.logout", @"Log Out") forState:UIControlStateNormal];
     self.logoutButton.nuiClass = @"Button:LargeButton";
     self.logoutButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        [self showHudIndeterminate:@"正在退出登录，请稍候"];
+        [self showHudIndeterminate:@"正在退出登录"];
         @weakify(self)
         [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
             @strongify(self)

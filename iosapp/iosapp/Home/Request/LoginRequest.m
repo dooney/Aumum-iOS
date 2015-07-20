@@ -26,6 +26,8 @@
 - (NSError*)outputHandler:(NSDictionary* )output {
     NSError* error;
     self.profile = [[Profile alloc] initWithDictionary:self.output error:&error];
+    [self.profile updateContactList];
+    [self.profile insertOrReplace:self.profile.objectId];
     return error;
 }
 

@@ -9,9 +9,9 @@
 #ifndef iosapp_UserScene_h
 #define iosapp_UserScene_h
 
-#import "Scene.h"
+#import "BaseScene.h"
 
-@interface UserScene : Scene
+@interface UserScene : BaseScene
 
 @end
 

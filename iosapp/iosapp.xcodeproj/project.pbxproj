@@ -17,7 +17,7 @@
 		C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936B51B51451100BDC3C3 /* NSDate+Category.m */; };
 		C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */; };
 		C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */; };
-		C3FB7D5A1B526DAB00A6B581 /* UserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB7D591B526DAB00A6B581 /* UserRequest.m */; };
+		C3FB7D5A1B526DAB00A6B581 /* UserDetailsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB7D591B526DAB00A6B581 /* UserDetailsRequest.m */; };
 		D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297B81A98BAC7003575F2 /* Aspect-Window.m */; };
 		D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BB1A98BB5E003575F2 /* TabBarController.m */; };
 		D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297BE1A98BC25003575F2 /* RDNavigationController.m */; };
@@ -46,6 +46,9 @@
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
+		D6E2A4761B5C65D2008B3DC1 /* UserSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2A4751B5C65D2008B3DC1 /* UserSceneModel.m */; };
+		D6E2A4791B5C6AC7008B3DC1 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2A4781B5C6AC7008B3DC1 /* UserDetails.m */; };
+		D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EB351B1B5D95770026E78C /* BaseScene.m */; };
 		D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1EE1B55AE19001C013A /* ConversationScene.m */; };
 		D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F21B55AFC1001C013A /* ConversationListSceneModel.m */; };
 		D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F51B55B0DC001C013A /* ConversationCell.m */; };
@@ -91,8 +94,8 @@
 		C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
 		C3BEC75F1B51EE5C00FB5474 /* ChatSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatSceneModel.h; sourceTree = "<group>"; };
 		C3BEC7601B51EE9400FB5474 /* ChatSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSceneModel.m; sourceTree = "<group>"; };
-		C3FB7D581B526D7000A6B581 /* UserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserRequest.h; sourceTree = "<group>"; };
-		C3FB7D591B526DAB00A6B581 /* UserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRequest.m; sourceTree = "<group>"; };
+		C3FB7D581B526D7000A6B581 /* UserDetailsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDetailsRequest.h; sourceTree = "<group>"; };
+		C3FB7D591B526DAB00A6B581 /* UserDetailsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsRequest.m; sourceTree = "<group>"; };
 		D60297B81A98BAC7003575F2 /* Aspect-Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Aspect-Window.m"; path = "iosapp/Aspect-Window.m"; sourceTree = SOURCE_ROOT; };
 		D60297BA1A98BB5E003575F2 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		D60297BB1A98BB5E003575F2 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
@@ -142,6 +145,12 @@
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
 		D6E0498C1B47B2DA00A867C8 /* MomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentCell.m; sourceTree = "<group>"; };
 		D6E049931B49447600A867C8 /* Aspect-Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Util.m"; sourceTree = "<group>"; };
+		D6E2A4741B5C6594008B3DC1 /* UserSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSceneModel.h; sourceTree = "<group>"; };
+		D6E2A4751B5C65D2008B3DC1 /* UserSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSceneModel.m; sourceTree = "<group>"; };
+		D6E2A4771B5C6AB9008B3DC1 /* UserDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
+		D6E2A4781B5C6AC7008B3DC1 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
+		D6EB351A1B5D95500026E78C /* BaseScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScene.h; sourceTree = "<group>"; };
+		D6EB351B1B5D95770026E78C /* BaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScene.m; sourceTree = "<group>"; };
 		D6ECF1ED1B55ADE0001C013A /* ConversationScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationScene.h; sourceTree = "<group>"; };
 		D6ECF1EE1B55AE19001C013A /* ConversationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationScene.m; sourceTree = "<group>"; };
 		D6ECF1F11B55AF97001C013A /* ConversationListSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationListSceneModel.h; sourceTree = "<group>"; };
@@ -360,8 +369,8 @@
 				C3602A781B48B246006DF6C8 /* UserListRequest.m */,
 				D661EF611B4DE9300019B280 /* LoginRequest.h */,
 				D661EF621B4DE9610019B280 /* LoginRequest.m */,
-				C3FB7D581B526D7000A6B581 /* UserRequest.h */,
-				C3FB7D591B526DAB00A6B581 /* UserRequest.m */,
+				C3FB7D581B526D7000A6B581 /* UserDetailsRequest.h */,
+				C3FB7D591B526DAB00A6B581 /* UserDetailsRequest.m */,
 				D6ECF1FA1B56185E001C013A /* UserListByChatIdRequest.h */,
 				D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */,
 				D6ECF1FD1B5676EC001C013A /* ProfileRequest.h */,
@@ -387,6 +396,8 @@
 				D6ECF1F81B55B4F9001C013A /* Conversation.m */,
 				D6ECF2081B576BF3001C013A /* BaseModel.h */,
 				D6ECF2091B576C1B001C013A /* BaseModel.m */,
+				D6E2A4771B5C6AB9008B3DC1 /* UserDetails.h */,
+				D6E2A4781B5C6AC7008B3DC1 /* UserDetails.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,6 +420,7 @@
 		D69748261A8088C1006004D1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D6EB35191B5D95430026E78C /* Base */,
 				D6ECF1EC1B55ADCF001C013A /* Conversation */,
 				C37936AC1B511A0500BDC3C3 /* Chat */,
 				C37936A81B5113B700BDC3C3 /* User */,
@@ -437,6 +449,8 @@
 				D6ECF1F21B55AFC1001C013A /* ConversationListSceneModel.m */,
 				D6ECF2021B56838B001C013A /* ProfileSceneModel.h */,
 				D6ECF2031B5683B3001C013A /* ProfileSceneModel.m */,
+				D6E2A4741B5C6594008B3DC1 /* UserSceneModel.h */,
+				D6E2A4751B5C65D2008B3DC1 /* UserSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -448,6 +462,15 @@
 				D6D5BDC81B4F89F300D6045F /* ProfileScene.m */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D6EB35191B5D95430026E78C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D6EB351A1B5D95500026E78C /* BaseScene.h */,
+				D6EB351B1B5D95770026E78C /* BaseScene.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		D6ECF1EC1B55ADCF001C013A /* Conversation */ = {
@@ -630,14 +653,17 @@
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
 				C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */,
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
+				D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */,
+				D6E2A4791B5C6AC7008B3DC1 /* UserDetails.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
 				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
 				C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
+				D6E2A4761B5C65D2008B3DC1 /* UserSceneModel.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
 				D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
-				C3FB7D5A1B526DAB00A6B581 /* UserRequest.m in Sources */,
+				C3FB7D5A1B526DAB00A6B581 /* UserDetailsRequest.m in Sources */,
 				D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */,
 				81C7F405F41A0E7F648738E4 /* MomentScene.m in Sources */,
 				D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */,

@@ -13,7 +13,16 @@
 
 + (id)get {
     NSString* currentUserId = [KeyChainUtil getCurrentUserId];
-    return [[self findByColumn:@"objectId" value:currentUserId] firstObject];
+    Profile* profile = [[self findByColumn:@"objectId" value:currentUserId] firstObject];
+    profile.contacts = [NSMutableArray arrayWithArray:[profile.contactList componentsSeparatedByString:@","]];
+    return profile;
+}
+
+- (void)updateContactList {
+    self.contactList = [self.contacts firstObject];
+    for(int i = 1; i < self.contacts.count; i++) {
+        self.contactList = [self.contactList stringByAppendingFormat:@",%@", self.contacts[i]];
+    }
 }
 
 @end

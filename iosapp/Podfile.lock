@@ -48,6 +48,7 @@ PODS:
   - FLKAutoLayout (0.1.1)
   - FontIcon (1.0)
   - GCDObjC (0.2.0)
+  - HexColors (2.2.1)
   - IQKeyboardManager (3.2.4)
   - JSQMessagesViewController (7.1.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
@@ -78,6 +79,8 @@ PODS:
   - SWTableViewCell (0.3.7)
   - TMCache (2.1.0)
   - TOWebViewController (2.0.17)
+  - TSMessages (0.9.12):
+    - HexColors (~> 2.2.0)
   - TTTAttributedLabel (1.13.4)
   - UIActionSheet+Blocks (0.9)
   - UIActivityIndicator-for-SDWebImage (1.2):
@@ -105,6 +108,7 @@ DEPENDENCIES:
   - NUI
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
+  - TSMessages
   - UIColor+MLPFlatColors (~> 1.0)
   - UITableView+FDTemplateLayoutCell (~> 1.3)
   - UMAnalytics (from `https://github.com/jcccn/UMeng-Analytics-iOS.git`)
@@ -137,6 +141,7 @@ SPEC CHECKSUMS:
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851
   FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
   GCDObjC: adcd9941029e3628de539347d3a6777470a65998
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   JSQMessagesViewController: ca11f86fa68ca70835f05e169df9244147c1dc40
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
@@ -152,6 +157,7 @@ SPEC CHECKSUMS:
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   TOWebViewController: aada427e7eba199bbaee77ddee3243c8172f4053
+  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c

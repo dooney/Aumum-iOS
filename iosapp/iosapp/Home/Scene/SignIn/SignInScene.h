@@ -9,9 +9,9 @@
 #ifndef iosapp_SignInScene_h
 #define iosapp_SignInScene_h
 
-#import "Scene.h"
+#import "BaseScene.h"
 
-@interface SignInScene : Scene
+@interface SignInScene : BaseScene
 
 @end
 

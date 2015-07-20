@@ -28,7 +28,7 @@
 
 - (void)send:(NSArray *)userIdList {
     self.where = [NSString jsonStringWithDictionary:@{ @"objectId": @{ @"$in": userIdList } }];
-    self.keys = @"objectId,chatId,avatarUrl,screenName";
+    self.keys = [User getKeys];
     self.list = nil;
     [self send];
 }
