@@ -9,7 +9,6 @@
 #import "SplashScene.h"
 #import "UIView+FLKAutoLayout.h"
 #import "URLManager.h"
-#import "UIButton+NUI.h"
 
 @interface SplashScene()
 
@@ -22,14 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self initView];
     [self addControls];
     [self loadAutoLayout];
+}
+
+- (void)initView {
+    self.view.backgroundColor = HEX_RGB(0xff6060);
 }
 
 - (void)addControls {
     self.signInButton = [[UIButton alloc] init];
     [self.signInButton setTitle:NSLocalizedString(@"label.signIn", @"Sign In") forState:UIControlStateNormal];
-    self.signInButton.nuiClass = @"Button:LargeButton";
     self.signInButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [URLManager pushURLString:@"iosapp://signIn" animated:YES];
         return [RACSignal empty];

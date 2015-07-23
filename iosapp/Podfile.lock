@@ -45,6 +45,7 @@ PODS:
     - ReactiveCocoa (= 2.4.4)
     - TMCache
     - UIActivityIndicator-for-SDWebImage
+  - FLEX (2.0.3)
   - FLKAutoLayout (0.1.1)
   - FontIcon (1.0)
   - GCDObjC (0.2.0)
@@ -56,9 +57,6 @@ PODS:
   - JVFloatLabeledTextField (1.1.0)
   - MBProgressHUD (0.9.1)
   - MojoDatabase (1.4)
-  - NUI (0.5.5):
-    - NUIParse
-  - NUIParse (1.2.1)
   - ReactiveCocoa (2.4.4):
     - ReactiveCocoa/UI (= 2.4.4)
   - ReactiveCocoa/Core (2.4.4):
@@ -103,9 +101,9 @@ DEPENDENCIES:
   - EaseMobSDK (from `https://github.com/easemob/sdk-ios-cocoapods.git`)
   - EasyIOS (from `https://github.com/zhuchaowe/EasyIOS.git`)
   - EasyIOS-Extention (~> 1.2)
+  - FLEX
   - JSQMessagesViewController
   - JVFloatLabeledTextField
-  - NUI
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
   - TSMessages
@@ -138,6 +136,7 @@ SPEC CHECKSUMS:
   EaseMobSDK: 639251847fa6de8cd752a6d4ca841e1753903683
   EasyIOS: 5f8c2110b4d0818aa78de068dc001c5c344de7a6
   EasyIOS-Extention: c7e402e8b2497760955510228771512c37110aa2
+  FLEX: 4f04fe0b0594163c00879e2b3db888e5ae37c8d5
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851
   FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
   GCDObjC: adcd9941029e3628de539347d3a6777470a65998
@@ -148,8 +147,6 @@ SPEC CHECKSUMS:
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MojoDatabase: 02e3eb98510b69033ab537156969d1f76b4f369e
-  NUI: 53de7278003235deb2a375fe6f04c7a3aa3e49eb
-  NUIParse: 9b6d5a6b782dc654ac6c846d623885080306f07f
   ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
   RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8

@@ -11,7 +11,6 @@
 #import "KeyChainUtil.h"
 #import "UIViewController+MBHud.h"
 #import "EaseMob.h"
-#import "UIButton+NUI.h"
 
 @interface ProfileScene()
 
@@ -31,8 +30,7 @@
 
 - (void)addControls {
     self.logoutButton = [[UIButton alloc] init];
-    [self.logoutButton setTitle:NSLocalizedString(@"label.logout", @"Log Out") forState:UIControlStateNormal];
-    self.logoutButton.nuiClass = @"Button:LargeButton";
+    [self.logoutButton setTitle:NSLocalizedString(@"label.logOut", @"Log Out") forState:UIControlStateNormal];
     self.logoutButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         [self showHudIndeterminate:@"正在退出登录"];
         @weakify(self)

@@ -10,6 +10,8 @@
 		<string>SplashScene</string>
 		<key>iosapp://signIn</key>
 		<string>SignInScene</string>
+		<key>iosapp://signUp</key>
+		<string>SignUpScene</string>
 		<key>iosapp://user</key>
 		<string>UserScene</string>
 	</dict>

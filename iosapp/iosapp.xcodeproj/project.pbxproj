@@ -24,6 +24,7 @@
 		D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297C01A98C518003575F2 /* Aspect-Appearance.m */; };
 		D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D60297C31A98C64D003575F2 /* XinGothic.otf */; };
 		D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297C51A98C679003575F2 /* Aspect-Font.m */; };
+		D6099B4F1B608E3900ECA44F /* SignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6099B4E1B608E3900ECA44F /* SignUpScene.m */; };
 		D62A39B31A7F0AB9007347B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B21A7F0AB9007347B5 /* main.m */; };
 		D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B51A7F0AB9007347B5 /* AppDelegate.m */; };
 		D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A39C01A7F0AB9007347B5 /* Images.xcassets */; };
@@ -60,7 +61,6 @@
 		D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2061B570133001C013A /* ChatSendHelper.m */; };
 		D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2091B576C1B001C013A /* BaseModel.m */; };
 		D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF20C1B587B2A001C013A /* AvatarImageView.m */; };
-		D6ECF20F1B58C013001C013A /* AMStyle.nss in Resources */ = {isa = PBXBuildFile; fileRef = D6ECF20E1B58C013001C013A /* AMStyle.nss */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +104,8 @@
 		D60297C01A98C518003575F2 /* Aspect-Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Aspect-Appearance.m"; path = "iosapp/Aspect-Appearance.m"; sourceTree = SOURCE_ROOT; };
 		D60297C31A98C64D003575F2 /* XinGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = XinGothic.otf; path = Resource/XinGothic.otf; sourceTree = "<group>"; };
 		D60297C51A98C679003575F2 /* Aspect-Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Font.m"; sourceTree = "<group>"; };
+		D6099B4D1B608E1700ECA44F /* SignUpScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpScene.h; sourceTree = "<group>"; };
+		D6099B4E1B608E3900ECA44F /* SignUpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpScene.m; sourceTree = "<group>"; };
 		D62A39AD1A7F0AB9007347B5 /* iosapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39B11A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62A39B21A7F0AB9007347B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -172,7 +174,6 @@
 		D6ECF2091B576C1B001C013A /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		D6ECF20B1B587AE1001C013A /* AvatarImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarImageView.h; sourceTree = "<group>"; };
 		D6ECF20C1B587B2A001C013A /* AvatarImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarImageView.m; sourceTree = "<group>"; };
-		D6ECF20E1B58C013001C013A /* AMStyle.nss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AMStyle.nss; path = Resource/AMStyle.nss; sourceTree = "<group>"; };
 		DCCE54AD975929494FE5A76D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -259,10 +260,18 @@
 		D60297C21A98C63B003575F2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				D6ECF20E1B58C013001C013A /* AMStyle.nss */,
 				D60297C31A98C64D003575F2 /* XinGothic.otf */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		D6099B4C1B608DFE00ECA44F /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				D6099B4D1B608E1700ECA44F /* SignUpScene.h */,
+				D6099B4E1B608E3900ECA44F /* SignUpScene.m */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		D62A39A41A7F0AB9007347B5 = {
@@ -425,6 +434,7 @@
 				C37936AC1B511A0500BDC3C3 /* Chat */,
 				C37936A81B5113B700BDC3C3 /* User */,
 				D6D5BDC61B4F89B600D6045F /* Profile */,
+				D6099B4C1B608DFE00ECA44F /* SignUp */,
 				D661EF591B4DC04F0019B280 /* SignIn */,
 				D661EF521B4CE4E20019B280 /* Splash */,
 				81C7F318018644C5E5355771 /* Moment */,
@@ -569,7 +579,6 @@
 			files = (
 				D6D728241B5924F8000277F0 /* Localizable.strings in Resources */,
 				D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */,
-				D6ECF20F1B58C013001C013A /* AMStyle.nss in Resources */,
 				D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */,
 				D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */,
 			);
@@ -650,6 +659,7 @@
 				D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
 				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
+				D6099B4F1B608E3900ECA44F /* SignUpScene.m in Sources */,
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
 				C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */,
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,

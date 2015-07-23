@@ -7,11 +7,12 @@
 */
 
 //Label
-"label.signIn" = "Sign In";
-"label.username" = "Username";
+"label.signIn" = "SIGN IN";
+"label.signUp" = "SIGN UP";
+"label.userName" = "User Name";
 "label.password" = "Password";
-"label.login" = "Log In";
-"label.logout" = "Log Out";
+"label.logIn" = "LOG IN";
+"label.logOut" = "Log Out";
 "label.chat" = "Chat";
 "label.addContact" = "Add Contact";
 

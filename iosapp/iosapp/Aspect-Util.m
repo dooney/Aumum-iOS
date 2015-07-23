@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <XAspect/XAspect.h>
+#import "FLEXManager.h"
 #import "AFNetworkActivityLogger.h"
 
 #define AtAspect  Util
@@ -16,6 +17,7 @@
 @classPatchField(AppDelegate)
 AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions)
 {
+    //[[FLEXManager sharedManager] showExplorer];
     [[AFNetworkActivityLogger sharedLogger] startLogging];
     
     return XAMessageForward(application:application didFinishLaunchingWithOptions:launchOptions);

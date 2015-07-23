@@ -13,7 +13,6 @@
 #import "AvatarImageView.h"
 #import "NSDate+EasyExtend.h"
 #import "NSDate+Category.h"
-#import "UILabel+NUI.h"
 #import "URLManager.h"
 
 @interface MomentCell()
@@ -45,7 +44,6 @@
     [self.contentView addSubview:self.screenName];
     
     self.createdAt = [[UILabel alloc] init];
-    self.createdAt.nuiClass = @"Label:SmallLabel";
     [self.contentView addSubview:self.createdAt];
     
     self.momentImage = [[UIImageView alloc] init];
