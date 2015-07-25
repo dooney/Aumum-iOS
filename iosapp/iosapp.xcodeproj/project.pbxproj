@@ -25,10 +25,13 @@
 		D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D60297C31A98C64D003575F2 /* XinGothic.otf */; };
 		D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297C51A98C679003575F2 /* Aspect-Font.m */; };
 		D6099B4F1B608E3900ECA44F /* SignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6099B4E1B608E3900ECA44F /* SignUpScene.m */; };
+		D621D74F1B63A3F8006D058C /* PrimaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D621D74E1B63A3F8006D058C /* PrimaryButton.m */; };
 		D62A39B31A7F0AB9007347B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B21A7F0AB9007347B5 /* main.m */; };
 		D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B51A7F0AB9007347B5 /* AppDelegate.m */; };
 		D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A39C01A7F0AB9007347B5 /* Images.xcassets */; };
 		D62A39D01A7F0AB9007347B5 /* iosappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39CF1A7F0AB9007347B5 /* iosappTests.m */; };
+		D661508B1B63BAF0009F33A4 /* CompleteProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661508A1B63BAF0009F33A4 /* CompleteProfileScene.m */; };
+		D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */; };
 		D661EF551B4CE5310019B280 /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF541B4CE5310019B280 /* SplashScene.m */; };
 		D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5C1B4DC0BB0019B280 /* SignInScene.m */; };
 		D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5F1B4DE3F50019B280 /* SignInSceneModel.m */; };
@@ -39,10 +42,21 @@
 		D67332281B44F80F00A1D525 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332271B44F80F00A1D525 /* Moment.m */; };
 		D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322A1B4507E400A1D525 /* MomentListRequest.m */; };
 		D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322E1B450DA300A1D525 /* BaseRequest.m */; };
+		D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD3C371B60C1DB00E92870 /* CountryScene.m */; };
 		D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D5BDC01B4F787600D6045F /* URLManage.plist */; };
 		D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC41B4F835100D6045F /* Aspect-Config.m */; };
 		D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC81B4F89F300D6045F /* ProfileScene.m */; };
 		D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */; };
+		D6D5E2421B61A5DF0027B0D9 /* CountryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E2411B61A5DF0027B0D9 /* CountryCell.m */; };
+		D6D5E2451B61AA480027B0D9 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E2441B61AA480027B0D9 /* Country.m */; };
+		D6D5E2481B61E6690027B0D9 /* SIgnUpSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E2471B61E6690027B0D9 /* SIgnUpSceneModel.m */; };
+		D6D5E24E1B6200E90027B0D9 /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6D5E24A1B6200E90027B0D9 /* SMS_SDKLocalizable.strings */; };
+		D6D5E24F1B6200E90027B0D9 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D5E24C1B6200E90027B0D9 /* SMS_SDK.framework */; };
+		D6D5E2511B6201110027B0D9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D5E2501B6201110027B0D9 /* libicucore.dylib */; };
+		D6D5E2531B6201200027B0D9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D5E2521B6201200027B0D9 /* libz.dylib */; };
+		D6D5E2551B62012C0027B0D9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D5E2541B62012C0027B0D9 /* MessageUI.framework */; };
+		D6D5E2581B635A020027B0D9 /* VerifyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E2571B635A020027B0D9 /* VerifyScene.m */; };
+		D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E25A1B636EF30027B0D9 /* VerifySceneModel.m */; };
 		D6D728241B5924F8000277F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6D728261B5924F8000277F0 /* Localizable.strings */; };
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
@@ -106,6 +120,8 @@
 		D60297C51A98C679003575F2 /* Aspect-Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Font.m"; sourceTree = "<group>"; };
 		D6099B4D1B608E1700ECA44F /* SignUpScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpScene.h; sourceTree = "<group>"; };
 		D6099B4E1B608E3900ECA44F /* SignUpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpScene.m; sourceTree = "<group>"; };
+		D621D74D1B63A3BE006D058C /* PrimaryButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrimaryButton.h; sourceTree = "<group>"; };
+		D621D74E1B63A3F8006D058C /* PrimaryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimaryButton.m; sourceTree = "<group>"; };
 		D62A39AD1A7F0AB9007347B5 /* iosapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39B11A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62A39B21A7F0AB9007347B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +131,9 @@
 		D62A39C91A7F0AB9007347B5 /* iosappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39CE1A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62A39CF1A7F0AB9007347B5 /* iosappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosappTests.m; sourceTree = "<group>"; };
+		D66150891B63BAC1009F33A4 /* CompleteProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompleteProfileScene.h; sourceTree = "<group>"; };
+		D661508A1B63BAF0009F33A4 /* CompleteProfileScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteProfileScene.m; sourceTree = "<group>"; };
+		D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-ShareSDK.m"; sourceTree = "<group>"; };
 		D661EF531B4CE4F00019B280 /* SplashScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
 		D661EF541B4CE5310019B280 /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
 		D661EF5B1B4DC0770019B280 /* SignInScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInScene.h; sourceTree = "<group>"; };
@@ -135,11 +154,29 @@
 		D673322C1B4507F800A1D525 /* MomentListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentListRequest.h; sourceTree = "<group>"; };
 		D673322D1B450D9400A1D525 /* BaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		D673322E1B450DA300A1D525 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		D6BD3C361B60C1B200E92870 /* CountryScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryScene.h; sourceTree = "<group>"; };
+		D6BD3C371B60C1DB00E92870 /* CountryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryScene.m; sourceTree = "<group>"; };
 		D6D5BDC01B4F787600D6045F /* URLManage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = URLManage.plist; sourceTree = "<group>"; };
 		D6D5BDC41B4F835100D6045F /* Aspect-Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Config.m"; sourceTree = "<group>"; };
 		D6D5BDC71B4F89CE00D6045F /* ProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileScene.h; sourceTree = "<group>"; };
 		D6D5BDC81B4F89F300D6045F /* ProfileScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileScene.m; sourceTree = "<group>"; };
 		D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-EaseMob.m"; sourceTree = "<group>"; };
+		D6D5E2401B61A5890027B0D9 /* CountryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryCell.h; sourceTree = "<group>"; };
+		D6D5E2411B61A5DF0027B0D9 /* CountryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryCell.m; sourceTree = "<group>"; };
+		D6D5E2431B61AA0E0027B0D9 /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
+		D6D5E2441B61AA480027B0D9 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
+		D6D5E2461B61E4910027B0D9 /* SignUpSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpSceneModel.h; sourceTree = "<group>"; };
+		D6D5E2471B61E6690027B0D9 /* SIgnUpSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIgnUpSceneModel.m; sourceTree = "<group>"; };
+		D6D5E24B1B6200E90027B0D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		D6D5E24C1B6200E90027B0D9 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		D6D5E24D1B6200E90027B0D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
+		D6D5E2501B6201110027B0D9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		D6D5E2521B6201200027B0D9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D6D5E2541B62012C0027B0D9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D6D5E2561B6359F20027B0D9 /* VerifyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyScene.h; sourceTree = "<group>"; };
+		D6D5E2571B635A020027B0D9 /* VerifyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyScene.m; sourceTree = "<group>"; };
+		D6D5E2591B636EDC0027B0D9 /* VerifySceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifySceneModel.h; sourceTree = "<group>"; };
+		D6D5E25A1B636EF30027B0D9 /* VerifySceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifySceneModel.m; sourceTree = "<group>"; };
 		D6D728251B5924F8000277F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D6D728271B592585000277F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6E049881B45238D00A867C8 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
@@ -182,7 +219,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D5E2551B62012C0027B0D9 /* MessageUI.framework in Frameworks */,
+				D6D5E2531B6201200027B0D9 /* libz.dylib in Frameworks */,
+				D6D5E2511B6201110027B0D9 /* libicucore.dylib in Frameworks */,
 				4A39A89232F472FAA868B4EB /* libPods.a in Frameworks */,
+				D6D5E24F1B6200E90027B0D9 /* SMS_SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +240,9 @@
 		18D3573A9CB648772CCE24C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6D5E2541B62012C0027B0D9 /* MessageUI.framework */,
+				D6D5E2521B6201200027B0D9 /* libz.dylib */,
+				D6D5E2501B6201110027B0D9 /* libicucore.dylib */,
 				DCCE54AD975929494FE5A76D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -253,6 +297,8 @@
 				C37936B51B51451100BDC3C3 /* NSDate+Category.m */,
 				D6ECF20B1B587AE1001C013A /* AvatarImageView.h */,
 				D6ECF20C1B587B2A001C013A /* AvatarImageView.m */,
+				D621D74D1B63A3BE006D058C /* PrimaryButton.h */,
+				D621D74E1B63A3F8006D058C /* PrimaryButton.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -270,6 +316,10 @@
 			children = (
 				D6099B4D1B608E1700ECA44F /* SignUpScene.h */,
 				D6099B4E1B608E3900ECA44F /* SignUpScene.m */,
+				D6D5E2561B6359F20027B0D9 /* VerifyScene.h */,
+				D6D5E2571B635A020027B0D9 /* VerifyScene.m */,
+				D66150891B63BAC1009F33A4 /* CompleteProfileScene.h */,
+				D661508A1B63BAF0009F33A4 /* CompleteProfileScene.m */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -277,6 +327,7 @@
 		D62A39A41A7F0AB9007347B5 = {
 			isa = PBXGroup;
 			children = (
+				D6D5E2491B6200E90027B0D9 /* SMS_SDK */,
 				D62A39AF1A7F0AB9007347B5 /* iosapp */,
 				D62A39CC1A7F0AB9007347B5 /* iosappTests */,
 				D62A39AE1A7F0AB9007347B5 /* Products */,
@@ -307,6 +358,7 @@
 				D6E049931B49447600A867C8 /* Aspect-Util.m */,
 				D6D5BDC41B4F835100D6045F /* Aspect-Config.m */,
 				D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */,
+				D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */,
 				D62A39C01A7F0AB9007347B5 /* Images.xcassets */,
 				D62A39B01A7F0AB9007347B5 /* Supporting Files */,
 			);
@@ -407,6 +459,8 @@
 				D6ECF2091B576C1B001C013A /* BaseModel.m */,
 				D6E2A4771B5C6AB9008B3DC1 /* UserDetails.h */,
 				D6E2A4781B5C6AC7008B3DC1 /* UserDetails.m */,
+				D6D5E2431B61AA0E0027B0D9 /* Country.h */,
+				D6D5E2441B61AA480027B0D9 /* Country.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,6 +483,7 @@
 		D69748261A8088C1006004D1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D6BD3C351B60C1A100E92870 /* Country */,
 				D6EB35191B5D95430026E78C /* Base */,
 				D6ECF1EC1B55ADCF001C013A /* Conversation */,
 				C37936AC1B511A0500BDC3C3 /* Chat */,
@@ -461,8 +516,23 @@
 				D6ECF2031B5683B3001C013A /* ProfileSceneModel.m */,
 				D6E2A4741B5C6594008B3DC1 /* UserSceneModel.h */,
 				D6E2A4751B5C65D2008B3DC1 /* UserSceneModel.m */,
+				D6D5E2461B61E4910027B0D9 /* SignUpSceneModel.h */,
+				D6D5E2471B61E6690027B0D9 /* SIgnUpSceneModel.m */,
+				D6D5E2591B636EDC0027B0D9 /* VerifySceneModel.h */,
+				D6D5E25A1B636EF30027B0D9 /* VerifySceneModel.m */,
 			);
 			path = SceneModel;
+			sourceTree = "<group>";
+		};
+		D6BD3C351B60C1A100E92870 /* Country */ = {
+			isa = PBXGroup;
+			children = (
+				D6BD3C361B60C1B200E92870 /* CountryScene.h */,
+				D6BD3C371B60C1DB00E92870 /* CountryScene.m */,
+				D6D5E2401B61A5890027B0D9 /* CountryCell.h */,
+				D6D5E2411B61A5DF0027B0D9 /* CountryCell.m */,
+			);
+			path = Country;
 			sourceTree = "<group>";
 		};
 		D6D5BDC61B4F89B600D6045F /* Profile */ = {
@@ -472,6 +542,15 @@
 				D6D5BDC81B4F89F300D6045F /* ProfileScene.m */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D6D5E2491B6200E90027B0D9 /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5E24A1B6200E90027B0D9 /* SMS_SDKLocalizable.strings */,
+				D6D5E24C1B6200E90027B0D9 /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
 			sourceTree = "<group>";
 		};
 		D6EB35191B5D95430026E78C /* Base */ = {
@@ -579,6 +658,7 @@
 			files = (
 				D6D728241B5924F8000277F0 /* Localizable.strings in Resources */,
 				D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */,
+				D6D5E24E1B6200E90027B0D9 /* SMS_SDKLocalizable.strings in Resources */,
 				D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */,
 				D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */,
 			);
@@ -634,16 +714,21 @@
 				C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */,
 				D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */,
 				D6ECF2011B568149001C013A /* Aspect-Database.m in Sources */,
+				D6D5E2581B635A020027B0D9 /* VerifyScene.m in Sources */,
 				D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
 				D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */,
+				D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */,
 				D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */,
 				D6ECF1FC1B561877001C013A /* UserListByChatIdRequest.m in Sources */,
 				C3602A7F1B48DC0E006DF6C8 /* User.m in Sources */,
+				D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */,
 				D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */,
 				D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */,
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
+				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
+				D661508B1B63BAF0009F33A4 /* CompleteProfileScene.m in Sources */,
 				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,
 				D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */,
 				D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */,
@@ -655,10 +740,13 @@
 				D661EF661B4DEB9A0019B280 /* Profile.m in Sources */,
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
 				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
+				D6D5E2481B61E6690027B0D9 /* SIgnUpSceneModel.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
 				D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */,
+				D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
 				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
+				D621D74F1B63A3F8006D058C /* PrimaryButton.m in Sources */,
 				D6099B4F1B608E3900ECA44F /* SignUpScene.m in Sources */,
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
 				C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */,
@@ -666,6 +754,7 @@
 				D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */,
 				D6E2A4791B5C6AC7008B3DC1 /* UserDetails.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
+				D6D5E2421B61A5DF0027B0D9 /* CountryCell.m in Sources */,
 				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
 				C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
@@ -701,6 +790,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D6D5E24A1B6200E90027B0D9 /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6D5E24B1B6200E90027B0D9 /* en */,
+				D6D5E24D1B6200E90027B0D9 /* zh-Hans */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		D6D728261B5924F8000277F0 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -794,7 +892,7 @@
 			baseConfigurationReference = 57BF2565B97FD670D003AC9D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/SMS_SDK";
 				INFOPLIST_FILE = iosapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -806,7 +904,10 @@
 			baseConfigurationReference = 37FF956BF805A7F61E92BD4C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SMS_SDK",
+				);
 				INFOPLIST_FILE = iosapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

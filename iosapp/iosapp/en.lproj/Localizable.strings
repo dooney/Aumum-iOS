@@ -9,12 +9,26 @@
 //Label
 "label.signIn" = "SIGN IN";
 "label.signUp" = "SIGN UP";
-"label.userName" = "User Name";
+"label.userName" = "Mobile Number";
 "label.password" = "Password";
 "label.logIn" = "LOG IN";
 "label.logOut" = "Log Out";
 "label.chat" = "Chat";
 "label.addContact" = "Add Contact";
+"label.cancel" = "Cancel";
+"label.confirm" = "Confirm";
+"label.willSendCode" = "The 4 digit verification code will be sent to this mobile number via SMS";
+"label.code" = "Code";
+"label.shouldReceiveCodeWithinSeconds" = "Should receive SMS within %d second(s)";
+"label.submit" = "SUBMIT";
+"label.resend" = "RESEND";
+
+//Info
+"info.sending" = "Sending";
+"info.submitting" = "Submitting";
+
+//Error
+"error.verifyCode" = "Invalid verification code";
 
 //NSDateCategory
 "NSDateCategory.text1" = "one minute";

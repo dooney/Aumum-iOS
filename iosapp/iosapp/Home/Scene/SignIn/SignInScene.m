@@ -7,6 +7,7 @@
 //
 
 #import "SignInScene.h"
+#import "PrimaryButton.h"
 #import "JVFloatLabeledTextField.h"
 #import "UIView+FLKAutoLayout.h"
 #import "SignInSceneModel.h"
@@ -14,12 +15,15 @@
 #import "KeyChainUtil.h"
 #import "EaseMob.h"
 #import "URLManager.h"
+#import "CountryScene.h"
 
-@interface SignInScene()<UITextFieldDelegate>
+@interface SignInScene()<UITextFieldDelegate, CountryDelegate>
 
 @property (nonatomic, strong)UIView* mainLayout;
 @property (nonatomic, strong)UIView* inputLayout;
 @property (nonatomic, strong)UIView* separateLine;
+@property (nonatomic, strong)UIView* usernameLayout;
+@property (nonatomic, strong)UIButton* codeButton;
 @property (nonatomic, strong)JVFloatLabeledTextField* usernameText;
 @property (nonatomic, strong)JVFloatLabeledTextField* passwordText;
 @property (nonatomic, strong)UIView* buttonLayout;
@@ -54,21 +58,33 @@
     
     self.inputLayout = [[UIView alloc] init];
     self.inputLayout.backgroundColor = HEX_RGB(0xff7777);
-    self.inputLayout.layer.cornerRadius = 10;
+    self.inputLayout.layer.cornerRadius = 5;
     [self.mainLayout addSubview:self.inputLayout];
     
     self.separateLine = [[UIView alloc] init];
     self.separateLine.backgroundColor = HEX_RGBA(0x000000, 0.1);
     [self.inputLayout addSubview:self.separateLine];
     
+    self.usernameLayout = [[UIView alloc] init];
+    [self.inputLayout addSubview:self.usernameLayout];
+    
+    self.codeButton = [[UIButton alloc] init];
+    self.codeButton.layer.cornerRadius = 5;
+    self.codeButton.backgroundColor = HEX_RGB(0xffde00);
+    self.codeButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.codeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.codeButton addTarget:self action:@selector(codeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.usernameLayout addSubview:self.codeButton];
+    
     self.usernameText = [[JVFloatLabeledTextField alloc] init];
-    [self.usernameText setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"label.userName", @"User Name") attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}]];
+    self.usernameText.keyboardType = UIKeyboardTypePhonePad;
+    [self.usernameText setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"label.userName", nil) attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}]];
     self.usernameText.delegate = self;
-    [self.inputLayout addSubview:self.usernameText];
+    [self.usernameLayout addSubview:self.usernameText];
     
     self.passwordText = [[JVFloatLabeledTextField alloc] init];
     self.passwordText.secureTextEntry = YES;
-    [self.passwordText setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"label.password", @"Password") attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}]];
+    [self.passwordText setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"label.password", nil) attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}]];
     self.passwordText.delegate = self;
     [self.inputLayout addSubview:self.passwordText];
     
@@ -81,22 +97,12 @@
     self.signUpLayout = [[UIView alloc] init];
     [self.buttonLayout addSubview:self.signUpLayout];
     
-    self.logInButton = [[UIButton alloc] init];
-    self.logInButton.layer.borderColor = HEX_RGB(0xffde00).CGColor;
-    self.logInButton.layer.borderWidth = 1;
-    self.logInButton.layer.cornerRadius = 5;
-    self.logInButton.contentEdgeInsets = UIEdgeInsetsMake(5, 20, 5, 20);
-    [self.logInButton setTitleColor:HEX_RGB(0xffde00) forState:UIControlStateNormal];
-    [self.logInButton setTitle:NSLocalizedString(@"label.logIn", @"Log In") forState:UIControlStateNormal];
+    self.logInButton = [[PrimaryButton alloc] initWithTitle:NSLocalizedString(@"label.logIn", nil)];
     [self.logInButton addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.logInLayout addSubview:self.logInButton];
     
     self.signUpButton = [[UIButton alloc] init];
-    self.signUpButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.signUpButton.layer.borderWidth = 1;
-    self.signUpButton.layer.cornerRadius = 5;
-    self.signUpButton.contentEdgeInsets = UIEdgeInsetsMake(5, 20, 5, 20);
-    [self.signUpButton setTitle:NSLocalizedString(@"label.signUp", @"Sign Up") forState:UIControlStateNormal];
+    [self.signUpButton setTitle:NSLocalizedString(@"label.signUp", nil) forState:UIControlStateNormal];
     [self.signUpButton addTarget:self action:@selector(signUpButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.signUpLayout addSubview:self.signUpButton];
     
@@ -112,9 +118,16 @@
     [self.separateLine alignCenterWithView:self.separateLine.superview];
     [self.separateLine constrainWidth:mainLayoutWidth height:@"0.5"];
     
-    [self.usernameText alignTop:@"10" leading:@"10" bottom:nil trailing:@"-10" toView:self.usernameText.superview];
-    NSMutableArray* inputlayouts = [[NSMutableArray alloc] initWithObjects:
-                                    self.usernameText, self.passwordText, nil];
+    [self.codeButton alignTop:nil leading:nil toView:self.codeButton.superview];
+    [self.codeButton constrainWidth:@"44" height:@"32"];
+    [self.usernameText constrainWidth:[NSString stringWithFormat:@"%f", width * 0.8 - 64]];
+    NSArray* userNamelayouts = @[self.codeButton, self.usernameText];
+    [UIView spaceOutViewsHorizontally:userNamelayouts predicate:@"10"];
+    [UIView alignTopEdgesOfViews:userNamelayouts];
+    
+    [self.usernameLayout alignTop:@"10" leading:@"10" bottom:nil trailing:@"-10" toView:self.usernameLayout.superview];
+    [self.usernameLayout constrainHeight:@"40"];
+    NSArray* inputlayouts = @[self.usernameLayout, self.passwordText];
     [UIView spaceOutViewsVertically:inputlayouts predicate:@"10"];
     [UIView alignLeadingEdgesOfViews:inputlayouts];
     [UIView alignTrailingEdgesOfViews:inputlayouts];
@@ -122,8 +135,7 @@
     [self.buttonLayout constrainWidth:mainLayoutWidth height:@"44"];
     [self.signUpLayout alignTop:nil leading:nil toView:self.signUpButton.superview];
     [self.signUpLayout constrainWidth:[NSString stringWithFormat:@"%f", width * 0.4] height:@"44"];
-    NSMutableArray* buttonLayouts = [[NSMutableArray alloc] initWithObjects:
-                                    self.signUpLayout, self.logInLayout, nil];
+    NSArray* buttonLayouts = @[self.signUpLayout, self.logInLayout];
     [UIView spaceOutViewsHorizontally:buttonLayouts predicate:nil];
     [UIView alignTopEdgesOfViews:buttonLayouts];
     [UIView alignBottomEdgesOfViews:buttonLayouts];
@@ -133,8 +145,7 @@
     
     [self.inputLayout alignTop:nil leading:nil toView:self.inputLayout.superview];
     [self.inputLayout constrainWidth:mainLayoutWidth height:@"100"];
-    NSMutableArray* mainLayouts = [[NSMutableArray alloc] initWithObjects:
-                                   self.inputLayout, self.buttonLayout, nil];
+    NSArray* mainLayouts = @[self.inputLayout, self.buttonLayout];
     [UIView spaceOutViewsVertically:mainLayouts predicate:@"20"];
     [UIView alignLeadingEdgesOfViews:mainLayouts];
     [UIView alignTrailingEdgesOfViews:mainLayouts];
@@ -142,6 +153,7 @@
 
 - (void)initSceneModel {
     self.sceneModel = [SignInSceneModel SceneModel];
+    self.sceneModel.code = @"+61";
     
     [self.sceneModel.request onRequest:^() {
         NSString* username = self.sceneModel.request.profile.objectId;
@@ -168,19 +180,19 @@
                          [self hideHudFailed:(error.description)];
                          break;
                      case EMErrorNetworkNotConnected:
-                         [self hideHudFailed:NSLocalizedString(@"error.connectNetworkFail", @"No network connection!")];
+                         [self hideHudFailed:NSLocalizedString(@"error.connectNetworkFail", nil)];
                          break;
                      case EMErrorServerNotReachable:
-                         [self hideHudFailed:NSLocalizedString(@"error.connectServerFail", @"Connect to the server failed!")];
+                         [self hideHudFailed:NSLocalizedString(@"error.connectServerFail", nil)];
                          break;
                      case EMErrorServerAuthenticationFailure:
                          [self hideHudFailed:error.description];
                          break;
                      case EMErrorServerTimeout:
-                         [self hideHudFailed:NSLocalizedString(@"error.connectServerTimeout", @"Connect to the server timed out!")];
+                         [self hideHudFailed:NSLocalizedString(@"error.connectServerTimeout", nil)];
                          break;
                      default:
-                         [self hideHudFailed:NSLocalizedString(@"login.fail", @"Login failure")];
+                         [self hideHudFailed:NSLocalizedString(@"login.fail", nil)];
                          break;
                  }
              }
@@ -191,22 +203,34 @@
 }
 
 - (void)bindToSceneModel {
+    [self.codeButton rac_liftSelector:@selector(setTitle:forState:) withSignals:RACObserve(self.sceneModel, code), [RACSignal return:@(UIControlStateNormal)], nil];
     RAC(self.sceneModel, username) = self.usernameText.rac_textSignal;
     RAC(self.sceneModel, password) = self.passwordText.rac_textSignal;
     [[[RACSignal combineLatest:@[RACObserve(self.sceneModel, username), RACObserve(self.sceneModel, password)]] reduceEach:^id(NSString* username, NSString* password){
-        return @(![self.sceneModel isValid]);
-    }] subscribeNext:^(NSNumber* loginButtonHidden) {
-        [self.logInButton setHidden:[loginButtonHidden boolValue]];
+        return @([self.sceneModel isValid]);
+    }] subscribeNext:^(NSNumber* loginButtonEnabled) {
+        [self.logInButton setEnabled:[loginButtonEnabled boolValue]];
     }];
+}
+
+- (void)codeButtonPressed {
+    CountryScene* countryScene = [[CountryScene alloc] init];
+    countryScene.delegate = self;
+    [self.navigationController pushViewController:countryScene animated:YES];
 }
 
 - (void)loginButtonPressed {
     [self showHudIndeterminate:@"正在验证账号信息"];
-    [self.sceneModel.request doLogin:self.sceneModel.username password:self.sceneModel.password];
+    NSString* username = [self.sceneModel.code stringByAppendingFormat:@"%lld", [self.sceneModel.username longLongValue]];
+    [self.sceneModel.request doLogin:username password:self.sceneModel.password];
 }
 
 - (void)signUpButtonPressed {
     [URLManager pushURLString:@"iosapp://signUp" animated:YES];
+}
+
+- (void)getCountry:(Country *)country {
+    self.sceneModel.code = country.code;
 }
 
 @end

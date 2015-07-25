@@ -12,6 +12,10 @@
 		<string>SignInScene</string>
 		<key>iosapp://signUp</key>
 		<string>SignUpScene</string>
+		<key>iosapp://verify</key>
+		<string>VerifyScene</string>
+		<key>iosapp://completeProfile</key>
+		<string>CompleteProfileScene</string>
 		<key>iosapp://user</key>
 		<string>UserScene</string>
 	</dict>
