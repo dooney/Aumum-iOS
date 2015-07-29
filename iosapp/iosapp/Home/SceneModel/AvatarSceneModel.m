@@ -1,27 +1,23 @@
 //
-//  VerifySceneModel.m
+//  AvatarSceneModel.m
 //  iosapp
 //
-//  Created by Simpson Du on 25/07/2015.
+//  Created by Simpson Du on 28/07/2015.
 //  Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 //
 
-#import "VerifySceneModel.h"
+#import "AvatarSceneModel.h"
 
-@implementation VerifySceneModel
+@implementation AvatarSceneModel
 
 - (void)loadSceneModel {
     [super loadSceneModel];
     
     @weakify(self)
-    self.request = [RegisterRequest RequestWithBlock:^{
+    self.request = [UpdateUserRequest RequestWithBlock:^{
         @strongify(self)
         [self SEND_IQ_ACTION:self.request];
     }];
-}
-
-- (BOOL)isValid {
-    return self.code.length == 4;
 }
 
 @end

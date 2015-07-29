@@ -22,10 +22,13 @@
 "label.shouldReceiveCodeWithinSeconds" = "Should receive SMS within %d second(s)";
 "label.submit" = "SUBMIT";
 "label.resend" = "RESEND";
+"label.avatar" = "Avatar";
+"label.user" = "User";
 
 //Info
 "info.sending" = "Sending";
 "info.submitting" = "Submitting";
+"info.uploading" = "Uploading";
 
 //Error
 "error.verifyCode" = "Invalid verification code";

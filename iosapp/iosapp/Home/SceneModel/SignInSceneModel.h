@@ -9,10 +9,10 @@
 #ifndef iosapp_SignInSceneModel_h
 #define iosapp_SignInSceneModel_h
 
-#import "SceneModel.h"
+#import "BaseSceneModel.h"
 #import "LoginRequest.h"
 
-@interface SignInSceneModel : SceneModel
+@interface SignInSceneModel : BaseSceneModel
 
 @property (nonatomic, strong)NSString* code;
 @property (nonatomic, strong)NSString* username;

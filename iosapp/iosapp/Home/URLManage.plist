@@ -14,8 +14,8 @@
 		<string>SignUpScene</string>
 		<key>iosapp://verify</key>
 		<string>VerifyScene</string>
-		<key>iosapp://completeProfile</key>
-		<string>CompleteProfileScene</string>
+		<key>iosapp://avatar</key>
+		<string>AvatarScene</string>
 		<key>iosapp://user</key>
 		<string>UserScene</string>
 	</dict>

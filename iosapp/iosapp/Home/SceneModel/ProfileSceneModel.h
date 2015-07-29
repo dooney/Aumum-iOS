@@ -9,10 +9,10 @@
 #ifndef iosapp_ProfileSceneModel_h
 #define iosapp_ProfileSceneModel_h
 
-#import "SceneModel.h"
+#import "BaseSceneModel.h"
 #import "ProfileRequest.h"
 
-@interface ProfileSceneModel : SceneModel
+@interface ProfileSceneModel : BaseSceneModel
 
 @property (nonatomic, strong)ProfileRequest* request;
 

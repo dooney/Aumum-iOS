@@ -9,14 +9,17 @@
 #ifndef iosapp_VerifySceneModel_h
 #define iosapp_VerifySceneModel_h
 
-#import "SceneModel.h"
+#import "BaseSceneModel.h"
+#import "RegisterRequest.h"
 
-@interface VerifySceneModel : SceneModel
+@interface VerifySceneModel : BaseSceneModel
 
 @property (nonatomic, strong)NSString* username;
 @property (nonatomic, strong)NSString* zone;
+@property (nonatomic, strong)NSString* password;
 @property (nonatomic, strong)NSString* code;
 @property (nonatomic, assign)BOOL enableResend;
+@property (nonatomic, strong)RegisterRequest* request;
 
 - (BOOL)isValid;
 

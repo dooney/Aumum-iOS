@@ -118,7 +118,7 @@
     [self.separateLine alignCenterWithView:self.separateLine.superview];
     [self.separateLine constrainWidth:mainLayoutWidth height:@"0.5"];
     
-    [self.codeButton alignTop:nil leading:nil toView:self.codeButton.superview];
+    [self.codeButton alignTop:@"0" leading:@"0" toView:self.codeButton.superview];
     [self.codeButton constrainWidth:@"44" height:@"32"];
     [self.usernameText constrainWidth:[NSString stringWithFormat:@"%f", width * 0.8 - 64]];
     NSArray* userNamelayouts = @[self.codeButton, self.usernameText];
@@ -133,17 +133,17 @@
     [UIView alignTrailingEdgesOfViews:inputlayouts];
     
     [self.buttonLayout constrainWidth:mainLayoutWidth height:@"44"];
-    [self.signUpLayout alignTop:nil leading:nil toView:self.signUpButton.superview];
+    [self.signUpLayout alignTop:@"0" leading:@"0" toView:self.signUpLayout.superview];
     [self.signUpLayout constrainWidth:[NSString stringWithFormat:@"%f", width * 0.4] height:@"44"];
     NSArray* buttonLayouts = @[self.signUpLayout, self.logInLayout];
-    [UIView spaceOutViewsHorizontally:buttonLayouts predicate:nil];
+    [UIView spaceOutViewsHorizontally:buttonLayouts predicate:@"0"];
     [UIView alignTopEdgesOfViews:buttonLayouts];
     [UIView alignBottomEdgesOfViews:buttonLayouts];
     [UIView equalWidthForViews:buttonLayouts];
     [self.signUpButton alignCenterWithView:self.signUpButton.superview];
     [self.logInButton alignCenterWithView:self.logInButton.superview];
     
-    [self.inputLayout alignTop:nil leading:nil toView:self.inputLayout.superview];
+    [self.inputLayout alignTop:@"0" leading:@"0" toView:self.inputLayout.superview];
     [self.inputLayout constrainWidth:mainLayoutWidth height:@"100"];
     NSArray* mainLayouts = @[self.inputLayout, self.buttonLayout];
     [UIView spaceOutViewsVertically:mainLayouts predicate:@"20"];
@@ -174,6 +174,7 @@
                  [KeyChainUtil setToken:self.sceneModel.request.profile.sessionToken];
                  [KeyChainUtil setCurrentUserId:self.sceneModel.request.profile.objectId];
                  [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStateChange" object:@YES];
+                 [self hideHud];
              } else {
                  switch (error.errorCode) {
                      case EMErrorNotFound:

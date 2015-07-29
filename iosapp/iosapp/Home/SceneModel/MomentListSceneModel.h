@@ -9,11 +9,11 @@
 #ifndef iosapp_MomentListSceneModel_h
 #define iosapp_MomentListSceneModel_h
 
-#import "SceneModel.h"
+#import "BaseSceneModel.h"
 #import "MomentListRequest.h"
 #import "UserListRequest.h"
 
-@interface MomentListSceneModel : SceneModel
+@interface MomentListSceneModel : BaseSceneModel
 
 @property (nonatomic, strong) NSMutableArray* dataSet;
 @property (nonatomic, strong) MomentListRequest* pullRequest;

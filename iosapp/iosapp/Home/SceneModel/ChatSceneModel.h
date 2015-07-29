@@ -9,11 +9,11 @@
 #ifndef iosapp_ChatSceneModel_h
 #define iosapp_ChatSceneModel_h
 
-#import "SceneModel.h"
+#import "BaseSceneModel.h"
 #import "Profile.h"
 #import "User.h"
 
-@interface ChatSceneModel : SceneModel
+@interface ChatSceneModel : BaseSceneModel
 
 @property (nonatomic, strong) NSMutableArray* dataSet;
 @property (nonatomic, strong) Profile* profile;

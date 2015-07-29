@@ -30,7 +30,14 @@
 		D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B51A7F0AB9007347B5 /* AppDelegate.m */; };
 		D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A39C01A7F0AB9007347B5 /* Images.xcassets */; };
 		D62A39D01A7F0AB9007347B5 /* iosappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39CF1A7F0AB9007347B5 /* iosappTests.m */; };
-		D661508B1B63BAF0009F33A4 /* CompleteProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661508A1B63BAF0009F33A4 /* CompleteProfileScene.m */; };
+		D659DA841B6602D90084D678 /* Aspect-TuSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D659DA831B6602D90084D678 /* Aspect-TuSDK.m */; };
+		D65AEAB91B679B7B0074313A /* Aspect-QiniuSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAB81B679B7B0074313A /* Aspect-QiniuSDK.m */; };
+		D65AEABC1B68624B0074313A /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEABB1B68624B0074313A /* RegisterRequest.m */; };
+		D65AEABF1B689AAC0074313A /* AvatarSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEABE1B689AAC0074313A /* AvatarSceneModel.m */; };
+		D65AEAC21B689E400074313A /* UpdateUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAC11B689E400074313A /* UpdateUserRequest.m */; };
+		D65AEAC51B68A4D90074313A /* QiniuUploader+Url.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAC41B68A4D90074313A /* QiniuUploader+Url.m */; };
+		D65AEAC81B690EFD0074313A /* BaseSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAC71B690EFD0074313A /* BaseSceneModel.m */; };
+		D65AEACE1B6913140074313A /* CustomAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEACD1B6913140074313A /* CustomAction.m */; };
 		D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */; };
 		D661EF551B4CE5310019B280 /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF541B4CE5310019B280 /* SplashScene.m */; };
 		D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5C1B4DC0BB0019B280 /* SignInScene.m */; };
@@ -42,6 +49,7 @@
 		D67332281B44F80F00A1D525 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332271B44F80F00A1D525 /* Moment.m */; };
 		D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322A1B4507E400A1D525 /* MomentListRequest.m */; };
 		D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322E1B450DA300A1D525 /* BaseRequest.m */; };
+		D67535101B64EE5D00B09245 /* AvatarScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D675350F1B64EE5D00B09245 /* AvatarScene.m */; };
 		D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD3C371B60C1DB00E92870 /* CountryScene.m */; };
 		D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D5BDC01B4F787600D6045F /* URLManage.plist */; };
 		D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC41B4F835100D6045F /* Aspect-Config.m */; };
@@ -131,8 +139,20 @@
 		D62A39C91A7F0AB9007347B5 /* iosappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39CE1A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62A39CF1A7F0AB9007347B5 /* iosappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosappTests.m; sourceTree = "<group>"; };
-		D66150891B63BAC1009F33A4 /* CompleteProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompleteProfileScene.h; sourceTree = "<group>"; };
-		D661508A1B63BAF0009F33A4 /* CompleteProfileScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteProfileScene.m; sourceTree = "<group>"; };
+		D659DA831B6602D90084D678 /* Aspect-TuSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-TuSDK.m"; sourceTree = "<group>"; };
+		D65AEAB81B679B7B0074313A /* Aspect-QiniuSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-QiniuSDK.m"; sourceTree = "<group>"; };
+		D65AEABA1B68623A0074313A /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
+		D65AEABB1B68624B0074313A /* RegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterRequest.m; sourceTree = "<group>"; };
+		D65AEABD1B689A980074313A /* AvatarSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarSceneModel.h; sourceTree = "<group>"; };
+		D65AEABE1B689AAC0074313A /* AvatarSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarSceneModel.m; sourceTree = "<group>"; };
+		D65AEAC01B689E140074313A /* UpdateUserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateUserRequest.h; sourceTree = "<group>"; };
+		D65AEAC11B689E400074313A /* UpdateUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateUserRequest.m; sourceTree = "<group>"; };
+		D65AEAC31B68A4C30074313A /* QiniuUploader+Url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QiniuUploader+Url.h"; sourceTree = "<group>"; };
+		D65AEAC41B68A4D90074313A /* QiniuUploader+Url.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QiniuUploader+Url.m"; sourceTree = "<group>"; };
+		D65AEAC61B690ED40074313A /* BaseSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSceneModel.h; sourceTree = "<group>"; };
+		D65AEAC71B690EFD0074313A /* BaseSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSceneModel.m; sourceTree = "<group>"; };
+		D65AEACC1B6912EE0074313A /* CustomAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAction.h; sourceTree = "<group>"; };
+		D65AEACD1B6913140074313A /* CustomAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAction.m; sourceTree = "<group>"; };
 		D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-ShareSDK.m"; sourceTree = "<group>"; };
 		D661EF531B4CE4F00019B280 /* SplashScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
 		D661EF541B4CE5310019B280 /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
@@ -154,6 +174,8 @@
 		D673322C1B4507F800A1D525 /* MomentListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentListRequest.h; sourceTree = "<group>"; };
 		D673322D1B450D9400A1D525 /* BaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		D673322E1B450DA300A1D525 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		D675350E1B64EE3700B09245 /* AvatarScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarScene.h; sourceTree = "<group>"; };
+		D675350F1B64EE5D00B09245 /* AvatarScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarScene.m; sourceTree = "<group>"; };
 		D6BD3C361B60C1B200E92870 /* CountryScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryScene.h; sourceTree = "<group>"; };
 		D6BD3C371B60C1DB00E92870 /* CountryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryScene.m; sourceTree = "<group>"; };
 		D6D5BDC01B4F787600D6045F /* URLManage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = URLManage.plist; sourceTree = "<group>"; };
@@ -299,6 +321,10 @@
 				D6ECF20C1B587B2A001C013A /* AvatarImageView.m */,
 				D621D74D1B63A3BE006D058C /* PrimaryButton.h */,
 				D621D74E1B63A3F8006D058C /* PrimaryButton.m */,
+				D65AEAC31B68A4C30074313A /* QiniuUploader+Url.h */,
+				D65AEAC41B68A4D90074313A /* QiniuUploader+Url.m */,
+				D65AEACC1B6912EE0074313A /* CustomAction.h */,
+				D65AEACD1B6913140074313A /* CustomAction.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -318,8 +344,8 @@
 				D6099B4E1B608E3900ECA44F /* SignUpScene.m */,
 				D6D5E2561B6359F20027B0D9 /* VerifyScene.h */,
 				D6D5E2571B635A020027B0D9 /* VerifyScene.m */,
-				D66150891B63BAC1009F33A4 /* CompleteProfileScene.h */,
-				D661508A1B63BAF0009F33A4 /* CompleteProfileScene.m */,
+				D675350E1B64EE3700B09245 /* AvatarScene.h */,
+				D675350F1B64EE5D00B09245 /* AvatarScene.m */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -359,6 +385,8 @@
 				D6D5BDC41B4F835100D6045F /* Aspect-Config.m */,
 				D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */,
 				D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */,
+				D659DA831B6602D90084D678 /* Aspect-TuSDK.m */,
+				D65AEAB81B679B7B0074313A /* Aspect-QiniuSDK.m */,
 				D62A39C01A7F0AB9007347B5 /* Images.xcassets */,
 				D62A39B01A7F0AB9007347B5 /* Supporting Files */,
 			);
@@ -436,6 +464,10 @@
 				D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */,
 				D6ECF1FD1B5676EC001C013A /* ProfileRequest.h */,
 				D6ECF1FE1B56772E001C013A /* ProfileRequest.m */,
+				D65AEABA1B68623A0074313A /* RegisterRequest.h */,
+				D65AEABB1B68624B0074313A /* RegisterRequest.m */,
+				D65AEAC01B689E140074313A /* UpdateUserRequest.h */,
+				D65AEAC11B689E400074313A /* UpdateUserRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -520,6 +552,10 @@
 				D6D5E2471B61E6690027B0D9 /* SIgnUpSceneModel.m */,
 				D6D5E2591B636EDC0027B0D9 /* VerifySceneModel.h */,
 				D6D5E25A1B636EF30027B0D9 /* VerifySceneModel.m */,
+				D65AEABD1B689A980074313A /* AvatarSceneModel.h */,
+				D65AEABE1B689AAC0074313A /* AvatarSceneModel.m */,
+				D65AEAC61B690ED40074313A /* BaseSceneModel.h */,
+				D65AEAC71B690EFD0074313A /* BaseSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -713,14 +749,17 @@
 			files = (
 				C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */,
 				D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */,
+				D65AEABC1B68624B0074313A /* RegisterRequest.m in Sources */,
 				D6ECF2011B568149001C013A /* Aspect-Database.m in Sources */,
 				D6D5E2581B635A020027B0D9 /* VerifyScene.m in Sources */,
+				D65AEAC81B690EFD0074313A /* BaseSceneModel.m in Sources */,
 				D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
 				D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */,
 				D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */,
 				D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */,
 				D6ECF1FC1B561877001C013A /* UserListByChatIdRequest.m in Sources */,
+				D65AEACE1B6913140074313A /* CustomAction.m in Sources */,
 				C3602A7F1B48DC0E006DF6C8 /* User.m in Sources */,
 				D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */,
 				D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */,
@@ -728,7 +767,6 @@
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
 				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
-				D661508B1B63BAF0009F33A4 /* CompleteProfileScene.m in Sources */,
 				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,
 				D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */,
 				D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */,
@@ -736,6 +774,7 @@
 				D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */,
 				D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */,
 				C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */,
+				D65AEAC51B68A4D90074313A /* QiniuUploader+Url.m in Sources */,
 				D661EF551B4CE5310019B280 /* SplashScene.m in Sources */,
 				D661EF661B4DEB9A0019B280 /* Profile.m in Sources */,
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
@@ -757,15 +796,20 @@
 				D6D5E2421B61A5DF0027B0D9 /* CountryCell.m in Sources */,
 				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
 				C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */,
+				D65AEABF1B689AAC0074313A /* AvatarSceneModel.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D6E2A4761B5C65D2008B3DC1 /* UserSceneModel.m in Sources */,
+				D659DA841B6602D90084D678 /* Aspect-TuSDK.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
 				D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
 				C3FB7D5A1B526DAB00A6B581 /* UserDetailsRequest.m in Sources */,
 				D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */,
+				D65AEAB91B679B7B0074313A /* Aspect-QiniuSDK.m in Sources */,
+				D67535101B64EE5D00B09245 /* AvatarScene.m in Sources */,
 				81C7F405F41A0E7F648738E4 /* MomentScene.m in Sources */,
 				D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */,
+				D65AEAC21B689E400074313A /* UpdateUserRequest.m in Sources */,
 				D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */,
 				D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */,
 			);
@@ -892,7 +936,10 @@
 			baseConfigurationReference = 57BF2565B97FD670D003AC9D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/SMS_SDK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SMS_SDK",
+				);
 				INFOPLIST_FILE = iosapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

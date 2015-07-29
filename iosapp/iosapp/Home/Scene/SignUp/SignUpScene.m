@@ -100,7 +100,7 @@
     [self.separateLine alignCenterWithView:self.separateLine.superview];
     [self.separateLine constrainWidth:mainLayoutWidth height:@"0.5"];
     
-    [self.zoneButton alignTop:nil leading:nil toView:self.zoneButton.superview];
+    [self.zoneButton alignTop:@"0" leading:@"0" toView:self.zoneButton.superview];
     [self.zoneButton constrainWidth:@"44" height:@"32"];
     [self.usernameText constrainWidth:[NSString stringWithFormat:@"%f", width * 0.8 - 64]];
     NSArray* userNamelayouts = @[self.zoneButton, self.usernameText];
@@ -114,7 +114,7 @@
     [UIView alignLeadingEdgesOfViews:inputlayouts];
     [UIView alignTrailingEdgesOfViews:inputlayouts];
     
-    [self.inputLayout alignTop:nil leading:nil toView:self.inputLayout.superview];
+    [self.inputLayout alignTop:@"0" leading:@"0" toView:self.inputLayout.superview];
     [self.inputLayout constrainWidth:mainLayoutWidth height:@"100"];
     NSArray* mainLayouts = @[self.inputLayout, self.signUpButton];
     [UIView spaceOutViewsVertically:mainLayouts predicate:@"20"];
@@ -163,7 +163,7 @@
                                                                           [self hideHudFailed:error.errorDescription];
                                                                       } else {
                                                                           [self hideHud];
-                                                                          NSString* url = [NSString stringWithFormat:@"iosapp://verify?username=%@&zone=%@", self.sceneModel.username, self.sceneModel.zone];
+                                                                          NSString* url = [NSString stringWithFormat:@"iosapp://verify?username=%@&zone=%@&password=%@", self.sceneModel.username, self.sceneModel.zone, self.sceneModel.password];
                                                                           [URLManager pushURLString:url animated:YES];
                                                                       }
                                                                   }];

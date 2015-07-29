@@ -9,10 +9,10 @@
 #ifndef iosapp_ConversationListSceneModel_h
 #define iosapp_ConversationListSceneModel_h
 
-#import "SceneModel.h"
+#import "BaseSceneModel.h"
 #import "UserListByChatIdRequest.h"
 
-@interface ConversationListSceneModel : SceneModel
+@interface ConversationListSceneModel : BaseSceneModel
 
 @property (nonatomic, strong) NSMutableArray* dataSet;
 @property (nonatomic, strong) UserListByChatIdRequest* userListByChatIdRequest;

@@ -23,7 +23,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - EaseMobSDK (2.1.8)
+  - EaseMobSDK (2.1.9)
   - EasyIOS (2.2.2):
     - EasyIOS/Easy (= 2.2.2)
   - EasyIOS-Extention (1.2):
@@ -49,6 +49,7 @@ PODS:
   - FLKAutoLayout (0.1.1)
   - FontIcon (1.0)
   - GCDObjC (0.2.0)
+  - GPUImage (0.1.7)
   - HexColors (2.2.1)
   - IQKeyboardManager (3.2.4)
   - JSQMessagesViewController (7.1.0):
@@ -58,6 +59,10 @@ PODS:
   - MBProgressHUD (0.9.1)
   - MojoDatabase (1.4)
   - MZTimerLabel (0.5.3)
+  - Qiniu (7.0.11.1):
+    - AFNetworking (~> 2.0)
+  - QiniuUpload (1.5):
+    - AFNetworking (>= 2.0)
   - ReactiveCocoa (2.4.4):
     - ReactiveCocoa/UI (= 2.4.4)
   - ReactiveCocoa/Core (2.4.4):
@@ -72,6 +77,7 @@ PODS:
     - UIActionSheet+Blocks (>= 0.9)
     - UIAlertController+Blocks (>= 0.9)
     - UIAlertView+Blocks (>= 0.9)
+  - SDiPhoneVersion (1.1.2)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -81,6 +87,8 @@ PODS:
   - TSMessages (0.9.12):
     - HexColors (~> 2.2.0)
   - TTTAttributedLabel (1.13.4)
+  - TuSDK (1.8.9):
+    - GPUImage (~> 0.1.6)
   - UIActionSheet+Blocks (0.9)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
@@ -106,9 +114,13 @@ DEPENDENCIES:
   - JSQMessagesViewController
   - JVFloatLabeledTextField
   - MZTimerLabel
+  - Qiniu
+  - QiniuUpload
+  - SDiPhoneVersion
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
   - TSMessages
+  - TuSDK
   - UIColor+MLPFlatColors (~> 1.0)
   - UITableView+FDTemplateLayoutCell (~> 1.3)
   - UMAnalytics (from `https://github.com/jcccn/UMeng-Analytics-iOS.git`)
@@ -123,7 +135,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EaseMobSDK:
-    :commit: d4fdf30a087825779f6d3def7a7dfdef6d4cea9c
+    :commit: 4ec299391d5072fe27a548b190c9b77d9fe58c5b
     :git: https://github.com/easemob/sdk-ios-cocoapods.git
   EasyIOS:
     :commit: 684015ed0356b7edf4fa24ce3ba3398e1e66fb96
@@ -135,13 +147,14 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  EaseMobSDK: 639251847fa6de8cd752a6d4ca841e1753903683
+  EaseMobSDK: cc8415cb99a65debf4711fa2c9c349fd5c843299
   EasyIOS: 5f8c2110b4d0818aa78de068dc001c5c344de7a6
   EasyIOS-Extention: c7e402e8b2497760955510228771512c37110aa2
   FLEX: 4f04fe0b0594163c00879e2b3db888e5ae37c8d5
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851
   FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
   GCDObjC: adcd9941029e3628de539347d3a6777470a65998
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   JSQMessagesViewController: ca11f86fa68ca70835f05e169df9244147c1dc40
@@ -150,15 +163,19 @@ SPEC CHECKSUMS:
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MojoDatabase: 02e3eb98510b69033ab537156969d1f76b4f369e
   MZTimerLabel: e403f84f123de8db2995838847dd58426ffed5bd
+  Qiniu: 080a6728b969f6b0e77c9de574ede37e78b0912b
+  QiniuUpload: 723b717cff1ac94cbaa36f1276172185dfdde2c7
   ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
   RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
+  SDiPhoneVersion: c52245ccaab8142701e2e7fb8f0391ba3f255b76
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   TOWebViewController: aada427e7eba199bbaee77ddee3243c8172f4053
   TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  TuSDK: 32ed62c3fd664575909a6deb24e5565d6a1752bb
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b

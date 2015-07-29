@@ -15,6 +15,8 @@
 #import "MZTimerLabel.h"
 #import <SMS_SDK/SMS_SDK.h>
 #import "URLManager.h"
+#import "EaseMob.h"
+#import "KeyChainUtil.h"
 
 @interface VerifyScene()<UITextFieldDelegate, MZTimerLabelDelegate>
 
@@ -84,7 +86,7 @@
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     [self.mainLayout alignCenterWithView:self.mainLayout.superview];
     [self.mainLayout constrainWidth:[NSString stringWithFormat:@"%f", width * 0.8] height:@"200"];
-    [self.codeText alignTop:nil leading:nil toView:self.codeText.superview];
+    [self.codeText alignTop:@"0" leading:@"0" toView:self.codeText.superview];
     [self.codeText constrainWidth:[NSString stringWithFormat:@"%f", width * 0.8]];
     [self.countDown alignCenterWithView:self.countDown.superview];
     [self.resendButton alignToView:self.resendButton.superview];
@@ -98,6 +100,19 @@
     self.sceneModel = [VerifySceneModel SceneModel];
     self.sceneModel.username = self.params[@"username"];
     self.sceneModel.zone = self.params[@"zone"];
+    self.sceneModel.password = self.params[@"password"];
+    
+    [self.sceneModel.request onRequest:^{
+        [KeyChainUtil setToken:self.sceneModel.request.profile.sessionToken];
+        [KeyChainUtil setCurrentUserId:self.sceneModel.request.profile.objectId];
+        NSString* chatId = [self.sceneModel.request.profile.objectId lowercaseString];
+        //[[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:chatId password:self.sceneModel.password];
+        NSString* url = [NSString stringWithFormat:@"iosapp://avatar?userId=%@", self.sceneModel.request.profile.objectId];
+        [URLManager pushURLString:url animated:YES];
+        [self hideHud];
+    } error:^(NSError *error) {
+        [self hideHudFailed:error.localizedDescription];
+    }];
 }
 
 - (void)bindToSceneModel {
@@ -123,8 +138,8 @@
         if (state == SMS_ResponseStateFail) {
             [self hideHudFailed:NSLocalizedString(@"error.verifyCode", nil)];
         } else {
-            [self hideHud];
-            [URLManager pushURLString:@"iosapp://completeProfile" animated:YES];
+            NSString* username = [self.sceneModel.zone stringByAppendingFormat:@"%lld", [self.sceneModel.username longLongValue]];
+            [self.sceneModel.request doRegister:username password:self.sceneModel.password];
         }
     }];
 }
@@ -141,6 +156,8 @@
                                                 [self.timer reset];
                                                 [self.timer start];
                                                 self.sceneModel.enableResend = NO;
+                                                self.codeText.text = @"";
+                                                [self.codeText becomeFirstResponder];
                                             }
                                         }];
 }
