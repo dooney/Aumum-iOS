@@ -18,6 +18,11 @@
         @strongify(self)
         [self SEND_IQ_ACTION:self.request];
     }];
+    
+    self.momentRequest = [NewMomentRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_IQ_ACTION:self.momentRequest];
+    }];
 }
 
 @end

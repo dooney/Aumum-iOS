@@ -16,6 +16,7 @@
 #import "URLManager.h"
 #import "AvatarSceneModel.h"
 #import "NSDate+EasyExtend.h"
+#import "Moment.h"
 
 @interface AvatarScene()
 {
@@ -95,6 +96,7 @@
 - (void)initSceneModel {
     self.sceneModel = [AvatarSceneModel SceneModel];
     self.sceneModel.userId = self.params[@"userId"];
+    self.sceneModel.chatId = self.params[@"chatId"];
     
     [self.sceneModel.request onRequest:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStateChange" object:@YES];
@@ -111,9 +113,14 @@
         @weakify(self)
         [_uploader setUploadOneFileSucceeded:^(AFHTTPRequestOperation *operation, NSInteger index, NSString *key){
             @strongify(self)
-            NSString* avatarUrl = [QiniuUploader getRemoteUrl:key];
+            NSString* imageUrl = [QiniuUploader getRemoteUrl:key];
+            NSString* text = NSLocalizedString(@"label.myFirstMoment", nil);
+            CGFloat ratio = self.avatarImage.image.size.height / self.avatarImage.image.size.width;
+            Moment* moment = [[Moment alloc] init:self.sceneModel.userId imageUrl:imageUrl text:text ratio:ratio];
+            [self.sceneModel.momentRequest send:moment];
+            
             NSString* screenName = [NSLocalizedString(@"label.user", nil) stringByAppendingFormat:@"%@", self.sceneModel.userId];
-            [self.sceneModel.request send:self.sceneModel.userId screenName:screenName avatarUrl:avatarUrl];
+            [self.sceneModel.request send:self.sceneModel.userId chatId:self.sceneModel.chatId screenName:screenName avatarUrl:imageUrl];
         }];
         [_uploader setUploadOneFileFailed:^(AFHTTPRequestOperation *operation, NSInteger index, NSDictionary *error){
             @strongify(self)

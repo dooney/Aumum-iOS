@@ -106,8 +106,8 @@
         [KeyChainUtil setToken:self.sceneModel.request.profile.sessionToken];
         [KeyChainUtil setCurrentUserId:self.sceneModel.request.profile.objectId];
         NSString* chatId = [self.sceneModel.request.profile.objectId lowercaseString];
-        //[[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:chatId password:self.sceneModel.password];
-        NSString* url = [NSString stringWithFormat:@"iosapp://avatar?userId=%@", self.sceneModel.request.profile.objectId];
+        [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:chatId password:self.sceneModel.password];
+        NSString* url = [NSString stringWithFormat:@"iosapp://avatar?userId=%@&chatId=%@", self.sceneModel.request.profile.objectId, chatId];
         [URLManager pushURLString:url animated:YES];
         [self hideHud];
     } error:^(NSError *error) {

@@ -24,6 +24,7 @@
 "label.resend" = "RESEND";
 "label.avatar" = "Avatar";
 "label.user" = "User";
+"label.myFirstMoment" = "My first photo here!"
 
 //Info
 "info.sending" = "Sending";

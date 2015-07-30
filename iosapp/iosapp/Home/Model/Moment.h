@@ -19,8 +19,11 @@
 @property (nonatomic, strong)NSString* createdAt;
 @property (nonatomic, strong)NSString* userId;
 @property (nonatomic, strong)NSString* imageUrl;
+@property (nonatomic, strong)NSString* text;
 @property (nonatomic, assign)CGFloat ratio;
 @property (nonatomic, strong)User<Ignore>* user;
+
+- (id)init:(NSString*)userId imageUrl:(NSString*)imageUrl text:(NSString*)text ratio:(CGFloat)ratio;
 
 @end
 

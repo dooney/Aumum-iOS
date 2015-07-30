@@ -17,8 +17,9 @@
     [self.httpHeaderFields setValue:[KeyChainUtil getToken] forKey:@"X-Parse-Session-Token"];
 }
 
-- (void)send:(NSString*)userId screenName:(NSString*)screenName avatarUrl:(NSString*)avatarUrl {
+- (void)send:(NSString*)userId chatId:(NSString*)chatId screenName:(NSString*)screenName avatarUrl:(NSString*)avatarUrl {
     self.PATH = [NSString stringWithFormat:@"/1/users/%@", userId];
+    self.chatId = chatId;
     self.screenName = screenName;
     self.avatarUrl = avatarUrl;
     [self send];

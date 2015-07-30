@@ -11,11 +11,14 @@
 
 #import "BaseSceneModel.h"
 #import "UpdateUserRequest.h"
+#import "NewMomentRequest.h"
 
 @interface AvatarSceneModel : BaseSceneModel
 
 @property (nonatomic, strong)UpdateUserRequest* request;
 @property (nonatomic, strong)NSString* userId;
+@property (nonatomic, strong)NSString* chatId;
+@property (nonatomic, strong)NewMomentRequest* momentRequest;
 
 @end
 

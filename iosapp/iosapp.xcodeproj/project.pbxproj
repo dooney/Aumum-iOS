@@ -38,6 +38,7 @@
 		D65AEAC51B68A4D90074313A /* QiniuUploader+Url.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAC41B68A4D90074313A /* QiniuUploader+Url.m */; };
 		D65AEAC81B690EFD0074313A /* BaseSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAC71B690EFD0074313A /* BaseSceneModel.m */; };
 		D65AEACE1B6913140074313A /* CustomAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEACD1B6913140074313A /* CustomAction.m */; };
+		D65AEAD11B6974720074313A /* NewMomentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAD01B6974720074313A /* NewMomentRequest.m */; };
 		D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */; };
 		D661EF551B4CE5310019B280 /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF541B4CE5310019B280 /* SplashScene.m */; };
 		D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5C1B4DC0BB0019B280 /* SignInScene.m */; };
@@ -153,6 +154,8 @@
 		D65AEAC71B690EFD0074313A /* BaseSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSceneModel.m; sourceTree = "<group>"; };
 		D65AEACC1B6912EE0074313A /* CustomAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAction.h; sourceTree = "<group>"; };
 		D65AEACD1B6913140074313A /* CustomAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAction.m; sourceTree = "<group>"; };
+		D65AEACF1B6974420074313A /* NewMomentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentRequest.h; sourceTree = "<group>"; };
+		D65AEAD01B6974720074313A /* NewMomentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMomentRequest.m; sourceTree = "<group>"; };
 		D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-ShareSDK.m"; sourceTree = "<group>"; };
 		D661EF531B4CE4F00019B280 /* SplashScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
 		D661EF541B4CE5310019B280 /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
@@ -468,6 +471,8 @@
 				D65AEABB1B68624B0074313A /* RegisterRequest.m */,
 				D65AEAC01B689E140074313A /* UpdateUserRequest.h */,
 				D65AEAC11B689E400074313A /* UpdateUserRequest.m */,
+				D65AEACF1B6974420074313A /* NewMomentRequest.h */,
+				D65AEAD01B6974720074313A /* NewMomentRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -779,6 +784,7 @@
 				D661EF661B4DEB9A0019B280 /* Profile.m in Sources */,
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
 				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
+				D65AEAD11B6974720074313A /* NewMomentRequest.m in Sources */,
 				D6D5E2481B61E6690027B0D9 /* SIgnUpSceneModel.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
 				D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */,

@@ -10,6 +10,15 @@
 
 @implementation Moment
 
-
+- (id)init:(NSString*)userId imageUrl:(NSString*)imageUrl text:(NSString*)text ratio:(CGFloat)ratio {
+    self = [super init];
+    if (self) {
+        self.userId = userId;
+        self.imageUrl = imageUrl;
+        self.text = text;
+        self.ratio = ratio;
+    }
+    return self;
+}
 
 @end
