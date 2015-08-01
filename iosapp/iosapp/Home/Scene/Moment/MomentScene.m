@@ -13,11 +13,21 @@
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "UIScrollView+EndReflash.h"
+#import "UIAlertController+Blocks.h"
+#import "UIActionSheet+Blocks.h"
+#import <TuSDK/TuSDK.h>
+#import <TSMessage.h>
+#import "NewMomentScene.h"
 
-@interface MomentScene()<UITableViewDelegate, UITableViewDataSource>
+@interface MomentScene()<UITableViewDelegate, UITableViewDataSource, TuSDKPFCameraDelegate>
+{
+    TuSDKCPAlbumComponent *_albumComponent;
+    TuSDKCPPhotoEditMultipleComponent *_photoEditMultipleComponent;
+}
 
 @property (strong, nonatomic) MomentListSceneModel* sceneModel;
 @property (strong, nonatomic) SceneTableView* tableView;
+@property (strong, nonatomic) UIBarButtonItem* cameraButton;
 
 @end
 
@@ -26,9 +36,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self initView];
     [self addControls];
     [self initSceneModel];
     [self.tableView triggerPullToRefresh];
+}
+
+- (void)initView {
+    self.cameraButton = [[UIBarButtonItem alloc]
+                         initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+                         target:self
+                         action:@selector(cameraButtonPressed)];
+    self.navigationItem.rightBarButtonItem = self.cameraButton;
 }
 
 - (void)addControls {
@@ -132,6 +151,79 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+- (void)cameraButtonPressed {
+    if ([UIAlertController class]) {
+        [UIAlertController showActionSheetInViewController:self
+                                                 withTitle:NSLocalizedString(@"label.newMoment", nil)
+                                                   message:nil
+                                         cancelButtonTitle:NSLocalizedString(@"label.cancel", nil)
+                                    destructiveButtonTitle:nil
+                                         otherButtonTitles:@[ NSLocalizedString(@"label.takePhoto", nil), NSLocalizedString(@"label.chooseFromAlbum", nil) ]
+                        popoverPresentationControllerBlock:nil
+                                                  tapBlock:^(UIAlertController* controller, UIAlertAction* action, NSInteger buttonIndex) {
+                                                      [self handleCameraButtonOptions:buttonIndex];
+                                                  }];
+    } else {
+        [UIActionSheet showFromBarButtonItem:self.cameraButton
+                                    animated:YES
+                                   withTitle:NSLocalizedString(@"label.newMoment", nil)
+                           cancelButtonTitle:NSLocalizedString(@"label.cancel", nil)
+                      destructiveButtonTitle:nil
+                           otherButtonTitles:@[ NSLocalizedString(@"label.takePhoto", nil), NSLocalizedString(@"label.chooseFromAlbum", nil) ]
+                                    tapBlock:^(UIActionSheet* actionSheet, NSInteger buttonIndex) {
+                                        [self handleCameraButtonOptions:buttonIndex];
+                                    }];
+    }
+}
+
+- (void)handleCameraButtonOptions:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        TuSDKPFCameraOptions *opt = [TuSDKPFCameraOptions build];
+        opt.saveToAlbum = YES;
+        TuSDKPFCameraViewController *controller = opt.viewController;
+        controller.delegate = self;
+        [self presentModalNavigationController:controller animated:YES];
+    } else if (buttonIndex == 1) {
+        _albumComponent =
+        [TuSDK albumCommponentWithController:self
+                               callbackBlock:^(TuSDKResult *result, NSError *error, UIViewController *controller)
+         {
+             [self showEditComponent:controller image:result.loadResultImage];
+         }];
+        [_albumComponent showComponent];
+    }
+}
+
+- (void)onTuSDKPFCamera:(TuSDKPFCameraViewController *)controller captureResult:(TuSDKResult *)result {
+    UIImage* image = [result.imageAsset fullResolutionImage];
+    [self showEditComponent:controller image:image];
+}
+
+- (void)onComponent:(TuSDKCPViewController *)controller result:(TuSDKResult *)result error:(NSError *)error {
+    [TSMessage showNotificationWithTitle:nil
+                                subtitle:error.localizedDescription
+                                    type:TSMessageNotificationTypeError];
+}
+
+- (void)showEditComponent:(UIViewController*)controller
+                    image:(UIImage*)image {
+    _photoEditMultipleComponent =
+    [TuSDK photoEditMultipleWithController:controller
+                             callbackBlock:^(TuSDKResult *result, NSError *error, UIViewController *controller)
+     {
+         _albumComponent = nil;
+         NewMomentScene* scene = [[NewMomentScene alloc] initWithImage:result.loadResultImage];
+         [controller pushViewController:scene animated:YES];
+     }];
+    _photoEditMultipleComponent.options.editMultipleOptions.saveToAlbum = NO;
+    [_photoEditMultipleComponent.options.editMultipleOptions disableModule:lsqTuSDKCPEditActionAdjust];
+    [_photoEditMultipleComponent.options.editMultipleOptions disableModule:lsqTuSDKCPEditActionSharpness];
+    [_photoEditMultipleComponent.options.editMultipleOptions disableModule:lsqTuSDKCPEditActionVignette];
+    [_photoEditMultipleComponent.options.editMultipleOptions disableModule:lsqTuSDKCPEditActionAperture];
+    _photoEditMultipleComponent.inputImage = image;
+    [_photoEditMultipleComponent showComponent];
 }
 
 @end

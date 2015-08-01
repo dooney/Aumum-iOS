@@ -12,7 +12,6 @@
 #import "EaseMob.h"
 #import "JSQMessages.h"
 #import "ChatSendHelper.h"
-#import "NSDate+Category.h"
 #import "SDWebImageManager.h"
 
 @interface ChatScene()<IChatManagerDelegate>
@@ -99,7 +98,7 @@
     id<IEMMessageBody> messageBody = [message.messageBodies firstObject];
     return [[JSQMessage alloc] initWithSenderId:message.from
                               senderDisplayName:self.sceneModel.user.screenName
-                                           date:[NSDate dateWithTimeIntervalInMilliSecondSince1970:message.timestamp]
+                                           date:[NSDate dateWithTimeIntervalSince1970:message.timestamp]
                                            text:((EMTextMessageBody*)messageBody).text];
 }
 

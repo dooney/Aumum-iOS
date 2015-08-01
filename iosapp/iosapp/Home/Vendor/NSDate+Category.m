@@ -144,6 +144,14 @@
     return ret;
 }
 
++ (NSDate *)dateWithString:(NSString *)string format:(NSString*)format zone:(NSString*)zone
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:format];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:zone]];
+    return [dateFormatter dateFromString:string];
+}
+
 + (NSDate *)dateWithTimeIntervalInMilliSecondSince1970:(double)timeIntervalInMilliSecond {
     NSDate *ret = nil;
     double timeInterval = timeIntervalInMilliSecond;

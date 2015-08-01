@@ -25,6 +25,7 @@
 - (NSString *)formattedTime;
 - (NSString *)formattedDateDescription;//格式化日期描述
 - (double)timeIntervalSince1970InMilliSecond;
++ (NSDate *)dateWithString:(NSString *)string format:(NSString*)format zone:(NSString*)zone;
 + (NSDate *)dateWithTimeIntervalInMilliSecondSince1970:(double)timeIntervalInMilliSecond;
 + (NSString *)formattedTimeFromTimeInterval:(long long)time;
 // Relative dates from the current date

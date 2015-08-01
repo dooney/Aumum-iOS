@@ -11,7 +11,7 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIImageView+WebCache.h"
 #import "AvatarImageView.h"
-#import "NSDate+EasyExtend.h"
+#import "UIColor+EasyExtend.h"
 #import "NSDate+Category.h"
 #import "URLManager.h"
 
@@ -41,9 +41,12 @@
     [self.contentView addSubview:self.avatarImage];
     
     self.screenName = [[UILabel alloc] init];
+    self.screenName.textColor = HEX_RGB(0xff6060);
     [self.contentView addSubview:self.screenName];
     
     self.createdAt = [[UILabel alloc] init];
+    self.createdAt.font = [UIFont systemFontOfSize:14];
+    self.createdAt.textColor = [UIColor lightGrayColor];
     [self.contentView addSubview:self.createdAt];
     
     self.momentImage = [[UIImageView alloc] init];
@@ -71,8 +74,8 @@
 - (void)reloadData:(id)entity {
     self.moment = entity;
     self.screenName.text = self.moment.user.screenName;
-    NSDate* createdAt = [NSDate dateWithString:self.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-    self.createdAt.text = [createdAt formattedTime];
+    NSDate* createdAt = [NSDate dateWithString:self.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
+    self.createdAt.text = [createdAt timeIntervalDescription];
     [self.avatarImage fromUrl:self.moment.user.avatarUrl diameter:40];
     CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat imageHeight = imageWidth * self.moment.ratio;

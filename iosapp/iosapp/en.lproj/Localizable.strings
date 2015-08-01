@@ -24,7 +24,11 @@
 "label.resend" = "RESEND";
 "label.avatar" = "Avatar";
 "label.user" = "User";
-"label.myFirstMoment" = "My first photo here!"
+"label.myFirstMoment" = "My first photo here!";
+"label.newMoment" = "New Moment";
+"label.takePhoto" = "Take Photo";
+"label.chooseFromAlbum" = "Choose from Album";
+"label.send" = "Send";
 
 //Info
 "info.sending" = "Sending";
