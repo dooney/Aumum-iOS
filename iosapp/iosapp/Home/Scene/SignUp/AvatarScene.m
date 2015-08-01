@@ -61,7 +61,7 @@
     [self.avatarImage addSubview:self.avatarLabel];
     
     self.cameraButton = [[UIButton alloc] init];
-    self.cameraButton = [IconFont buttonWithIcon:@"\uf164" fontName:@"ionIcons" size:44 color:HEX_RGB(0xffde00)];
+    self.cameraButton = [IconFont buttonWithIcon:[IconFont icon:@"ios7CameraOutline" fromFont:ionIcons] fontName:ionIcons size:44 color:HEX_RGB(0xffde00)];
     self.cameraButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         _avatarComponent = [TuSDK avatarCommponentWithController:self
                                                    callbackBlock:^(TuSDKResult *result, NSError *error, UIViewController *controller) {

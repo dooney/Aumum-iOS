@@ -32,6 +32,8 @@
 		D62A39D01A7F0AB9007347B5 /* iosappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39CF1A7F0AB9007347B5 /* iosappTests.m */; };
 		D643569D1B6C3F5200630A39 /* NewMomentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D643569C1B6C3F5200630A39 /* NewMomentScene.m */; };
 		D64356A01B6C757000630A39 /* NewMomentSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D643569F1B6C757000630A39 /* NewMomentSceneModel.m */; };
+		D64356A41B6CFED200630A39 /* NotificationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D64356A31B6CFED200630A39 /* NotificationScene.m */; };
+		D64356A81B6CFF5B00630A39 /* DiscoverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D64356A71B6CFF5B00630A39 /* DiscoverScene.m */; };
 		D659DA841B6602D90084D678 /* Aspect-TuSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D659DA831B6602D90084D678 /* Aspect-TuSDK.m */; };
 		D65AEAB91B679B7B0074313A /* Aspect-QiniuSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAB81B679B7B0074313A /* Aspect-QiniuSDK.m */; };
 		D65AEABC1B68624B0074313A /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEABB1B68624B0074313A /* RegisterRequest.m */; };
@@ -146,6 +148,10 @@
 		D643569C1B6C3F5200630A39 /* NewMomentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMomentScene.m; sourceTree = "<group>"; };
 		D643569E1B6C754100630A39 /* NewMomentSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentSceneModel.h; sourceTree = "<group>"; };
 		D643569F1B6C757000630A39 /* NewMomentSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMomentSceneModel.m; sourceTree = "<group>"; };
+		D64356A21B6CFEA300630A39 /* NotificationScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationScene.h; sourceTree = "<group>"; };
+		D64356A31B6CFED200630A39 /* NotificationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationScene.m; sourceTree = "<group>"; };
+		D64356A61B6CFF3700630A39 /* DiscoverScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverScene.h; sourceTree = "<group>"; };
+		D64356A71B6CFF5B00630A39 /* DiscoverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverScene.m; sourceTree = "<group>"; };
 		D659DA831B6602D90084D678 /* Aspect-TuSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-TuSDK.m"; sourceTree = "<group>"; };
 		D65AEAB81B679B7B0074313A /* Aspect-QiniuSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-QiniuSDK.m"; sourceTree = "<group>"; };
 		D65AEABA1B68623A0074313A /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
@@ -431,6 +437,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D64356A11B6CFE9400630A39 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				D64356A21B6CFEA300630A39 /* NotificationScene.h */,
+				D64356A31B6CFED200630A39 /* NotificationScene.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		D64356A51B6CFF2700630A39 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				D64356A61B6CFF3700630A39 /* DiscoverScene.h */,
+				D64356A71B6CFF5B00630A39 /* DiscoverScene.m */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 		D661EF521B4CE4E20019B280 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +552,8 @@
 		D69748261A8088C1006004D1 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D64356A51B6CFF2700630A39 /* Discover */,
+				D64356A11B6CFE9400630A39 /* Notification */,
 				D6BD3C351B60C1A100E92870 /* Country */,
 				D6EB35191B5D95430026E78C /* Base */,
 				D6ECF1EC1B55ADCF001C013A /* Conversation */,
@@ -769,7 +795,9 @@
 				D6D5E2581B635A020027B0D9 /* VerifyScene.m in Sources */,
 				D65AEAC81B690EFD0074313A /* BaseSceneModel.m in Sources */,
 				D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */,
+				D64356A81B6CFF5B00630A39 /* DiscoverScene.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
+				D64356A41B6CFED200630A39 /* NotificationScene.m in Sources */,
 				D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */,
 				D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */,
 				D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */,

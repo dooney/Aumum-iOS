@@ -79,8 +79,8 @@
     [self.avatarImage fromUrl:self.moment.user.avatarUrl diameter:40];
     CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat imageHeight = imageWidth * self.moment.ratio;
-    [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.2f", imageWidth]
-                              height:[NSString stringWithFormat:@"%.2f", imageHeight]];
+    [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.0f", imageWidth]
+                              height:[NSString stringWithFormat:@"%.0f", imageHeight]];
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:self.moment.imageUrl]];
 }
 

@@ -6,7 +6,42 @@
   Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 */
 
-"label.signIn" = "用户登录";
+//Label
+"label.signIn" = "SIGN IN";
+"label.signUp" = "SIGN UP";
+"label.userName" = "Mobile Number";
+"label.password" = "Password";
+"label.logIn" = "LOG IN";
+"label.logOut" = "Log Out";
+"label.chat" = "Chat";
+"label.addContact" = "Add Contact";
+"label.cancel" = "Cancel";
+"label.confirm" = "Confirm";
+"label.willSendCode" = "The 4 digit verification code will be sent to this mobile number via SMS";
+"label.code" = "Code";
+"label.shouldReceiveCodeWithinSeconds" = "Should receive SMS within %d second(s)";
+"label.submit" = "SUBMIT";
+"label.resend" = "RESEND";
+"label.avatar" = "Avatar";
+"label.user" = "User";
+"label.myFirstMoment" = "My first photo here!";
+"label.newMoment" = "New Moment";
+"label.takePhoto" = "Take Photo";
+"label.chooseFromAlbum" = "Choose from Album";
+"label.send" = "Send";
+"label.home" = "主页";
+"label.conversation" = "聊天";
+"label.discover" = "发现";
+"label.notification" = "通知";
+"label.profile" = "个人";
+
+//Info
+"info.sending" = "Sending";
+"info.submitting" = "Submitting";
+"info.uploading" = "Uploading";
+
+//Error
+"error.verifyCode" = "Invalid verification code";
 
 //NSDateCategory
 "NSDateCategory.text1" = "1分钟内";

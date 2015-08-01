@@ -23,6 +23,8 @@ AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunching
                            barMetrics:UIBarMetricsDefault];
     [navigationBar setShadowImage:[UIImage new]];
     
+    [[UITabBar appearance] setTintColor:HEX_RGB(0xff6060)];
+    
     return XAMessageForward(application:application didFinishLaunchingWithOptions:launchOptions);
 }
 @end
