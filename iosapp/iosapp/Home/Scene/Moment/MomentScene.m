@@ -52,6 +52,7 @@
 
 - (void)addControls {
     self.tableView = [[SceneTableView alloc] init];
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -140,6 +141,7 @@
     MomentCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MomentCell" forIndexPath:indexPath];
     Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
     [cell reloadData:moment];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
