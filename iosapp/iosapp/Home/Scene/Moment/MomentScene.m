@@ -17,7 +17,9 @@
 #import "UIActionSheet+Blocks.h"
 #import <TuSDK/TuSDK.h>
 #import <TSMessage.h>
+#import "RDNavigationController.h"
 #import "NewMomentScene.h"
+#import "MomentDetailsScene.h"
 
 @interface MomentScene()<UITableViewDelegate, UITableViewDataSource, TuSDKPFCameraDelegate>
 {
@@ -139,9 +141,10 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MomentCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MomentCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.viewController = self;
     Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
     [cell reloadData:moment];
-    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -153,6 +156,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
+    MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:moment.objectId];
+    RDNavigationController* navigationController = [[RDNavigationController alloc] initWithRootViewController:scene];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (void)cameraButtonPressed {

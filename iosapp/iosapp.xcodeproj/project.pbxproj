@@ -76,6 +76,8 @@
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
 		D6E2A4761B5C65D2008B3DC1 /* UserSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2A4751B5C65D2008B3DC1 /* UserSceneModel.m */; };
 		D6E2A4791B5C6AC7008B3DC1 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E2A4781B5C6AC7008B3DC1 /* UserDetails.m */; };
+		D6E499DB1B6EE4760006C67C /* MomentDetailsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E499DA1B6EE4760006C67C /* MomentDetailsScene.m */; };
+		D6E499DE1B6F347B0006C67C /* MomentCellSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E499DD1B6F347B0006C67C /* MomentCellSceneModel.m */; };
 		D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EB351B1B5D95770026E78C /* BaseScene.m */; };
 		D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1EE1B55AE19001C013A /* ConversationScene.m */; };
 		D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F21B55AFC1001C013A /* ConversationListSceneModel.m */; };
@@ -152,6 +154,7 @@
 		D64356A31B6CFED200630A39 /* NotificationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationScene.m; sourceTree = "<group>"; };
 		D64356A61B6CFF3700630A39 /* DiscoverScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverScene.h; sourceTree = "<group>"; };
 		D64356A71B6CFF5B00630A39 /* DiscoverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverScene.m; sourceTree = "<group>"; };
+		D64356AC1B6EE2C500630A39 /* MomentDetailsScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentDetailsScene.h; sourceTree = "<group>"; };
 		D659DA831B6602D90084D678 /* Aspect-TuSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-TuSDK.m"; sourceTree = "<group>"; };
 		D65AEAB81B679B7B0074313A /* Aspect-QiniuSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-QiniuSDK.m"; sourceTree = "<group>"; };
 		D65AEABA1B68623A0074313A /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
@@ -225,6 +228,9 @@
 		D6E2A4751B5C65D2008B3DC1 /* UserSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSceneModel.m; sourceTree = "<group>"; };
 		D6E2A4771B5C6AB9008B3DC1 /* UserDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
 		D6E2A4781B5C6AC7008B3DC1 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
+		D6E499DA1B6EE4760006C67C /* MomentDetailsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentDetailsScene.m; sourceTree = "<group>"; };
+		D6E499DC1B6F33DA0006C67C /* MomentCellSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCellSceneModel.h; sourceTree = "<group>"; };
+		D6E499DD1B6F347B0006C67C /* MomentCellSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentCellSceneModel.m; sourceTree = "<group>"; };
 		D6EB351A1B5D95500026E78C /* BaseScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScene.h; sourceTree = "<group>"; };
 		D6EB351B1B5D95770026E78C /* BaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScene.m; sourceTree = "<group>"; };
 		D6ECF1ED1B55ADE0001C013A /* ConversationScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationScene.h; sourceTree = "<group>"; };
@@ -303,6 +309,8 @@
 				D6E0498C1B47B2DA00A867C8 /* MomentCell.m */,
 				D643569B1B6C3EEA00630A39 /* NewMomentScene.h */,
 				D643569C1B6C3F5200630A39 /* NewMomentScene.m */,
+				D64356AC1B6EE2C500630A39 /* MomentDetailsScene.h */,
+				D6E499DA1B6EE4760006C67C /* MomentDetailsScene.m */,
 			);
 			path = Moment;
 			sourceTree = "<group>";
@@ -597,6 +605,8 @@
 				D65AEAC71B690EFD0074313A /* BaseSceneModel.m */,
 				D643569E1B6C754100630A39 /* NewMomentSceneModel.h */,
 				D643569F1B6C757000630A39 /* NewMomentSceneModel.m */,
+				D6E499DC1B6F33DA0006C67C /* MomentCellSceneModel.h */,
+				D6E499DD1B6F347B0006C67C /* MomentCellSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -812,6 +822,7 @@
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
 				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,
 				D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */,
+				D6E499DE1B6F347B0006C67C /* MomentCellSceneModel.m in Sources */,
 				D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */,
 				C3602A7C1B48DB48006DF6C8 /* UserList.m in Sources */,
 				D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */,
@@ -837,6 +848,7 @@
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
 				D64356A01B6C757000630A39 /* NewMomentSceneModel.m in Sources */,
 				D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */,
+				D6E499DB1B6EE4760006C67C /* MomentDetailsScene.m in Sources */,
 				D6E2A4791B5C6AC7008B3DC1 /* UserDetails.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
 				D6D5E2421B61A5DF0027B0D9 /* CountryCell.m in Sources */,

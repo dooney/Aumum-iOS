@@ -13,6 +13,8 @@
 
 @interface MomentCell : EzTableViewCell
 
+@property (nonatomic, strong)UIViewController* viewController;
+
 @end
 
 #endif
