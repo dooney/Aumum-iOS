@@ -14,7 +14,7 @@
 
 @interface ProfileScene()
 
-@property (nonatomic, strong)UIButton* logoutButton;
+@property (nonatomic, strong) UIButton* logoutButton;
 
 @end
 
@@ -56,8 +56,6 @@
 }
 
 - (void)initSceneModel {
-    self.sceneModel = [ProfileSceneModel SceneModel];
-    [self.sceneModel.request send];
 }
 
 @end

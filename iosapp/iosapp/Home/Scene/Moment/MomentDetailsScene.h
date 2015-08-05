@@ -9,9 +9,9 @@
 #ifndef iosapp_MomentDetailsScene_h
 #define iosapp_MomentDetailsScene_h
 
-#import "BaseScene.h"
+#import "SlkTextViewController.h"
 
-@interface MomentDetailsScene : BaseScene
+@interface MomentDetailsScene : SLKTextViewController
 
 - (id)initWithMomentId:(NSString*)momentId;
 

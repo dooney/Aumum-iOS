@@ -30,10 +30,14 @@
 		D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B51A7F0AB9007347B5 /* AppDelegate.m */; };
 		D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A39C01A7F0AB9007347B5 /* Images.xcassets */; };
 		D62A39D01A7F0AB9007347B5 /* iosappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39CF1A7F0AB9007347B5 /* iosappTests.m */; };
+		D63406211B72D213000C8EA1 /* NewCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D63406201B72D213000C8EA1 /* NewCommentRequest.m */; };
 		D643569D1B6C3F5200630A39 /* NewMomentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D643569C1B6C3F5200630A39 /* NewMomentScene.m */; };
 		D64356A01B6C757000630A39 /* NewMomentSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D643569F1B6C757000630A39 /* NewMomentSceneModel.m */; };
 		D64356A41B6CFED200630A39 /* NotificationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D64356A31B6CFED200630A39 /* NotificationScene.m */; };
 		D64356A81B6CFF5B00630A39 /* DiscoverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D64356A71B6CFF5B00630A39 /* DiscoverScene.m */; };
+		D65675E01B72ABE000788146 /* Aspect-Context.m in Sources */ = {isa = PBXBuildFile; fileRef = D65675DF1B72ABE000788146 /* Aspect-Context.m */; };
+		D65675E31B72ACC600788146 /* ContextSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D65675E21B72ACC600788146 /* ContextSceneModel.m */; };
+		D65675E61B72B06300788146 /* CustomDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D65675E51B72B06300788146 /* CustomDatabase.m */; };
 		D659DA841B6602D90084D678 /* Aspect-TuSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D659DA831B6602D90084D678 /* Aspect-TuSDK.m */; };
 		D65AEAB91B679B7B0074313A /* Aspect-QiniuSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAB81B679B7B0074313A /* Aspect-QiniuSDK.m */; };
 		D65AEABC1B68624B0074313A /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEABB1B68624B0074313A /* RegisterRequest.m */; };
@@ -55,6 +59,12 @@
 		D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322A1B4507E400A1D525 /* MomentListRequest.m */; };
 		D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322E1B450DA300A1D525 /* BaseRequest.m */; };
 		D67535101B64EE5D00B09245 /* AvatarScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D675350F1B64EE5D00B09245 /* AvatarScene.m */; };
+		D6B13AE01B6F81A000930F66 /* MomentDetailsSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13ADF1B6F81A000930F66 /* MomentDetailsSceneModel.m */; };
+		D6B13AE31B70092C00930F66 /* CommentListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AE21B70092C00930F66 /* CommentListRequest.m */; };
+		D6B13AE61B70099200930F66 /* CommentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AE51B70099200930F66 /* CommentList.m */; };
+		D6B13AE91B700A2E00930F66 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AE81B700A2E00930F66 /* Comment.m */; };
+		D6B13AEC1B700E9E00930F66 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AEB1B700E9E00930F66 /* CommentCell.m */; };
+		D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */; };
 		D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD3C371B60C1DB00E92870 /* CountryScene.m */; };
 		D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D5BDC01B4F787600D6045F /* URLManage.plist */; };
 		D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC41B4F835100D6045F /* Aspect-Config.m */; };
@@ -85,7 +95,6 @@
 		D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1F81B55B4F9001C013A /* Conversation.m */; };
 		D6ECF1FC1B561877001C013A /* UserListByChatIdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */; };
 		D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF1FE1B56772E001C013A /* ProfileRequest.m */; };
-		D6ECF2011B568149001C013A /* Aspect-Database.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2001B568149001C013A /* Aspect-Database.m */; };
 		D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2031B5683B3001C013A /* ProfileSceneModel.m */; };
 		D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2061B570133001C013A /* ChatSendHelper.m */; };
 		D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECF2091B576C1B001C013A /* BaseModel.m */; };
@@ -146,6 +155,8 @@
 		D62A39C91A7F0AB9007347B5 /* iosappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39CE1A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62A39CF1A7F0AB9007347B5 /* iosappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosappTests.m; sourceTree = "<group>"; };
+		D634061F1B72D1EC000C8EA1 /* NewCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewCommentRequest.h; sourceTree = "<group>"; };
+		D63406201B72D213000C8EA1 /* NewCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCommentRequest.m; sourceTree = "<group>"; };
 		D643569B1B6C3EEA00630A39 /* NewMomentScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentScene.h; sourceTree = "<group>"; };
 		D643569C1B6C3F5200630A39 /* NewMomentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMomentScene.m; sourceTree = "<group>"; };
 		D643569E1B6C754100630A39 /* NewMomentSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentSceneModel.h; sourceTree = "<group>"; };
@@ -155,6 +166,11 @@
 		D64356A61B6CFF3700630A39 /* DiscoverScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverScene.h; sourceTree = "<group>"; };
 		D64356A71B6CFF5B00630A39 /* DiscoverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverScene.m; sourceTree = "<group>"; };
 		D64356AC1B6EE2C500630A39 /* MomentDetailsScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentDetailsScene.h; sourceTree = "<group>"; };
+		D65675DF1B72ABE000788146 /* Aspect-Context.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Context.m"; sourceTree = "<group>"; };
+		D65675E11B72AC9F00788146 /* ContextSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContextSceneModel.h; sourceTree = "<group>"; };
+		D65675E21B72ACC600788146 /* ContextSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextSceneModel.m; sourceTree = "<group>"; };
+		D65675E41B72B03D00788146 /* CustomDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomDatabase.h; sourceTree = "<group>"; };
+		D65675E51B72B06300788146 /* CustomDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatabase.m; sourceTree = "<group>"; };
 		D659DA831B6602D90084D678 /* Aspect-TuSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-TuSDK.m"; sourceTree = "<group>"; };
 		D65AEAB81B679B7B0074313A /* Aspect-QiniuSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-QiniuSDK.m"; sourceTree = "<group>"; };
 		D65AEABA1B68623A0074313A /* RegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
@@ -194,6 +210,18 @@
 		D673322E1B450DA300A1D525 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 		D675350E1B64EE3700B09245 /* AvatarScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarScene.h; sourceTree = "<group>"; };
 		D675350F1B64EE5D00B09245 /* AvatarScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarScene.m; sourceTree = "<group>"; };
+		D6B13ADE1B6F807D00930F66 /* MomentDetailsSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentDetailsSceneModel.h; sourceTree = "<group>"; };
+		D6B13ADF1B6F81A000930F66 /* MomentDetailsSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentDetailsSceneModel.m; sourceTree = "<group>"; };
+		D6B13AE11B7008BD00930F66 /* CommentListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentListRequest.h; sourceTree = "<group>"; };
+		D6B13AE21B70092C00930F66 /* CommentListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListRequest.m; sourceTree = "<group>"; };
+		D6B13AE41B70096400930F66 /* CommentList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentList.h; sourceTree = "<group>"; };
+		D6B13AE51B70099200930F66 /* CommentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentList.m; sourceTree = "<group>"; };
+		D6B13AE71B7009B800930F66 /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		D6B13AE81B700A2E00930F66 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		D6B13AEA1B700E6800930F66 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		D6B13AEB1B700E9E00930F66 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		D6B13AED1B7029BD00930F66 /* CommentCellSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCellSceneModel.h; sourceTree = "<group>"; };
+		D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCellSceneModel.m; sourceTree = "<group>"; };
 		D6BD3C361B60C1B200E92870 /* CountryScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryScene.h; sourceTree = "<group>"; };
 		D6BD3C371B60C1DB00E92870 /* CountryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryScene.m; sourceTree = "<group>"; };
 		D6D5BDC01B4F787600D6045F /* URLManage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = URLManage.plist; sourceTree = "<group>"; };
@@ -245,7 +273,6 @@
 		D6ECF1FB1B561877001C013A /* UserListByChatIdRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListByChatIdRequest.m; sourceTree = "<group>"; };
 		D6ECF1FD1B5676EC001C013A /* ProfileRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileRequest.h; sourceTree = "<group>"; };
 		D6ECF1FE1B56772E001C013A /* ProfileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileRequest.m; sourceTree = "<group>"; };
-		D6ECF2001B568149001C013A /* Aspect-Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Database.m"; sourceTree = "<group>"; };
 		D6ECF2021B56838B001C013A /* ProfileSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileSceneModel.h; sourceTree = "<group>"; };
 		D6ECF2031B5683B3001C013A /* ProfileSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileSceneModel.m; sourceTree = "<group>"; };
 		D6ECF2051B570122001C013A /* ChatSendHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatSendHelper.h; sourceTree = "<group>"; };
@@ -311,6 +338,8 @@
 				D643569C1B6C3F5200630A39 /* NewMomentScene.m */,
 				D64356AC1B6EE2C500630A39 /* MomentDetailsScene.h */,
 				D6E499DA1B6EE4760006C67C /* MomentDetailsScene.m */,
+				D6B13AEA1B700E6800930F66 /* CommentCell.h */,
+				D6B13AEB1B700E9E00930F66 /* CommentCell.m */,
 			);
 			path = Moment;
 			sourceTree = "<group>";
@@ -350,6 +379,8 @@
 				D65AEAC41B68A4D90074313A /* QiniuUploader+Url.m */,
 				D65AEACC1B6912EE0074313A /* CustomAction.h */,
 				D65AEACD1B6913140074313A /* CustomAction.m */,
+				D65675E41B72B03D00788146 /* CustomDatabase.h */,
+				D65675E51B72B06300788146 /* CustomDatabase.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -405,9 +436,9 @@
 				D60297C51A98C679003575F2 /* Aspect-Font.m */,
 				D60297B81A98BAC7003575F2 /* Aspect-Window.m */,
 				D60297C01A98C518003575F2 /* Aspect-Appearance.m */,
-				D6ECF2001B568149001C013A /* Aspect-Database.m */,
 				D6E049931B49447600A867C8 /* Aspect-Util.m */,
 				D6D5BDC41B4F835100D6045F /* Aspect-Config.m */,
+				D65675DF1B72ABE000788146 /* Aspect-Context.m */,
 				D6D5BDCA1B4F9F6C00D6045F /* Aspect-EaseMob.m */,
 				D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */,
 				D659DA831B6602D90084D678 /* Aspect-TuSDK.m */,
@@ -513,6 +544,10 @@
 				D65AEAC11B689E400074313A /* UpdateUserRequest.m */,
 				D65AEACF1B6974420074313A /* NewMomentRequest.h */,
 				D65AEAD01B6974720074313A /* NewMomentRequest.m */,
+				D6B13AE11B7008BD00930F66 /* CommentListRequest.h */,
+				D6B13AE21B70092C00930F66 /* CommentListRequest.m */,
+				D634061F1B72D1EC000C8EA1 /* NewCommentRequest.h */,
+				D63406201B72D213000C8EA1 /* NewCommentRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -538,6 +573,10 @@
 				D6E2A4781B5C6AC7008B3DC1 /* UserDetails.m */,
 				D6D5E2431B61AA0E0027B0D9 /* Country.h */,
 				D6D5E2441B61AA480027B0D9 /* Country.m */,
+				D6B13AE41B70096400930F66 /* CommentList.h */,
+				D6B13AE51B70099200930F66 /* CommentList.m */,
+				D6B13AE71B7009B800930F66 /* Comment.h */,
+				D6B13AE81B700A2E00930F66 /* Comment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -607,6 +646,12 @@
 				D643569F1B6C757000630A39 /* NewMomentSceneModel.m */,
 				D6E499DC1B6F33DA0006C67C /* MomentCellSceneModel.h */,
 				D6E499DD1B6F347B0006C67C /* MomentCellSceneModel.m */,
+				D6B13ADE1B6F807D00930F66 /* MomentDetailsSceneModel.h */,
+				D6B13ADF1B6F81A000930F66 /* MomentDetailsSceneModel.m */,
+				D6B13AED1B7029BD00930F66 /* CommentCellSceneModel.h */,
+				D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */,
+				D65675E11B72AC9F00788146 /* ContextSceneModel.h */,
+				D65675E21B72ACC600788146 /* ContextSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -801,7 +846,7 @@
 				C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */,
 				D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */,
 				D65AEABC1B68624B0074313A /* RegisterRequest.m in Sources */,
-				D6ECF2011B568149001C013A /* Aspect-Database.m in Sources */,
+				D6B13AE61B70099200930F66 /* CommentList.m in Sources */,
 				D6D5E2581B635A020027B0D9 /* VerifyScene.m in Sources */,
 				D65AEAC81B690EFD0074313A /* BaseSceneModel.m in Sources */,
 				D6ECF1F31B55AFC1001C013A /* ConversationListSceneModel.m in Sources */,
@@ -819,6 +864,7 @@
 				D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */,
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
 				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
+				D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
 				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,
 				D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */,
@@ -830,6 +876,7 @@
 				C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */,
 				D643569D1B6C3F5200630A39 /* NewMomentScene.m in Sources */,
 				D65AEAC51B68A4D90074313A /* QiniuUploader+Url.m in Sources */,
+				D65675E31B72ACC600788146 /* ContextSceneModel.m in Sources */,
 				D661EF551B4CE5310019B280 /* SplashScene.m in Sources */,
 				D661EF661B4DEB9A0019B280 /* Profile.m in Sources */,
 				D60297BC1A98BB5E003575F2 /* TabBarController.m in Sources */,
@@ -839,18 +886,23 @@
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
 				D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */,
 				D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */,
+				D65675E01B72ABE000788146 /* Aspect-Context.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
 				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
+				D6B13AEC1B700E9E00930F66 /* CommentCell.m in Sources */,
 				D621D74F1B63A3F8006D058C /* PrimaryButton.m in Sources */,
 				D6099B4F1B608E3900ECA44F /* SignUpScene.m in Sources */,
 				D60297C11A98C518003575F2 /* Aspect-Appearance.m in Sources */,
+				D6B13AE01B6F81A000930F66 /* MomentDetailsSceneModel.m in Sources */,
 				C37936B61B51451100BDC3C3 /* NSDate+Category.m in Sources */,
 				D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */,
 				D64356A01B6C757000630A39 /* NewMomentSceneModel.m in Sources */,
 				D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */,
+				D6B13AE31B70092C00930F66 /* CommentListRequest.m in Sources */,
 				D6E499DB1B6EE4760006C67C /* MomentDetailsScene.m in Sources */,
 				D6E2A4791B5C6AC7008B3DC1 /* UserDetails.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
+				D65675E61B72B06300788146 /* CustomDatabase.m in Sources */,
 				D6D5E2421B61A5DF0027B0D9 /* CountryCell.m in Sources */,
 				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
 				C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */,
@@ -862,6 +914,7 @@
 				D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
 				C3FB7D5A1B526DAB00A6B581 /* UserDetailsRequest.m in Sources */,
+				D63406211B72D213000C8EA1 /* NewCommentRequest.m in Sources */,
 				D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */,
 				D65AEAB91B679B7B0074313A /* Aspect-QiniuSDK.m in Sources */,
 				D67535101B64EE5D00B09245 /* AvatarScene.m in Sources */,
@@ -870,6 +923,7 @@
 				D65AEAC21B689E400074313A /* UpdateUserRequest.m in Sources */,
 				D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */,
 				D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */,
+				D6B13AE91B700A2E00930F66 /* Comment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

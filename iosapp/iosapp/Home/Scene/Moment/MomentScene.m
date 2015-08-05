@@ -20,6 +20,7 @@
 #import "RDNavigationController.h"
 #import "NewMomentScene.h"
 #import "MomentDetailsScene.h"
+#import "NSArray+EasyExtend.h"
 
 @interface MomentScene()<UITableViewDelegate, UITableViewDataSource, TuSDKPFCameraDelegate>
 {
@@ -102,7 +103,7 @@
     
     [self.sceneModel.pullRequest onRequest:^() {
         [self onRequest:self.sceneModel.pullRequest dataHandler:^(NSMutableArray* data){
-            [self.sceneModel.dataSet insertObjects:data atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [data count])]];
+            [self.sceneModel.dataSet pushHeadN:data];
         } emptyHandler:^{
             [self.tableView endAllRefreshingWithEnd:NO];
         }];
@@ -159,7 +160,9 @@
     Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
     MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:moment.objectId];
     RDNavigationController* navigationController = [[RDNavigationController alloc] initWithRootViewController:scene];
-    [self presentViewController:navigationController animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:navigationController animated:YES completion:nil];
+    });
 }
 
 - (void)cameraButtonPressed {

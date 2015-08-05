@@ -22,6 +22,9 @@
 - (NSError*)outputHandler:(NSDictionary* )output {
     NSError* error;
     self.list = [[MomentList alloc] initWithDictionary:self.output error:&error];
+    for (Moment* moment in self.list.results) {
+        [moment insertOrReplace:moment.objectId];
+    }
     if (self.list.results.count < LIMIT) {
         self.isEnd = @(YES);
     }

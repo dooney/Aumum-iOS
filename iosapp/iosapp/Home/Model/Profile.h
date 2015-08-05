@@ -10,6 +10,7 @@
 #define iosapp_Auth_h
 
 #import "BaseModel.h"
+#import "User.h"
 
 @interface Profile : BaseModel
 
@@ -22,6 +23,7 @@
 @property (nonatomic, strong)NSString<Ignore>* contactList;
 
 + (id)get;
++ (User*)getUser;
 - (void)updateContactList;
 
 @end

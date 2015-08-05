@@ -168,6 +168,13 @@
     return [[NSDate dateWithTimeIntervalInMilliSecondSince1970:time] formattedTime];
 }
 
++ (NSString *)utcNow {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    return [dateFormatter stringFromDate:[NSDate date]];
+}
+
 #pragma mark Relative Dates
 
 + (NSDate *) dateWithDaysFromNow: (NSInteger) days

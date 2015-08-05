@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "EaseMob.h"
-#import "AppDatabase.h"
+#import "CustomDatabase.h"
+#import "ContextSceneModel.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, IChatManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) AppDatabase* database;
+@property (strong, nonatomic) CustomDatabase* database;
+@property (strong, nonatomic) ContextSceneModel* sceneModel;
 
 @end
 

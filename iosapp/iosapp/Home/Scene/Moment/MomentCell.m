@@ -29,6 +29,7 @@
 @property (nonatomic, strong)UIButton* likeButton;
 @property (nonatomic, strong)UIButton* commentButton;
 @property (nonatomic, strong)UIView* footerlayout;
+@property (nonatomic, strong)NSLayoutConstraint* momentImageHeightConstraint;
 
 @end
 
@@ -110,7 +111,18 @@
     [self.createdAt alignBottomEdgeWithView:self.avatarImage predicate:nil];
     
     [self.momentImage constrainTopSpaceToView:self.headerLayout predicate:@"-5"];
-    [self.momentImage alignTrailingEdgeWithView:self.momentImage.superview predicate:nil];
+    [self.momentImage alignCenterXWithView:self.momentImage.superview predicate:@"0"];
+    CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
+    [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.0f", imageWidth]];
+    
+    [self.footerlayout alignCenterXWithView:self.footerlayout.superview predicate:@"0"];
+    [self.footerlayout alignBottomEdgeWithView:self.footerlayout.superview predicate:@"0"];
+    [self.footerlayout constrainWidth:[NSString stringWithFormat:@"%.0f", imageWidth - 20] height:@"40"];
+    
+    [self.likeButton alignTop:@"5" leading:@"10" toView:self.likeButton.superview];
+    NSArray* layouts = @[ self.likeButton, self.commentButton ];
+    [UIView alignTopEdgesOfViews:layouts];
+    [UIView spaceOutViewsHorizontally:layouts predicate:@"10"];
 }
 
 - (void)initSceneModel {
@@ -123,21 +135,21 @@
     NSDate* createdAt = [NSDate dateWithString:self.sceneModel.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
     [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl diameter:40];
-    CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
-    CGFloat imageHeight = imageWidth * self.sceneModel.moment.ratio;
-    [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.0f", imageWidth]
-                              height:[NSString stringWithFormat:@"%.0f", imageHeight]];
+    CGFloat imageHeight = [[UIScreen mainScreen] bounds].size.width * self.sceneModel.moment.ratio;
+    if (imageHeight > self.momentImage.bounds.size.height) {
+        [self.momentImage removeConstraint:self.momentImageHeightConstraint];
+        self.momentImageHeightConstraint = [NSLayoutConstraint
+                                            constraintWithItem:self.momentImage
+                                            attribute:NSLayoutAttributeHeight
+                                            relatedBy:NSLayoutRelationEqual
+                                            toItem: nil
+                                            attribute:NSLayoutAttributeNotAnAttribute
+                                            multiplier:1.0f
+                                            constant:(int)(imageHeight + 0.5)];
+        [self.momentImage addConstraint:self.momentImageHeightConstraint];
+    }
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:self.sceneModel.moment.imageUrl]];
-    
     [self.footerlayout constrainTopSpaceToView:self.momentImage predicate:@"-5"];
-    [self.footerlayout alignCenterXWithView:self.footerlayout.superview predicate:@"0"];
-    [self.footerlayout alignBottomEdgeWithView:self.footerlayout.superview predicate:@"0"];
-    [self.footerlayout constrainWidth:[NSString stringWithFormat:@"%.0f", imageWidth - 20] height:@"40"];
-    
-    [self.likeButton alignTop:@"5" leading:@"10" toView:self.likeButton.superview];
-    NSArray* layouts = @[ self.likeButton, self.commentButton ];
-    [UIView alignTopEdgesOfViews:layouts];
-    [UIView spaceOutViewsHorizontally:layouts predicate:@"10"];
 }
 
 - (void)avatarImagePressed {

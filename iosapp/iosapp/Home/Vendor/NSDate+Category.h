@@ -28,6 +28,7 @@
 + (NSDate *)dateWithString:(NSString *)string format:(NSString*)format zone:(NSString*)zone;
 + (NSDate *)dateWithTimeIntervalInMilliSecondSince1970:(double)timeIntervalInMilliSecond;
 + (NSString *)formattedTimeFromTimeInterval:(long long)time;
++ (NSString *)utcNow;
 // Relative dates from the current date
 + (NSDate *) dateTomorrow;
 + (NSDate *) dateYesterday;

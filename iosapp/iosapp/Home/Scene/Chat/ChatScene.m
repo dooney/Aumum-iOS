@@ -13,6 +13,7 @@
 #import "JSQMessages.h"
 #import "ChatSendHelper.h"
 #import "SDWebImageManager.h"
+#import "NSArray+EasyExtend.h"
 
 @interface ChatScene()<IChatManagerDelegate>
 {
@@ -87,7 +88,7 @@
             }
         }
         if (append) {
-            [self.sceneModel.dataSet insertObjects:messageList atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [messageList count])]];
+            [self.sceneModel.dataSet pushHeadN:messageList];
         } else {
             self.sceneModel.dataSet = [messageList mutableCopy];
         }

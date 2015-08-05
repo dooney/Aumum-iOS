@@ -10,14 +10,4 @@
 
 @implementation ProfileSceneModel
 
-- (void)loadSceneModel {
-    [super loadSceneModel];
-    
-    @weakify(self)
-    self.request = [ProfileRequest RequestWithBlock:^{
-        @strongify(self)
-        [self SEND_IQ_ACTION:self.request];
-    }];
-}
-
 @end
