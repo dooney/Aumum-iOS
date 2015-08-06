@@ -21,4 +21,15 @@
     return self;
 }
 
+- (BOOL)isLiked:(NSString*)userId {
+    return [self.likes containsObject:userId];
+}
+
+- (void)save {
+    User* user = self.user;
+    self.user = nil;
+    [super save];
+    self.user = user;
+}
+
 @end

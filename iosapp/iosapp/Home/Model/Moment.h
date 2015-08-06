@@ -22,8 +22,10 @@
 @property (nonatomic, strong)NSString<Optional>* text;
 @property (nonatomic, assign)CGFloat ratio;
 @property (nonatomic, strong)User<Ignore>* user;
+@property (nonatomic, strong)NSMutableArray<Optional>* likes;
 
 - (id)init:(NSString*)userId imageUrl:(NSString*)imageUrl text:(NSString*)text ratio:(CGFloat)ratio;
+- (BOOL)isLiked:(NSString*)userId;
 
 @end
 

@@ -10,6 +10,7 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIImageView+WebCache.h"
 #import "AvatarImageView.h"
+#import "LikeButton.h"
 #import "UIColor+EasyExtend.h"
 #import "NSDate+Category.h"
 #import "URLManager.h"
@@ -17,6 +18,7 @@
 #import "MomentDetailsScene.h"
 #import "MomentCellSceneModel.h"
 #import "RDNavigationController.h"
+#import "KeyChainUtil.h"
 
 @interface MomentCell()
 
@@ -26,8 +28,9 @@
 @property (nonatomic, strong)UILabel* screenName;
 @property (nonatomic, strong)UILabel* createdAt;
 @property (nonatomic, strong)UIImageView* momentImage;
-@property (nonatomic, strong)UIButton* likeButton;
+@property (nonatomic, strong)LikeButton* likeButton;
 @property (nonatomic, strong)UIButton* commentButton;
+@property (nonatomic, strong)UIButton* shareButton;
 @property (nonatomic, strong)UIView* footerlayout;
 @property (nonatomic, strong)NSLayoutConstraint* momentImageHeightConstraint;
 
@@ -80,12 +83,19 @@
     self.footerlayout.layer.borderWidth = 0.3;
     [self.contentView addSubview:self.footerlayout];
     
-    self.likeButton = [IconFont buttonWithIcon:[IconFont icon:@"ios7HeartOutline" fromFont:ionIcons] fontName:ionIcons size:25 color:[UIColor grayColor]];
+    self.likeButton = [[LikeButton alloc] init];
+    [self.likeButton addTarget:self action:@selector(likeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.footerlayout addSubview:self.likeButton];
     
-    self.commentButton = [IconFont buttonWithIcon:[IconFont icon:@"ios7ChatboxesOutline" fromFont:ionIcons] fontName:ionIcons size:25 color:[UIColor grayColor]];
+    NSString* commentTitle = [NSString stringWithFormat:@"%@  %@", [IconFont icon:@"ios7Chatboxes" fromFont:ionIcons], NSLocalizedString(@"label.comment", nil)];
+    self.commentButton = [IconFont buttonWithIcon:commentTitle fontName:ionIcons size:15 color:[UIColor lightGrayColor]];
     [self.commentButton addTarget:self action:@selector(commentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.footerlayout addSubview:self.commentButton];
+    
+    NSString* shareTitle = [NSString stringWithFormat:@"%@  %@", [IconFont icon:@"ios7Redo" fromFont:ionIcons], NSLocalizedString(@"label.share", nil)];
+    self.shareButton = [IconFont buttonWithIcon:shareTitle fontName:ionIcons size:15 color:[UIColor lightGrayColor]];
+    [self.shareButton addTarget:self action:@selector(shareButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.footerlayout addSubview:self.shareButton];
     
     self.momentImage = [[UIImageView alloc] init];
     self.momentImage.contentMode = UIViewContentModeScaleAspectFit;
@@ -119,14 +129,16 @@
     [self.footerlayout alignBottomEdgeWithView:self.footerlayout.superview predicate:@"0"];
     [self.footerlayout constrainWidth:[NSString stringWithFormat:@"%.0f", imageWidth - 20] height:@"40"];
     
-    [self.likeButton alignTop:@"5" leading:@"10" toView:self.likeButton.superview];
-    NSArray* layouts = @[ self.likeButton, self.commentButton ];
+    [self.likeButton alignTop:@"10" leading:@"15" toView:self.likeButton.superview];
+    [self.commentButton alignCenterXWithView:self.commentButton.superview predicate:@"0"];
+    [self.shareButton alignTrailingEdgeWithView:self.shareButton.superview predicate:@"-15"];
+    NSArray* layouts = @[ self.likeButton, self.commentButton, self.shareButton ];
     [UIView alignTopEdgesOfViews:layouts];
-    [UIView spaceOutViewsHorizontally:layouts predicate:@"10"];
 }
 
 - (void)initSceneModel {
     self.sceneModel = [MomentCellSceneModel SceneModel];
+    self.sceneModel.userId = [KeyChainUtil getCurrentUserId];
 }
 
 - (void)reloadData:(id)entity {
@@ -150,6 +162,7 @@
     }
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:self.sceneModel.moment.imageUrl]];
     [self.footerlayout constrainTopSpaceToView:self.momentImage predicate:@"-5"];
+    [self.likeButton setIcon:[self.sceneModel.moment isLiked:self.sceneModel.userId]];
 }
 
 - (void)avatarImagePressed {
@@ -157,10 +170,25 @@
     [URLManager pushURLString:url animated:YES];
 }
 
+- (void)likeButtonPressed {
+    if ([self.sceneModel.moment.likes containsObject:self.sceneModel.userId]) {
+        [self.sceneModel.moment.likes removeObject:self.sceneModel.userId];
+        [self.sceneModel.request removeLike:self.sceneModel.moment.objectId userId:self.sceneModel.userId];
+    } else {
+        [self.sceneModel.moment.likes addObject:self.sceneModel.userId];
+        [self.sceneModel.request addLike:self.sceneModel.moment.objectId userId:self.sceneModel.userId];
+    }
+    [self.sceneModel.moment save];
+    [self.likeButton setLike:[self.sceneModel.moment isLiked:self.sceneModel.userId]];
+}
+
 - (void)commentButtonPressed {
-    MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:self.sceneModel.moment.objectId];
+    MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:self.sceneModel.moment.objectId promptInput:YES];
     RDNavigationController* navigationController = [[RDNavigationController alloc] initWithRootViewController:scene];
     [self.viewController presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void)shareButtonPressed {
 }
 
 @end

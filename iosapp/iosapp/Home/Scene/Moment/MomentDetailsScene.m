@@ -21,9 +21,12 @@
 #import "Profile.h"
 
 @interface MomentDetailsScene()
+{
+    NSString* _momentId;
+    BOOL _promptInput;
+}
 
 @property (nonatomic, strong)MomentDetailsSceneModel* sceneModel;
-@property (nonatomic, strong)NSString* momentId;
 @property (nonatomic, strong)AvatarImageView* avatarImage;
 @property (nonatomic, strong)UILabel* screenName;
 @property (nonatomic, strong)UILabel* createdAt;
@@ -33,10 +36,11 @@
 
 @implementation MomentDetailsScene
 
-- (id)initWithMomentId:(NSString*)momentId {
+- (id)initWithMomentId:(NSString*)momentId promptInput:(BOOL)promptInput {
     self = [super initWithTableViewStyle:UITableViewStyleGrouped];
     if (self) {
-        self.momentId = momentId;
+        _momentId = momentId;
+        _promptInput = promptInput;
     }
     return self;
 }
@@ -63,11 +67,16 @@
     UIImage* backImage = [IconFont imageWithIcon:[IconFont icon:@"ios7ArrowBack" fromFont:ionIcons] fontName:ionIcons iconColor:[UIColor whiteColor] iconSize:22];
     UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithImage:backImage style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    if (_promptInput) {
+        [self.textView becomeFirstResponder];
+    }
 }
 
 - (void)initSceneModel {
     self.sceneModel = [MomentDetailsSceneModel SceneModel];
-    self.sceneModel.moment = [Moment getById:self.momentId];
+    self.sceneModel.userId = [KeyChainUtil getCurrentUserId];
+    self.sceneModel.moment = [Moment getById:_momentId];
     self.sceneModel.moment.user = [User getById:self.sceneModel.moment.userId];
     
     [self.sceneModel.request send:self.sceneModel.moment.objectId];
@@ -213,7 +222,7 @@
 - (Comment*)sendComment {
     Comment* comment = [Comment new];
     comment.createdAt = [NSDate utcNow];
-    comment.userId = [KeyChainUtil getCurrentUserId];
+    comment.userId = self.sceneModel.userId;
     comment.user = [Profile getUser];
     comment.parentId = self.sceneModel.moment.objectId;
     comment.content = [self.textView.text copy];

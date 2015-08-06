@@ -18,6 +18,7 @@
 @interface MomentDetailsSceneModel : BaseSceneModel
 
 @property (nonatomic, strong) Moment* moment;
+@property (nonatomic, strong) NSString* userId;
 @property (nonatomic, strong) CommentListRequest* request;
 @property (nonatomic, strong) NSMutableArray* comments;
 @property (nonatomic, strong) UserListRequest* userListRequest;

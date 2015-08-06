@@ -31,6 +31,7 @@
 		D62A39C11A7F0AB9007347B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A39C01A7F0AB9007347B5 /* Images.xcassets */; };
 		D62A39D01A7F0AB9007347B5 /* iosappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39CF1A7F0AB9007347B5 /* iosappTests.m */; };
 		D63406211B72D213000C8EA1 /* NewCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D63406201B72D213000C8EA1 /* NewCommentRequest.m */; };
+		D63406271B7332CF000C8EA1 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D63406261B7332CF000C8EA1 /* LikeButton.m */; };
 		D643569D1B6C3F5200630A39 /* NewMomentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D643569C1B6C3F5200630A39 /* NewMomentScene.m */; };
 		D64356A01B6C757000630A39 /* NewMomentSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D643569F1B6C757000630A39 /* NewMomentSceneModel.m */; };
 		D64356A41B6CFED200630A39 /* NotificationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D64356A31B6CFED200630A39 /* NotificationScene.m */; };
@@ -81,6 +82,7 @@
 		D6D5E2581B635A020027B0D9 /* VerifyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E2571B635A020027B0D9 /* VerifyScene.m */; };
 		D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E25A1B636EF30027B0D9 /* VerifySceneModel.m */; };
 		D6D728241B5924F8000277F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6D728261B5924F8000277F0 /* Localizable.strings */; };
+		D6D7E53A1B73609900F45996 /* UpdateMomentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */; };
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
@@ -157,6 +159,8 @@
 		D62A39CF1A7F0AB9007347B5 /* iosappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosappTests.m; sourceTree = "<group>"; };
 		D634061F1B72D1EC000C8EA1 /* NewCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewCommentRequest.h; sourceTree = "<group>"; };
 		D63406201B72D213000C8EA1 /* NewCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCommentRequest.m; sourceTree = "<group>"; };
+		D63406251B733239000C8EA1 /* LikeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		D63406261B7332CF000C8EA1 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		D643569B1B6C3EEA00630A39 /* NewMomentScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentScene.h; sourceTree = "<group>"; };
 		D643569C1B6C3F5200630A39 /* NewMomentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMomentScene.m; sourceTree = "<group>"; };
 		D643569E1B6C754100630A39 /* NewMomentSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentSceneModel.h; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 		D6D5E25A1B636EF30027B0D9 /* VerifySceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifySceneModel.m; sourceTree = "<group>"; };
 		D6D728251B5924F8000277F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D6D728271B592585000277F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6D7E5381B73607100F45996 /* UpdateMomentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateMomentRequest.h; sourceTree = "<group>"; };
+		D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMomentRequest.m; sourceTree = "<group>"; };
 		D6E049881B45238D00A867C8 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
 		D6E049891B45238D00A867C8 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
@@ -381,6 +387,8 @@
 				D65AEACD1B6913140074313A /* CustomAction.m */,
 				D65675E41B72B03D00788146 /* CustomDatabase.h */,
 				D65675E51B72B06300788146 /* CustomDatabase.m */,
+				D63406251B733239000C8EA1 /* LikeButton.h */,
+				D63406261B7332CF000C8EA1 /* LikeButton.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -548,6 +556,8 @@
 				D6B13AE21B70092C00930F66 /* CommentListRequest.m */,
 				D634061F1B72D1EC000C8EA1 /* NewCommentRequest.h */,
 				D63406201B72D213000C8EA1 /* NewCommentRequest.m */,
+				D6D7E5381B73607100F45996 /* UpdateMomentRequest.h */,
+				D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -899,6 +909,7 @@
 				D64356A01B6C757000630A39 /* NewMomentSceneModel.m in Sources */,
 				D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */,
 				D6B13AE31B70092C00930F66 /* CommentListRequest.m in Sources */,
+				D6D7E53A1B73609900F45996 /* UpdateMomentRequest.m in Sources */,
 				D6E499DB1B6EE4760006C67C /* MomentDetailsScene.m in Sources */,
 				D6E2A4791B5C6AC7008B3DC1 /* UserDetails.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,
@@ -907,6 +918,7 @@
 				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
 				C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */,
 				D65AEABF1B689AAC0074313A /* AvatarSceneModel.m in Sources */,
+				D63406271B7332CF000C8EA1 /* LikeButton.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D6E2A4761B5C65D2008B3DC1 /* UserSceneModel.m in Sources */,
 				D659DA841B6602D90084D678 /* Aspect-TuSDK.m in Sources */,

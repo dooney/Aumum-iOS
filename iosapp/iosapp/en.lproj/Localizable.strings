@@ -29,6 +29,14 @@
 "label.takePhoto" = "Take Photo";
 "label.chooseFromAlbum" = "Choose from Album";
 "label.send" = "Send";
+"label.home" = "Home";
+"label.conversation" = "Chat";
+"label.discover" = "Discover";
+"label.notification" = "Notification";
+"label.profile" = "Profile";
+"label.like" = "Like";
+"label.comment" = "Comment";
+"label.share" = "Share";
 
 //Info
 "info.sending" = "Sending";

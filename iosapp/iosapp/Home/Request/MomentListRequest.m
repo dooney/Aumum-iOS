@@ -23,6 +23,9 @@
     NSError* error;
     self.list = [[MomentList alloc] initWithDictionary:self.output error:&error];
     for (Moment* moment in self.list.results) {
+        if (!moment.likes) {
+            moment.likes = [NSMutableArray array];
+        }
         [moment insertOrReplace:moment.objectId];
     }
     if (self.list.results.count < LIMIT) {

@@ -10,6 +10,14 @@
 
 @implementation MomentCellSceneModel
 
-
+- (void)loadSceneModel {
+    [super loadSceneModel];
+    
+    @weakify(self)
+    self.request = [UpdateMomentRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_IQ_ACTION:self.request];
+    }];
+}
 
 @end

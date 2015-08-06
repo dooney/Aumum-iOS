@@ -59,6 +59,7 @@ PODS:
   - MBProgressHUD (0.9.1)
   - MojoDatabase (1.4)
   - MZTimerLabel (0.5.3)
+  - pop (1.0.7)
   - Qiniu (7.0.11.1):
     - AFNetworking (~> 2.0)
   - QiniuUpload (1.5):
@@ -115,6 +116,7 @@ DEPENDENCIES:
   - JSQMessagesViewController
   - JVFloatLabeledTextField
   - MZTimerLabel
+  - pop
   - Qiniu
   - QiniuUpload
   - SDiPhoneVersion
@@ -165,6 +167,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MojoDatabase: 02e3eb98510b69033ab537156969d1f76b4f369e
   MZTimerLabel: e403f84f123de8db2995838847dd58426ffed5bd
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   Qiniu: 080a6728b969f6b0e77c9de574ede37e78b0912b
   QiniuUpload: 723b717cff1ac94cbaa36f1276172185dfdde2c7
   ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71

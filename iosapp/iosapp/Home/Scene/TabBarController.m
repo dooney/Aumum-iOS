@@ -47,7 +47,7 @@
     
     self.notificationNavController = [[RDNavigationController alloc] initWithRootViewController:[[NotificationScene alloc] init]];
     [self.notificationNavController.tabBarItem setTitle:NSLocalizedString(@"label.notification", nil)];
-    self.notificationNavController.tabBarItem.image = [IconFont imageWithIcon:[IconFont icon:@"ios7EmailOutline" fromFont:ionIcons]
+    self.notificationNavController.tabBarItem.image = [IconFont imageWithIcon:[IconFont icon:@"ios7BellOutline" fromFont:ionIcons]
                                                                      fontName:ionIcons iconColor:[UIColor blackColor] iconSize:36];
     
     self.profileNavController = [[RDNavigationController alloc] initWithRootViewController:[[ProfileScene alloc] init]];

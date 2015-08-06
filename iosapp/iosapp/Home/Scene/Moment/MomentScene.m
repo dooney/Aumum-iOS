@@ -158,7 +158,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-    MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:moment.objectId];
+    MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:moment.objectId promptInput:NO];
     RDNavigationController* navigationController = [[RDNavigationController alloc] initWithRootViewController:scene];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:navigationController animated:YES completion:nil];

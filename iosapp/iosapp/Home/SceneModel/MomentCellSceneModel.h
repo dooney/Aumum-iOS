@@ -11,11 +11,14 @@
 #define iosapp_MomentCellSceneModel_h
 
 #import "BaseSceneModel.h"
+#import "UpdateMomentRequest.h"
 #import "Moment.h"
 
 @interface MomentCellSceneModel : BaseSceneModel
 
+@property (nonatomic, strong)UpdateMomentRequest* request;
 @property (nonatomic, strong)Moment* moment;
+@property (nonatomic, strong)NSString* userId;
 
 @end
 
