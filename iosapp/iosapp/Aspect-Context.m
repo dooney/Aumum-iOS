@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <XAspect/XAspect.h>
+#import "Tab.h"
 
 #define AtAspect  Context
 
@@ -16,6 +17,16 @@
 AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions)
 {
     self.database = [[CustomDatabase alloc] initWithMigrations:YES];
+    Tab* homeTab = [Tab getById:@"Home"];
+    if (!homeTab) {
+        homeTab = [[Tab alloc] initWithId:@"Home"];
+        [homeTab save];
+    }
+    Tab* notificationTab = [Tab getById:@"Notification"];
+    if (!notificationTab) {
+        notificationTab = [[Tab alloc] initWithId:@"Notification"];
+        [notificationTab save];
+    }
     
     self.sceneModel = [ContextSceneModel SceneModel];
     [self.sceneModel.profileRequest send];

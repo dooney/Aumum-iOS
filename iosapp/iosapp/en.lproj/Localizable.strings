@@ -37,6 +37,7 @@
 "label.like" = "Like";
 "label.comment" = "Comment";
 "label.share" = "Share";
+"label.likeYourPhoto" = "Like your photo";
 
 //Info
 "info.sending" = "Sending";

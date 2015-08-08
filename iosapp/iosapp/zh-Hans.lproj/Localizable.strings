@@ -37,6 +37,7 @@
 "label.like" = "喜欢";
 "label.comment" = "评论";
 "label.share" = "分享";
+"label.likeYourPhoto" = "喜欢你的照片";
 
 //Info
 "info.sending" = "Sending";

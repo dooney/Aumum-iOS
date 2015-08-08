@@ -72,6 +72,7 @@ PODS:
   - ReactiveCocoa/UI (2.4.4):
     - ReactiveCocoa/Core
   - RegExCategories (1.0)
+  - RKNotificationHub (2.0.1)
   - RMUniversalAlert (0.7):
     - RMUniversalAlert/Core (= 0.7)
   - RMUniversalAlert/Core (0.7):
@@ -119,6 +120,7 @@ DEPENDENCIES:
   - pop
   - Qiniu
   - QiniuUpload
+  - RKNotificationHub
   - SDiPhoneVersion
   - SlackTextViewController
   - SWTableViewCell (~> 0.3.7)
@@ -172,6 +174,7 @@ SPEC CHECKSUMS:
   QiniuUpload: 723b717cff1ac94cbaa36f1276172185dfdde2c7
   ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
+  RKNotificationHub: d80905a948c79c11673345f807133a0bfd17e320
   RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
   SDiPhoneVersion: c52245ccaab8142701e2e7fb8f0391ba3f255b76
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

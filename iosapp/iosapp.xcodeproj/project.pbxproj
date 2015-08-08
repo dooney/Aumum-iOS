@@ -83,6 +83,10 @@
 		D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E25A1B636EF30027B0D9 /* VerifySceneModel.m */; };
 		D6D728241B5924F8000277F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6D728261B5924F8000277F0 /* Localizable.strings */; };
 		D6D7E53A1B73609900F45996 /* UpdateMomentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */; };
+		D6D7E53F1B741E5E00F45996 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E53E1B741E5E00F45996 /* NotificationCell.m */; };
+		D6D7E5421B741F5200F45996 /* NotificationListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5411B741F5200F45996 /* NotificationListSceneModel.m */; };
+		D6D7E5451B7420BD00F45996 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5441B7420BD00F45996 /* Notification.m */; };
+		D6D7E5481B74496600F45996 /* Tab.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5471B74496600F45996 /* Tab.m */; };
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
@@ -253,6 +257,14 @@
 		D6D728271B592585000277F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6D7E5381B73607100F45996 /* UpdateMomentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateMomentRequest.h; sourceTree = "<group>"; };
 		D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMomentRequest.m; sourceTree = "<group>"; };
+		D6D7E53B1B741E0400F45996 /* NotificationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
+		D6D7E53E1B741E5E00F45996 /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
+		D6D7E5401B741F1000F45996 /* NotificationListSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationListSceneModel.h; sourceTree = "<group>"; };
+		D6D7E5411B741F5200F45996 /* NotificationListSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationListSceneModel.m; sourceTree = "<group>"; };
+		D6D7E5431B741FE100F45996 /* Notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		D6D7E5441B7420BD00F45996 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		D6D7E5461B74449F00F45996 /* Tab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tab.h; sourceTree = "<group>"; };
+		D6D7E5471B74496600F45996 /* Tab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tab.m; sourceTree = "<group>"; };
 		D6E049881B45238D00A867C8 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
 		D6E049891B45238D00A867C8 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
@@ -489,6 +501,8 @@
 			children = (
 				D64356A21B6CFEA300630A39 /* NotificationScene.h */,
 				D64356A31B6CFED200630A39 /* NotificationScene.m */,
+				D6D7E53B1B741E0400F45996 /* NotificationCell.h */,
+				D6D7E53E1B741E5E00F45996 /* NotificationCell.m */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -587,6 +601,10 @@
 				D6B13AE51B70099200930F66 /* CommentList.m */,
 				D6B13AE71B7009B800930F66 /* Comment.h */,
 				D6B13AE81B700A2E00930F66 /* Comment.m */,
+				D6D7E5431B741FE100F45996 /* Notification.h */,
+				D6D7E5441B7420BD00F45996 /* Notification.m */,
+				D6D7E5461B74449F00F45996 /* Tab.h */,
+				D6D7E5471B74496600F45996 /* Tab.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -662,6 +680,8 @@
 				D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */,
 				D65675E11B72AC9F00788146 /* ContextSceneModel.h */,
 				D65675E21B72ACC600788146 /* ContextSceneModel.m */,
+				D6D7E5401B741F1000F45996 /* NotificationListSceneModel.h */,
+				D6D7E5411B741F5200F45996 /* NotificationListSceneModel.m */,
 			);
 			path = SceneModel;
 			sourceTree = "<group>";
@@ -873,6 +893,7 @@
 				D60297BF1A98BC25003575F2 /* RDNavigationController.m in Sources */,
 				D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */,
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
+				D6D7E5451B7420BD00F45996 /* Notification.m in Sources */,
 				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
 				D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
@@ -881,6 +902,7 @@
 				D6E499DE1B6F347B0006C67C /* MomentCellSceneModel.m in Sources */,
 				D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */,
 				C3602A7C1B48DB48006DF6C8 /* UserList.m in Sources */,
+				D6D7E53F1B741E5E00F45996 /* NotificationCell.m in Sources */,
 				D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */,
 				D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */,
 				C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */,
@@ -894,10 +916,12 @@
 				D65AEAD11B6974720074313A /* NewMomentRequest.m in Sources */,
 				D6D5E2481B61E6690027B0D9 /* SIgnUpSceneModel.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
+				D6D7E5421B741F5200F45996 /* NotificationListSceneModel.m in Sources */,
 				D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */,
 				D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */,
 				D65675E01B72ABE000788146 /* Aspect-Context.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
+				D6D7E5481B74496600F45996 /* Tab.m in Sources */,
 				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
 				D6B13AEC1B700E9E00930F66 /* CommentCell.m in Sources */,
 				D621D74F1B63A3F8006D058C /* PrimaryButton.m in Sources */,

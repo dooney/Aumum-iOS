@@ -9,7 +9,6 @@
 #ifndef iosapp_Comment_h
 #define iosapp_Comment_h
 
-#import <UIKit/UIKit.h>
 #import "BaseModel.h"
 #import "User.h"
 
