@@ -31,6 +31,7 @@
     
     [self addControls];
     [self initSceneModel];
+    [self initNotification];
 }
 
 - (void)addControls {
@@ -76,6 +77,13 @@
     }];
 }
 
+- (void)initNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(newMessage:)
+                                                 name:@"newMessage"
+                                               object:nil];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.sceneModel.dataSet.count;
 }
@@ -99,6 +107,37 @@
     ChatScene* chatScene = [[ChatScene alloc] initWithUserId:conversation.user.objectId];
     chatScene.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chatScene animated:YES];
+    if (conversation.unreadCount > 0) {
+        conversation.unreadCount = 0;
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (void)newMessage:(NSNotification*)notif {
+    EMMessage* message = notif.object;
+    EMConversation* emConversation = [[EaseMob sharedInstance].chatManager conversationForChatter:message.conversationChatter conversationType:eConversationTypeChat];
+    for (int i = 0; i < self.sceneModel.dataSet.count; i++) {
+        Conversation* item = [self.sceneModel.dataSet objectAtIndex:i];
+        if ([item.chatId isEqualToString:message.conversationChatter]) {
+            Conversation* conversation = [self.sceneModel.dataSet objectAtIndex:i];
+            id<IEMMessageBody> messageBody = [emConversation.latestMessage.messageBodies firstObject];
+            conversation.latestMessage = ((EMTextMessageBody *)messageBody).text;
+            conversation.latestTimestamp = ((EMTextMessageBody *)messageBody).message.timestamp;
+            conversation.unreadCount = emConversation.unreadMessagesCount;
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            return;
+        }
+    }
+    Conversation* conversation = [[Conversation alloc] initWithEMConversation:emConversation];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewRowAnimation rowAnimation = UITableViewRowAnimationTop;
+    UITableViewScrollPosition scrollPosition = UITableViewScrollPositionTop;
+    [self.tableView beginUpdates];
+    [self.sceneModel.dataSet insertObject:conversation atIndex:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
+    [self.tableView endUpdates];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

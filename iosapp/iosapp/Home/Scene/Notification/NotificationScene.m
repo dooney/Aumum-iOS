@@ -8,13 +8,13 @@
 
 #import "NotificationScene.h"
 #import "UIView+FLKAutoLayout.h"
-#import "NotificationCell.h"
+#import "MomentNotificationCell.h"
+#import "ContactNotificationCell.h"
 #import "NotificationListSceneModel.h"
 #import "Notification.h"
-#import "MomentDetailsScene.h"
-#import "RDNavigationController.h"
+#import "URLManager.h"
 
-@interface NotificationScene()<UITableViewDelegate, UITableViewDataSource>
+@interface NotificationScene()<UITableViewDelegate, UITableViewDataSource, INotificationCellDelegate>
 
 @property (strong, nonatomic) NotificationListSceneModel* sceneModel;
 @property (strong, nonatomic) SceneTableView* tableView;
@@ -39,7 +39,8 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     [self.tableView alignToView:self.view];
-    [self.tableView registerClass:[NotificationCell class] forCellReuseIdentifier:@"NotificationCell"];
+    [self.tableView registerClass:[MomentNotificationCell class] forCellReuseIdentifier:@"MomentNotificationCell"];
+    [self.tableView registerClass:[ContactNotificationCell class] forCellReuseIdentifier:@"ContactNotificationCell"];
 }
 
 - (void)initSceneModel {
@@ -59,10 +60,25 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NotificationCell* cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationCell" forIndexPath:indexPath];
     Notification* notification = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-    [cell reloadData:notification];
-    return cell;
+    switch (notification.type) {
+        case LIKE_MOMENT:
+        case COMMENT_MOMENT: {
+            MomentNotificationCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MomentNotificationCell" forIndexPath:indexPath];
+            [cell reloadData:notification];
+            return cell;
+        }
+            break;
+        case NEW_CONTACT: {
+            ContactNotificationCell* cell = [tableView dequeueReusableCellWithIdentifier:@"ContactNotificationCell" forIndexPath:indexPath];
+            cell.delegate = self;
+            [cell reloadData:notification];
+            return cell;
+        }
+            break;
+        default:
+            return nil;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,18 +87,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Notification* notification = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-    if (notification.momentId) {
-        MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:notification.momentId promptInput:NO];
-        RDNavigationController* navigationController = [[RDNavigationController alloc] initWithRootViewController:scene];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:navigationController animated:YES completion:^{
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }];
-        });
-    }
     notification.isRead = YES;
     [notification save];
+    NSString* url;
+    if (notification.momentId.length > 0) {
+        url = [NSString stringWithFormat:@"iosapp://moment?momentId=%@", notification.momentId];
+    } else {
+        url = [NSString stringWithFormat:@"iosapp://user?userId=%@", notification.userId];
+    }
+    [URLManager pushURLString:url animated:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"decreaseNotificationUnread" object:nil];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)newNotification:(NSNotification*)notif {
@@ -97,6 +112,14 @@
     [self.tableView endUpdates];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)didPressAcceptButton:(UITableViewCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    Notification* notification = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
+    [notification deleteSelf];
+    [self.sceneModel.dataSet removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

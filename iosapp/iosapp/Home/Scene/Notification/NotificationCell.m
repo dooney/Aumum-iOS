@@ -10,23 +10,18 @@
 #import "AvatarImageView.h"
 #import "UIColor+EasyExtend.h"
 #import "UIView+FLKAutoLayout.h"
-#import "UIImageView+WebCache.h"
 #import "NSDate+Category.h"
 #import "RKNotificationHub.h"
 #import "URLManager.h"
-#import "Notification.h"
 
 @interface NotificationCell()
-{
-    Notification* _notification;
-}
 
 @property (nonatomic, strong) UIView* leftLayout;
+@property (nonatomic, strong) UIView* rightLayout;
 @property (nonatomic, strong) AvatarImageView* avatarImage;
 @property (nonatomic, strong) UILabel* screenName;
 @property (nonatomic, strong) UILabel* createdAt;
 @property (nonatomic, strong) UILabel* content;
-@property (nonatomic, strong) UIImageView* momentImage;
 @property (nonatomic, strong) RKNotificationHub* hub;
 
 @end
@@ -44,6 +39,9 @@
 - (void)initView {
     self.accessoryType = UITableViewCellAccessoryNone;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)initRightLayout:(UIView*)rightLayout {
 }
 
 - (void)addControls {
@@ -73,17 +71,18 @@
     self.content = [[UILabel alloc] init];
     [self.leftLayout addSubview:self.content];
     
-    self.momentImage = [[UIImageView alloc] init];
-    self.momentImage.contentMode = UIViewContentModeScaleAspectFit;
-    [self.contentView addSubview:self.momentImage];
+    self.rightLayout = [[UIView alloc] init];
+    [self.contentView addSubview:self.rightLayout];
+    
+    [self initRightLayout:self.rightLayout];
 }
 
 - (void)loadAutoLayout {
     CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
     [self.leftLayout alignTop:@"10" leading:@"10" toView:self.leftLayout.superview];
     [self.leftLayout constrainWidth:[NSString stringWithFormat:@"%.0f", screenWidth - 10 - 10 - 80 - 10 ] height:@"80"];
-    [self.momentImage constrainWidth:@"80" height:@"80"];
-    NSArray* layouts = @[ self.leftLayout, self.momentImage ];
+    [self.rightLayout constrainWidth:@"80" height:@"80"];
+    NSArray* layouts = @[ self.leftLayout, self.rightLayout ];
     [UIView alignTopEdgesOfViews:layouts];
     [UIView spaceOutViewsHorizontally:layouts predicate:@"10"];
     
@@ -91,8 +90,10 @@
     [self.avatarImage constrainWidth:@"40" height:@"40"];
     [self.screenName constrainLeadingSpaceToView:self.avatarImage predicate:@"10"];
     [self.screenName alignTopEdgeWithView:self.avatarImage predicate:nil];
+    [self.screenName alignTrailingEdgeWithView:self.screenName.superview predicate:nil];
     [self.createdAt alignBottomEdgeWithView:self.avatarImage predicate:nil];
     [self.content constrainTopSpaceToView:self.createdAt predicate:@"10"];
+    [self.content alignTrailingEdgeWithView:self.content.superview predicate:nil];
     NSArray* leftLayouts = @[ self.screenName, self.createdAt, self.content ];
     [UIView alignLeadingEdgesOfViews:leftLayouts];
 }
@@ -114,15 +115,11 @@
             self.content.text = NSLocalizedString(@"label.likeYourPhoto", nil);
             break;
         case COMMENT_MOMENT:
-            self.content.text = _notification.content;
-            break;
         case NEW_CONTACT:
+            self.content.text = _notification.content;
             break;
         default:
             break;
-    }
-    if (self.momentImage) {
-        [self.momentImage sd_setImageWithURL:[NSURL URLWithString:_notification.imageUrl]];
     }
 }
 

@@ -18,6 +18,8 @@
 		<string>AvatarScene</string>
 		<key>iosapp://user</key>
 		<string>UserScene</string>
+		<key>iosapp://moment</key>
+		<string>MomentDetailsScene</string>
 	</dict>
 </dict>
 </plist>

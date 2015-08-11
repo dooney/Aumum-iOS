@@ -16,6 +16,8 @@
         self.chatId = emConversation.chatter;
         id<IEMMessageBody> messageBody = [emConversation.latestMessage.messageBodies firstObject];
         self.latestMessage = ((EMTextMessageBody *)messageBody).text;
+        self.latestTimestamp = ((EMTextMessageBody *)messageBody).message.timestamp;
+        self.unreadCount = emConversation.unreadMessagesCount;
     }
     return self;
 }

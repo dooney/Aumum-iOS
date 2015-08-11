@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import <XAspect/XAspect.h>
-#import "Notification.h"
-#import "NSDate+Category.h"
 
 #define AtAspect  EaseMob
 
@@ -142,34 +140,6 @@ AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunching
     if (error) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStateChange" object:@NO];
     }
-}
-
-- (void)didReceiveBuddyRequest:(NSString *)username message:(NSString *)message {
-    if (!username) {
-        return;
-    }
-    if (!message) {
-        message = [NSString stringWithFormat:NSLocalizedString(@"friend.somebodyAddWithName", @"%@ add you as a friend"), username];
-    }
-}
-
-- (void)didReceiveCmdMessage:(EMMessage *)message {
-    Notification* notification = [[Notification alloc] init];
-    notification.type = [[message.ext valueForKey:@"type"] integerValue];
-    notification.createdAt = [NSDate utcNow];
-    notification.userId = [message.ext valueForKey:@"userId"];
-    notification.screenName = [message.ext valueForKey:@"screenName"];
-    notification.avatarUrl = [message.ext valueForKey:@"avatarUrl"];
-    notification.momentId = [message.ext valueForKey:@"momentId"];
-    notification.imageUrl = [message.ext valueForKey:@"imageUrl"];
-    notification.content = [message.ext valueForKey:@"content"];
-    [notification save];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"newCmdMessage" object:notification];
-    return;
-}
-
-- (void)didFinishedReceiveOfflineCmdMessages:(NSArray *)offlineCmdMessages {
-    return;
 }
 
 @end

@@ -13,7 +13,6 @@
 "label.password" = "Password";
 "label.logIn" = "LOG IN";
 "label.logOut" = "Log Out";
-"label.chat" = "Chat";
 "label.addContact" = "Add Contact";
 "label.cancel" = "Cancel";
 "label.confirm" = "Confirm";
@@ -30,7 +29,7 @@
 "label.chooseFromAlbum" = "Choose from Album";
 "label.send" = "发送";
 "label.home" = "主页";
-"label.conversation" = "聊天";
+"label.chat" = "聊天";
 "label.discover" = "发现";
 "label.notification" = "通知";
 "label.profile" = "个人";
@@ -38,6 +37,9 @@
 "label.comment" = "评论";
 "label.share" = "分享";
 "label.likeYourPhoto" = "喜欢你的照片";
+"label.accept" = "同意";
+"label.writeAComment" = "写评论...";
+"label.requestAccepted" = "我们已经是好友啦，开始聊天吧！";
 
 //Info
 "info.sending" = "Sending";

@@ -53,7 +53,7 @@
     [self.contentView addSubview:self.screenName];
     
     self.createdAt = [[UILabel alloc] init];
-    self.createdAt.font = [UIFont systemFontOfSize:14];
+    self.createdAt.font = [UIFont systemFontOfSize:12];
     self.createdAt.textColor = [UIColor lightGrayColor];
     self.createdAt.textAlignment = NSTextAlignmentRight;
     [self.contentView addSubview:self.createdAt];
@@ -69,7 +69,7 @@
     
     [self.screenName constrainLeadingSpaceToView:self.avatarImage predicate:@"10"];
     [self.screenName alignTopEdgeWithView:self.avatarImage predicate:nil];
-    [self.screenName alignTrailingEdgeWithView:self.screenName.superview predicate:@"-100"];
+    [self.screenName alignTrailingEdgeWithView:self.screenName.superview predicate:@"-80"];
     
     [self.createdAt constrainLeadingSpaceToView:self.screenName predicate:@"0"];
     [self.createdAt alignTopEdgeWithView:self.screenName predicate:nil];

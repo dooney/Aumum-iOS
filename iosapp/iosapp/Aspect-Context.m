@@ -17,16 +17,10 @@
 AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions)
 {
     self.database = [[CustomDatabase alloc] initWithMigrations:YES];
-    Tab* homeTab = [Tab getById:@"Home"];
-    if (!homeTab) {
-        homeTab = [[Tab alloc] initWithId:@"Home"];
-        [homeTab save];
-    }
-    Tab* notificationTab = [Tab getById:@"Notification"];
-    if (!notificationTab) {
-        notificationTab = [[Tab alloc] initWithId:@"Notification"];
-        [notificationTab save];
-    }
+    
+    [self initTab:@"Home"];
+    [self initTab:@"Chat"];
+    [self initTab:@"Notification"];
     
     self.sceneModel = [ContextSceneModel SceneModel];
     [self.sceneModel.profileRequest send];
@@ -38,6 +32,15 @@ AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunching
     
     return XAMessageForward(application:application didFinishLaunchingWithOptions:launchOptions);
 }
+
+- (void)initTab:(NSString*)tabName {
+    Tab* tab = [Tab getById:tabName];
+    if (!tab) {
+        tab = [[Tab alloc] initWithId:tabName];
+        [tab save];
+    }
+}
+
 @end
 #undef AtAspectOfClass
 #undef AtAspect

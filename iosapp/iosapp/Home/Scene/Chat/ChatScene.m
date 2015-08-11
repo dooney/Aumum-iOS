@@ -99,7 +99,7 @@
     id<IEMMessageBody> messageBody = [message.messageBodies firstObject];
     return [[JSQMessage alloc] initWithSenderId:message.from
                               senderDisplayName:self.sceneModel.user.screenName
-                                           date:[NSDate dateWithTimeIntervalSince1970:message.timestamp]
+                                           date:[NSDate dateWithTimeIntervalSince1970:message.timestamp / 1000]
                                            text:((EMTextMessageBody*)messageBody).text];
 }
 

@@ -7,8 +7,6 @@
 //
 
 #import "MomentDetailsScene.h"
-#import "UIColor+EasyExtend.h"
-#import "IconFont.h"
 #import "AvatarImageView.h"
 #import "CommentCell.h"
 #import "UIView+FLKAutoLayout.h"
@@ -19,11 +17,11 @@
 #import "NSArray+EasyExtend.h"
 #import "KeyChainUtil.h"
 #import "Profile.h"
+#import "URLManager.h"
 
 @interface MomentDetailsScene()
 {
     NSString* _momentId;
-    BOOL _promptInput;
 }
 
 @property (nonatomic, strong)MomentDetailsSceneModel* sceneModel;
@@ -36,41 +34,32 @@
 
 @implementation MomentDetailsScene
 
-- (id)initWithMomentId:(NSString*)momentId promptInput:(BOOL)promptInput {
-    self = [super initWithTableViewStyle:UITableViewStyleGrouped];
-    if (self) {
-        _momentId = momentId;
-        _promptInput = promptInput;
-    }
-    return self;
+- (id)init {
+    return [super initWithTableViewStyle:UITableViewStyleGrouped];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _momentId = self.params[@"momentId"];
     [self initView];
     [self initSceneModel];
 }
 
 - (void)initView {
     self.inverted = NO;
+    [self.rightButton setTitle:NSLocalizedString(@"label.send", nil) forState:UIControlStateNormal];
+    [self.rightButton setTitleColor:HEX_RGB(0xff6060) forState:UIControlStateNormal];
     
     self.tableView.fd_debugLogEnabled = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerClass:[CommentCell class] forCellReuseIdentifier:@"CommentCell"];
     
-    [self.rightButton setTitle:NSLocalizedString(@"label.send", nil) forState:UIControlStateNormal];
-    
-    [self.navigationController.navigationBar setBarTintColor:HEX_RGB(0xff6060)];
-    [self.navigationController.navigationBar setTranslucent:NO];
-    UIImage* backImage = [IconFont imageWithIcon:[IconFont icon:@"ios7ArrowBack" fromFont:ionIcons] fontName:ionIcons iconColor:[UIColor whiteColor] iconSize:22];
-    UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithImage:backImage style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
-    self.navigationItem.leftBarButtonItem = backButton;
-    
-    if (_promptInput) {
+    if (self.params[@"promptInput"]) {
         [self.textView becomeFirstResponder];
     }
+    self.textView.placeholder = NSLocalizedString(@"label.writeAComment", nil);
 }
 
 - (void)initSceneModel {

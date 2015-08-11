@@ -55,6 +55,8 @@
 		D661EF631B4DE9610019B280 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF621B4DE9610019B280 /* LoginRequest.m */; };
 		D661EF661B4DEB9A0019B280 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF651B4DEB9A0019B280 /* Profile.m */; };
 		D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF691B4DEDA80019B280 /* KeyChainUtil.m */; };
+		D66304BC1B77692C0081B5A3 /* MomentNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66304BB1B77692C0081B5A3 /* MomentNotificationCell.m */; };
+		D66304BF1B776E320081B5A3 /* ContactNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66304BE1B776E320081B5A3 /* ContactNotificationCell.m */; };
 		D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332221B44F75B00A1D525 /* MomentListSceneModel.m */; };
 		D67332281B44F80F00A1D525 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = D67332271B44F80F00A1D525 /* Moment.m */; };
 		D673322B1B4507E400A1D525 /* MomentListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D673322A1B4507E400A1D525 /* MomentListRequest.m */; };
@@ -208,6 +210,11 @@
 		D661EF651B4DEB9A0019B280 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		D661EF681B4DED460019B280 /* KeyChainUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyChainUtil.h; sourceTree = "<group>"; };
 		D661EF691B4DEDA80019B280 /* KeyChainUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainUtil.m; sourceTree = "<group>"; };
+		D66304BA1B7768FF0081B5A3 /* MomentNotificationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentNotificationCell.h; sourceTree = "<group>"; };
+		D66304BB1B77692C0081B5A3 /* MomentNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentNotificationCell.m; sourceTree = "<group>"; };
+		D66304BD1B776E050081B5A3 /* ContactNotificationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactNotificationCell.h; sourceTree = "<group>"; };
+		D66304BE1B776E320081B5A3 /* ContactNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactNotificationCell.m; sourceTree = "<group>"; };
+		D66304C01B780E5F0081B5A3 /* INotificationCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INotificationCellDelegate.h; sourceTree = "<group>"; };
 		D67332221B44F75B00A1D525 /* MomentListSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentListSceneModel.m; sourceTree = "<group>"; };
 		D67332241B44F78400A1D525 /* MomentListSceneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentListSceneModel.h; sourceTree = "<group>"; };
 		D67332261B44F7EA00A1D525 /* Moment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Moment.h; sourceTree = "<group>"; };
@@ -503,6 +510,11 @@
 				D64356A31B6CFED200630A39 /* NotificationScene.m */,
 				D6D7E53B1B741E0400F45996 /* NotificationCell.h */,
 				D6D7E53E1B741E5E00F45996 /* NotificationCell.m */,
+				D66304BA1B7768FF0081B5A3 /* MomentNotificationCell.h */,
+				D66304BB1B77692C0081B5A3 /* MomentNotificationCell.m */,
+				D66304BD1B776E050081B5A3 /* ContactNotificationCell.h */,
+				D66304BE1B776E320081B5A3 /* ContactNotificationCell.m */,
+				D66304C01B780E5F0081B5A3 /* INotificationCellDelegate.h */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -883,6 +895,7 @@
 				D64356A81B6CFF5B00630A39 /* DiscoverScene.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
 				D64356A41B6CFED200630A39 /* NotificationScene.m in Sources */,
+				D66304BC1B77692C0081B5A3 /* MomentNotificationCell.m in Sources */,
 				D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */,
 				D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */,
 				D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */,
@@ -945,6 +958,7 @@
 				D63406271B7332CF000C8EA1 /* LikeButton.m in Sources */,
 				D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */,
 				D6E2A4761B5C65D2008B3DC1 /* UserSceneModel.m in Sources */,
+				D66304BF1B776E320081B5A3 /* ContactNotificationCell.m in Sources */,
 				D659DA841B6602D90084D678 /* Aspect-TuSDK.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
 				D6ECF2041B5683B3001C013A /* ProfileSceneModel.m in Sources */,

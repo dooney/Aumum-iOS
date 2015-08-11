@@ -17,10 +17,9 @@
 #import "UIActionSheet+Blocks.h"
 #import <TuSDK/TuSDK.h>
 #import <TSMessage.h>
-#import "RDNavigationController.h"
 #import "NewMomentScene.h"
-#import "MomentDetailsScene.h"
 #import "NSArray+EasyExtend.h"
+#import "URLManager.h"
 
 @interface MomentScene()<UITableViewDelegate, UITableViewDataSource, TuSDKPFCameraDelegate>
 {
@@ -158,11 +157,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Moment* moment = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-    MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:moment.objectId promptInput:NO];
-    RDNavigationController* navigationController = [[RDNavigationController alloc] initWithRootViewController:scene];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self presentViewController:navigationController animated:YES completion:nil];
-    });
+    NSString* url = [NSString stringWithFormat:@"iosapp://moment?momentId=%@", moment.objectId];
+    [URLManager pushURLString:url animated:YES];
 }
 
 - (void)cameraButtonPressed {

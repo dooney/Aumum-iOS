@@ -13,7 +13,6 @@
 "label.password" = "Password";
 "label.logIn" = "LOG IN";
 "label.logOut" = "Log Out";
-"label.chat" = "Chat";
 "label.addContact" = "Add Contact";
 "label.cancel" = "Cancel";
 "label.confirm" = "Confirm";
@@ -30,7 +29,7 @@
 "label.chooseFromAlbum" = "Choose from Album";
 "label.send" = "Send";
 "label.home" = "Home";
-"label.conversation" = "Chat";
+"label.chat" = "Chat";
 "label.discover" = "Discover";
 "label.notification" = "Notification";
 "label.profile" = "Profile";
@@ -38,6 +37,9 @@
 "label.comment" = "Comment";
 "label.share" = "Share";
 "label.likeYourPhoto" = "Like your photo";
+"label.accept" = "Accept";
+"label.writeAComment" = "Write a comment...";
+"label.requestAccepted" = "I've accepted your friend request. Now let's chat!";
 
 //Info
 "info.sending" = "Sending";

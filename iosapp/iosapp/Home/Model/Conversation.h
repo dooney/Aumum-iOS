@@ -17,6 +17,8 @@
 @property (nonatomic, strong)NSString* chatId;
 @property (nonatomic, strong)User* user;
 @property (nonatomic, strong)NSString* latestMessage;
+@property (nonatomic, assign)long long latestTimestamp;
+@property (nonatomic, assign)NSUInteger unreadCount;
 
 - (id)initWithEMConversation:(EMConversation*)emConversation;
 

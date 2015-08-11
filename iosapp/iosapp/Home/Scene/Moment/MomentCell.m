@@ -15,9 +15,7 @@
 #import "NSDate+Category.h"
 #import "URLManager.h"
 #import "IconFont.h"
-#import "MomentDetailsScene.h"
 #import "MomentCellSceneModel.h"
-#import "RDNavigationController.h"
 #import "KeyChainUtil.h"
 
 @interface MomentCell()
@@ -183,9 +181,8 @@
 }
 
 - (void)commentButtonPressed {
-    MomentDetailsScene* scene = [[MomentDetailsScene alloc] initWithMomentId:self.sceneModel.moment.objectId promptInput:YES];
-    RDNavigationController* navigationController = [[RDNavigationController alloc] initWithRootViewController:scene];
-    [self.viewController presentViewController:navigationController animated:YES completion:nil];
+    NSString* url = [NSString stringWithFormat:@"iosapp://moment?momentId=%@&promptInput=YES", self.sceneModel.moment.objectId];
+    [URLManager pushURLString:url animated:YES];
 }
 
 - (void)shareButtonPressed {

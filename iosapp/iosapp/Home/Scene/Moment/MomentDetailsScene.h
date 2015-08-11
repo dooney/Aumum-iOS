@@ -13,8 +13,6 @@
 
 @interface MomentDetailsScene : SLKTextViewController
 
-- (id)initWithMomentId:(NSString*)momentId promptInput:(BOOL)promptInput;
-
 @end
 
 #endif

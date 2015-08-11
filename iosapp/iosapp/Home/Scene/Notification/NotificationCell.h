@@ -10,8 +10,13 @@
 #define iosapp_NotificationCell_h
 
 #import "EzTableViewCell.h"
+#import "Notification.h"
 
 @interface NotificationCell : EzTableViewCell
+
+@property (nonatomic, strong) Notification* notification;
+
+- (void)initRightLayout:(UIView*)rightLayout;
 
 @end
 
