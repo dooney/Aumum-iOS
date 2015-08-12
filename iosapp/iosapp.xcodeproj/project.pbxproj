@@ -48,6 +48,7 @@
 		D65AEAC81B690EFD0074313A /* BaseSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAC71B690EFD0074313A /* BaseSceneModel.m */; };
 		D65AEACE1B6913140074313A /* CustomAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEACD1B6913140074313A /* CustomAction.m */; };
 		D65AEAD11B6974720074313A /* NewMomentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D65AEAD01B6974720074313A /* NewMomentRequest.m */; };
+		D65C9C661B7B1697000F6B9D /* UserByIdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D65C9C651B7B1697000F6B9D /* UserByIdRequest.m */; };
 		D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */; };
 		D661EF551B4CE5310019B280 /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF541B4CE5310019B280 /* SplashScene.m */; };
 		D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D661EF5C1B4DC0BB0019B280 /* SignInScene.m */; };
@@ -197,6 +198,8 @@
 		D65AEACD1B6913140074313A /* CustomAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAction.m; sourceTree = "<group>"; };
 		D65AEACF1B6974420074313A /* NewMomentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentRequest.h; sourceTree = "<group>"; };
 		D65AEAD01B6974720074313A /* NewMomentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMomentRequest.m; sourceTree = "<group>"; };
+		D65C9C641B7B1663000F6B9D /* UserByIdRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserByIdRequest.h; sourceTree = "<group>"; };
+		D65C9C651B7B1697000F6B9D /* UserByIdRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserByIdRequest.m; sourceTree = "<group>"; };
 		D661508E1B63C06D009F33A4 /* Aspect-ShareSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-ShareSDK.m"; sourceTree = "<group>"; };
 		D661EF531B4CE4F00019B280 /* SplashScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
 		D661EF541B4CE5310019B280 /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
@@ -584,6 +587,8 @@
 				D63406201B72D213000C8EA1 /* NewCommentRequest.m */,
 				D6D7E5381B73607100F45996 /* UpdateMomentRequest.h */,
 				D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */,
+				D65C9C641B7B1663000F6B9D /* UserByIdRequest.h */,
+				D65C9C651B7B1697000F6B9D /* UserByIdRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -907,6 +912,7 @@
 				D6ECF1F61B55B0DC001C013A /* ConversationCell.m in Sources */,
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
 				D6D7E5451B7420BD00F45996 /* Notification.m in Sources */,
+				D65C9C661B7B1697000F6B9D /* UserByIdRequest.m in Sources */,
 				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
 				D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,

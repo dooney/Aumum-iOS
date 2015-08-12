@@ -11,11 +11,13 @@
 
 #import "BaseSceneModel.h"
 #import "UserListByChatIdRequest.h"
+#import "UserByIdRequest.h"
 
 @interface ConversationListSceneModel : BaseSceneModel
 
 @property (nonatomic, strong) NSMutableArray* dataSet;
 @property (nonatomic, strong) UserListByChatIdRequest* userListByChatIdRequest;
+@property (nonatomic, strong) UserByIdRequest* userByIdRequest;
 
 @end
 

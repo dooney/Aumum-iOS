@@ -75,6 +75,12 @@
     } error:^(NSError* error) {
         [self showError:error];
     }];
+    [self.sceneModel.userByIdRequest onRequest:^{
+        dispatch_async(dispatch_get_main_queue(),^{
+            [self loadConversationForUser:self.sceneModel.userByIdRequest.user];
+        });
+    } error:^(NSError *error) {
+    }];
 }
 
 - (void)initNotification {
@@ -114,21 +120,39 @@
 }
 
 - (void)newMessage:(NSNotification*)notif {
+    User* user = nil;
     EMMessage* message = notif.object;
     EMConversation* emConversation = [[EaseMob sharedInstance].chatManager conversationForChatter:message.conversationChatter conversationType:eConversationTypeChat];
     for (int i = 0; i < self.sceneModel.dataSet.count; i++) {
         Conversation* item = [self.sceneModel.dataSet objectAtIndex:i];
         if ([item.chatId isEqualToString:message.conversationChatter]) {
             Conversation* conversation = [self.sceneModel.dataSet objectAtIndex:i];
-            id<IEMMessageBody> messageBody = [emConversation.latestMessage.messageBodies firstObject];
-            conversation.latestMessage = ((EMTextMessageBody *)messageBody).text;
-            conversation.latestTimestamp = ((EMTextMessageBody *)messageBody).message.timestamp;
-            conversation.unreadCount = emConversation.unreadMessagesCount;
-            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-            return;
+            if (i == 0) {
+                id<IEMMessageBody> messageBody = [emConversation.latestMessage.messageBodies firstObject];
+                conversation.latestMessage = ((EMTextMessageBody *)messageBody).text;
+                conversation.latestTimestamp = ((EMTextMessageBody *)messageBody).message.timestamp;
+                conversation.unreadCount = emConversation.unreadMessagesCount;
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                return;
+            } else {
+                user = conversation.user;
+                [self.sceneModel.dataSet removeObjectAtIndex:i];
+                [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+                break;
+            }
         }
     }
+    if (user) {
+        [self loadConversationForUser:user];
+    } else {
+        [self.sceneModel.userByIdRequest getByChatId:message.conversationChatter];
+    }
+}
+
+- (void)loadConversationForUser:(User*)user {
+    EMConversation* emConversation = [[EaseMob sharedInstance].chatManager conversationForChatter:user.chatId conversationType:eConversationTypeChat];
     Conversation* conversation = [[Conversation alloc] initWithEMConversation:emConversation];
+    conversation.user = user;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewRowAnimation rowAnimation = UITableViewRowAnimationTop;
     UITableViewScrollPosition scrollPosition = UITableViewScrollPositionTop;

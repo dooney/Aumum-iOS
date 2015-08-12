@@ -18,6 +18,10 @@
         @strongify(self)
         [self SEND_IQ_ACTION:self.userListByChatIdRequest];
     }];
+    self.userByIdRequest = [UserByIdRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_IQ_ACTION:self.userByIdRequest];
+    }];
 }
 
 @end
