@@ -34,7 +34,7 @@
     return error;
 }
 
-- (void)send:(NSString*)before after:(NSString*)after {
+- (void)getList:(NSString*)before after:(NSString*)after {
     NSInteger limit = LIMIT;
     if (before || after) {
         NSMutableDictionary* opJson = [NSMutableDictionary dictionary];
@@ -51,6 +51,21 @@
         NSDictionary* whereJson = @{ @"createdAt": opJson };
         self.where = [NSString jsonStringWithDictionary:whereJson];
     }
+    self.order = @"-createdAt";
+    self.limit = [NSString stringWithFormat:@"%d", limit];
+    self.list = nil;
+    [self send];
+}
+
+- (void)getListByUserId:(NSString*)userId before:(NSString*)before {
+    NSInteger limit = LIMIT;
+    NSMutableDictionary* opJson = [NSMutableDictionary dictionary];
+    NSMutableDictionary* dateJson = [NSMutableDictionary dictionary];
+    [dateJson setValue:@"Date" forKey:@"__type"];
+    [dateJson setValue:before forKey:@"iso"];
+    [opJson setValue:dateJson forKey:@"$lt"];
+    NSDictionary* whereJson = @{ @"createdAt": opJson, @"userId": userId };
+    self.where = [NSString jsonStringWithDictionary:whereJson];
     self.order = @"-createdAt";
     self.limit = [NSString stringWithFormat:@"%d", limit];
     self.list = nil;

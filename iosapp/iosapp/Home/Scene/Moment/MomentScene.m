@@ -66,13 +66,13 @@
     [self.tableView addPullToRefreshWithActionHandler:^{
         @strongify(self);
         Moment* moment = [self.sceneModel.dataSet firstObject];
-        [self.sceneModel.pullRequest send:nil after:moment.createdAt];
+        [self.sceneModel.pullRequest getList:nil after:moment.createdAt];
     }];
     
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         @strongify(self);
         Moment* moment = [self.sceneModel.dataSet lastObject];
-        [self.sceneModel.loadRequest send:moment.createdAt after:nil];
+        [self.sceneModel.loadRequest getList:moment.createdAt after:nil];
     }];
 }
 

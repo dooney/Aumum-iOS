@@ -18,7 +18,7 @@
 #import "MomentCellSceneModel.h"
 #import "KeyChainUtil.h"
 
-@interface MomentCell()
+@interface MomentCell()<MCAvatarViewDelegate>
 
 @property (nonatomic, strong)MomentCellSceneModel* sceneModel;
 @property (nonatomic, strong)UIView* headerLayout;
@@ -58,11 +58,8 @@
     self.headerLayout.layer.borderWidth = 0.3;
     [self.contentView addSubview:self.headerLayout];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarImagePressed)];
     self.avatarImage = [[AvatarImageView alloc] init];
-    [self.avatarImage addGestureRecognizer:tap];
-    self.avatarImage.userInteractionEnabled = YES;
-    self.avatarImage.multipleTouchEnabled = YES;
+    self.avatarImage.delegate = self;
     [self.headerLayout addSubview:self.avatarImage];
     
     self.screenName = [[UILabel alloc] init];
@@ -101,6 +98,7 @@
     self.momentImage.layer.shadowOffset = CGSizeZero;
     self.momentImage.layer.shadowRadius = 3;
     self.momentImage.layer.shadowOpacity = 0.3;
+    self.momentImage.backgroundColor = HEX_RGB(0xc5c5c5);
     [self.contentView addSubview:self.momentImage];
 }
 
@@ -144,7 +142,7 @@
     self.screenName.text = self.sceneModel.moment.user.screenName;
     NSDate* createdAt = [NSDate dateWithString:self.sceneModel.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
-    [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl diameter:40];
+    [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl];
     CGFloat imageHeight = [[UIScreen mainScreen] bounds].size.width * self.sceneModel.moment.ratio;
     if (imageHeight > self.momentImage.bounds.size.height) {
         [self.momentImage removeConstraint:self.momentImageHeightConstraint];
@@ -163,7 +161,7 @@
     [self.likeButton setIcon:[self.sceneModel.moment isLiked:self.sceneModel.userId]];
 }
 
-- (void)avatarImagePressed {
+- (void)avatarViewOnTouchAction:(MCAvatarView *)avatarView {
     NSString* url = [NSString stringWithFormat:@"iosapp://user?userId=%@", self.sceneModel.moment.userId];
     [URLManager pushURLString:url animated:YES];
 }

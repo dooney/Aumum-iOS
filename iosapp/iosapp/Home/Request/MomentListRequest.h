@@ -20,7 +20,8 @@
 @property (nonatomic, strong) NSString* limit;
 @property (nonatomic, strong) NSNumber* isEnd;
 
-- (void)send:(NSString*)before after:(NSString*)after;
+- (void)getList:(NSString*)before after:(NSString*)after;
+- (void)getListByUserId:(NSString*)userId before:(NSString*)before;
 
 @end
 

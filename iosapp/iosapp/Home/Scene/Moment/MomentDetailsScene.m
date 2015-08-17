@@ -19,7 +19,7 @@
 #import "Profile.h"
 #import "URLManager.h"
 
-@interface MomentDetailsScene()
+@interface MomentDetailsScene()<MCAvatarViewDelegate>
 {
     NSString* _momentId;
 }
@@ -104,11 +104,8 @@
 }
 
 - (void)addControls:(UIView*)view {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarImagePressed)];
     self.avatarImage = [[AvatarImageView alloc] init];
-    [self.avatarImage addGestureRecognizer:tap];
-    self.avatarImage.userInteractionEnabled = YES;
-    self.avatarImage.multipleTouchEnabled = YES;
+    self.avatarImage.delegate = self;
     [view addSubview:self.avatarImage];
     
     self.screenName = [[UILabel alloc] init];
@@ -147,7 +144,7 @@
     self.screenName.text = moment.user.screenName;
     NSDate* createdAt = [NSDate dateWithString:self.sceneModel.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
-    [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl diameter:40];
+    [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl];
     CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat imageHeight = imageWidth * self.sceneModel.moment.ratio;
     [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.0f", imageWidth]
@@ -155,7 +152,7 @@
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:self.sceneModel.moment.imageUrl]];
 }
 
-- (void)avatarImagePressed {
+- (void)avatarViewOnTouchAction:(MCAvatarView *)avatarView {
     NSString* url = [NSString stringWithFormat:@"iosapp://user?userId=%@", self.sceneModel.moment.userId];
     [URLManager pushURLString:url animated:YES];
 }

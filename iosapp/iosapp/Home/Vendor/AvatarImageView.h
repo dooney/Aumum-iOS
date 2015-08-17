@@ -9,11 +9,11 @@
 #ifndef iosapp_AvatarImageView_h
 #define iosapp_AvatarImageView_h
 
-#import <UIKit/UIKit.h>
+#import "MCAvatarView.h"
 
-@interface AvatarImageView : UIImageView
+@interface AvatarImageView : MCAvatarView
 
-- (void)fromUrl:(NSString*)url diameter:(NSInteger)diameter;
+- (void)fromUrl:(NSString*)url;
 
 @end
 

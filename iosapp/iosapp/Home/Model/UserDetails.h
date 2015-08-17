@@ -17,6 +17,8 @@
 @property (nonatomic, strong)NSString* chatId;
 @property (nonatomic, strong)NSString* screenName;
 @property (nonatomic, strong)NSString<Optional>* avatarUrl;
+@property (nonatomic, strong)NSString* country;
+@property (nonatomic, strong)NSString* city;
 
 + (NSString*)getKeys;
 

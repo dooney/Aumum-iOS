@@ -11,7 +11,7 @@
 @implementation UserDetails
 
 + (NSString*)getKeys {
-    return @"objectId,chatId,avatarUrl,screenName";
+    return @"objectId,chatId,avatarUrl,screenName,country,city";
 }
 
 @end

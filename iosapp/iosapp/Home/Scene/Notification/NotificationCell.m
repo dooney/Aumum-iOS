@@ -14,7 +14,7 @@
 #import "RKNotificationHub.h"
 #import "URLManager.h"
 
-@interface NotificationCell()
+@interface NotificationCell()<MCAvatarViewDelegate>
 
 @property (nonatomic, strong) UIView* leftLayout;
 @property (nonatomic, strong) UIView* rightLayout;
@@ -48,11 +48,8 @@
     self.leftLayout = [[UIView alloc] init];
     [self.contentView addSubview:self.leftLayout];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarImagePressed)];
     self.avatarImage = [[AvatarImageView alloc] init];
-    [self.avatarImage addGestureRecognizer:tap];
-    self.avatarImage.userInteractionEnabled = YES;
-    self.avatarImage.multipleTouchEnabled = YES;
+    self.avatarImage.delegate = self;
     [self.leftLayout addSubview:self.avatarImage];
     
     self.hub = [[RKNotificationHub alloc] initWithView:self.avatarImage];
@@ -103,7 +100,7 @@
     self.screenName.text = _notification.screenName;
     NSDate* createdAt = [NSDate dateWithString:_notification.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
-    [self.avatarImage fromUrl:_notification.avatarUrl diameter:40];
+    [self.avatarImage fromUrl:_notification.avatarUrl];
     if (!_notification.isRead) {
         [self.hub increment];
         [self.hub hideCount];
@@ -123,7 +120,7 @@
     }
 }
 
-- (void)avatarImagePressed {
+- (void)avatarViewOnTouchAction:(MCAvatarView *)avatarView {
     NSString* url = [NSString stringWithFormat:@"iosapp://user?userId=%@", _notification.userId];
     [URLManager pushURLString:url animated:YES];
 }
