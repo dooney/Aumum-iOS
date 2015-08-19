@@ -22,6 +22,12 @@
 		<string>MomentDetailsScene</string>
 		<key>iosapp://addContact</key>
 		<string>AddContactScene</string>
+		<key>iosapp://editProfile</key>
+		<string>EditProfileScene</string>
+		<key>iosapp://settings</key>
+		<string>SettingsScene</string>
+		<key>iosapp://contactList</key>
+		<string>ContactListScene</string>
 	</dict>
 </dict>
 </plist>

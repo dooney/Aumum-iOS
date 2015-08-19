@@ -105,13 +105,13 @@
         UserSectionHeader* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                      withReuseIdentifier:@"UserSectionHeader"
                                                                             forIndexPath:indexPath];
-        [cell reloadData:self.sceneModel.request.userDetails];
+        [cell reloadUser:self.sceneModel.request.userDetails];
         return cell;
     } else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
         UserHeader* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                               withReuseIdentifier:@"UserHeader"
                                                                      forIndexPath:indexPath];
-        [cell reloadData:self.sceneModel.request.userDetails];
+        [cell reloadUser:self.sceneModel.request.userDetails];
         return cell;
     }
     return nil;

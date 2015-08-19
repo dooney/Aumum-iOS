@@ -12,7 +12,6 @@
 #import "UIView+FLKAutoLayout.h"
 #import "ConversationCell.h"
 #import "Conversation.h"
-#import "UITableView+FDTemplateLayoutCell.h"
 #import "EaseMob.h"
 #import "ChatScene.h"
 #import "URLManager.h"
@@ -40,7 +39,6 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.fd_debugLogEnabled = YES;
     [self.view addSubview:self.tableView];
     [self.tableView alignToView:self.view];
     [self.tableView registerClass:[ConversationCell class] forCellReuseIdentifier:@"ConversationCell"];
@@ -102,10 +100,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView fd_heightForCellWithIdentifier:@"ConversationCell" cacheByIndexPath:indexPath configuration:^(ConversationCell *cell) {
-        Conversation* conversation = [self.sceneModel.dataSet objectAtIndex:indexPath.row];
-        [cell reloadData:conversation];
-    }];
+    return 70;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

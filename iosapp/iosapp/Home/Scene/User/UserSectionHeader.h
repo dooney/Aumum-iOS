@@ -10,10 +10,12 @@
 #define iosapp_UserSectionHeader_h
 
 #import <UIKit/UIKit.h>
+#import "UserDetails.h"
 
 @interface UserSectionHeader : UICollectionReusableView
 
-- (void)reloadData:(id)entity;
+- (void)reloadUser:(UserDetails*)user;
+- (void)reloadProfile:(UserDetails*)user;
 
 @end
 

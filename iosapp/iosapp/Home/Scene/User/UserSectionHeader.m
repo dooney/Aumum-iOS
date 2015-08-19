@@ -9,6 +9,7 @@
 #import "UserSectionHeader.h"
 #import "UIColor+EasyExtend.h"
 #import "UIView+FLKAutoLayout.h"
+#import "URLManager.h"
 
 @interface UserSectionHeader()
 
@@ -23,7 +24,7 @@
 
 @implementation UserSectionHeader
 
-- (void)reloadData:(id)entity {
+- (void)reloadData:(UserDetails*)user {
     if (!self.photosCount) {
         self.photosCount = [[UILabel alloc] init];
         self.photosCount.textAlignment = NSTextAlignmentCenter;
@@ -87,6 +88,22 @@
     NSArray* labelLayouts = @[ self.photoLabel, self.contactLabel, self.likeLabel ];
     [UIView spaceOutViewsHorizontally:labelLayouts predicate:@"0"];
     [UIView alignTopEdgesOfViews:labelLayouts];
+}
+
+- (void)reloadUser:(UserDetails*)user {
+    [self reloadData:user];
+}
+
+- (void)reloadProfile:(UserDetails*)user {
+    [self reloadData:user];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contactTapped)];
+    [self.contactsCount addGestureRecognizer:tapGestureRecognizer];
+    self.contactsCount.userInteractionEnabled = YES;
+}
+
+- (void)contactTapped {
+    NSString* url = [NSString stringWithFormat:@"iosapp://contactList"];
+    [URLManager pushURLString:url animated:YES];
 }
 
 @end

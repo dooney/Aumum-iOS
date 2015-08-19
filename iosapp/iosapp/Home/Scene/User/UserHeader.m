@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "FXBlurView.h"
 #import "IconFont.h"
+#import "URLManager.h"
 
 @interface UserHeader()
 
@@ -21,17 +22,19 @@
 @property (nonatomic, strong) UIView* detailsLayout;
 @property (nonatomic, strong) UILabel* screenName;
 @property (nonatomic, strong) UILabel* regionInfo;
+@property (nonatomic, strong) UIButton* editButton;
 
 @end
 
 @implementation UserHeader
 
-- (void)reloadData:(UserDetails*)user {
+- (void)reloadUser:(UserDetails*)user {
     if (!self.coverImage) {
         self.coverImage = [[UIImageView alloc] init];
         self.coverImage.contentMode = UIViewContentModeScaleAspectFill;
         self.coverImage.clipsToBounds = YES;
         self.coverImage.backgroundColor = HEX_RGB(0xc5c5c5);
+        self.coverImage.userInteractionEnabled = YES;
         [self addSubview:self.coverImage];
         
         [self.coverImage alignToView:self.coverImage.superview];
@@ -82,6 +85,23 @@
             [self.regionInfo alignCenterXWithView:self.regionInfo.superview predicate:@"0"];
         }
     }
+}
+
+- (void)reloadProfile:(UserDetails*)user {
+    [self reloadUser:user];
+    if (user && !self.editButton) {
+        self.editButton = [IconFont buttonWithIcon:[IconFont icon:@"edit" fromFont:ionIcons] fontName:ionIcons size:15 color:[UIColor whiteColor]];
+        [self.editButton addTarget:self action:@selector(editButtonPressed)forControlEvents:UIControlEventTouchUpInside];
+        [self.coverImage addSubview:self.editButton];
+        
+        [self.editButton alignBottomEdgeWithView:self.screenName predicate:@"4"];
+        [self.editButton constrainLeadingSpaceToView:self.screenName predicate:@"0"];
+    }
+}
+
+- (void)editButtonPressed {
+    NSString* url = [NSString stringWithFormat:@"iosapp://editProfile"];
+    [URLManager pushURLString:url animated:YES];
 }
 
 @end

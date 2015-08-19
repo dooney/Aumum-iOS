@@ -14,7 +14,8 @@
 
 @interface UserHeader : UICollectionReusableView
 
-- (void)reloadData:(UserDetails*)user;
+- (void)reloadUser:(UserDetails*)user;
+- (void)reloadProfile:(UserDetails*)user;
 
 @end
 

@@ -74,6 +74,9 @@
 		D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */; };
 		D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD3C371B60C1DB00E92870 /* CountryScene.m */; };
 		D6D554D11B841D4900004328 /* ProfileAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D01B841D4900004328 /* ProfileAvatarView.m */; };
+		D6D554D41B84AFEC00004328 /* EditProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D31B84AFEC00004328 /* EditProfileScene.m */; };
+		D6D554D81B85262600004328 /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D71B85262600004328 /* SettingsScene.m */; };
+		D6D554DB1B85445300004328 /* ContactListScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554DA1B85445300004328 /* ContactListScene.m */; };
 		D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D5BDC01B4F787600D6045F /* URLManage.plist */; };
 		D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC41B4F835100D6045F /* Aspect-Config.m */; };
 		D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC81B4F89F300D6045F /* ProfileScene.m */; };
@@ -256,6 +259,12 @@
 		D6BD3C371B60C1DB00E92870 /* CountryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryScene.m; sourceTree = "<group>"; };
 		D6D554CF1B841CF400004328 /* ProfileAvatarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileAvatarView.h; sourceTree = "<group>"; };
 		D6D554D01B841D4900004328 /* ProfileAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileAvatarView.m; sourceTree = "<group>"; };
+		D6D554D21B84AFBD00004328 /* EditProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileScene.h; sourceTree = "<group>"; };
+		D6D554D31B84AFEC00004328 /* EditProfileScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileScene.m; sourceTree = "<group>"; };
+		D6D554D61B8525FF00004328 /* SettingsScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
+		D6D554D71B85262600004328 /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScene.m; sourceTree = "<group>"; };
+		D6D554D91B85442200004328 /* ContactListScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactListScene.h; sourceTree = "<group>"; };
+		D6D554DA1B85445300004328 /* ContactListScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListScene.m; sourceTree = "<group>"; };
 		D6D5BDC01B4F787600D6045F /* URLManage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = URLManage.plist; sourceTree = "<group>"; };
 		D6D5BDC41B4F835100D6045F /* Aspect-Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Config.m"; sourceTree = "<group>"; };
 		D6D5BDC71B4F89CE00D6045F /* ProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileScene.h; sourceTree = "<group>"; };
@@ -403,6 +412,8 @@
 				D6041B5D1B827E7300EC0CC3 /* UserSectionHeader.m */,
 				D6041B5F1B82AB9900EC0CC3 /* AddContactScene.h */,
 				D6041B601B82ABCC00EC0CC3 /* AddContactScene.m */,
+				D6D554D91B85442200004328 /* ContactListScene.h */,
+				D6D554DA1B85445300004328 /* ContactListScene.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -659,6 +670,7 @@
 		D69748241A808862006004D1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D6D554D51B8525E600004328 /* Settings */,
 				C37936B31B51449A00BDC3C3 /* Vendor */,
 				D661EF671B4DED130019B280 /* Util */,
 				D67332291B45075000A1D525 /* Request */,
@@ -744,11 +756,23 @@
 			path = Country;
 			sourceTree = "<group>";
 		};
+		D6D554D51B8525E600004328 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D6D554D61B8525FF00004328 /* SettingsScene.h */,
+				D6D554D71B85262600004328 /* SettingsScene.m */,
+			);
+			name = Settings;
+			path = Scene/Settings;
+			sourceTree = "<group>";
+		};
 		D6D5BDC61B4F89B600D6045F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				D6D5BDC71B4F89CE00D6045F /* ProfileScene.h */,
 				D6D5BDC81B4F89F300D6045F /* ProfileScene.m */,
+				D6D554D21B84AFBD00004328 /* EditProfileScene.h */,
+				D6D554D31B84AFEC00004328 /* EditProfileScene.m */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -931,12 +955,14 @@
 				D64356A81B6CFF5B00630A39 /* DiscoverScene.m in Sources */,
 				D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */,
 				D64356A41B6CFED200630A39 /* NotificationScene.m in Sources */,
+				D6D554D81B85262600004328 /* SettingsScene.m in Sources */,
 				D6D665171B7C57E300EB52DF /* PhotoCell.m in Sources */,
 				D66304BC1B77692C0081B5A3 /* MomentNotificationCell.m in Sources */,
 				D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */,
 				D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */,
 				D661EF5D1B4DC0BB0019B280 /* SignInScene.m in Sources */,
 				D6ECF1FC1B561877001C013A /* UserListByChatIdRequest.m in Sources */,
+				D6D554D41B84AFEC00004328 /* EditProfileScene.m in Sources */,
 				D65AEACE1B6913140074313A /* CustomAction.m in Sources */,
 				C3602A7F1B48DC0E006DF6C8 /* User.m in Sources */,
 				D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */,
@@ -970,6 +996,7 @@
 				D6041B611B82ABCC00EC0CC3 /* AddContactScene.m in Sources */,
 				D6D7E5421B741F5200F45996 /* NotificationListSceneModel.m in Sources */,
 				D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */,
+				D6D554DB1B85445300004328 /* ContactListScene.m in Sources */,
 				D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */,
 				D65675E01B72ABE000788146 /* Aspect-Context.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
