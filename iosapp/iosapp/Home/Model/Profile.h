@@ -19,6 +19,8 @@
 @property (nonatomic, strong)NSString<Optional>* chatId;
 @property (nonatomic, strong)NSString<Optional>* screenName;
 @property (nonatomic, strong)NSString<Optional>* avatarUrl;
+@property (nonatomic, strong)NSString<Optional>* country;
+@property (nonatomic, strong)NSString<Optional>* city;
 @property (nonatomic, strong)NSMutableArray<Optional>* contacts;
 @property (nonatomic, strong)NSString<Ignore>* contactList;
 

@@ -7,7 +7,6 @@
 //
 
 #import "UserHeader.h"
-#import "UserDetails.h"
 #import "ProfileAvatarView.h"
 #import "UIColor+EasyExtend.h"
 #import "UIView+FLKAutoLayout.h"
@@ -27,7 +26,7 @@
 
 @implementation UserHeader
 
-- (void)reloadData:(id)entity {
+- (void)reloadData:(UserDetails*)user {
     if (!self.coverImage) {
         self.coverImage = [[UIImageView alloc] init];
         self.coverImage.contentMode = UIViewContentModeScaleAspectFill;
@@ -66,7 +65,6 @@
         [self.screenName constrainTopSpaceToView:self.avatarImage predicate:@"10"];
         [self.screenName alignCenterXWithView:self.screenName.superview predicate:@"0"];
     }
-    UserDetails* user = (UserDetails*)entity;
     if (user) {
         [self.coverImage sd_setImageWithURL:[NSURL URLWithString:user.avatarUrl]
                            placeholderImage:nil

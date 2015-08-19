@@ -25,7 +25,6 @@
 
 @property (nonatomic, strong)UserSceneModel* sceneModel;
 @property (nonatomic, strong)UICollectionView* collectionView;
-@property (nonatomic, strong)UIButton* actionButton;
 
 @end
 
@@ -74,17 +73,17 @@
 
 - (void)showActionButton {
     if (![self.sceneModel.profile.objectId isEqualToString:_userId]) {
-        self.actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.actionButton setFrame:CGRectMake(0, 0, 30, 30)];
-        [self.actionButton addTarget:self action:@selector(actionButtonPressed)forControlEvents:UIControlEventTouchUpInside];
+        UIButton* actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [actionButton setFrame:CGRectMake(0, 0, 30, 30)];
+        [actionButton addTarget:self action:@selector(actionButtonPressed)forControlEvents:UIControlEventTouchUpInside];
         NSString* icon;
         if ([self.sceneModel.profile.contacts containsObject:_userId]) {
             icon = @"ios7Chatbubble";
         } else {
             icon = @"ios7Personadd";
         }
-        [self.actionButton setImage:[IconFont imageWithIcon:[IconFont icon:icon fromFont:ionIcons] fontName:ionIcons iconColor:[UIColor whiteColor] iconSize:30] forState:UIControlStateNormal];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.actionButton];
+        [actionButton setImage:[IconFont imageWithIcon:[IconFont icon:icon fromFont:ionIcons] fontName:ionIcons iconColor:[UIColor whiteColor] iconSize:30] forState:UIControlStateNormal];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:actionButton];
     }
 }
 

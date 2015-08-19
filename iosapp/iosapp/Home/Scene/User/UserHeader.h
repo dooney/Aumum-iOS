@@ -10,10 +10,11 @@
 #define iosapp_UserHeader_h
 
 #import <UIKit/UIKit.h>
+#import "UserDetails.h"
 
 @interface UserHeader : UICollectionReusableView
 
-- (void)reloadData:(id)entity;
+- (void)reloadData:(UserDetails*)user;
 
 @end
 
