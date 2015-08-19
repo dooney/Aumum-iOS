@@ -9,11 +9,19 @@
 #ifndef iosapp_AvatarImageView_h
 #define iosapp_AvatarImageView_h
 
-#import "MCAvatarView.h"
+#import <UIKit/UIKit.h>
 
-@interface AvatarImageView : MCAvatarView
+@protocol AvatarImageViewDelegate <NSObject>
 
-- (void)fromUrl:(NSString*)url;
+-(void)avatarViewOnTouchAction;
+
+@end
+
+@interface AvatarImageView : UIImageView
+
+@property (nonatomic, assign) id<AvatarImageViewDelegate> delegate;
+
+- (void)fromUrl:(NSString*)url diameter:(NSInteger)diameter;
 
 @end
 

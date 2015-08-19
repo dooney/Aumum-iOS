@@ -40,11 +40,14 @@
 "label.accept" = "同意";
 "label.writeAComment" = "写评论...";
 "label.requestAccepted" = "我们已经是好友啦，开始聊天吧！";
+"label.contactRequest" = "你好，我是%@";
+"label.waitForApproval" = "请等待对方验证";
 
 //Info
-"info.sending" = "Sending";
-"info.submitting" = "Submitting";
-"info.uploading" = "Uploading";
+"info.sending" = "发送中...";
+"info.sentSuccessfully" = "发送成功";
+"info.submitting" = "提交中...";
+"info.uploading" = "上传中...";
 
 //Error
 "error.verifyCode" = "Invalid verification code";

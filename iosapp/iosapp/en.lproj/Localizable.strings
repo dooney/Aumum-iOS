@@ -40,11 +40,14 @@
 "label.accept" = "Accept";
 "label.writeAComment" = "Write a comment...";
 "label.requestAccepted" = "I've accepted your friend request. Now let's chat!";
+"label.contactRequest" = "Hello, I am %@";
+"label.waitForApproval" = "Please wait for approval";
 
 //Info
-"info.sending" = "Sending";
-"info.submitting" = "Submitting";
-"info.uploading" = "Uploading";
+"info.sending" = "Sending...";
+"info.sentSuccessfully" = "Sent successfully";
+"info.submitting" = "Submitting...";
+"info.uploading" = "Uploading...";
 
 //Error
 "error.verifyCode" = "Invalid verification code";

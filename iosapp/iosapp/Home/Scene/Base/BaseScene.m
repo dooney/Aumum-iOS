@@ -17,4 +17,10 @@
                                     type:TSMessageNotificationTypeError];
 }
 
+- (void)showSuccess:(NSString*)title message:(NSString*)message {
+    [TSMessage showNotificationWithTitle:title
+                                subtitle:message
+                                    type:TSMessageNotificationTypeSuccess];
+}
+
 @end

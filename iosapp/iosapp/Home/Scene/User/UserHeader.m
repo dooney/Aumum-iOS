@@ -8,17 +8,17 @@
 
 #import "UserHeader.h"
 #import "UserDetails.h"
-#import "AvatarImageView.h"
+#import "ProfileAvatarView.h"
 #import "UIColor+EasyExtend.h"
 #import "UIView+FLKAutoLayout.h"
 #import "UIImageView+WebCache.h"
 #import "FXBlurView.h"
 #import "IconFont.h"
 
-@interface UserHeader()<MCAvatarViewDelegate>
+@interface UserHeader()
 
 @property (nonatomic, strong) UIImageView* coverImage;
-@property (nonatomic, strong) AvatarImageView* avatarImage;
+@property (nonatomic, strong) ProfileAvatarView* avatarImage;
 @property (nonatomic, strong) UIView* detailsLayout;
 @property (nonatomic, strong) UILabel* screenName;
 @property (nonatomic, strong) UILabel* regionInfo;
@@ -47,8 +47,7 @@
         [self.detailsLayout constrainWidth:@"200" height:@"200"];
     }
     if (!self.avatarImage) {
-        self.avatarImage = [[AvatarImageView alloc] init];
-        self.avatarImage.delegate = self;
+        self.avatarImage = [[ProfileAvatarView alloc] init];
         self.avatarImage.borderWidth = 3.0f;
         self.avatarImage.diameter = 80;
         self.avatarImage.image = [UIImage imageNamed:@"ic_avatar"];
@@ -85,10 +84,6 @@
             [self.regionInfo alignCenterXWithView:self.regionInfo.superview predicate:@"0"];
         }
     }
-}
-
-- (void)avatarViewOnTouchAction:(MCAvatarView *)avatarView {
-    
 }
 
 @end

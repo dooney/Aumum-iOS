@@ -15,11 +15,17 @@
 #import "URLManager.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "UserHeader.h"
+#import "UserSectionHeader.h"
+#import "IconFont.h"
 
 @interface UserScene()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+{
+    NSString* _userId;
+}
 
 @property (nonatomic, strong)UserSceneModel* sceneModel;
 @property (nonatomic, strong)UICollectionView* collectionView;
+@property (nonatomic, strong)UIButton* actionButton;
 
 @end
 
@@ -41,7 +47,7 @@
     self.collectionView.dataSource = self;
     [self.view addSubview:self.collectionView];
     [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
-    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"SectionHeader"];
+    [self.collectionView registerClass:[UserSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"UserSectionHeader"];
     [self.collectionView registerClass:[UserHeader class] forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader withReuseIdentifier:@"UserHeader"];
 }
 
@@ -49,20 +55,37 @@
     self.sceneModel = [UserSceneModel SceneModel];
     
     self.sceneModel.profile = [Profile get];
-    NSString* userId = self.params[@"userId"];
-    [self.sceneModel.request send:userId];
+    _userId = self.params[@"userId"];
+    [self.sceneModel.request send:_userId];
     
     [self.sceneModel.request onRequest:^{
-        [self.sceneModel.momentListRequest getListByUserId:userId before:[NSDate utcNow]];
+        [self.sceneModel.momentListRequest getListByUserId:_userId before:[NSDate utcNow]];
     } error:^(NSError *error) {
         [self showError:error];
     }];
     
     [self.sceneModel.momentListRequest onRequest:^{
         [self.collectionView reloadData];
+        [self showActionButton];
     } error:^(NSError *error) {
         [self showError:error];
     }];
+}
+
+- (void)showActionButton {
+    if (![self.sceneModel.profile.objectId isEqualToString:_userId]) {
+        self.actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.actionButton setFrame:CGRectMake(0, 0, 30, 30)];
+        [self.actionButton addTarget:self action:@selector(actionButtonPressed)forControlEvents:UIControlEventTouchUpInside];
+        NSString* icon;
+        if ([self.sceneModel.profile.contacts containsObject:_userId]) {
+            icon = @"ios7Chatbubble";
+        } else {
+            icon = @"ios7Personadd";
+        }
+        [self.actionButton setImage:[IconFont imageWithIcon:[IconFont icon:icon fromFont:ionIcons] fontName:ionIcons iconColor:[UIColor whiteColor] iconSize:30] forState:UIControlStateNormal];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.actionButton];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -80,14 +103,10 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        UICollectionReusableView* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                            withReuseIdentifier:@"SectionHeader"
-                                                                                   forIndexPath:indexPath];
-        cell.backgroundColor = HEX_RGB(0xf4f4f4);
-        cell.layer.shadowColor = [UIColor blackColor].CGColor;
-        cell.layer.shadowOffset = CGSizeZero;
-        cell.layer.shadowRadius = 3;
-        cell.layer.shadowOpacity = 0.3;
+        UserSectionHeader* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                     withReuseIdentifier:@"UserSectionHeader"
+                                                                            forIndexPath:indexPath];
+        [cell reloadData:self.sceneModel.request.userDetails];
         return cell;
     } else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
         UserHeader* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
@@ -110,7 +129,7 @@
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(self.view.frame.size.width, 20);
+    return CGSizeMake(self.view.frame.size.width, 54);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -125,6 +144,17 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 1;
+}
+
+- (void)actionButtonPressed {
+    if ([self.sceneModel.profile.contacts containsObject:_userId]) {
+        ChatScene* chatScene = [[ChatScene alloc] initWithUserId:_userId];
+        chatScene.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:chatScene animated:YES];
+    } else {
+        NSString* url = [NSString stringWithFormat:@"iosapp://addContact?userId=%@&name=%@", _userId, self.sceneModel.profile.screenName];
+        [URLManager pushURLString:url animated:YES];
+    }
 }
 
 @end

@@ -20,6 +20,8 @@
 		<string>UserScene</string>
 		<key>iosapp://moment</key>
 		<string>MomentDetailsScene</string>
+		<key>iosapp://addContact</key>
+		<string>AddContactScene</string>
 	</dict>
 </dict>
 </plist>

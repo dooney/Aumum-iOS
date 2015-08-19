@@ -14,6 +14,7 @@
 @interface BaseScene : Scene
 
 - (void)showError:(NSError*)error;
+- (void)showSuccess:(NSString*)title message:(NSString*)message;
 
 @end
 

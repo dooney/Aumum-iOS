@@ -14,7 +14,7 @@
 #import "CommentCellSceneModel.h"
 #import "URLManager.h"
 
-@interface CommentCell()<MCAvatarViewDelegate>
+@interface CommentCell()<AvatarImageViewDelegate>
 
 @property (nonatomic, strong)CommentCellSceneModel* sceneModel;
 @property (nonatomic, strong)AvatarImageView* avatarImage;
@@ -87,11 +87,11 @@
     self.screenName.text = self.sceneModel.comment.user.screenName;
     NSDate* createdAt = [NSDate dateWithString:self.sceneModel.comment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
-    [self.avatarImage fromUrl:self.sceneModel.comment.user.avatarUrl];
+    [self.avatarImage fromUrl:self.sceneModel.comment.user.avatarUrl diameter:40];
     self.content.text = self.sceneModel.comment.content;
 }
 
-- (void)avatarViewOnTouchAction:(MCAvatarView *)avatarView {
+- (void)avatarViewOnTouchAction {
     NSString* url = [NSString stringWithFormat:@"iosapp://user?userId=%@", self.sceneModel.comment.userId];
     [URLManager pushURLString:url animated:YES];
 }

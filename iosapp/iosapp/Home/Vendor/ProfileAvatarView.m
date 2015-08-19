@@ -1,58 +1,59 @@
 //
-//  MCAvatarView.m
-//  MCAvatarView
+//  ProfileAvatarView.m
+//  iosapp
 //
-//  Created by Marcus Oliveira on 21/01/14.
-//  Copyright (c) 2014 MyAppControls. All rights reserved.
+//  Created by Simpson Du on 18/08/2015.
+//  Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 //
 
-#import "MCAvatarView.h"
+#import "ProfileAvatarView.h"
+#import "objc/runtime.h"
+#import "UIView+WebCacheOperation.h"
 
-@implementation MCAvatarView {
-    
+static char imageURLKey;
+
+@implementation ProfileAvatarView{
     CALayer *borderLayer;
     CALayer *imageLayer;
     UIImage *_image;
-    BOOL *isFromSuper;
 }
-
-@synthesize delegate;
 
 @synthesize borderWidth = _borderWidth;
 @synthesize borderColor = _borderColor;
 @synthesize shadowEnable = _shadowEnable;
 
-@synthesize image = _image;
-
-
-#pragma mark - Touche methods
-
--(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-    //The touch may be cancelled, due to scrolling etc. Restore the alpha if that is the case.
-    self.alpha = 1;
-}
-
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-        
-    self.alpha = 0.6;
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    self.alpha = 1.0;
-    
-    if (self.delegate != nil &&
-        [self.delegate respondsToSelector:@selector(avatarViewOnTouchAction:)]) {
-        
-        [self.delegate avatarViewOnTouchAction:self];
-        
-        return;
+#pragma mark - Instance Methods
+- (id)init {
+    self = [super init];
+    if(self) {
+        [self initProperties];
     }
-    
+    return self;
 }
 
-#pragma mark - Setters/Getters/Customization
+- (void)fromUrl:(NSString*)url {
+    [self sd_cancelImageLoadOperationWithKey:@"UIImageViewImageLoad"];
+    objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    dispatch_main_async_safe(^{
+        self.image = [UIImage imageNamed:@"ic_avatar"];
+    });
+    
+    if (url) {
+        __weak __typeof(self)wself = self;
+        id <SDWebImageOperation> operation = [SDWebImageManager.sharedManager downloadImageWithURL:[NSURL URLWithString:url] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (!wself) return;
+            dispatch_main_sync_safe(^{
+                if (!wself) return;
+                if (image) {
+                    wself.image = image;
+                    [wself setNeedsLayout];
+                }
+            });
+        }];
+        [self sd_setImageLoadOperation:operation forKey:@"UIImageViewImageLoad"];
+    }
+}
 
 -(UIImage *)image {
     return _image;
@@ -82,15 +83,15 @@
     }
 }
 
--(void)setBorderWidth:(CGFloat)borderWidth {
+- (void)setBorderWidth:(CGFloat)borderWidth {
     _borderWidth = borderWidth;
 }
 
--(void)setBorderColor:(UIColor *)borderColor {
+- (void)setBorderColor:(UIColor *)borderColor {
     _borderColor = borderColor;
 }
 
--(void)initProperties {
+- (void)initProperties {
     
     self.backgroundColor = [UIColor clearColor];
     
@@ -104,12 +105,9 @@
 
 #pragma mark - Draw Avatar View Layers
 
--(void)drawAvatarView {
+- (void)drawAvatarView {
     
-    for(CALayer *layer in self.layer.sublayers)
-    {
-        [layer removeFromSuperlayer];
-    }
+    [self.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
     
     [self.layer setMasksToBounds:NO];
     
@@ -153,44 +151,6 @@
         
         [borderLayer addSublayer:imageLayer];
     }
-}
-
-
-#pragma mark - Instance Methods
-
--(id) initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    
-    if(self)
-    {
-        [self initProperties];
-        [self drawAvatarView];
-    }
-    return self;
-    
-}
-
--(id) initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
-    
-    if(self)
-    {
-        [self initProperties];
-        [self drawAvatarView];
-        
-    }
-    return self;
-}
-
-- (id) init {
-    self = [super init];
-    
-    if(self)
-    {
-        [self initProperties];
-    }
-    return self;
 }
 
 @end

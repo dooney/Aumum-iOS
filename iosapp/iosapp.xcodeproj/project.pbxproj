@@ -25,6 +25,8 @@
 		D60297C41A98C64D003575F2 /* XinGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D60297C31A98C64D003575F2 /* XinGothic.otf */; };
 		D60297C61A98C679003575F2 /* Aspect-Font.m in Sources */ = {isa = PBXBuildFile; fileRef = D60297C51A98C679003575F2 /* Aspect-Font.m */; };
 		D6041B5B1B81914F00EC0CC3 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6041B5A1B81914F00EC0CC3 /* FXBlurView.m */; };
+		D6041B5E1B827E7300EC0CC3 /* UserSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D6041B5D1B827E7300EC0CC3 /* UserSectionHeader.m */; };
+		D6041B611B82ABCC00EC0CC3 /* AddContactScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6041B601B82ABCC00EC0CC3 /* AddContactScene.m */; };
 		D6099B4F1B608E3900ECA44F /* SignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6099B4E1B608E3900ECA44F /* SignUpScene.m */; };
 		D621D74F1B63A3F8006D058C /* PrimaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D621D74E1B63A3F8006D058C /* PrimaryButton.m */; };
 		D62A39B31A7F0AB9007347B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A39B21A7F0AB9007347B5 /* main.m */; };
@@ -71,6 +73,7 @@
 		D6B13AEC1B700E9E00930F66 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AEB1B700E9E00930F66 /* CommentCell.m */; };
 		D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */; };
 		D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD3C371B60C1DB00E92870 /* CountryScene.m */; };
+		D6D554D11B841D4900004328 /* ProfileAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D01B841D4900004328 /* ProfileAvatarView.m */; };
 		D6D5BDC11B4F787600D6045F /* URLManage.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D5BDC01B4F787600D6045F /* URLManage.plist */; };
 		D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC41B4F835100D6045F /* Aspect-Config.m */; };
 		D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5BDC81B4F89F300D6045F /* ProfileScene.m */; };
@@ -87,7 +90,6 @@
 		D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E25A1B636EF30027B0D9 /* VerifySceneModel.m */; };
 		D6D665171B7C57E300EB52DF /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D665161B7C57E300EB52DF /* PhotoCell.m */; };
 		D6D6651A1B7E9ACA00EB52DF /* UserHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D665191B7E9ACA00EB52DF /* UserHeader.m */; };
-		D6D665231B806A4A00EB52DF /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D665221B806A4A00EB52DF /* MCAvatarView.m */; };
 		D6D728241B5924F8000277F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6D728261B5924F8000277F0 /* Localizable.strings */; };
 		D6D7E53A1B73609900F45996 /* UpdateMomentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */; };
 		D6D7E53F1B741E5E00F45996 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E53E1B741E5E00F45996 /* NotificationCell.m */; };
@@ -157,6 +159,10 @@
 		D60297C51A98C679003575F2 /* Aspect-Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Font.m"; sourceTree = "<group>"; };
 		D6041B591B81914F00EC0CC3 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		D6041B5A1B81914F00EC0CC3 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		D6041B5C1B827E2300EC0CC3 /* UserSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSectionHeader.h; sourceTree = "<group>"; };
+		D6041B5D1B827E7300EC0CC3 /* UserSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSectionHeader.m; sourceTree = "<group>"; };
+		D6041B5F1B82AB9900EC0CC3 /* AddContactScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddContactScene.h; sourceTree = "<group>"; };
+		D6041B601B82ABCC00EC0CC3 /* AddContactScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactScene.m; sourceTree = "<group>"; };
 		D6099B4D1B608E1700ECA44F /* SignUpScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpScene.h; sourceTree = "<group>"; };
 		D6099B4E1B608E3900ECA44F /* SignUpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpScene.m; sourceTree = "<group>"; };
 		D621D74D1B63A3BE006D058C /* PrimaryButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrimaryButton.h; sourceTree = "<group>"; };
@@ -248,6 +254,8 @@
 		D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCellSceneModel.m; sourceTree = "<group>"; };
 		D6BD3C361B60C1B200E92870 /* CountryScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryScene.h; sourceTree = "<group>"; };
 		D6BD3C371B60C1DB00E92870 /* CountryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryScene.m; sourceTree = "<group>"; };
+		D6D554CF1B841CF400004328 /* ProfileAvatarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileAvatarView.h; sourceTree = "<group>"; };
+		D6D554D01B841D4900004328 /* ProfileAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileAvatarView.m; sourceTree = "<group>"; };
 		D6D5BDC01B4F787600D6045F /* URLManage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = URLManage.plist; sourceTree = "<group>"; };
 		D6D5BDC41B4F835100D6045F /* Aspect-Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Aspect-Config.m"; sourceTree = "<group>"; };
 		D6D5BDC71B4F89CE00D6045F /* ProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileScene.h; sourceTree = "<group>"; };
@@ -273,8 +281,6 @@
 		D6D665161B7C57E300EB52DF /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		D6D665181B7E9A8400EB52DF /* UserHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserHeader.h; sourceTree = "<group>"; };
 		D6D665191B7E9ACA00EB52DF /* UserHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHeader.m; sourceTree = "<group>"; };
-		D6D665211B806A4A00EB52DF /* MCAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAvatarView.h; sourceTree = "<group>"; };
-		D6D665221B806A4A00EB52DF /* MCAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAvatarView.m; sourceTree = "<group>"; };
 		D6D728251B5924F8000277F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D6D728271B592585000277F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6D7E5381B73607100F45996 /* UpdateMomentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateMomentRequest.h; sourceTree = "<group>"; };
@@ -393,6 +399,10 @@
 				D6D665161B7C57E300EB52DF /* PhotoCell.m */,
 				D6D665181B7E9A8400EB52DF /* UserHeader.h */,
 				D6D665191B7E9ACA00EB52DF /* UserHeader.m */,
+				D6041B5C1B827E2300EC0CC3 /* UserSectionHeader.h */,
+				D6041B5D1B827E7300EC0CC3 /* UserSectionHeader.m */,
+				D6041B5F1B82AB9900EC0CC3 /* AddContactScene.h */,
+				D6041B601B82ABCC00EC0CC3 /* AddContactScene.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -413,8 +423,6 @@
 			children = (
 				D6041B591B81914F00EC0CC3 /* FXBlurView.h */,
 				D6041B5A1B81914F00EC0CC3 /* FXBlurView.m */,
-				D6D665211B806A4A00EB52DF /* MCAvatarView.h */,
-				D6D665221B806A4A00EB52DF /* MCAvatarView.m */,
 				C37936B71B51453C00BDC3C3 /* NSDateFormatter+Category.h */,
 				C37936B81B51453C00BDC3C3 /* NSDateFormatter+Category.m */,
 				C37936B41B51451100BDC3C3 /* NSDate+Category.h */,
@@ -431,6 +439,8 @@
 				D65675E51B72B06300788146 /* CustomDatabase.m */,
 				D63406251B733239000C8EA1 /* LikeButton.h */,
 				D63406261B7332CF000C8EA1 /* LikeButton.m */,
+				D6D554CF1B841CF400004328 /* ProfileAvatarView.h */,
+				D6D554D01B841D4900004328 /* ProfileAvatarView.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -912,6 +922,7 @@
 			files = (
 				C3602A791B48B246006DF6C8 /* UserListRequest.m in Sources */,
 				D6D5BDC51B4F835100D6045F /* Aspect-Config.m in Sources */,
+				D6D554D11B841D4900004328 /* ProfileAvatarView.m in Sources */,
 				D65AEABC1B68624B0074313A /* RegisterRequest.m in Sources */,
 				D6B13AE61B70099200930F66 /* CommentList.m in Sources */,
 				D6D5E2581B635A020027B0D9 /* VerifyScene.m in Sources */,
@@ -937,7 +948,6 @@
 				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
 				D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
-				D6D665231B806A4A00EB52DF /* MCAvatarView.m in Sources */,
 				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,
 				D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */,
 				D6E499DE1B6F347B0006C67C /* MomentCellSceneModel.m in Sources */,
@@ -957,6 +967,7 @@
 				D65AEAD11B6974720074313A /* NewMomentRequest.m in Sources */,
 				D6D5E2481B61E6690027B0D9 /* SIgnUpSceneModel.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
+				D6041B611B82ABCC00EC0CC3 /* AddContactScene.m in Sources */,
 				D6D7E5421B741F5200F45996 /* NotificationListSceneModel.m in Sources */,
 				D6ECF20D1B587B2A001C013A /* AvatarImageView.m in Sources */,
 				D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */,
@@ -975,6 +986,7 @@
 				D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */,
 				D6B13AE31B70092C00930F66 /* CommentListRequest.m in Sources */,
 				D6D7E53A1B73609900F45996 /* UpdateMomentRequest.m in Sources */,
+				D6041B5E1B827E7300EC0CC3 /* UserSectionHeader.m in Sources */,
 				D6E499DB1B6EE4760006C67C /* MomentDetailsScene.m in Sources */,
 				D6E2A4791B5C6AC7008B3DC1 /* UserDetails.m in Sources */,
 				D6D5BDCB1B4F9F6C00D6045F /* Aspect-EaseMob.m in Sources */,

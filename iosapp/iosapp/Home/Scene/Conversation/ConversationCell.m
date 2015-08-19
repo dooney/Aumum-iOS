@@ -41,7 +41,6 @@
 
 - (void)addControls {
     self.avatarImage = [[AvatarImageView alloc] init];
-    self.avatarImage.diameter = 50;
     [self.contentView addSubview:self.avatarImage];
     
     self.hub = [[RKNotificationHub alloc] initWithView:self.avatarImage];
@@ -85,7 +84,7 @@
     self.screenName.text = conversation.user.screenName;
     self.content.text = conversation.latestMessage;
     self.createdAt.text = [[NSDate dateWithTimeIntervalSince1970:conversation.latestTimestamp / 1000] timeIntervalDescription];
-    [self.avatarImage fromUrl:conversation.user.avatarUrl];
+    [self.avatarImage fromUrl:conversation.user.avatarUrl diameter:50];
     self.hub.count = conversation.unreadCount;
 }
 

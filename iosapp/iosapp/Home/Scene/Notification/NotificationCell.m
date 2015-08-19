@@ -14,7 +14,7 @@
 #import "RKNotificationHub.h"
 #import "URLManager.h"
 
-@interface NotificationCell()<MCAvatarViewDelegate>
+@interface NotificationCell()<AvatarImageViewDelegate>
 
 @property (nonatomic, strong) UIView* leftLayout;
 @property (nonatomic, strong) UIView* rightLayout;
@@ -100,7 +100,7 @@
     self.screenName.text = _notification.screenName;
     NSDate* createdAt = [NSDate dateWithString:_notification.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
-    [self.avatarImage fromUrl:_notification.avatarUrl];
+    [self.avatarImage fromUrl:_notification.avatarUrl diameter:80];
     if (!_notification.isRead) {
         [self.hub increment];
         [self.hub hideCount];
@@ -120,7 +120,7 @@
     }
 }
 
-- (void)avatarViewOnTouchAction:(MCAvatarView *)avatarView {
+- (void)avatarViewOnTouchAction {
     NSString* url = [NSString stringWithFormat:@"iosapp://user?userId=%@", _notification.userId];
     [URLManager pushURLString:url animated:YES];
 }

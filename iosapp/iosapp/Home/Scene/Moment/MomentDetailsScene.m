@@ -19,7 +19,7 @@
 #import "Profile.h"
 #import "URLManager.h"
 
-@interface MomentDetailsScene()<MCAvatarViewDelegate>
+@interface MomentDetailsScene()<AvatarImageViewDelegate>
 {
     NSString* _momentId;
 }
@@ -144,7 +144,7 @@
     self.screenName.text = moment.user.screenName;
     NSDate* createdAt = [NSDate dateWithString:self.sceneModel.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
-    [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl];
+    [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl diameter:40];
     CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat imageHeight = imageWidth * self.sceneModel.moment.ratio;
     [self.momentImage constrainWidth:[NSString stringWithFormat:@"%.0f", imageWidth]
@@ -152,7 +152,7 @@
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:self.sceneModel.moment.imageUrl]];
 }
 
-- (void)avatarViewOnTouchAction:(MCAvatarView *)avatarView {
+- (void)avatarViewOnTouchAction {
     NSString* url = [NSString stringWithFormat:@"iosapp://user?userId=%@", self.sceneModel.moment.userId];
     [URLManager pushURLString:url animated:YES];
 }

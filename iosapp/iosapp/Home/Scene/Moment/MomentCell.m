@@ -18,7 +18,7 @@
 #import "MomentCellSceneModel.h"
 #import "KeyChainUtil.h"
 
-@interface MomentCell()<MCAvatarViewDelegate>
+@interface MomentCell()<AvatarImageViewDelegate>
 
 @property (nonatomic, strong)MomentCellSceneModel* sceneModel;
 @property (nonatomic, strong)UIView* headerLayout;
@@ -142,7 +142,7 @@
     self.screenName.text = self.sceneModel.moment.user.screenName;
     NSDate* createdAt = [NSDate dateWithString:self.sceneModel.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
-    [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl];
+    [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl diameter:40];
     CGFloat imageHeight = [[UIScreen mainScreen] bounds].size.width * self.sceneModel.moment.ratio;
     if (imageHeight > self.momentImage.bounds.size.height) {
         [self.momentImage removeConstraint:self.momentImageHeightConstraint];
@@ -161,7 +161,7 @@
     [self.likeButton setIcon:[self.sceneModel.moment isLiked:self.sceneModel.userId]];
 }
 
-- (void)avatarViewOnTouchAction:(MCAvatarView *)avatarView {
+- (void)avatarViewOnTouchAction {
     NSString* url = [NSString stringWithFormat:@"iosapp://user?userId=%@", self.sceneModel.moment.userId];
     [URLManager pushURLString:url animated:YES];
 }
