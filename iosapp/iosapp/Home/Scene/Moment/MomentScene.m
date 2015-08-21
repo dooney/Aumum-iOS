@@ -5,7 +5,6 @@
 
 #import "MomentScene.h"
 #import "MomentListSceneModel.h"
-#import "SceneTableView.h"
 #import "UIView+FLKAutoLayout.h"
 #import "MomentCell.h"
 #import "Moment.h"

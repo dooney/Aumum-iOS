@@ -7,7 +7,6 @@
 //
 
 #import "ConversationScene.h"
-#import "SceneTableView.h"
 #import "ConversationListSceneModel.h"
 #import "UIView+FLKAutoLayout.h"
 #import "ConversationCell.h"
