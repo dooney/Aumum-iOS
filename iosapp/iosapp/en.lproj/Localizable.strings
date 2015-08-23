@@ -42,12 +42,18 @@
 "label.requestAccepted" = "I've accepted your friend request. Now let's chat!";
 "label.contactRequest" = "Hello, I am %@";
 "label.waitForApproval" = "Please wait for approval";
+"label.screenName" = "Nickname";
+"label.email" = "Email";
+"label.about" = "About";
+"label.country" = "Country";
+"label.city" = "City";
 
 //Info
 "info.sending" = "Sending...";
 "info.sentSuccessfully" = "Sent successfully";
 "info.submitting" = "Submitting...";
 "info.uploading" = "Uploading...";
+"info.saving" = "Saving...";
 
 //Error
 "error.verifyCode" = "Invalid verification code";

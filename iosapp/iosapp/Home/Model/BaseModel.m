@@ -13,7 +13,7 @@
 - (void)insertOrReplace:(NSString*)objectId {
     BaseModel* entity = [[self class] getById:objectId];
     if (entity) {
-        [entity delete];
+        [entity deleteSelf];
     }
     [self save];
 }

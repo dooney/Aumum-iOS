@@ -9,9 +9,9 @@
 #ifndef iosapp_EditProfileScene_h
 #define iosapp_EditProfileScene_h
 
-#import "BaseScene.h"
+#import "XLFormViewController.h"
 
-@interface EditProfileScene : BaseScene
+@interface EditProfileScene : XLFormViewController
 
 @end
 

@@ -7,6 +7,8 @@
 //
 
 #import "UserHeader.h"
+#import "Country.h"
+#import "City.h"
 #import "ProfileAvatarView.h"
 #import "UIColor+EasyExtend.h"
 #import "UIView+FLKAutoLayout.h"
@@ -23,6 +25,7 @@
 @property (nonatomic, strong) UILabel* screenName;
 @property (nonatomic, strong) UILabel* regionInfo;
 @property (nonatomic, strong) UIButton* editButton;
+@property (nonatomic, strong) UIButton* cameraButton;
 
 @end
 
@@ -51,13 +54,13 @@
     if (!self.avatarImage) {
         self.avatarImage = [[ProfileAvatarView alloc] init];
         self.avatarImage.borderWidth = 3.0f;
-        self.avatarImage.diameter = 80;
+        self.avatarImage.diameter = 100;
         self.avatarImage.image = [UIImage imageNamed:@"ic_avatar"];
         [self.detailsLayout addSubview:self.avatarImage];
         
-        [self.avatarImage alignTopEdgeWithView:self.avatarImage.superview predicate:@"30"];
+        [self.avatarImage alignTopEdgeWithView:self.avatarImage.superview predicate:@"20"];
         [self.avatarImage alignCenterXWithView:self.avatarImage.superview predicate:@"0"];
-        [self.avatarImage constrainWidth:@"80" height:@"80"];
+        [self.avatarImage constrainWidth:@"100" height:@"100"];
     }
     if (!self.screenName) {
         self.screenName = [[UILabel alloc] init];
@@ -68,6 +71,13 @@
         [self.screenName constrainTopSpaceToView:self.avatarImage predicate:@"10"];
         [self.screenName alignCenterXWithView:self.screenName.superview predicate:@"0"];
     }
+    if (!self.regionInfo) {
+        self.regionInfo = [IconFont labelWithIcon:nil fontName:ionIcons size:15 color:[UIColor whiteColor]];
+        [self.detailsLayout addSubview:self.regionInfo];
+        
+        [self.regionInfo constrainTopSpaceToView:self.screenName predicate:@"5"];
+        [self.regionInfo alignCenterXWithView:self.regionInfo.superview predicate:@"0"];
+    }
     if (user) {
         [self.coverImage sd_setImageWithURL:[NSURL URLWithString:user.avatarUrl]
                            placeholderImage:nil
@@ -76,14 +86,12 @@
                                       self.avatarImage.image = image;
                                   }];
         self.screenName.text = user.screenName;
-        if (!self.regionInfo) {
-            NSString* title = [NSString stringWithFormat:@"%@  %@ %@", [IconFont icon:@"ios7NavigateOutline" fromFont:ionIcons], user.city, user.country];
-            self.regionInfo = [IconFont labelWithIcon:title fontName:ionIcons size:15 color:[UIColor whiteColor]];
-            [self.detailsLayout addSubview:self.regionInfo];
-            
-            [self.regionInfo constrainTopSpaceToView:self.screenName predicate:@"5"];
-            [self.regionInfo alignCenterXWithView:self.regionInfo.superview predicate:@"0"];
-        }
+        Country* country = [Country getById:user.country];
+        City* city = [City getById:user.city];
+        self.regionInfo.text = [NSString stringWithFormat:@"%@  %@ %@",
+                                [IconFont icon:@"ios7NavigateOutline" fromFont:ionIcons],
+                                [city getLocaleName],
+                                [country getLocaleName]];
     }
 }
 
@@ -96,6 +104,12 @@
         
         [self.editButton alignBottomEdgeWithView:self.screenName predicate:@"4"];
         [self.editButton constrainLeadingSpaceToView:self.screenName predicate:@"0"];
+    }
+    if (user && !self.cameraButton) {
+        self.cameraButton = [IconFont buttonWithIcon:[IconFont icon:@"ios7CameraOutline" fromFont:ionIcons] fontName:ionIcons size:25 color:HEX_RGBA(0xffffff, 0x55)];
+        [self.coverImage addSubview:self.cameraButton];
+        
+        [self.cameraButton alignCenterWithView:self.cameraButton.superview];
     }
 }
 

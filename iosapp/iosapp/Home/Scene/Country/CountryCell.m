@@ -37,7 +37,7 @@
 
 - (void)reloadData:(id)entity {
     Country* country = entity;
-    self.content.text = [NSString stringWithFormat:@"%@ %@", country.name, country.code];
+    self.content.text = [NSString stringWithFormat:@"%@ %@", [country getLocaleName], country.code];
 }
 
 @end

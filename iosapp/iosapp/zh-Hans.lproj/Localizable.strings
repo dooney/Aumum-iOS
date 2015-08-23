@@ -42,12 +42,18 @@
 "label.requestAccepted" = "我们已经是好友啦，开始聊天吧！";
 "label.contactRequest" = "你好，我是%@";
 "label.waitForApproval" = "请等待对方验证";
+"label.screenName" = "昵称";
+"label.email" = "邮箱";
+"label.about" = "简介";
+"label.country" = "国家";
+"label.city" = "城市";
 
 //Info
 "info.sending" = "发送中...";
 "info.sentSuccessfully" = "发送成功";
 "info.submitting" = "提交中...";
 "info.uploading" = "上传中...";
+"info.saving" = "保存中...";
 
 //Error
 "error.verifyCode" = "Invalid verification code";
@@ -67,3 +73,6 @@
 "NSDateCategory.text12" = "晚上hh:mm";
 "NSDateCategory.text13" = "昨天HH:mm";
 "NSDateCategory.text14" = "今天 %@";
+
+//XLForm
+"Invalid email address" = "邮箱格式不正确";

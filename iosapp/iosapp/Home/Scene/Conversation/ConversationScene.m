@@ -126,12 +126,16 @@
                 conversation.latestMessage = ((EMTextMessageBody *)messageBody).text;
                 conversation.latestTimestamp = ((EMTextMessageBody *)messageBody).message.timestamp;
                 conversation.unreadCount = emConversation.unreadMessagesCount;
-                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                dispatch_async(dispatch_get_main_queue(),^{
+                    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                });
                 return;
             } else {
                 user = conversation.user;
                 [self.sceneModel.dataSet removeObjectAtIndex:i];
-                [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+                dispatch_async(dispatch_get_main_queue(),^{
+                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+                });
                 break;
             }
         }

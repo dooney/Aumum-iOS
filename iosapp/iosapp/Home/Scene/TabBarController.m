@@ -127,9 +127,7 @@
         case COMMENT_MOMENT:
         case NEW_CONTACT: {
             self.notificationNavController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)[self increaseTabUnread:@"Notification"]];
-            dispatch_async(dispatch_get_main_queue(),^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"newNotification" object:notification];
-            });
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"newNotification" object:notification];
         }
             break;
         default:
@@ -145,9 +143,7 @@
 - (void)didReceiveMessage:(EMMessage *)message {
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         self.chatNavController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)[self increaseTabUnread:@"Chat"]];
-        dispatch_async(dispatch_get_main_queue(),^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"newMessage" object:message];
-        });
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newMessage" object:message];
         return;
     } else if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateInactive) {
         return;

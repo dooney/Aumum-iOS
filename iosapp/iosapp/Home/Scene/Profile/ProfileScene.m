@@ -8,6 +8,7 @@
 
 #import "ProfileScene.h"
 #import "UserSceneModel.h"
+#import "Profile.h"
 #import "NSDate+Category.h"
 #import "PhotoCell.h"
 #import "URLManager.h"
@@ -29,6 +30,7 @@
     
     [self addControls];
     [self initSceneModel];
+    [self initNotification];
 }
 
 - (void)addControls {
@@ -53,19 +55,20 @@
 - (void)initSceneModel {
     self.sceneModel = [UserSceneModel SceneModel];
     
-    self.sceneModel.profile = [Profile get];
-    UserDetails* userDetails = [[UserDetails alloc] init];
-    userDetails.screenName = self.sceneModel.profile.screenName;
-    userDetails.avatarUrl = self.sceneModel.profile.avatarUrl;
-    userDetails.country = self.sceneModel.profile.country;
-    userDetails.city = self.sceneModel.profile.city;
-    self.sceneModel.request.userDetails = userDetails;
-    [self.sceneModel.momentListRequest getListByUserId:self.sceneModel.profile.objectId before:[NSDate utcNow]];
+    self.sceneModel.request.userDetails = [self getProfileDetails];
+    [self.sceneModel.momentListRequest getListByUserId:self.sceneModel.request.userDetails.objectId before:[NSDate utcNow]];
     [self.sceneModel.momentListRequest onRequest:^{
         [self.collectionView reloadData];
     } error:^(NSError *error) {
         [self showError:error];
     }];
+}
+
+- (void)initNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateProfile)
+                                                 name:@"updateProfile"
+                                               object:nil];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -129,6 +132,24 @@
 - (void)settingsButtonPressed {
     NSString* url = [NSString stringWithFormat:@"iosapp://settings"];
     [URLManager pushURLString:url animated:YES];
+}
+
+- (UserDetails*)getProfileDetails {
+    Profile* profile = [Profile get];
+    UserDetails* userDetails = [[UserDetails alloc] init];
+    userDetails.objectId = profile.objectId;
+    userDetails.screenName = profile.screenName;
+    userDetails.avatarUrl = profile.avatarUrl;
+    userDetails.country = profile.country;
+    userDetails.city = profile.city;
+    return userDetails;
+}
+
+- (void)updateProfile {
+    self.sceneModel.request.userDetails = [self getProfileDetails];
+    dispatch_async(dispatch_get_main_queue(),^{
+        [self.collectionView reloadData];
+    });
 }
 
 @end

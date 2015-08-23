@@ -11,7 +11,7 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIViewController+MBHud.h"
 #import <TuSDK/TuSDK.h>
-#import "SDiPhoneVersion.h"
+#import "EzSystemInfo.h"
 #import "QiniuUploader+Url.h"
 #import "URLManager.h"
 #import "AvatarSceneModel.h"
@@ -81,7 +81,7 @@
 
 - (void)loadAutoLayout {
     NSString* size = [NSString stringWithFormat:@"%f", [[UIScreen mainScreen] bounds].size.width];
-    if ([SDiPhoneVersion deviceSize] == iPhone35inch) {
+    if (IS_SCREEN_35_INCH) {
         [self.avatarImage alignTop:@"0" leading:@"0" bottom:nil trailing:@"0" toView:self.avatarImage.superview];
     } else {
         [self.avatarImage alignCenterWithView:self.avatarImage.superview];

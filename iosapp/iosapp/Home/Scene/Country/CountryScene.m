@@ -43,11 +43,7 @@
 }
 
 - (void)initSceneModel {
-    Country* au = [[Country alloc] initWithName:@"Australia" code:@"+61"];
-    Country* nz = [[Country alloc] initWithName:@"New Zealand" code:@"+64"];
-    Country* us = [[Country alloc] initWithName:@"United States" code:@"+1"];
-    Country* ca = [[Country alloc] initWithName:@"Canada" code:@"+1"];
-    self.dataSet = @[ au, nz, us, ca ];
+    self.dataSet = [NSArray arrayWithArray:[Country findAll]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

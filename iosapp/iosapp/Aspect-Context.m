@@ -29,6 +29,18 @@ AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunching
     } error:^(NSError *error) {
         NSLog(@"Get profile failed: %@", error.localizedDescription);
     }];
+    [self.sceneModel.countryRequest send];
+    [self.sceneModel.countryRequest onRequest:^{
+        NSLog(@"Get country list - OK");
+    } error:^(NSError *error) {
+        NSLog(@"Get country list failed: %@", error.localizedDescription);
+    }];
+    [self.sceneModel.cityRequest send];
+    [self.sceneModel.cityRequest onRequest:^{
+        NSLog(@"Get city list - OK");
+    } error:^(NSError *error) {
+        NSLog(@"Get city list failed: %@", error.localizedDescription);
+    }];
     
     return XAMessageForward(application:application didFinishLaunchingWithOptions:launchOptions);
 }

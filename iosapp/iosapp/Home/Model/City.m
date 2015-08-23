@@ -1,17 +1,17 @@
 //
-//  Country.m
+//  City.m
 //  iosapp
 //
-//  Created by Simpson Du on 23/07/2015.
+//  Created by Simpson Du on 22/08/2015.
 //  Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 //
 
-#import "Country.h"
+#import "City.h"
 
-@implementation Country
+@implementation City
 
 + (NSString*)getKeys {
-    return @"objectId,code,zhName,enName";
+    return @"objectId,country,zhName,enName";
 }
 
 - (NSString*)getLocaleName {

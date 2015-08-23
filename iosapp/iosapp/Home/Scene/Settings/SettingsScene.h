@@ -9,9 +9,9 @@
 #ifndef iosapp_SettingsScene_h
 #define iosapp_SettingsScene_h
 
-#import "BaseScene.h"
+#import "XLFormViewController.h"
 
-@interface SettingsScene : BaseScene
+@interface SettingsScene : XLFormViewController
 
 @end
 

@@ -101,17 +101,18 @@
 }
 
 - (void)newNotification:(NSNotification*)notif {
-    Notification* notification = notif.object;
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    UITableViewRowAnimation rowAnimation = UITableViewRowAnimationTop;
-    UITableViewScrollPosition scrollPosition = UITableViewScrollPositionTop;
-    [self.tableView beginUpdates];
-    [self.sceneModel.dataSet insertObject:notification atIndex:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
-    [self.tableView endUpdates];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    dispatch_async(dispatch_get_main_queue(),^{
+        Notification* notification = notif.object;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        UITableViewRowAnimation rowAnimation = UITableViewRowAnimationTop;
+        UITableViewScrollPosition scrollPosition = UITableViewScrollPositionTop;
+        [self.tableView beginUpdates];
+        [self.sceneModel.dataSet insertObject:notification atIndex:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
+        [self.tableView endUpdates];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    });
 }
 
 - (void)didPressAcceptButton:(UITableViewCell *)cell {

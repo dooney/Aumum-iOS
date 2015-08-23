@@ -8,7 +8,7 @@
 
 #import "CustomDatabase.h"
 
-#define DB_VER 7
+#define DB_VER 12
 
 @implementation CustomDatabase
 

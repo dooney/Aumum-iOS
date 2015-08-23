@@ -11,10 +11,14 @@
 
 #import "BaseSceneModel.h"
 #import "ProfileRequest.h"
+#import "CountryRequest.h"
+#import "CityRequest.h"
 
 @interface ContextSceneModel : BaseSceneModel
 
 @property (nonatomic, strong)ProfileRequest* profileRequest;
+@property (nonatomic, strong)CountryRequest* countryRequest;
+@property (nonatomic, strong)CityRequest* cityRequest;
 
 @end
 

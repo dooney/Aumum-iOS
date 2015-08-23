@@ -11,13 +11,11 @@
 
 #import "BaseSceneModel.h"
 #import "UserDetailsRequest.h"
-#import "Profile.h"
 #import "MomentListRequest.h"
 
 @interface UserSceneModel : BaseSceneModel
 
 @property (nonatomic, strong)UserDetailsRequest* request;
-@property (nonatomic, strong)Profile* profile;
 @property (nonatomic, strong)MomentListRequest* momentListRequest;
 
 @end

@@ -2,31 +2,31 @@ PODS:
   - AFNetworkActivityLogger (2.0.4):
     - AFNetworking/NSURLConnection (~> 2.0)
     - AFNetworking/NSURLSession (~> 2.0)
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.6.0):
+    - AFNetworking/NSURLConnection (= 2.6.0)
+    - AFNetworking/NSURLSession (= 2.6.0)
+    - AFNetworking/Reachability (= 2.6.0)
+    - AFNetworking/Security (= 2.6.0)
+    - AFNetworking/Serialization (= 2.6.0)
+    - AFNetworking/UIKit (= 2.6.0)
+  - AFNetworking/NSURLConnection (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.6.0)
+  - AFNetworking/Security (2.6.0)
+  - AFNetworking/Serialization (2.6.0)
+  - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - CSStickyHeaderFlowLayout (0.2.8)
   - EaseMobSDK (2.1.9)
-  - EasyIOS (2.2.2):
-    - EasyIOS/Easy (= 2.2.2)
+  - EasyIOS (2.2.3):
+    - EasyIOS/Easy (= 2.2.3)
   - EasyIOS-Extention (1.2):
     - EasyIOS-Extention/EasyExtention (= 1.2)
   - EasyIOS-Extention/EasyExtention (1.2):
@@ -36,7 +36,7 @@ PODS:
     - TTTAttributedLabel
     - UICKeyChainStore
     - XAspect
-  - EasyIOS/Easy (2.2.2):
+  - EasyIOS/Easy (2.2.3):
     - AFNetworking
     - FLKAutoLayout (= 0.1.1)
     - FontIcon
@@ -82,7 +82,6 @@ PODS:
     - UIActionSheet+Blocks (>= 0.9)
     - UIAlertController+Blocks (>= 0.9)
     - UIAlertView+Blocks (>= 0.9)
-  - SDiPhoneVersion (1.1.2)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -93,7 +92,7 @@ PODS:
   - TSMessages (0.9.12):
     - HexColors (~> 2.2.0)
   - TTTAttributedLabel (1.13.4)
-  - TuSDK (1.8.10):
+  - TuSDK (1.8.11):
     - GPUImage (~> 0.1.6)
   - UIActionSheet+Blocks (0.9)
   - UIActivityIndicator-for-SDWebImage (1.2):
@@ -110,6 +109,7 @@ PODS:
   - XAspect/Core (1.0.5):
     - XAspect/Macros
   - XAspect/Macros (1.0.5)
+  - XLForm (3.0.2)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 2.0.4)
@@ -125,7 +125,6 @@ DEPENDENCIES:
   - Qiniu
   - QiniuUpload
   - RKNotificationHub
-  - SDiPhoneVersion
   - SlackTextViewController
   - SWTableViewCell (~> 0.3.7)
   - TOWebViewController (~> 2.0.13)
@@ -134,6 +133,7 @@ DEPENDENCIES:
   - UIColor+MLPFlatColors (~> 1.0)
   - UITableView+FDTemplateLayoutCell (~> 1.3)
   - UMAnalytics (from `https://github.com/jcccn/UMeng-Analytics-iOS.git`)
+  - XLForm
 
 EXTERNAL SOURCES:
   EaseMobSDK:
@@ -148,7 +148,7 @@ CHECKOUT OPTIONS:
     :commit: 4ec299391d5072fe27a548b190c9b77d9fe58c5b
     :git: https://github.com/easemob/sdk-ios-cocoapods.git
   EasyIOS:
-    :commit: 684015ed0356b7edf4fa24ce3ba3398e1e66fb96
+    :commit: 490c080c3b6c8117ed78c745ac8155487d8757ad
     :git: https://github.com/zhuchaowe/EasyIOS.git
   UMAnalytics:
     :commit: 9cdd9857126c01aa10a97c041408d92dd7094569
@@ -156,10 +156,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   CSStickyHeaderFlowLayout: e919dd425fa12bba1155f66d87edfe540eb8f89a
   EaseMobSDK: cc8415cb99a65debf4711fa2c9c349fd5c843299
-  EasyIOS: 5f8c2110b4d0818aa78de068dc001c5c344de7a6
+  EasyIOS: 5a51d96baed2cfc6fdad5ea0ff66df9b21219e2f
   EasyIOS-Extention: c7e402e8b2497760955510228771512c37110aa2
   FLEX: 4f04fe0b0594163c00879e2b3db888e5ae37c8d5
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851
@@ -182,7 +182,6 @@ SPEC CHECKSUMS:
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
   RKNotificationHub: d80905a948c79c11673345f807133a0bfd17e320
   RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
-  SDiPhoneVersion: c52245ccaab8142701e2e7fb8f0391ba3f255b76
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SlackTextViewController: 84e1e4b7f12a8e3691cf97ca61c934b99058a2e8
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
@@ -190,7 +189,7 @@ SPEC CHECKSUMS:
   TOWebViewController: aada427e7eba199bbaee77ddee3243c8172f4053
   TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
-  TuSDK: 0debaa1af0b6d3e6eed3d98f7bd20cbae4d1e264
+  TuSDK: eac4af7aeae14253d274d517bd018e16b2a2ef04
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
@@ -200,5 +199,6 @@ SPEC CHECKSUMS:
   UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
   UMAnalytics: f082625faade5171846f3d3f8de5818e806a76cd
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
+  XLForm: 7817ce29f3f259186e837bb7309ac7e5b7e9b883
 
 COCOAPODS: 0.37.2

@@ -8,6 +8,7 @@
 
 #import "UserScene.h"
 #import "UserSceneModel.h"
+#import "Profile.h"
 #import "UIView+FLKAutoLayout.h"
 #import "NSDate+Category.h"
 #import "PhotoCell.h"
@@ -21,6 +22,7 @@
 @interface UserScene()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 {
     NSString* _userId;
+    Profile* _profile;
 }
 
 @property (nonatomic, strong)UserSceneModel* sceneModel;
@@ -53,7 +55,7 @@
 - (void)initSceneModel {
     self.sceneModel = [UserSceneModel SceneModel];
     
-    self.sceneModel.profile = [Profile get];
+    _profile = [Profile get];
     _userId = self.params[@"userId"];
     [self.sceneModel.request send:_userId];
     
@@ -72,12 +74,12 @@
 }
 
 - (void)showActionButton {
-    if (![self.sceneModel.profile.objectId isEqualToString:_userId]) {
+    if (![_profile.objectId isEqualToString:_userId]) {
         UIButton* actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [actionButton setFrame:CGRectMake(0, 0, 30, 30)];
         [actionButton addTarget:self action:@selector(actionButtonPressed)forControlEvents:UIControlEventTouchUpInside];
         NSString* icon;
-        if ([self.sceneModel.profile.contacts containsObject:_userId]) {
+        if ([_profile.contacts containsObject:_userId]) {
             icon = @"ios7Chatbubble";
         } else {
             icon = @"ios7Personadd";
@@ -146,12 +148,12 @@
 }
 
 - (void)actionButtonPressed {
-    if ([self.sceneModel.profile.contacts containsObject:_userId]) {
+    if ([_profile.contacts containsObject:_userId]) {
         ChatScene* chatScene = [[ChatScene alloc] initWithUserId:_userId];
         chatScene.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:chatScene animated:YES];
     } else {
-        NSString* url = [NSString stringWithFormat:@"iosapp://addContact?userId=%@&name=%@", _userId, self.sceneModel.profile.screenName];
+        NSString* url = [NSString stringWithFormat:@"iosapp://addContact?userId=%@&name=%@", _userId, _profile.screenName];
         [URLManager pushURLString:url animated:YES];
     }
 }

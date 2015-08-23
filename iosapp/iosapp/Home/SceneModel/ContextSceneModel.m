@@ -18,6 +18,14 @@
         @strongify(self)
         [self SEND_NO_CACHE_ACTION:self.profileRequest];
     }];
+    self.countryRequest = [CountryRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_NO_CACHE_ACTION:self.countryRequest];
+    }];
+    self.cityRequest = [CityRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_NO_CACHE_ACTION:self.cityRequest];
+    }];
 }
 
 @end
