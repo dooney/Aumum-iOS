@@ -22,6 +22,10 @@
         @strongify(self)
         [self SEND_IQ_ACTION:self.momentListRequest];
     }];
+    self.updateUserRequest = [UpdateUserRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_IQ_ACTION:self.updateUserRequest];
+    }];
 }
 
 @end

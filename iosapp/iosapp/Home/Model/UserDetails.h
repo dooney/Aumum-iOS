@@ -19,6 +19,7 @@
 @property (nonatomic, strong)NSString<Optional>* avatarUrl;
 @property (nonatomic, strong)NSString<Optional>* country;
 @property (nonatomic, strong)NSString<Optional>* city;
+@property (nonatomic, strong)NSString<Optional>* about;
 
 + (NSString*)getKeys;
 

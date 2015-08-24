@@ -15,8 +15,13 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "UserHeader.h"
 #import "UserSectionHeader.h"
+#import "IEditAvatarDelegate.h"
+#import "QiniuUploader+Url.h"
 
-@interface ProfileScene()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ProfileScene()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IEditAvatarDelegate>
+{
+    QiniuUploader* _uploader;
+}
 
 @property (nonatomic, strong)UserSceneModel* sceneModel;
 @property (nonatomic, strong)UICollectionView* collectionView;
@@ -41,7 +46,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
     
     CSStickyHeaderFlowLayout* flowLayout = [[CSStickyHeaderFlowLayout alloc] init];
-    flowLayout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 200);
+    flowLayout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 240);
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;
@@ -95,6 +100,8 @@
         UserHeader* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                               withReuseIdentifier:@"UserHeader"
                                                                      forIndexPath:indexPath];
+        cell.viewController = self;
+        cell.delegate = self;
         [cell reloadProfile:self.sceneModel.request.userDetails];
         return cell;
     }
@@ -142,6 +149,7 @@
     userDetails.avatarUrl = profile.avatarUrl;
     userDetails.country = profile.country;
     userDetails.city = profile.city;
+    userDetails.about = profile.about;
     return userDetails;
 }
 
@@ -150,6 +158,23 @@
     dispatch_async(dispatch_get_main_queue(),^{
         [self.collectionView reloadData];
     });
+}
+
+- (void)didPressEditButton:(UIImage*)avatarImage {
+    Profile* profile = [Profile get];
+    if (!_uploader) {
+        _uploader = [[QiniuUploader alloc] init];
+        @weakify(self)
+        [_uploader setUploadOneFileSucceeded:^(AFHTTPRequestOperation *operation, NSInteger index, NSString *key){
+            @strongify(self)
+            NSString* imageUrl = [QiniuUploader getRemoteUrl:key];
+            [self.sceneModel.updateUserRequest send:profile.objectId avatarUrl:imageUrl];
+        }];
+    }
+    QiniuFile *file = [[QiniuFile alloc] initWithFileData:UIImageJPEGRepresentation(avatarImage, 1.0f)];
+    file.key = [profile.objectId stringByAppendingFormat:@"/%@", [[NSDate date] stringWithDateFormat:@"yyyyMMddHHmmss"]];
+    [_uploader addFile:file];
+    [_uploader startUpload];
 }
 
 @end

@@ -16,14 +16,19 @@
 #import "FXBlurView.h"
 #import "IconFont.h"
 #import "URLManager.h"
+#import <TuSDK/TuSDK.h>
 
 @interface UserHeader()
+{
+    TuSDKCPAvatarComponent *_avatarComponent;
+}
 
 @property (nonatomic, strong) UIImageView* coverImage;
 @property (nonatomic, strong) ProfileAvatarView* avatarImage;
 @property (nonatomic, strong) UIView* detailsLayout;
 @property (nonatomic, strong) UILabel* screenName;
 @property (nonatomic, strong) UILabel* regionInfo;
+@property (nonatomic, strong) UILabel* about;
 @property (nonatomic, strong) UIButton* editButton;
 @property (nonatomic, strong) UIButton* cameraButton;
 
@@ -49,7 +54,7 @@
         [self.coverImage addSubview:self.detailsLayout];
         
         [self.detailsLayout alignCenterWithView:self.detailsLayout.superview];
-        [self.detailsLayout constrainWidth:@"200" height:@"200"];
+        [self.detailsLayout constrainWidth:@"200" height:@"240"];
     }
     if (!self.avatarImage) {
         self.avatarImage = [[ProfileAvatarView alloc] init];
@@ -75,15 +80,26 @@
         self.regionInfo = [IconFont labelWithIcon:nil fontName:ionIcons size:15 color:[UIColor whiteColor]];
         [self.detailsLayout addSubview:self.regionInfo];
         
-        [self.regionInfo constrainTopSpaceToView:self.screenName predicate:@"5"];
+        [self.regionInfo constrainTopSpaceToView:self.screenName predicate:@"10"];
         [self.regionInfo alignCenterXWithView:self.regionInfo.superview predicate:@"0"];
+    }
+    if (!self.about) {
+        self.about = [[UILabel alloc] init];
+        self.about.textColor = [UIColor whiteColor];
+        self.about.font = [UIFont systemFontOfSize:14];
+        self.about.textAlignment = NSTextAlignmentCenter;
+        self.about.numberOfLines = 2;
+        [self.detailsLayout addSubview:self.about];
+        
+        [self.about constrainTopSpaceToView:self.regionInfo predicate:@"10"];
+        [self.about alignCenterXWithView:self.about.superview predicate:@"0"];
+        [self.about constrainWidth:@"200"];
     }
     if (user) {
         [self.coverImage sd_setImageWithURL:[NSURL URLWithString:user.avatarUrl]
                            placeholderImage:nil
                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                      self.coverImage.image = [image blurredImageWithRadius:40.0f iterations:2 tintColor:nil];
-                                      self.avatarImage.image = image;
+                                      [self updateProfileImage:image];
                                   }];
         self.screenName.text = user.screenName;
         Country* country = [Country getById:user.country];
@@ -92,6 +108,7 @@
                                 [IconFont icon:@"ios7NavigateOutline" fromFont:ionIcons],
                                 [city getLocaleName],
                                 [country getLocaleName]];
+        self.about.text = user.about;
     }
 }
 
@@ -107,15 +124,36 @@
     }
     if (user && !self.cameraButton) {
         self.cameraButton = [IconFont buttonWithIcon:[IconFont icon:@"ios7CameraOutline" fromFont:ionIcons] fontName:ionIcons size:25 color:HEX_RGBA(0xffffff, 0x55)];
+        [self.cameraButton addTarget:self action:@selector(cameraButtonPressed)forControlEvents:UIControlEventTouchUpInside];
         [self.coverImage addSubview:self.cameraButton];
         
-        [self.cameraButton alignCenterWithView:self.cameraButton.superview];
+        [self.cameraButton alignCenterXWithView:self.cameraButton.superview predicate:@"0"];
+        [self.cameraButton alignCenterYWithView:self.cameraButton.superview predicate:@"-15"];
     }
 }
 
 - (void)editButtonPressed {
     NSString* url = [NSString stringWithFormat:@"iosapp://editProfile"];
     [URLManager pushURLString:url animated:YES];
+}
+
+- (void)cameraButtonPressed {
+    _avatarComponent = [TuSDK avatarCommponentWithController:self.viewController
+                                               callbackBlock:^(TuSDKResult *result, NSError *error, UIViewController *controller) {
+                                                   [self updateProfileImage:result.loadResultImage];
+                                                   _avatarComponent = nil;
+                                                   if (self.delegate) {
+                                                       [self.delegate didPressEditButton:result.loadResultImage];
+                                                   }
+                                               }];
+    _avatarComponent.options.editTurnAndCutOptions.saveToAlbum = NO;
+    _avatarComponent.autoDismissWhenCompelted = YES;
+    [_avatarComponent showComponent];
+}
+
+- (void)updateProfileImage:(UIImage*)image {
+    self.coverImage.image = [image blurredImageWithRadius:40.0f iterations:2 tintColor:nil];
+    self.avatarImage.image = image;
 }
 
 @end

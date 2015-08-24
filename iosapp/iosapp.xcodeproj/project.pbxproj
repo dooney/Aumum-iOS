@@ -183,6 +183,7 @@
 		D62703751B8934D900C32C0A /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		D62703771B896FB600C32C0A /* EditProfileSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileSceneModel.h; sourceTree = "<group>"; };
 		D62703781B89701F00C32C0A /* EditProfileSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileSceneModel.m; sourceTree = "<group>"; };
+		D627037A1B8A888200C32C0A /* IEditAvatarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IEditAvatarDelegate.h; sourceTree = "<group>"; };
 		D62A39AD1A7F0AB9007347B5 /* iosapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A39B11A7F0AB9007347B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62A39B21A7F0AB9007347B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -807,6 +808,7 @@
 				D6D5BDC81B4F89F300D6045F /* ProfileScene.m */,
 				D6D554D21B84AFBD00004328 /* EditProfileScene.h */,
 				D6D554D31B84AFEC00004328 /* EditProfileScene.m */,
+				D627037A1B8A888200C32C0A /* IEditAvatarDelegate.h */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

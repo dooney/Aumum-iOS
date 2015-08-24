@@ -41,7 +41,7 @@
 
 - (void)addControls {
     CSStickyHeaderFlowLayout* flowLayout = [[CSStickyHeaderFlowLayout alloc] init];
-    flowLayout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 200);
+    flowLayout.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 240);
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.delegate = self;

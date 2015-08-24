@@ -33,6 +33,8 @@
        email:(NSString*)email
        about:(NSString*)about;
 
+- (void)send:(NSString*)userId avatarUrl:(NSString*)avatarUrl;
+
 @end
 
 #endif

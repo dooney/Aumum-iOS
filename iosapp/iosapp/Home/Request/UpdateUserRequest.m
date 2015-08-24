@@ -17,16 +17,6 @@
     [self.httpHeaderFields setValue:[KeyChainUtil getToken] forKey:@"X-Parse-Session-Token"];
 }
 
-- (void)reset {
-    self.chatId = nil;
-    self.screenName = nil;
-    self.avatarUrl = nil;
-    self.country = nil;
-    self.city = nil;
-    self.email = nil;
-    self.about = nil;
-}
-
 - (void)send:(NSString*)userId
       chatId:(NSString*)chatId
   screenName:(NSString*)screenName
@@ -50,6 +40,12 @@
     self.city = city;
     self.email = email;
     self.about = about;
+    [self send];
+}
+
+- (void)send:(NSString*)userId avatarUrl:(NSString*)avatarUrl {
+    self.PATH = [NSString stringWithFormat:@"/1/users/%@", userId];
+    self.avatarUrl = avatarUrl;
     [self send];
 }
 

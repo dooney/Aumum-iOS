@@ -11,8 +11,12 @@
 
 #import <UIKit/UIKit.h>
 #import "UserDetails.h"
+#import "IEditAvatarDelegate.h"
 
 @interface UserHeader : UICollectionReusableView
+
+@property (nonatomic, strong) UIViewController* viewController;
+@property (nonatomic, assign) id <IEditAvatarDelegate> delegate;
 
 - (void)reloadUser:(UserDetails*)user;
 - (void)reloadProfile:(UserDetails*)user;
