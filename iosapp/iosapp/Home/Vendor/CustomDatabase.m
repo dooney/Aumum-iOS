@@ -13,12 +13,14 @@
 @implementation CustomDatabase
 
 - (void)runMigrations {
-    if ([self databaseVersion] < DB_VER) {
-        NSArray* tableNames = [self tableNames];
-        NSArray* excludes = @[ @"ApplicationProperties", @"sqlite_sequence" ];
-        for (NSString* table in tableNames) {
-            if (![excludes containsObject:table]) {
-                [self executeSql:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@", table]];
+    NSArray* tableNames = [self tableNames];
+    if ([tableNames containsObject:@"ApplicationProperties"]) {
+        if ([self databaseVersion] < DB_VER) {
+            NSArray* excludes = @[ @"ApplicationProperties", @"sqlite_sequence" ];
+            for (NSString* table in tableNames) {
+                if (![excludes containsObject:table]) {
+                    [self executeSql:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@", table]];
+                }
             }
         }
     }

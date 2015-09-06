@@ -56,9 +56,6 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerClass:[CommentCell class] forCellReuseIdentifier:@"CommentCell"];
     
-    if (self.params[@"promptInput"]) {
-        [self.textView becomeFirstResponder];
-    }
     self.textView.placeholder = NSLocalizedString(@"label.writeAComment", nil);
 }
 

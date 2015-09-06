@@ -16,7 +16,7 @@
 #import "UIActionSheet+Blocks.h"
 #import <TuSDK/TuSDK.h>
 #import <TSMessage.h>
-#import "NewMomentScene.h"
+#import "MomentTagScene.h"
 #import "NSArray+EasyExtend.h"
 #import "URLManager.h"
 
@@ -220,11 +220,11 @@
     [TuSDK photoEditMultipleWithController:controller
                              callbackBlock:^(TuSDKResult *result, NSError *error, UIViewController *controller)
      {
-         _albumComponent = nil;
-         NewMomentScene* scene = [[NewMomentScene alloc] initWithImage:result.loadResultImage];
+         MomentTagScene* scene = [[MomentTagScene alloc] initWithImage:result.loadResultImage];
          [controller pushViewController:scene animated:YES];
      }];
     _photoEditMultipleComponent.options.editMultipleOptions.saveToAlbum = NO;
+    _photoEditMultipleComponent.options.editMultipleOptions.disableStepsSave = YES;
     [_photoEditMultipleComponent.options.editMultipleOptions disableModule:lsqTuSDKCPEditActionAdjust];
     [_photoEditMultipleComponent.options.editMultipleOptions disableModule:lsqTuSDKCPEditActionSharpness];
     [_photoEditMultipleComponent.options.editMultipleOptions disableModule:lsqTuSDKCPEditActionVignette];

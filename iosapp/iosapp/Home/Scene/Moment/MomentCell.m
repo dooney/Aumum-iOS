@@ -179,7 +179,7 @@
 }
 
 - (void)commentButtonPressed {
-    NSString* url = [NSString stringWithFormat:@"iosapp://moment?momentId=%@&promptInput=YES", self.sceneModel.moment.objectId];
+    NSString* url = [NSString stringWithFormat:@"iosapp://moment?momentId=%@", self.sceneModel.moment.objectId];
     [URLManager pushURLString:url animated:YES];
 }
 

@@ -76,6 +76,9 @@
 		D6B13AEC1B700E9E00930F66 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AEB1B700E9E00930F66 /* CommentCell.m */; };
 		D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */; };
 		D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD3C371B60C1DB00E92870 /* CountryScene.m */; };
+		D6C91ECD1B9C1ECE006A32F9 /* TagView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ECC1B9C1ECE006A32F9 /* TagView.m */; };
+		D6C91ED01B9C2494006A32F9 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ECF1B9C2494006A32F9 /* PinView.m */; };
+		D6C91ED31B9C5111006A32F9 /* TagPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */; };
 		D6D554D11B841D4900004328 /* ProfileAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D01B841D4900004328 /* ProfileAvatarView.m */; };
 		D6D554D41B84AFEC00004328 /* EditProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D31B84AFEC00004328 /* EditProfileScene.m */; };
 		D6D554DB1B85445300004328 /* ContactListScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554DA1B85445300004328 /* ContactListScene.m */; };
@@ -107,6 +110,8 @@
 		D6D7E5421B741F5200F45996 /* NotificationListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5411B741F5200F45996 /* NotificationListSceneModel.m */; };
 		D6D7E5451B7420BD00F45996 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5441B7420BD00F45996 /* Notification.m */; };
 		D6D7E5481B74496600F45996 /* Tab.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5471B74496600F45996 /* Tab.m */; };
+		D6DAEE5D1B9903D70057B653 /* MomentTagScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DAEE5C1B9903D70057B653 /* MomentTagScene.m */; };
+		D6DAEE651B9BBE020057B653 /* SWNinePatchImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DAEE621B9BBE020057B653 /* SWNinePatchImageFactory.m */; };
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
 		D6E0498D1B47B2DA00A867C8 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E0498C1B47B2DA00A867C8 /* MomentCell.m */; };
 		D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049931B49447600A867C8 /* Aspect-Util.m */; };
@@ -271,6 +276,12 @@
 		D6B13AEE1B7029EB00930F66 /* CommentCellSceneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCellSceneModel.m; sourceTree = "<group>"; };
 		D6BD3C361B60C1B200E92870 /* CountryScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryScene.h; sourceTree = "<group>"; };
 		D6BD3C371B60C1DB00E92870 /* CountryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryScene.m; sourceTree = "<group>"; };
+		D6C91ECB1B9C1EA8006A32F9 /* TagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagView.h; sourceTree = "<group>"; };
+		D6C91ECC1B9C1ECE006A32F9 /* TagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagView.m; sourceTree = "<group>"; };
+		D6C91ECE1B9C247A006A32F9 /* PinView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PinView.h; sourceTree = "<group>"; };
+		D6C91ECF1B9C2494006A32F9 /* PinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinView.m; sourceTree = "<group>"; };
+		D6C91ED11B9C50AE006A32F9 /* TagPanGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagPanGestureRecognizer.h; sourceTree = "<group>"; };
+		D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagPanGestureRecognizer.m; sourceTree = "<group>"; };
 		D6D554CF1B841CF400004328 /* ProfileAvatarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileAvatarView.h; sourceTree = "<group>"; };
 		D6D554D01B841D4900004328 /* ProfileAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileAvatarView.m; sourceTree = "<group>"; };
 		D6D554D21B84AFBD00004328 /* EditProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileScene.h; sourceTree = "<group>"; };
@@ -326,6 +337,10 @@
 		D6D7E5441B7420BD00F45996 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		D6D7E5461B74449F00F45996 /* Tab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tab.h; sourceTree = "<group>"; };
 		D6D7E5471B74496600F45996 /* Tab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tab.m; sourceTree = "<group>"; };
+		D6DAEE5B1B9903AB0057B653 /* MomentTagScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentTagScene.h; sourceTree = "<group>"; };
+		D6DAEE5C1B9903D70057B653 /* MomentTagScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentTagScene.m; sourceTree = "<group>"; };
+		D6DAEE611B9BBE020057B653 /* SWNinePatchImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNinePatchImageFactory.h; sourceTree = "<group>"; };
+		D6DAEE621B9BBE020057B653 /* SWNinePatchImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNinePatchImageFactory.m; sourceTree = "<group>"; };
 		D6E049881B45238D00A867C8 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
 		D6E049891B45238D00A867C8 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
 		D6E0498B1B47B28200A867C8 /* MomentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
@@ -417,6 +432,8 @@
 				D6E499DA1B6EE4760006C67C /* MomentDetailsScene.m */,
 				D6B13AEA1B700E6800930F66 /* CommentCell.h */,
 				D6B13AEB1B700E9E00930F66 /* CommentCell.m */,
+				D6DAEE5B1B9903AB0057B653 /* MomentTagScene.h */,
+				D6DAEE5C1B9903D70057B653 /* MomentTagScene.m */,
 			);
 			path = Moment;
 			sourceTree = "<group>";
@@ -456,6 +473,8 @@
 		C37936B31B51449A00BDC3C3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				D6DAEE611B9BBE020057B653 /* SWNinePatchImageFactory.h */,
+				D6DAEE621B9BBE020057B653 /* SWNinePatchImageFactory.m */,
 				D6041B591B81914F00EC0CC3 /* FXBlurView.h */,
 				D6041B5A1B81914F00EC0CC3 /* FXBlurView.m */,
 				C37936B71B51453C00BDC3C3 /* NSDateFormatter+Category.h */,
@@ -476,6 +495,12 @@
 				D63406261B7332CF000C8EA1 /* LikeButton.m */,
 				D6D554CF1B841CF400004328 /* ProfileAvatarView.h */,
 				D6D554D01B841D4900004328 /* ProfileAvatarView.m */,
+				D6C91ECB1B9C1EA8006A32F9 /* TagView.h */,
+				D6C91ECC1B9C1ECE006A32F9 /* TagView.m */,
+				D6C91ECE1B9C247A006A32F9 /* PinView.h */,
+				D6C91ECF1B9C2494006A32F9 /* PinView.m */,
+				D6C91ED11B9C50AE006A32F9 /* TagPanGestureRecognizer.h */,
+				D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -1010,6 +1035,7 @@
 				D6D7E5451B7420BD00F45996 /* Notification.m in Sources */,
 				D65C9C661B7B1697000F6B9D /* UserByIdRequest.m in Sources */,
 				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
+				D6C91ED31B9C5111006A32F9 /* TagPanGestureRecognizer.m in Sources */,
 				D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
 				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,
@@ -1020,6 +1046,7 @@
 				D6D554E81B88A05C00004328 /* CountryRequest.m in Sources */,
 				D6D7E53F1B741E5E00F45996 /* NotificationCell.m in Sources */,
 				D62A39B61A7F0AB9007347B5 /* AppDelegate.m in Sources */,
+				D6DAEE5D1B9903D70057B653 /* MomentTagScene.m in Sources */,
 				D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */,
 				C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */,
 				D643569D1B6C3F5200630A39 /* NewMomentScene.m in Sources */,
@@ -1043,6 +1070,7 @@
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
 				D6D7E5481B74496600F45996 /* Tab.m in Sources */,
 				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
+				D6C91ECD1B9C1ECE006A32F9 /* TagView.m in Sources */,
 				D6B13AEC1B700E9E00930F66 /* CommentCell.m in Sources */,
 				D621D74F1B63A3F8006D058C /* PrimaryButton.m in Sources */,
 				D6099B4F1B608E3900ECA44F /* SignUpScene.m in Sources */,
@@ -1062,6 +1090,7 @@
 				D6D5E2421B61A5DF0027B0D9 /* CountryCell.m in Sources */,
 				C37936AB1B5113F100BDC3C3 /* UserScene.m in Sources */,
 				C37936B91B51453C00BDC3C3 /* NSDateFormatter+Category.m in Sources */,
+				D6C91ED01B9C2494006A32F9 /* PinView.m in Sources */,
 				D65AEABF1B689AAC0074313A /* AvatarSceneModel.m in Sources */,
 				D6D554EE1B892E2600004328 /* CityRequest.m in Sources */,
 				D63406271B7332CF000C8EA1 /* LikeButton.m in Sources */,
@@ -1070,6 +1099,7 @@
 				D66304BF1B776E320081B5A3 /* ContactNotificationCell.m in Sources */,
 				D659DA841B6602D90084D678 /* Aspect-TuSDK.m in Sources */,
 				D6D5BDC91B4F89F300D6045F /* ProfileScene.m in Sources */,
+				D6DAEE651B9BBE020057B653 /* SWNinePatchImageFactory.m in Sources */,
 				D62A39B31A7F0AB9007347B5 /* main.m in Sources */,
 				C3FB7D5A1B526DAB00A6B581 /* UserDetailsRequest.m in Sources */,
 				D63406211B72D213000C8EA1 /* NewCommentRequest.m in Sources */,
