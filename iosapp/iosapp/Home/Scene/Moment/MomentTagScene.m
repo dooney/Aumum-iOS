@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UIButton* locationButton;
 @property (nonatomic, strong) PinView* pinView;
 @property (nonatomic, strong) NSMutableArray* tagList;
+@property (nonatomic, strong) UIView* footerView;
 
 @end
 
@@ -46,7 +47,8 @@
 }
 
 - (void)initView {
-    self.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.9];
+    self.navigationItem.title = NSLocalizedString(@"label.tagging", nil);;
+    self.view.backgroundColor = HEX_RGB(0x333333);
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed)];
     self.navigationItem.rightBarButtonItem = doneButton;
 }
@@ -78,10 +80,14 @@
     [self.locationButton setImage:[IconFont imageWithIcon:[IconFont icon:@"ios7Location" fromFont:ionIcons] fontName:ionIcons iconColor:[UIColor whiteColor] iconSize:25] forState:UIControlStateNormal];
     self.locationButton.hidden = YES;
     [self.imageView addSubview:self.locationButton];
+    
+    self.footerView = [[UIView alloc] init];
+    self.footerView.backgroundColor = HEX_RGB(0x1f2226);
+    [self.view addSubview:self.footerView];
 }
 
 - (void)loadAutoLayout {
-    [self.imageView alignToView:self.imageView.superview];
+    [self.imageView alignTop:@"64" leading:@"0" bottom:@"-90" trailing:@"0" toView:self.imageView.superview];
     
     [self.pinView alignCenterWithView:self.pinView.superview];
     
@@ -92,10 +98,28 @@
     [self.locationButton constrainWidth:@"50" height:@"50"];
     [self.locationButton alignCenterYWithView:self.locationButton.superview predicate:@"-25"];
     [self.locationButton alignCenterXWithView:self.locationButton.superview predicate:@"50"];
+    
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    [self.footerView constrainWidth:[NSString stringWithFormat:@"%.f", width]
+                             height:@"90"];
+    [self.footerView alignTop:nil leading:@"0" bottom:@"0" trailing:nil toView:self.footerView.superview];
 }
 
 - (void)doneButtonPressed {
-    NewMomentScene* scene = [[NewMomentScene alloc] initWithImage:self.image];
+    UIGraphicsBeginImageContext(self.imageView.frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self.imageView.layer renderInContext:context];
+    UIImage* preview = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSMutableArray* tagList = nil;
+    if (self.tagList.count > 0) {
+        tagList = [NSMutableArray array];
+        CGRect rect = [self getFrameSizeForImage:self.image inImageView:self.imageView];
+        for (TagView* tagView in self.tagList) {
+            [tagList addObject:[tagView getTagJSONString:rect]];
+        }
+    }
+    NewMomentScene* scene = [[NewMomentScene alloc] initWithImage:self.image preview:preview tagList:tagList];
     [self.navigationController pushViewController:scene animated:YES];
 }
 
@@ -121,7 +145,9 @@
 }
 
 - (void)tagButtonPressed {
-    TagView* tagView = [[TagView alloc] initWithText:@"PRADA" point:self.pinView.center];
+    TagView* tagView = [[TagView alloc] initWithText:@"HERMES"
+                                              isLeft:self.pinView.center.x > self.imageView.bounds.size.width / 2
+                                              center:self.pinView.center];
     TagPanGestureRecognizer* pan = [[TagPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTag:)];
     pan.tag = self.tagList.count;
     [tagView addGestureRecognizer:pan];
@@ -138,6 +164,18 @@
     CGPoint point = [pgr translationInView:tagView];
     tagView.center = CGPointMake(pgr.view.center.x + point.x, pgr.view.center.y + point.y);
     [pgr setTranslation:CGPointMake(0, 0) inView:tagView];
+    [tagView updateIfNeeded:tagView.center.x > self.imageView.bounds.size.width / 2];
+}
+
+- (CGRect)getFrameSizeForImage:(UIImage *)image inImageView:(UIImageView *)imageView {
+    float hfactor = image.size.width / imageView.frame.size.width;
+    float vfactor = image.size.height / imageView.frame.size.height;
+    float factor = fmax(hfactor, vfactor);
+    float newWidth = image.size.width / factor;
+    float newHeight = image.size.height / factor;
+    float leftOffset = (imageView.frame.size.width - newWidth) / 2;
+    float topOffset = (imageView.frame.size.height - newHeight) / 2;
+    return CGRectMake(leftOffset, topOffset, newWidth, newHeight);
 }
 
 @end

@@ -9,16 +9,13 @@
 #import "LikeButton.h"
 #import "UIColor+EasyExtend.h"
 #import "IconFont.h"
-#import <POP.h>
 
 @implementation LikeButton
 
 - (void)setLike:(BOOL)like {
-    POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    scaleAnimation.velocity = [NSValue valueWithCGSize:CGSizeMake(8.f, 8.f)];
-    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.f, 1.f)];
-    scaleAnimation.springBounciness = 18.0f;
-    [self.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleSpringAnimation"];
+    CABasicAnimation* scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.toValue = [NSNumber numberWithFloat:1.5];
+    [self.layer addAnimation:scaleAnimation forKey:nil];
     [self setIcon:like];
 }
 

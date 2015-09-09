@@ -17,6 +17,8 @@
 #import "IconFont.h"
 #import "MomentCellSceneModel.h"
 #import "KeyChainUtil.h"
+#import "Tag.h"
+#import "TagView.h"
 
 @interface MomentCell()<AvatarImageViewDelegate>
 
@@ -143,7 +145,8 @@
     NSDate* createdAt = [NSDate dateWithString:self.sceneModel.moment.createdAt format:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" zone:@"UTC"];
     self.createdAt.text = [createdAt timeIntervalDescription];
     [self.avatarImage fromUrl:self.sceneModel.moment.user.avatarUrl diameter:40];
-    CGFloat imageHeight = [[UIScreen mainScreen] bounds].size.width * self.sceneModel.moment.ratio;
+    CGFloat imageWidth = [[UIScreen mainScreen] bounds].size.width;
+    CGFloat imageHeight = imageWidth * self.sceneModel.moment.ratio;
     if (imageHeight > self.momentImage.bounds.size.height) {
         [self.momentImage removeConstraint:self.momentImageHeightConstraint];
         self.momentImageHeightConstraint = [NSLayoutConstraint
@@ -157,6 +160,16 @@
         [self.momentImage addConstraint:self.momentImageHeightConstraint];
     }
     [self.momentImage sd_setImageWithURL:[NSURL URLWithString:self.sceneModel.moment.imageUrl]];
+    [self.momentImage.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    if (self.sceneModel.moment.tags) {
+        for (NSString* tagJSONString in self.sceneModel.moment.tags) {
+            Tag* tag = [[Tag alloc] initWithString:tagJSONString error:nil];
+            TagView* tagView = [[TagView alloc] initWithText:tag.text
+                                                      isLeft:tag.isLeft
+                                                      center:CGPointMake(imageWidth * tag.x, imageHeight * tag.y)];
+            [self.momentImage addSubview:tagView];
+        }
+    }
     [self.footerlayout constrainTopSpaceToView:self.momentImage predicate:@"-5"];
     [self.likeButton setIcon:[self.sceneModel.moment isLiked:self.sceneModel.userId]];
 }

@@ -47,6 +47,7 @@
 "label.about" = "简介";
 "label.country" = "国家";
 "label.city" = "城市";
+"label.tagging" = "添加标签";
 
 //Info
 "info.sending" = "发送中...";

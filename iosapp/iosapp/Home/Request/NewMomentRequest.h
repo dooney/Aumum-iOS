@@ -18,6 +18,7 @@
 @property (nonatomic, strong)NSString* imageUrl;
 @property (nonatomic, strong)NSString* text;
 @property (nonatomic, assign)CGFloat ratio;
+@property (nonatomic, strong)NSMutableArray* tags;
 
 - (void)send:(Moment*)moment;
 

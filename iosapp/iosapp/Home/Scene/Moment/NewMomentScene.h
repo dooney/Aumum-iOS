@@ -13,7 +13,9 @@
 
 @interface NewMomentScene : BaseScene
 
-- (id)initWithImage:(UIImage*)image;
+- (id)initWithImage:(UIImage*)image
+            preview:(UIImage*)preview
+            tagList:(NSMutableArray*)tagList;
 
 @end
 

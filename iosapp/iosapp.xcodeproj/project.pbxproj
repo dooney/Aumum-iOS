@@ -79,6 +79,7 @@
 		D6C91ECD1B9C1ECE006A32F9 /* TagView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ECC1B9C1ECE006A32F9 /* TagView.m */; };
 		D6C91ED01B9C2494006A32F9 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ECF1B9C2494006A32F9 /* PinView.m */; };
 		D6C91ED31B9C5111006A32F9 /* TagPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */; };
+		D6C91ED61B9F84FA006A32F9 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ED51B9F84FA006A32F9 /* Tag.m */; };
 		D6D554D11B841D4900004328 /* ProfileAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D01B841D4900004328 /* ProfileAvatarView.m */; };
 		D6D554D41B84AFEC00004328 /* EditProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D31B84AFEC00004328 /* EditProfileScene.m */; };
 		D6D554DB1B85445300004328 /* ContactListScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554DA1B85445300004328 /* ContactListScene.m */; };
@@ -282,6 +283,8 @@
 		D6C91ECF1B9C2494006A32F9 /* PinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinView.m; sourceTree = "<group>"; };
 		D6C91ED11B9C50AE006A32F9 /* TagPanGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagPanGestureRecognizer.h; sourceTree = "<group>"; };
 		D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagPanGestureRecognizer.m; sourceTree = "<group>"; };
+		D6C91ED41B9F84E8006A32F9 /* Tag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		D6C91ED51B9F84FA006A32F9 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		D6D554CF1B841CF400004328 /* ProfileAvatarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileAvatarView.h; sourceTree = "<group>"; };
 		D6D554D01B841D4900004328 /* ProfileAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileAvatarView.m; sourceTree = "<group>"; };
 		D6D554D21B84AFBD00004328 /* EditProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileScene.h; sourceTree = "<group>"; };
@@ -722,6 +725,8 @@
 				D62703721B89349100C32C0A /* CityList.m */,
 				D62703741B8934AC00C32C0A /* City.h */,
 				D62703751B8934D900C32C0A /* City.m */,
+				D6C91ED41B9F84E8006A32F9 /* Tag.h */,
+				D6C91ED51B9F84FA006A32F9 /* Tag.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1113,6 +1118,7 @@
 				D65AEAC21B689E400074313A /* UpdateUserRequest.m in Sources */,
 				D62703731B89349100C32C0A /* CityList.m in Sources */,
 				D62703791B89701F00C32C0A /* EditProfileSceneModel.m in Sources */,
+				D6C91ED61B9F84FA006A32F9 /* Tag.m in Sources */,
 				D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */,
 				D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */,
 				D6B13AE91B700A2E00930F66 /* Comment.m in Sources */,

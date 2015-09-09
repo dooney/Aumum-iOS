@@ -19,7 +19,9 @@
 - (void)send:(Moment*)moment {
     self.userId = moment.userId;
     self.imageUrl = moment.imageUrl;
+    self.text = moment.text;
     self.ratio = moment.ratio;
+    self.tags = moment.tags;
     [self send];
 }
 

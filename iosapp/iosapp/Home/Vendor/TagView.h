@@ -13,7 +13,13 @@
 
 @interface TagView : UIView
 
-- (id)initWithText:(NSString*)text point:(CGPoint)point;
+- (id)initWithText:(NSString*)text
+            isLeft:(BOOL)isLeft
+            center:(CGPoint)center;
+
+- (void)updateIfNeeded:(BOOL)isLeft;
+
+- (NSString*)getTagJSONString:(CGRect)imageRect;
 
 @end
 

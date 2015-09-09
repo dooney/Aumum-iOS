@@ -20,18 +20,24 @@
 }
 
 @property (nonatomic, strong) UIImage* image;
+@property (nonatomic, strong) UIImage* preview;
 @property (nonatomic, strong) UIImageView* imageView;
 @property (nonatomic, strong) UITextView* textView;
 @property (nonatomic, strong) NewMomentSceneModel* sceneModel;
+@property (nonatomic, strong) NSMutableArray* tagList;
 
 @end
 
 @implementation NewMomentScene
 
-- (id)initWithImage:(UIImage*)image {
+- (id)initWithImage:(UIImage*)image
+            preview:(UIImage*)preview
+            tagList:(NSMutableArray*)tagList {
     self = [super init];
     if (self) {
         self.image = image;
+        self.preview = preview;
+        self.tagList = tagList;
     }
     return self;
 }
@@ -55,7 +61,7 @@
 }
 
 - (void)addControls {
-    self.imageView = [[UIImageView alloc] initWithImage:self.image];
+    self.imageView = [[UIImageView alloc] initWithImage:self.preview];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.imageView];
     
@@ -106,7 +112,11 @@
             @strongify(self)
             NSString* imageUrl = [QiniuUploader getRemoteUrl:key];
             CGFloat ratio = self.image.size.height / self.image.size.width;
-            Moment* moment = [[Moment alloc] init:self.sceneModel.userId imageUrl:imageUrl text:self.sceneModel.text ratio:ratio];
+            Moment* moment = [[Moment alloc] init:self.sceneModel.userId
+                                         imageUrl:imageUrl
+                                             text:self.sceneModel.text
+                                            ratio:ratio
+                                             tags:self.tagList];
             [self.sceneModel.request send:moment];
         }];
         [_uploader setUploadOneFileFailed:^(AFHTTPRequestOperation *operation, NSInteger index, NSDictionary *error){

@@ -116,7 +116,11 @@
             NSString* imageUrl = [QiniuUploader getRemoteUrl:key];
             NSString* text = NSLocalizedString(@"label.myFirstMoment", nil);
             CGFloat ratio = self.avatarImage.image.size.height / self.avatarImage.image.size.width;
-            Moment* moment = [[Moment alloc] init:self.sceneModel.userId imageUrl:imageUrl text:text ratio:ratio];
+            Moment* moment = [[Moment alloc] init:self.sceneModel.userId
+                                         imageUrl:imageUrl
+                                             text:text
+                                            ratio:ratio
+                                             tags:nil];
             [self.sceneModel.momentRequest send:moment];
             
             NSString* screenName = [NSLocalizedString(@"label.user", nil) stringByAppendingFormat:@"%@", self.sceneModel.userId];

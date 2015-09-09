@@ -30,7 +30,13 @@
         self.background = [[UIImageView alloc] init];
         self.background.contentMode = UIViewContentModeScaleAspectFit;
         self.background.image = [UIImage imageNamed:@"brand_tag_point_white_bg"];
-        
+        CABasicAnimation* scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        scaleAnimation.duration = 0.5;
+        scaleAnimation.repeatCount = HUGE_VALF;
+        scaleAnimation.autoreverses = YES;
+        scaleAnimation.fromValue = [NSNumber numberWithFloat:0.8];
+        scaleAnimation.toValue = [NSNumber numberWithFloat:1.0];
+        [self.background.layer addAnimation:scaleAnimation forKey:nil];
         [self addSubview:self.background];
         [self.background alignToView:self];
         

@@ -47,6 +47,7 @@
 "label.about" = "About";
 "label.country" = "Country";
 "label.city" = "City";
+"label.tagging" = "Tagging";
 
 //Info
 "info.sending" = "Sending...";
