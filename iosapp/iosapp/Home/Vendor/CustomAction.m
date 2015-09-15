@@ -74,4 +74,15 @@
     }
 }
 
+- (void)success:(Request *)msg {
+    if ([msg.output isKindOfClass:[NSDictionary class]]) {
+        [super success:msg];
+    } else {
+        msg.state = RequestStateSuccess;
+        if([self.aDelegaete respondsToSelector:@selector(handleActionMsg:)]){
+            [self.aDelegaete handleActionMsg:msg];
+        }
+    }
+}
+
 @end

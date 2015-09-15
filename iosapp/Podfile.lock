@@ -46,14 +46,14 @@ PODS:
     - ReactiveCocoa (= 2.4.4)
     - TMCache
     - UIActivityIndicator-for-SDWebImage
-  - FLEX (2.0.3)
+  - FLEX (2.0.6)
   - FLKAutoLayout (0.1.1)
   - FontIcon (1.0)
   - GCDObjC (0.2.0)
   - GPUImage (0.1.7)
   - HappyDNS (0.2.1)
   - HexColors (2.2.1)
-  - IQKeyboardManager (3.3.0)
+  - IQKeyboardManager (3.3.1)
   - JSQMessagesViewController (7.1.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
@@ -86,7 +86,7 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - SlackTextViewController (1.6)
+  - SlackTextViewController (1.7)
   - SWTableViewCell (0.3.7)
   - TMCache (2.1.0)
   - TOWebViewController (2.0.17)
@@ -152,10 +152,10 @@ CHECKOUT OPTIONS:
     :commit: 9eff44c21ab3602aef66eedb0295f688953e5e00
     :git: https://github.com/easemob/sdk-ios-cocoapods.git
   EasyIOS:
-    :commit: 9dcfb66698e6dee59812eb44155a5f8ff63acab8
+    :commit: c84b0b4d8c5a4f2361b4eeebae50caa3f47f2ad3
     :git: https://github.com/zhuchaowe/EasyIOS.git
   PulsingHalo:
-    :commit: 2bb83787b129ac0d04c848a2d9f0aca3944f20dd
+    :commit: d07b1408816f677288854ad4abd566e43eeda084
     :git: https://github.com/shu223/PulsingHalo.git
   UMAnalytics:
     :commit: 78d5de5e6cd7986eb99d2e74fba9a0b1f3a53ba3
@@ -168,14 +168,14 @@ SPEC CHECKSUMS:
   EaseMobSDK: e0c1e3d00e95e0e2d54dd58313b52eaed74cc6df
   EasyIOS: 9a2d5312e12da0aa272bffcb50ebd0b7f296632a
   EasyIOS-Extention: c7e402e8b2497760955510228771512c37110aa2
-  FLEX: 4f04fe0b0594163c00879e2b3db888e5ae37c8d5
+  FLEX: 3c390976e788d3d447b614ea1714ffc8fc914cf3
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851
   FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
   GCDObjC: adcd9941029e3628de539347d3a6777470a65998
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   HappyDNS: 8eb3c929ee6143eb56bfddfc9e6052ca9429699c
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
-  IQKeyboardManager: c87b6600cbfca89d1fe6e8052d936e6c20f65375
+  IQKeyboardManager: 860a5b9df32cc1435a3e967a08ed87de3e59c12e
   JSQMessagesViewController: ca11f86fa68ca70835f05e169df9244147c1dc40
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
@@ -191,7 +191,7 @@ SPEC CHECKSUMS:
   RKNotificationHub: d80905a948c79c11673345f807133a0bfd17e320
   RMUniversalAlert: bce2ca406c24065b76665725c83e48006e8f65f8
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  SlackTextViewController: 84e1e4b7f12a8e3691cf97ca61c934b99058a2e8
+  SlackTextViewController: 57e28248dd38b9753277733544449519842f1ea5
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
   TOWebViewController: aada427e7eba199bbaee77ddee3243c8172f4053

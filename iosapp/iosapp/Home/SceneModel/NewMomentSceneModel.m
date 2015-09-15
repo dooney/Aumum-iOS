@@ -18,6 +18,14 @@
         @strongify(self)
         [self SEND_IQ_ACTION:self.request];
     }];
+    self.tagListRequest = [TagListRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_IQ_ACTION:self.tagListRequest];
+    }];
+    self.batchRequest = [BatchRequest RequestWithBlock:^{
+        @strongify(self)
+        [self SEND_IQ_ACTION:self.batchRequest];
+    }];
 }
 
 @end

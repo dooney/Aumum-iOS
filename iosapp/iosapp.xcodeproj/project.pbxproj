@@ -79,7 +79,8 @@
 		D6C91ECD1B9C1ECE006A32F9 /* TagView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ECC1B9C1ECE006A32F9 /* TagView.m */; };
 		D6C91ED01B9C2494006A32F9 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ECF1B9C2494006A32F9 /* PinView.m */; };
 		D6C91ED31B9C5111006A32F9 /* TagPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */; };
-		D6C91ED61B9F84FA006A32F9 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ED51B9F84FA006A32F9 /* Tag.m */; };
+		D6C91ED61B9F84FA006A32F9 /* TagInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ED51B9F84FA006A32F9 /* TagInfo.m */; };
+		D6D52FC01BA22A9400A6C7BD /* AddTagScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D52FBF1BA22A9400A6C7BD /* AddTagScene.m */; };
 		D6D554D11B841D4900004328 /* ProfileAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D01B841D4900004328 /* ProfileAvatarView.m */; };
 		D6D554D41B84AFEC00004328 /* EditProfileScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D31B84AFEC00004328 /* EditProfileScene.m */; };
 		D6D554DB1B85445300004328 /* ContactListScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554DA1B85445300004328 /* ContactListScene.m */; };
@@ -106,11 +107,17 @@
 		D6D665171B7C57E300EB52DF /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D665161B7C57E300EB52DF /* PhotoCell.m */; };
 		D6D6651A1B7E9ACA00EB52DF /* UserHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D665191B7E9ACA00EB52DF /* UserHeader.m */; };
 		D6D728241B5924F8000277F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6D728261B5924F8000277F0 /* Localizable.strings */; };
+		D6D7A2381BA7CDB5009ED0C1 /* BatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7A2371BA7CDB5009ED0C1 /* BatchRequest.m */; };
 		D6D7E53A1B73609900F45996 /* UpdateMomentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */; };
 		D6D7E53F1B741E5E00F45996 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E53E1B741E5E00F45996 /* NotificationCell.m */; };
 		D6D7E5421B741F5200F45996 /* NotificationListSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5411B741F5200F45996 /* NotificationListSceneModel.m */; };
 		D6D7E5451B7420BD00F45996 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5441B7420BD00F45996 /* Notification.m */; };
 		D6D7E5481B74496600F45996 /* Tab.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E5471B74496600F45996 /* Tab.m */; };
+		D6D7F6B41BA59F4100F5D56D /* UITextField+Padding.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7F6B31BA59F4100F5D56D /* UITextField+Padding.m */; };
+		D6D7F6B71BA5AF0600F5D56D /* UITextField+History.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7F6B61BA5AF0600F5D56D /* UITextField+History.m */; };
+		D6D7F6BD1BA768DC00F5D56D /* TagListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7F6BC1BA768DC00F5D56D /* TagListRequest.m */; };
+		D6D7F6C01BA76B1A00F5D56D /* TagList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7F6BF1BA76B1A00F5D56D /* TagList.m */; };
+		D6D7F6C31BA76B4C00F5D56D /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7F6C21BA76B4C00F5D56D /* Tag.m */; };
 		D6DAEE5D1B9903D70057B653 /* MomentTagScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DAEE5C1B9903D70057B653 /* MomentTagScene.m */; };
 		D6DAEE651B9BBE020057B653 /* SWNinePatchImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DAEE621B9BBE020057B653 /* SWNinePatchImageFactory.m */; };
 		D6E0498A1B45238D00A867C8 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E049891B45238D00A867C8 /* MomentList.m */; };
@@ -283,8 +290,11 @@
 		D6C91ECF1B9C2494006A32F9 /* PinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinView.m; sourceTree = "<group>"; };
 		D6C91ED11B9C50AE006A32F9 /* TagPanGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagPanGestureRecognizer.h; sourceTree = "<group>"; };
 		D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagPanGestureRecognizer.m; sourceTree = "<group>"; };
-		D6C91ED41B9F84E8006A32F9 /* Tag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
-		D6C91ED51B9F84FA006A32F9 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		D6C91ED41B9F84E8006A32F9 /* TagInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagInfo.h; sourceTree = "<group>"; };
+		D6C91ED51B9F84FA006A32F9 /* TagInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagInfo.m; sourceTree = "<group>"; };
+		D6D52FBE1BA22A1B00A6C7BD /* AddTagScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTagScene.h; sourceTree = "<group>"; };
+		D6D52FBF1BA22A9400A6C7BD /* AddTagScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTagScene.m; sourceTree = "<group>"; };
+		D6D52FC11BA24F1400A6C7BD /* IAddTagDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAddTagDelegate.h; sourceTree = "<group>"; };
 		D6D554CF1B841CF400004328 /* ProfileAvatarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileAvatarView.h; sourceTree = "<group>"; };
 		D6D554D01B841D4900004328 /* ProfileAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileAvatarView.m; sourceTree = "<group>"; };
 		D6D554D21B84AFBD00004328 /* EditProfileScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileScene.h; sourceTree = "<group>"; };
@@ -330,6 +340,8 @@
 		D6D665191B7E9ACA00EB52DF /* UserHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHeader.m; sourceTree = "<group>"; };
 		D6D728251B5924F8000277F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D6D728271B592585000277F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6D7A2361BA7CD8F009ED0C1 /* BatchRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchRequest.h; sourceTree = "<group>"; };
+		D6D7A2371BA7CDB5009ED0C1 /* BatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchRequest.m; sourceTree = "<group>"; };
 		D6D7E5381B73607100F45996 /* UpdateMomentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateMomentRequest.h; sourceTree = "<group>"; };
 		D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMomentRequest.m; sourceTree = "<group>"; };
 		D6D7E53B1B741E0400F45996 /* NotificationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
@@ -340,6 +352,16 @@
 		D6D7E5441B7420BD00F45996 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		D6D7E5461B74449F00F45996 /* Tab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tab.h; sourceTree = "<group>"; };
 		D6D7E5471B74496600F45996 /* Tab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tab.m; sourceTree = "<group>"; };
+		D6D7F6B21BA59F0700F5D56D /* UITextField+Padding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Padding.h"; sourceTree = "<group>"; };
+		D6D7F6B31BA59F4100F5D56D /* UITextField+Padding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Padding.m"; sourceTree = "<group>"; };
+		D6D7F6B51BA5AF0600F5D56D /* UITextField+History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+History.h"; sourceTree = "<group>"; };
+		D6D7F6B61BA5AF0600F5D56D /* UITextField+History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+History.m"; sourceTree = "<group>"; };
+		D6D7F6BB1BA7688800F5D56D /* TagListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagListRequest.h; sourceTree = "<group>"; };
+		D6D7F6BC1BA768DC00F5D56D /* TagListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagListRequest.m; sourceTree = "<group>"; };
+		D6D7F6BE1BA7698D00F5D56D /* TagList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagList.h; sourceTree = "<group>"; };
+		D6D7F6BF1BA76B1A00F5D56D /* TagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagList.m; sourceTree = "<group>"; };
+		D6D7F6C11BA76B3E00F5D56D /* Tag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		D6D7F6C21BA76B4C00F5D56D /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		D6DAEE5B1B9903AB0057B653 /* MomentTagScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MomentTagScene.h; sourceTree = "<group>"; };
 		D6DAEE5C1B9903D70057B653 /* MomentTagScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentTagScene.m; sourceTree = "<group>"; };
 		D6DAEE611B9BBE020057B653 /* SWNinePatchImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNinePatchImageFactory.h; sourceTree = "<group>"; };
@@ -437,6 +459,9 @@
 				D6B13AEB1B700E9E00930F66 /* CommentCell.m */,
 				D6DAEE5B1B9903AB0057B653 /* MomentTagScene.h */,
 				D6DAEE5C1B9903D70057B653 /* MomentTagScene.m */,
+				D6D52FBE1BA22A1B00A6C7BD /* AddTagScene.h */,
+				D6D52FBF1BA22A9400A6C7BD /* AddTagScene.m */,
+				D6D52FC11BA24F1400A6C7BD /* IAddTagDelegate.h */,
 			);
 			path = Moment;
 			sourceTree = "<group>";
@@ -476,6 +501,8 @@
 		C37936B31B51449A00BDC3C3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				D6D7F6B51BA5AF0600F5D56D /* UITextField+History.h */,
+				D6D7F6B61BA5AF0600F5D56D /* UITextField+History.m */,
 				D6DAEE611B9BBE020057B653 /* SWNinePatchImageFactory.h */,
 				D6DAEE621B9BBE020057B653 /* SWNinePatchImageFactory.m */,
 				D6041B591B81914F00EC0CC3 /* FXBlurView.h */,
@@ -504,6 +531,8 @@
 				D6C91ECF1B9C2494006A32F9 /* PinView.m */,
 				D6C91ED11B9C50AE006A32F9 /* TagPanGestureRecognizer.h */,
 				D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */,
+				D6D7F6B21BA59F0700F5D56D /* UITextField+Padding.h */,
+				D6D7F6B31BA59F4100F5D56D /* UITextField+Padding.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -686,6 +715,10 @@
 				D6D554E71B88A05C00004328 /* CountryRequest.m */,
 				D6D554EC1B892DF700004328 /* CityRequest.h */,
 				D6D554ED1B892E2600004328 /* CityRequest.m */,
+				D6D7F6BB1BA7688800F5D56D /* TagListRequest.h */,
+				D6D7F6BC1BA768DC00F5D56D /* TagListRequest.m */,
+				D6D7A2361BA7CD8F009ED0C1 /* BatchRequest.h */,
+				D6D7A2371BA7CDB5009ED0C1 /* BatchRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -725,8 +758,12 @@
 				D62703721B89349100C32C0A /* CityList.m */,
 				D62703741B8934AC00C32C0A /* City.h */,
 				D62703751B8934D900C32C0A /* City.m */,
-				D6C91ED41B9F84E8006A32F9 /* Tag.h */,
-				D6C91ED51B9F84FA006A32F9 /* Tag.m */,
+				D6C91ED41B9F84E8006A32F9 /* TagInfo.h */,
+				D6C91ED51B9F84FA006A32F9 /* TagInfo.m */,
+				D6D7F6BE1BA7698D00F5D56D /* TagList.h */,
+				D6D7F6BF1BA76B1A00F5D56D /* TagList.m */,
+				D6D7F6C11BA76B3E00F5D56D /* Tag.h */,
+				D6D7F6C21BA76B4C00F5D56D /* Tag.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1025,6 +1062,7 @@
 				D62703761B8934D900C32C0A /* City.m in Sources */,
 				D6D554E11B8676E100004328 /* ContactCell.m in Sources */,
 				D6D665171B7C57E300EB52DF /* PhotoCell.m in Sources */,
+				D6D7F6C01BA76B1A00F5D56D /* TagList.m in Sources */,
 				D66304BC1B77692C0081B5A3 /* MomentNotificationCell.m in Sources */,
 				D6ECF1EF1B55AE19001C013A /* ConversationScene.m in Sources */,
 				D6D5E25B1B636EF30027B0D9 /* VerifySceneModel.m in Sources */,
@@ -1039,6 +1077,7 @@
 				D67332281B44F80F00A1D525 /* Moment.m in Sources */,
 				D6D7E5451B7420BD00F45996 /* Notification.m in Sources */,
 				D65C9C661B7B1697000F6B9D /* UserByIdRequest.m in Sources */,
+				D6D7F6B41BA59F4100F5D56D /* UITextField+Padding.m in Sources */,
 				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
 				D6C91ED31B9C5111006A32F9 /* TagPanGestureRecognizer.m in Sources */,
 				D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */,
@@ -1046,6 +1085,7 @@
 				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,
 				D6ECF20A1B576C1B001C013A /* BaseModel.m in Sources */,
 				D6E499DE1B6F347B0006C67C /* MomentCellSceneModel.m in Sources */,
+				D6D7A2381BA7CDB5009ED0C1 /* BatchRequest.m in Sources */,
 				D661EF6A1B4DEDA80019B280 /* KeyChainUtil.m in Sources */,
 				C3602A7C1B48DB48006DF6C8 /* UserList.m in Sources */,
 				D6D554E81B88A05C00004328 /* CountryRequest.m in Sources */,
@@ -1054,6 +1094,7 @@
 				D6DAEE5D1B9903D70057B653 /* MomentTagScene.m in Sources */,
 				D673322F1B450DA300A1D525 /* BaseRequest.m in Sources */,
 				C3BEC7611B51EE9400FB5474 /* ChatSceneModel.m in Sources */,
+				D6D7F6C31BA76B4C00F5D56D /* Tag.m in Sources */,
 				D643569D1B6C3F5200630A39 /* NewMomentScene.m in Sources */,
 				D65AEAC51B68A4D90074313A /* QiniuUploader+Url.m in Sources */,
 				D65675E31B72ACC600788146 /* ContextSceneModel.m in Sources */,
@@ -1065,6 +1106,7 @@
 				D60297B91A98BAC7003575F2 /* Aspect-Window.m in Sources */,
 				D65AEAD11B6974720074313A /* NewMomentRequest.m in Sources */,
 				D6D5E2481B61E6690027B0D9 /* SIgnUpSceneModel.m in Sources */,
+				D6D7F6BD1BA768DC00F5D56D /* TagListRequest.m in Sources */,
 				D67332251B44F7D900A1D525 /* MomentListSceneModel.m in Sources */,
 				D6041B611B82ABCC00EC0CC3 /* AddContactScene.m in Sources */,
 				D6D7E5421B741F5200F45996 /* NotificationListSceneModel.m in Sources */,
@@ -1073,6 +1115,7 @@
 				D661508F1B63C06D009F33A4 /* Aspect-ShareSDK.m in Sources */,
 				D65675E01B72ABE000788146 /* Aspect-Context.m in Sources */,
 				D6E049941B49447600A867C8 /* Aspect-Util.m in Sources */,
+				D6D52FC01BA22A9400A6C7BD /* AddTagScene.m in Sources */,
 				D6D7E5481B74496600F45996 /* Tab.m in Sources */,
 				C37936AF1B511A4B00BDC3C3 /* ChatScene.m in Sources */,
 				D6C91ECD1B9C1ECE006A32F9 /* TagView.m in Sources */,
@@ -1086,6 +1129,7 @@
 				D64356A01B6C757000630A39 /* NewMomentSceneModel.m in Sources */,
 				D6EB351C1B5D95770026E78C /* BaseScene.m in Sources */,
 				D6B13AE31B70092C00930F66 /* CommentListRequest.m in Sources */,
+				D6D7F6B71BA5AF0600F5D56D /* UITextField+History.m in Sources */,
 				D6D7E53A1B73609900F45996 /* UpdateMomentRequest.m in Sources */,
 				D6041B5E1B827E7300EC0CC3 /* UserSectionHeader.m in Sources */,
 				D6E499DB1B6EE4760006C67C /* MomentDetailsScene.m in Sources */,
@@ -1118,7 +1162,7 @@
 				D65AEAC21B689E400074313A /* UpdateUserRequest.m in Sources */,
 				D62703731B89349100C32C0A /* CityList.m in Sources */,
 				D62703791B89701F00C32C0A /* EditProfileSceneModel.m in Sources */,
-				D6C91ED61B9F84FA006A32F9 /* Tag.m in Sources */,
+				D6C91ED61B9F84FA006A32F9 /* TagInfo.m in Sources */,
 				D6ECF1F91B55B4F9001C013A /* Conversation.m in Sources */,
 				D6ECF2071B570133001C013A /* ChatSendHelper.m in Sources */,
 				D6B13AE91B700A2E00930F66 /* Comment.m in Sources */,

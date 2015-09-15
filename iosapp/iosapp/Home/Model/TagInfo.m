@@ -1,14 +1,14 @@
 //
-//  Tag.m
+//  TagInfo.m
 //  iosapp
 //
-//  Created by Simpson Du on 14/09/2015.
+//  Created by Simpson Du on 8/09/2015.
 //  Copyright (c) 2015 YU XING TECHNOLOGY PTY. LTD. All rights reserved.
 //
 
-#import "Tag.h"
+#import "TagInfo.h"
 
-@implementation Tag
+@implementation TagInfo
 
 
 

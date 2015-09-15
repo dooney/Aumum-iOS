@@ -14,6 +14,7 @@
 
 @interface NewMomentRequest : BaseRequest
 
+@property (nonatomic, strong)NSString* objectId;
 @property (nonatomic, strong)NSString* userId;
 @property (nonatomic, strong)NSString* imageUrl;
 @property (nonatomic, strong)NSString* text;

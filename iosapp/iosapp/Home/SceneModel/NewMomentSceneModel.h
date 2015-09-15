@@ -11,6 +11,8 @@
 
 #import "BaseSceneModel.h"
 #import "NewMomentRequest.h"
+#import "TagListRequest.h"
+#import "BatchRequest.h"
 
 @interface NewMomentSceneModel : BaseSceneModel
 
@@ -18,6 +20,8 @@
 @property (nonatomic, strong) NSString* text;
 @property (nonatomic, strong) NSString* userId;
 @property (nonatomic, strong) NewMomentRequest* request;
+@property (nonatomic, strong) TagListRequest* tagListRequest;
+@property (nonatomic, strong) BatchRequest* batchRequest;
 
 @end
 

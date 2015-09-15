@@ -13,6 +13,7 @@
 #import "QiniuUploader+Url.h"
 #import "KeyChainUtil.h"
 #import "Moment.h"
+#import "TagInfo.h"
 
 @interface NewMomentScene()
 {
@@ -91,10 +92,43 @@
     self.sceneModel.userId = [KeyChainUtil getCurrentUserId];
     RAC(self.sceneModel, text) = self.textView.rac_textSignal;
     
+    NSMutableArray* tagList = [NSMutableArray array];
+    for (NSString* tagJSONString in self.tagList) {
+        TagInfo* tag = [[TagInfo alloc] initWithString:tagJSONString error:nil];
+        [tagList addObject:tag.text];
+    }
     [self.sceneModel.request onRequest:^{
+        if (self.tagList.count > 0) {
+            [self.sceneModel.tagListRequest getList:tagList];
+        }
         [self dismissViewControllerAnimated:YES completion:nil];
     } error:^(NSError *error) {
         [self hideHudFailed:error.localizedDescription];
+    }];
+    [self.sceneModel.tagListRequest onRequest:^{
+        for (NSString* tagText in tagList) {
+            Tag* tag = nil;
+            for (Tag* item in self.sceneModel.tagListRequest.list.results) {
+                if ([tagText isEqualToString:item.text]) {
+                    tag = item;
+                    break;
+                }
+            }
+            NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+            if (tag) {
+                [dict setValue:@"PUT" forKey:@"method"];
+                [dict setValue:[NSString stringWithFormat:@"/1/classes/Tags/%@", tag.objectId] forKey:@"path"];
+                [dict setValue:@{ @"moments" : @{ @"__op" : @"AddUnique", @"objects" : @[ self.sceneModel.request.objectId ] },
+                                  @"hot" : @{ @"__op" : @"Increment", @"amount" : @1 } } forKey:@"body"];
+            } else {
+                [dict setValue:@"POST" forKey:@"method"];
+                [dict setValue:@"/1/classes/Tags" forKey:@"path"];
+                [dict setValue:@{ @"text" : tagText, @"moments" : @[ self.sceneModel.request.objectId ] } forKey:@"body"];
+            }
+            [self.sceneModel.batchRequest.requests addObject:dict];
+        }
+        [self.sceneModel.batchRequest send];
+    } error:^(NSError *error) {
     }];
 }
 

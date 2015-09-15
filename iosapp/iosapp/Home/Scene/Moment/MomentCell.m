@@ -17,7 +17,7 @@
 #import "IconFont.h"
 #import "MomentCellSceneModel.h"
 #import "KeyChainUtil.h"
-#import "Tag.h"
+#import "TagInfo.h"
 #import "TagView.h"
 
 @interface MomentCell()<AvatarImageViewDelegate>
@@ -163,7 +163,7 @@
     [self.momentImage.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
     if (self.sceneModel.moment.tags) {
         for (NSString* tagJSONString in self.sceneModel.moment.tags) {
-            Tag* tag = [[Tag alloc] initWithString:tagJSONString error:nil];
+            TagInfo* tag = [[TagInfo alloc] initWithString:tagJSONString error:nil];
             TagView* tagView = [[TagView alloc] initWithText:tag.text
                                                       isLeft:tag.isLeft
                                                       center:CGPointMake(imageWidth * tag.x, imageHeight * tag.y)];

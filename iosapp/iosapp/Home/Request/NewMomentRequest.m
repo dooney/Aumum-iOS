@@ -16,7 +16,13 @@
     self.METHOD = @"POST";
 }
 
+- (NSError*)outputHandler:(NSDictionary* )output {
+    self.objectId = [output valueForKey:@"objectId"];
+    return nil;
+}
+
 - (void)send:(Moment*)moment {
+    self.objectId = nil;
     self.userId = moment.userId;
     self.imageUrl = moment.imageUrl;
     self.text = moment.text;

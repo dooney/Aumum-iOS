@@ -14,8 +14,13 @@
 #import "PinView.h"
 #import "TagView.h"
 #import "TagPanGestureRecognizer.h"
+#import "AddTagScene.h"
+#import "IAddTagDelegate.h"
 
-@interface MomentTagScene()
+@interface MomentTagScene()<IAddTagDelegate>
+{
+    CGRect _rect;
+}
 
 @property (nonatomic, strong) UIImage* image;
 @property (nonatomic, strong) UIImageView* imageView;
@@ -46,8 +51,12 @@
     [self loadAutoLayout];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    _rect = [self getFrameSizeForImage:self.image inImageView:self.imageView];
+}
+
 - (void)initView {
-    self.navigationItem.title = NSLocalizedString(@"label.tagging", nil);;
+    self.navigationItem.title = NSLocalizedString(@"label.tagging", nil);
     self.view.backgroundColor = HEX_RGB(0x333333);
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed)];
     self.navigationItem.rightBarButtonItem = doneButton;
@@ -89,14 +98,10 @@
 - (void)loadAutoLayout {
     [self.imageView alignTop:@"64" leading:@"0" bottom:@"-90" trailing:@"0" toView:self.imageView.superview];
     
-    [self.pinView alignCenterWithView:self.pinView.superview];
-    
     [self.tagButton constrainWidth:@"50" height:@"50"];
-    [self.tagButton alignCenterYWithView:self.tagButton.superview predicate:@"-50"];
     [self.tagButton alignCenterXWithView:self.tagButton.superview predicate:@"-50"];
     
     [self.locationButton constrainWidth:@"50" height:@"50"];
-    [self.locationButton alignCenterYWithView:self.locationButton.superview predicate:@"-25"];
     [self.locationButton alignCenterXWithView:self.locationButton.superview predicate:@"50"];
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
@@ -114,9 +119,8 @@
     NSMutableArray* tagList = nil;
     if (self.tagList.count > 0) {
         tagList = [NSMutableArray array];
-        CGRect rect = [self getFrameSizeForImage:self.image inImageView:self.imageView];
         for (TagView* tagView in self.tagList) {
-            [tagList addObject:[tagView getTagJSONString:rect]];
+            [tagList addObject:[tagView getTagJSONString:_rect]];
         }
     }
     NewMomentScene* scene = [[NewMomentScene alloc] initWithImage:self.image preview:preview tagList:tagList];
@@ -124,45 +128,55 @@
 }
 
 - (void)tapImage:(UITapGestureRecognizer *)tgr {
-    self.pinView.center = [tgr locationInView:self.imageView];
-    self.pinView.hidden = NO;
+    CGPoint point = [tgr locationInView:self.imageView];
+    if (![self checkBoundry:point]) {
+        return;
+    }
+    
+    if (self.pinView.isHidden) {
+        self.pinView.center = point;
+        self.pinView.hidden = NO;
+    } else {
+        self.pinView.hidden = YES;
+    }
     
     if (self.tagButton.isHidden) {
+        self.tagButton.hidden = NO;
         POPSpringAnimation* tagPositionAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+        tagPositionAnimation.fromValue = @(self.tagButton.superview.center.y - 50);
         tagPositionAnimation.toValue = @(self.tagButton.superview.center.y);
         tagPositionAnimation.springBounciness = 10;
-        self.tagButton.hidden = NO;
         [self.tagButton pop_addAnimation:tagPositionAnimation forKey:@"tagPositionAnimation"];
+    } else {
+        self.tagButton.hidden = YES;
     }
     
     if (self.locationButton.isHidden) {
+        self.locationButton.hidden = NO;
         POPSpringAnimation* locationPositionAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+        locationPositionAnimation.fromValue = @(self.locationButton.superview.center.y - 25);
         locationPositionAnimation.toValue = @(self.locationButton.superview.center.y);
         locationPositionAnimation.springBounciness = 10;
-        self.locationButton.hidden = NO;
         [self.locationButton pop_addAnimation:locationPositionAnimation forKey:@"locationPositionAnimation"];
+    } else {
+        self.locationButton.hidden = YES;
     }
 }
 
 - (void)tagButtonPressed {
-    TagView* tagView = [[TagView alloc] initWithText:@"HERMES"
-                                              isLeft:self.pinView.center.x > self.imageView.bounds.size.width / 2
-                                              center:self.pinView.center];
-    TagPanGestureRecognizer* pan = [[TagPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTag:)];
-    pan.tag = self.tagList.count;
-    [tagView addGestureRecognizer:pan];
-    [self.imageView addSubview:tagView];
-    [self.tagList addObject:tagView];
-    
-    self.pinView.hidden = YES;
-    self.tagButton.hidden = YES;
-    self.locationButton.hidden = YES;
+    AddTagScene* scene = [[AddTagScene alloc] init];
+    scene.delegate = self;
+    [self.navigationController pushViewController:scene animated:YES];
 }
 
 - (void)panTag:(TagPanGestureRecognizer*)pgr {
     TagView* tagView = [self.tagList objectAtIndex:pgr.tag];
-    CGPoint point = [pgr translationInView:tagView];
-    tagView.center = CGPointMake(pgr.view.center.x + point.x, pgr.view.center.y + point.y);
+    CGPoint pos = [pgr translationInView:tagView];
+    CGPoint point = CGPointMake(pgr.view.center.x + pos.x, pgr.view.center.y + pos.y);
+    if (![self checkBoundry:point]) {
+        return;
+    }
+    tagView.center = point;
     [pgr setTranslation:CGPointMake(0, 0) inView:tagView];
     [tagView updateIfNeeded:tagView.center.x > self.imageView.bounds.size.width / 2];
 }
@@ -176,6 +190,31 @@
     float leftOffset = (imageView.frame.size.width - newWidth) / 2;
     float topOffset = (imageView.frame.size.height - newHeight) / 2;
     return CGRectMake(leftOffset, topOffset, newWidth, newHeight);
+}
+
+- (void)getTag:(NSString*)tag {
+    TagView* tagView = [[TagView alloc] initWithText:tag
+                                              isLeft:self.pinView.center.x > self.imageView.bounds.size.width / 2
+                                              center:self.pinView.center];
+    TagPanGestureRecognizer* pan = [[TagPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTag:)];
+    pan.tag = self.tagList.count;
+    [tagView addGestureRecognizer:pan];
+    [self.imageView addSubview:tagView];
+    [self.tagList addObject:tagView];
+    
+    self.pinView.hidden = YES;
+    self.tagButton.hidden = YES;
+    self.locationButton.hidden = YES;
+}
+
+- (BOOL)checkBoundry:(CGPoint)point {
+    if (point.x < _rect.origin.x ||
+        point.y < _rect.origin.y + 15 ||
+        point.x > _rect.origin.x + _rect.size.width ||
+        point.y > _rect.origin.y + _rect.size.height - 15) {
+        return NO;
+    }
+    return YES;
 }
 
 @end

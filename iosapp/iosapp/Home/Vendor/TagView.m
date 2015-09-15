@@ -10,7 +10,7 @@
 #import "PinView.h"
 #import "SWNinePatchImageFactory.h"
 #import "UIView+FLKAutoLayout.h"
-#import "Tag.h"
+#import "TagInfo.h"
 
 @interface TagView()
 {
@@ -97,7 +97,7 @@
 }
 
 - (NSString*)getTagJSONString:(CGRect)imageRect {
-    Tag* tag = [[Tag alloc] init];
+    TagInfo* tag = [[TagInfo alloc] init];
     tag.text = _text;
     tag.isLeft = _isLeft;
     tag.x = (self.center.x - imageRect.origin.x) / imageRect.size.width;
