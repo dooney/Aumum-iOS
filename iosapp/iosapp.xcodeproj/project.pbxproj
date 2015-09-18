@@ -78,7 +78,6 @@
 		D6BD3C381B60C1DB00E92870 /* CountryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD3C371B60C1DB00E92870 /* CountryScene.m */; };
 		D6C91ECD1B9C1ECE006A32F9 /* TagView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ECC1B9C1ECE006A32F9 /* TagView.m */; };
 		D6C91ED01B9C2494006A32F9 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ECF1B9C2494006A32F9 /* PinView.m */; };
-		D6C91ED31B9C5111006A32F9 /* TagPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */; };
 		D6C91ED61B9F84FA006A32F9 /* TagInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C91ED51B9F84FA006A32F9 /* TagInfo.m */; };
 		D6D52FC01BA22A9400A6C7BD /* AddTagScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D52FBF1BA22A9400A6C7BD /* AddTagScene.m */; };
 		D6D554D11B841D4900004328 /* ProfileAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D554D01B841D4900004328 /* ProfileAvatarView.m */; };
@@ -288,8 +287,6 @@
 		D6C91ECC1B9C1ECE006A32F9 /* TagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagView.m; sourceTree = "<group>"; };
 		D6C91ECE1B9C247A006A32F9 /* PinView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PinView.h; sourceTree = "<group>"; };
 		D6C91ECF1B9C2494006A32F9 /* PinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinView.m; sourceTree = "<group>"; };
-		D6C91ED11B9C50AE006A32F9 /* TagPanGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagPanGestureRecognizer.h; sourceTree = "<group>"; };
-		D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagPanGestureRecognizer.m; sourceTree = "<group>"; };
 		D6C91ED41B9F84E8006A32F9 /* TagInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagInfo.h; sourceTree = "<group>"; };
 		D6C91ED51B9F84FA006A32F9 /* TagInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagInfo.m; sourceTree = "<group>"; };
 		D6D52FBE1BA22A1B00A6C7BD /* AddTagScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTagScene.h; sourceTree = "<group>"; };
@@ -342,6 +339,7 @@
 		D6D728271B592585000277F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6D7A2361BA7CD8F009ED0C1 /* BatchRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchRequest.h; sourceTree = "<group>"; };
 		D6D7A2371BA7CDB5009ED0C1 /* BatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchRequest.m; sourceTree = "<group>"; };
+		D6D7A23C1BAB649B009ED0C1 /* ITagViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ITagViewDelegate.h; path = ../Scene/Moment/ITagViewDelegate.h; sourceTree = "<group>"; };
 		D6D7E5381B73607100F45996 /* UpdateMomentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateMomentRequest.h; sourceTree = "<group>"; };
 		D6D7E5391B73609900F45996 /* UpdateMomentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMomentRequest.m; sourceTree = "<group>"; };
 		D6D7E53B1B741E0400F45996 /* NotificationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
@@ -525,12 +523,11 @@
 				D63406261B7332CF000C8EA1 /* LikeButton.m */,
 				D6D554CF1B841CF400004328 /* ProfileAvatarView.h */,
 				D6D554D01B841D4900004328 /* ProfileAvatarView.m */,
+				D6D7A23C1BAB649B009ED0C1 /* ITagViewDelegate.h */,
 				D6C91ECB1B9C1EA8006A32F9 /* TagView.h */,
 				D6C91ECC1B9C1ECE006A32F9 /* TagView.m */,
 				D6C91ECE1B9C247A006A32F9 /* PinView.h */,
 				D6C91ECF1B9C2494006A32F9 /* PinView.m */,
-				D6C91ED11B9C50AE006A32F9 /* TagPanGestureRecognizer.h */,
-				D6C91ED21B9C5111006A32F9 /* TagPanGestureRecognizer.m */,
 				D6D7F6B21BA59F0700F5D56D /* UITextField+Padding.h */,
 				D6D7F6B31BA59F4100F5D56D /* UITextField+Padding.m */,
 			);
@@ -1079,7 +1076,6 @@
 				D65C9C661B7B1697000F6B9D /* UserByIdRequest.m in Sources */,
 				D6D7F6B41BA59F4100F5D56D /* UITextField+Padding.m in Sources */,
 				D6D5E2451B61AA480027B0D9 /* Country.m in Sources */,
-				D6C91ED31B9C5111006A32F9 /* TagPanGestureRecognizer.m in Sources */,
 				D6B13AEF1B7029EB00930F66 /* CommentCellSceneModel.m in Sources */,
 				D661EF601B4DE3F50019B280 /* SignInSceneModel.m in Sources */,
 				D6ECF1FF1B56772E001C013A /* ProfileRequest.m in Sources */,

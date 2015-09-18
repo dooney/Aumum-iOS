@@ -14,6 +14,8 @@
 
 @interface AddTagScene : BaseScene
 
+- (id)initWithTag:(NSString*)text;
+
 @property (nonatomic, assign) id <IAddTagDelegate> delegate;
 
 @end

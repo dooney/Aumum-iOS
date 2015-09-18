@@ -13,13 +13,13 @@
 #import <POP.h>
 #import "PinView.h"
 #import "TagView.h"
-#import "TagPanGestureRecognizer.h"
 #import "AddTagScene.h"
 #import "IAddTagDelegate.h"
 
-@interface MomentTagScene()<IAddTagDelegate>
+@interface MomentTagScene()<IAddTagDelegate, ITagViewDelegate>
 {
     CGRect _rect;
+    TagView* _currentTagView;
 }
 
 @property (nonatomic, strong) UIImage* image;
@@ -29,6 +29,8 @@
 @property (nonatomic, strong) PinView* pinView;
 @property (nonatomic, strong) NSMutableArray* tagList;
 @property (nonatomic, strong) UIView* footerView;
+@property (nonatomic, strong) UIButton* editButton;
+@property (nonatomic, strong) UIButton* deleteButton;
 
 @end
 
@@ -90,6 +92,26 @@
     self.locationButton.hidden = YES;
     [self.imageView addSubview:self.locationButton];
     
+    self.editButton = [[UIButton alloc] init];
+    self.editButton.backgroundColor = HEX_RGB(0x1f2226);
+    self.editButton.layer.cornerRadius = 4;
+    [self.editButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    self.editButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.editButton.hidden = YES;
+    [self.editButton addTarget:self action:@selector(editButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.imageView addSubview:self.editButton];
+    
+    self.deleteButton = [[UIButton alloc] init];
+    self.deleteButton.backgroundColor = HEX_RGB(0x1f2226);
+    self.deleteButton.layer.cornerRadius = 4;
+    [self.deleteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.deleteButton setTitle:@"Del" forState:UIControlStateNormal];
+    self.deleteButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.deleteButton.hidden = YES;
+    [self.deleteButton addTarget:self action:@selector(deleteButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.imageView addSubview:self.deleteButton];
+    
     self.footerView = [[UIView alloc] init];
     self.footerView.backgroundColor = HEX_RGB(0x1f2226);
     [self.view addSubview:self.footerView];
@@ -103,6 +125,9 @@
     
     [self.locationButton constrainWidth:@"50" height:@"50"];
     [self.locationButton alignCenterXWithView:self.locationButton.superview predicate:@"50"];
+    
+    [self.editButton constrainWidth:@"50" height:@"30"];
+    [self.deleteButton constrainWidth:@"50" height:@"30"];
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     [self.footerView constrainWidth:[NSString stringWithFormat:@"%.f", width]
@@ -161,6 +186,9 @@
     } else {
         self.locationButton.hidden = YES;
     }
+    
+    self.editButton.hidden = YES;
+    self.deleteButton.hidden = YES;
 }
 
 - (void)tagButtonPressed {
@@ -169,16 +197,42 @@
     [self.navigationController pushViewController:scene animated:YES];
 }
 
-- (void)panTag:(TagPanGestureRecognizer*)pgr {
-    TagView* tagView = [self.tagList objectAtIndex:pgr.tag];
+- (void)editButtonPressed {
+    if (_currentTagView) {
+        AddTagScene* scene = [[AddTagScene alloc] initWithTag:_currentTagView.text];
+        scene.delegate = self;
+        [self.navigationController pushViewController:scene animated:YES];
+    }
+    self.editButton.hidden = YES;
+    self.deleteButton.hidden = YES;
+}
+
+- (void)deleteButtonPressed {
+    if (_currentTagView) {
+        _currentTagView.hidden = YES;
+        [self.tagList removeObject:_currentTagView];
+        _currentTagView = nil;
+    }
+    self.editButton.hidden = YES;
+    self.deleteButton.hidden = YES;
+}
+
+- (void)panTag:(TagView*)tagView pgr:(UIPanGestureRecognizer*)pgr {
     CGPoint pos = [pgr translationInView:tagView];
-    CGPoint point = CGPointMake(pgr.view.center.x + pos.x, pgr.view.center.y + pos.y);
+    CGPoint point = CGPointMake(tagView.center.x + pos.x, tagView.center.y + pos.y);
     if (![self checkBoundry:point]) {
         return;
     }
     tagView.center = point;
     [pgr setTranslation:CGPointMake(0, 0) inView:tagView];
-    [tagView updateIfNeeded:tagView.center.x > self.imageView.bounds.size.width / 2];
+}
+
+- (void)longPressTag:(TagView*)tagView {
+    self.editButton.center = CGPointMake(tagView.centerX - 30, tagView.centerY - 40);
+    self.editButton.hidden = NO;
+    self.deleteButton.center = CGPointMake(tagView.centerX + 30, tagView.centerY - 40);
+    self.deleteButton.hidden = NO;
+    _currentTagView = tagView;
 }
 
 - (CGRect)getFrameSizeForImage:(UIImage *)image inImageView:(UIImageView *)imageView {
@@ -196,13 +250,19 @@
     TagView* tagView = [[TagView alloc] initWithText:tag
                                               isLeft:self.pinView.center.x > self.imageView.bounds.size.width / 2
                                               center:self.pinView.center];
-    TagPanGestureRecognizer* pan = [[TagPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTag:)];
-    pan.tag = self.tagList.count;
-    [tagView addGestureRecognizer:pan];
+    tagView.delegate = self;
     [self.imageView addSubview:tagView];
     [self.tagList addObject:tagView];
     
     self.pinView.hidden = YES;
+    self.tagButton.hidden = YES;
+    self.locationButton.hidden = YES;
+}
+
+- (void)updateTag:(NSString *)tag {
+    if (_currentTagView) {
+        [_currentTagView updateTag:tag];
+    }
     self.tagButton.hidden = YES;
     self.locationButton.hidden = YES;
 }

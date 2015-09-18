@@ -14,6 +14,7 @@
 @protocol IAddTagDelegate<NSObject>
 
 - (void)getTag:(NSString*)tag;
+- (void)updateTag:(NSString*)tag;
 
 @end
 

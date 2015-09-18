@@ -12,12 +12,23 @@
 #import "UIView+FLKAutoLayout.h"
 
 @interface AddTagScene()<UITextFieldDelegate>
+{
+    NSString* _text;
+}
 
 @property (nonatomic, strong) UITextField* textField;
 
 @end
 
 @implementation AddTagScene
+
+- (id)initWithTag:(NSString*)text {
+    self = [super init];
+    if (self) {
+        _text = text;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +45,7 @@
 
 - (void)addControls {
     self.textField = [[UITextField alloc] init];
+    self.textField.text = _text;
     self.textField.delegate = self;
     self.textField.identify = @"TEXT_ID";
     self.textField.backgroundColor = [UIColor whiteColor];
@@ -49,7 +61,11 @@
 
 - (void)saveButtonPressed {
     [self.textField synchronize];
-    [self.delegate getTag:self.textField.text];
+    if (_text) {
+        [self.delegate updateTag:self.textField.text];
+    } else {
+        [self.delegate getTag:self.textField.text];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
